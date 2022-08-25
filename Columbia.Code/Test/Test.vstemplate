@@ -1,0 +1,25 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Test</Name>
+		<Description>Test</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Test</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Test.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Test.csproj" File="Test.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="UserUnitTests.cs">UserUnitTests.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

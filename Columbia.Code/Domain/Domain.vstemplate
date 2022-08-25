@@ -1,0 +1,67 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Domain</Name>
+		<Description>Domain</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Domain</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Domain.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Domain.csproj" File="Domain.csproj" ReplaceParameters="true">
+			<Folder Name="Commands" TargetFolderName="Commands">
+				<Folder Name="Base" TargetFolderName="Base">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CommandBase.cs">CommandBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CommandHandlerBase.cs">CommandHandlerBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CommandValidatorBase.cs">CommandValidatorBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="NotificationBase.cs">NotificationBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="NotificationBaseHandler.cs">NotificationBaseHandler.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Token" TargetFolderName="Token">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommand.cs">GenerateTokenCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommandHandler.cs">GenerateTokenCommandHandler.cs</ProjectItem>
+				</Folder>
+				<Folder Name="User" TargetFolderName="User">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommand.cs">CreateUserCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommandHandler.cs">CreateUserCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommandValidator.cs">CreateUserCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommand.cs">LoginCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandHandler.cs">LoginCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandValidator.cs">LoginCommandValidator.cs</ProjectItem>
+				</Folder>
+			</Folder>
+			<Folder Name="Extensions" TargetFolderName="Extensions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="DomainServiceCollectionExtensions.cs">DomainExtensions.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Mapping" TargetFolderName="Mapping">
+				<ProjectItem ReplaceParameters="true" TargetFileName="UserProfile.cs">UserProfile.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Queries" TargetFolderName="Queries">
+				<Folder Name="Base" TargetFolderName="Base">
+					<ProjectItem ReplaceParameters="true" TargetFileName="QueryBase.cs">QueryBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="QueryHandlerBase.cs">QueryHandlerBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="QueryValidatorBase.cs">QueryValidatorBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryBase.cs">SearchQueryBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryHandlerBase.cs">SearchQueryHandlerBase.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryValidatorBase.cs">SearchQueryValidatorBase.cs</ProjectItem>
+				</Folder>
+			</Folder>
+			<Folder Name="Resources" TargetFolderName="Resources">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Common.Designer.cs">Common.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Common.resx">Common.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="User.Designer.cs">User.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="User.resx">User.resx</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

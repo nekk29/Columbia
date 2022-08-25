@@ -1,0 +1,33 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Repository.Abstractions</Name>
+		<Description>Repository.Abstractions</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Repository.Abstractions</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Repository.Abstractions.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Repository.Abstractions.csproj" File="Repository.Abstractions.csproj" ReplaceParameters="true">
+			<Folder Name="Base" TargetFolderName="Base">
+				<ProjectItem ReplaceParameters="true" TargetFileName="IRepository.cs">IRepository.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Transactions" TargetFolderName="Transactions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="IExecutionResult.cs">IExecutionResult.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ITransaction.cs">ITransaction.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IUnitOfWork.cs">IUnitOfWork.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ResultException.cs">ResultException.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

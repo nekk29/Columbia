@@ -1,0 +1,1 @@
+﻿dotnet ef dbcontext scaffold "{ConnectionString}" Microsoft.EntityFrameworkCore.SqlServer --namespace "$safesolutionname$.Entity" --context "CoreDbContext" --context-namespace "$safesolutionname$.Repository.Data" --force

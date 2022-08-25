@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{F4420A33-FB72-41B4-8944-1250D161D76A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Columbia.Code</RootNamespace>
+    <AssemblyName>Columbia.Code</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CreateVsixContainer>false</CreateVsixContainer>
+    <DeployExtension>false</DeployExtension>
+    <DeployVSTemplates>false</DeployVSTemplates>
+    <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
+    <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.CoreUtility">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test\UserUnitTests.cs" />
+    <None Include="RestClient\UserRestService.cs" />
+    <None Include="RestClient\Base\ServiceOptions.cs" />
+    <None Include="RestClient\Base\BaseService.cs" />
+    <None Include="Repository.Abstractions\Transactions\ResultException.cs" />
+    <None Include="Repository.Abstractions\Transactions\IUnitOfWork.cs" />
+    <None Include="Repository.Abstractions\Transactions\ITransaction.cs" />
+    <None Include="Repository.Abstractions\Transactions\IExecutionResult.cs" />
+    <None Include="Repository.Abstractions\Base\IRepository.cs" />
+    <None Include="Repository.Abstractions\Repository.Abstractions.csproj" />
+    <None Include="Repository\Transactions\UnitOfWork.cs" />
+    <None Include="Repository\Transactions\Transaction.cs" />
+    <None Include="Repository\Transactions\ExecutionResult.cs" />
+    <None Include="Repository\Security\IUserIdentity.cs" />
+    <None Include="Repository\Extensions\RepositoryExtensions.cs" />
+    <None Include="Repository\Extensions\ReflectionExtensions.cs" />
+    <None Include="Repository\Extensions\IQueryableExtensions.cs" />
+    <None Include="Repository\Data\SecurityDbContext.cs" />
+    <None Include="Repository\Data\CoreDbContext.cs" />
+    <None Include="Repository\Base\Repository.cs" />
+    <None Include="Apis\Base\ApiOptions.cs" />
+    <None Include="Apis\Controllers\Base\ApiControllerBase.cs" />
+    <None Include="Apis\Controllers\UserController.cs" />
+    <None Include="Apis\Documentation\SwaggerBuilderExtensions.cs" />
+    <None Include="Apis\Documentation\SwaggerDefaults.cs" />
+    <None Include="Apis\Documentation\SwaggerServiceExtensions.cs" />
+    <None Include="Apis\Endpoints\RootApiExtensions.cs" />
+    <None Include="Apis\Exception\ExceptionExtensions.cs" />
+    <None Include="Apis\Program.cs" />
+    <None Include="Apis\Security\AuthorizeAttribute.cs" />
+    <None Include="Apis\Security\SecurityExtensions.cs" />
+    <None Include="Apis\Security\UserIdentity.cs" />
+    <None Include="Application.Abstractions\Application.Abstractions.csproj" />
+    <None Include="Application\Base\ApplicationBase.cs" />
+    <None Include="Application\Extensions\ApplicationExtensions.cs" />
+    <None Include="Application\UserApplication.cs" />
+    <None Include="Application.Abstractions\IUserApplication.cs" />
+    <None Include="Common\Constants.cs" />
+    <None Include="Common\DateUtils.cs" />
+    <None Include="Domain\Commands\Base\CommandBase.cs" />
+    <None Include="Domain\Commands\Base\CommandHandlerBase.cs" />
+    <None Include="Domain\Commands\Base\CommandValidatorBase.cs" />
+    <None Include="Domain\Commands\Base\NotificationBase.cs" />
+    <None Include="Domain\Commands\Base\NotificationBaseHandler.cs" />
+    <None Include="Domain\Commands\Token\GenerateTokenCommand.cs" />
+    <None Include="Domain\Commands\Token\GenerateTokenCommandHandler.cs" />
+    <None Include="Domain\Commands\User\CreateUserCommand.cs" />
+    <None Include="Domain\Commands\User\CreateUserCommandHandler.cs" />
+    <None Include="Domain\Commands\User\CreateUserCommandValidator.cs" />
+    <None Include="Domain\Commands\User\LoginCommand.cs" />
+    <None Include="Domain\Commands\User\LoginCommandHandler.cs" />
+    <None Include="Domain\Commands\User\LoginCommandValidator.cs" />
+    <None Include="Domain\Extensions\DomainExtensions.cs" />
+    <None Include="Domain\Mapping\UserProfile.cs" />
+    <None Include="Domain\Queries\Base\QueryBase.cs" />
+    <None Include="Domain\Queries\Base\QueryHandlerBase.cs" />
+    <None Include="Domain\Queries\Base\QueryValidatorBase.cs" />
+    <None Include="Domain\Queries\Base\SearchQueryBase.cs" />
+    <None Include="Domain\Queries\Base\SearchQueryHandlerBase.cs" />
+    <None Include="Domain\Queries\Base\SearchQueryValidatorBase.cs" />
+    <None Include="Domain\Resources\Common.Designer.cs" />
+    <None Include="Domain\Resources\User.Designer.cs" />
+    <None Include="Dto\Base\ApplicationMessageDto.cs" />
+    <None Include="Dto\Base\ApplicationMessageType.cs" />
+    <None Include="Dto\Base\ErrorResponseDto.cs" />
+    <None Include="Dto\Base\PageParamsDto.cs" />
+    <None Include="Dto\Base\ResponseDto.cs" />
+    <None Include="Dto\Base\SearchParamsDto.cs" />
+    <None Include="Dto\Base\SearchResultDto.cs" />
+    <None Include="Dto\Base\SortParamsDto.cs" />
+    <None Include="Dto\Token\AccessTokenDto.cs" />
+    <None Include="Dto\User\CreateUserDto.cs" />
+    <None Include="Dto\User\GetUserDto.cs" />
+    <None Include="Dto\User\ListUserDto.cs" />
+    <None Include="Dto\User\LoginDto.cs" />
+    <None Include="Dto\User\LoginResultDto.cs" />
+    <None Include="Dto\User\SearchUserDto.cs" />
+    <None Include="Dto\User\UpdateUserDto.cs" />
+    <None Include="Dto\User\UserDto.cs" />
+    <None Include="EmailClient\EmailClient.cs" />
+    <None Include="EmailClient\EmailClientOptions.cs" />
+    <None Include="EmailClient\EmailExtensions.cs" />
+    <None Include="EmailClient\IEmailClient.cs" />
+    <None Include="Entity\ApplicationRole.cs" />
+    <None Include="Entity\ApplicationUser.cs" />
+    <None Include="Entity\AspNetRole.cs" />
+    <None Include="Entity\AspNetRoleClaim.cs" />
+    <None Include="Entity\AspNetUser.cs" />
+    <None Include="Entity\AspNetUserClaim.cs" />
+    <None Include="Entity\AspNetUserLogin.cs" />
+    <None Include="Entity\AspNetUserToken.cs" />
+    <None Include="Entity\Base\SearchResult.cs" />
+    <None Include="Entity\Base\SortDirection.cs" />
+    <None Include="Entity\Base\SortExpression.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Repository\Repository.csproj" />
+    <None Include="RestClient\RestClient.csproj" />
+    <None Include="Test\Test.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apis\.config\dotnet-tools.json" />
+    <None Include="Apis\Apis.csproj" />
+    <None Include="Apis\appsettings.Dev.json" />
+    <None Include="Apis\appsettings.Development.json" />
+    <None Include="Apis\appsettings.json" />
+    <None Include="Apis\appsettings.Prod.json" />
+    <None Include="Apis\appsettings.Test.json" />
+    <None Include="Apis\Dockerfile" />
+    <None Include="Apis\Migrations\_GenerateMigrations.ps1" />
+    <None Include="Apis\Properties\launchSettings.json" />
+    <None Include="Application\Application.csproj" />
+    <None Include="Columbia.Code.ico" />
+    <None Include="Common\Common.csproj" />
+    <None Include="Database\Database.sqlproj" />
+    <None Include="Domain\Domain.csproj" />
+    <None Include="Dto\Dto.csproj" />
+    <None Include="EmailClient\EmailClient.csproj" />
+    <None Include="Entity\.config\dotnet-tools.json" />
+    <None Include="Entity\Entity.csproj" />
+    <None Include="Entity\_GenerateDBContext.ps1" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSTemplate Include="Columbia.Code.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apis\Apis.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Apis\Apis.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Application\Application.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Application\Application.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Application.Abstractions\Application.Abstractions.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Application.Abstractions\Application.Abstractions.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Common\Common.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Common.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Database\Database.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\Database.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Domain\Domain.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain\Domain.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Domain\Resources\Common.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Domain\Resources\User.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dto\Dto.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dto\Dto.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EmailClient\EmailClient.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EmailClient\EmailClient.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entity\Entity.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\Entity.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Repository\Repository.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Repository\Repository.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Repository.Abstractions\Repository.Abstractions.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Repository.Abstractions\Repository.Abstractions.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RestClient\RestClient.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RestClient\RestClient.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test\Test.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test\Test.vstemplate" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

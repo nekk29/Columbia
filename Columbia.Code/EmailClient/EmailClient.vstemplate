@@ -1,0 +1,28 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>EmailClient</Name>
+		<Description>EmailClient</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>EmailClient</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>EmailClient.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="EmailClient.csproj" File="EmailClient.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="EmailClient.cs">EmailClient.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="EmailClientOptions.cs">EmailClientOptions.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="EmailClientServiceCollectionExtensions.cs">EmailExtensions.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="IEmailClient.cs">IEmailClient.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

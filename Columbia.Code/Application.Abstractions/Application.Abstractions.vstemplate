@@ -1,0 +1,25 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Application.Abstractions</Name>
+		<Description>Application.Abstractions</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Application.Abstractions</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Application.Abstractions.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Application.Abstractions.csproj" File="Application.Abstractions.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="IUserApplication.cs">IUserApplication.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

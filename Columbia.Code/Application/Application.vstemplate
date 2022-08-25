@@ -1,0 +1,31 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Application</Name>
+		<Description>Application</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Application</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Application.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Application.csproj" File="Application.csproj" ReplaceParameters="true">
+			<Folder Name="Base" TargetFolderName="Base">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationBase.cs">ApplicationBase.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Extensions" TargetFolderName="Extensions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationServiceCollectionExtensions.cs">ApplicationExtensions.cs</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="UserApplication.cs">UserApplication.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

@@ -1,0 +1,40 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Database</Name>
+		<Description>Database</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Database</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Database.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Database.sqlproj" File="Database.sqlproj" ReplaceParameters="true">
+			<Folder Name="Code" TargetFolderName="Code">
+				<Folder Name="Functions" TargetFolderName="Functions" />
+				<Folder Name="Procedures" TargetFolderName="Procedures" />
+			</Folder>
+			<Folder Name="Data" TargetFolderName="Data">
+				<Folder Name="Environments" TargetFolderName="Environments" />
+				<Folder Name="Fixes" TargetFolderName="Fixes" />
+				<Folder Name="Settings" TargetFolderName="Settings" />
+			</Folder>
+			<Folder Name="Schema" TargetFolderName="Schema">
+				<Folder Name="Sequences" TargetFolderName="Sequences" />
+				<Folder Name="Synonyms" TargetFolderName="Synonyms" />
+				<Folder Name="Tables" TargetFolderName="Tables" />
+				<Folder Name="Types" TargetFolderName="Types" />
+				<Folder Name="Views" TargetFolderName="Views" />
+			</Folder>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

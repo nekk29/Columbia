@@ -1,0 +1,41 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Entity</Name>
+		<Description>Entity</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Entity</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Entity.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Entity.csproj" File="Entity.csproj" ReplaceParameters="true">
+			<Folder Name=".config" TargetFolderName=".config">
+				<ProjectItem ReplaceParameters="true" TargetFileName="dotnet-tools.json">dotnet-tools.json</ProjectItem>
+			</Folder>
+			<Folder Name="Base" TargetFolderName="Base">
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchResult.cs">SearchResult.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SortDirection.cs">SortDirection.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SortExpression.cs">SortExpression.cs</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="_GenerateDBContext.ps1">_GenerateDBContext.ps1</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationRole.cs">ApplicationRole.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationUser.cs">ApplicationUser.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetRole.cs">AspNetRole.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetRoleClaim.cs">AspNetRoleClaim.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUser.cs">AspNetUser.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUserClaim.cs">AspNetUserClaim.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUserLogin.cs">AspNetUserLogin.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUserToken.cs">AspNetUserToken.cs</ProjectItem>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

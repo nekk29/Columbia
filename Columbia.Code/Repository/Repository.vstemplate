@@ -1,0 +1,44 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>Repository</Name>
+		<Description>Repository</Description>
+		<ProjectType>CSharp</ProjectType>
+		<ProjectSubType></ProjectSubType>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Repository</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<Icon>Repository.ico</Icon>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="Repository.csproj" File="Repository.csproj" ReplaceParameters="true">
+			<Folder Name="Base" TargetFolderName="Base">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Repository.cs">Repository.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Data" TargetFolderName="Data">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CoreDbContext.cs">CoreDbContext.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SecurityDbContext.cs">SecurityDbContext.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Extensions" TargetFolderName="Extensions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="IQueryableExtensions.cs">IQueryableExtensions.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ReflectionExtensions.cs">ReflectionExtensions.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="RepositoryServiceCollectionExtensions.cs">RepositoryExtensions.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Security" TargetFolderName="Security">
+				<ProjectItem ReplaceParameters="true" TargetFileName="IUserIdentity.cs">IUserIdentity.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Transactions" TargetFolderName="Transactions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ExecutionResult.cs">ExecutionResult.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Transaction.cs">Transaction.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UnitOfWork.cs">UnitOfWork.cs</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ProjectWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>

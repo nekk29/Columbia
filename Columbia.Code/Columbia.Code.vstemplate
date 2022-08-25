@@ -1,0 +1,76 @@
+﻿<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+	<TemplateData>
+		<Name>Columbia Framework</Name>
+		<Description>Columbia framework template with embedded code for api projects using .Net 6, Entity Framework, CQRS and more.</Description>
+		<Icon>Columbia.Code.ico</Icon>
+		<ProjectType>CSharp</ProjectType>
+		<LanguageTag>csharp</LanguageTag>
+		<RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+		<SortOrder>1000</SortOrder>
+		<TemplateID>d6193928-1ac8-4f56-8bfc-4482256c836f</TemplateID>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Columbia.Product.Module</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectCollection>
+			<SolutionFolder Name="1. Resources" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Apis">
+					Apis\Apis.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="2. Application" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Application">
+					Application\Application.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Application.Abstractions">
+					Application.Abstractions\Application.Abstractions.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Domain">
+					Domain\Domain.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Dto">
+					Dto\Dto.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Entity">
+					Entity\Entity.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="3. Infraestructure" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Repository">
+					Repository\Repository.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Repository.Abstractions">
+					Repository.Abstractions\Repository.Abstractions.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="4. Common" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Common">
+					Common\Common.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="5. Client" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.EmailClient">
+					EmailClient\EmailClient.vstemplate
+				</ProjectTemplateLink>
+				<ProjectTemplateLink ProjectName="$safeprojectname$.RestClient">
+					RestClient\RestClient.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="6. Database" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Database">
+					Database\Database.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+			<SolutionFolder Name="7. Test" CreateOnDisk="false">
+				<ProjectTemplateLink ProjectName="$safeprojectname$.Test">
+					Test\Test.vstemplate
+				</ProjectTemplateLink>
+			</SolutionFolder>
+		</ProjectCollection>
+	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.SolutionWizard</FullClassName>
+	</WizardExtension>
+</VSTemplate>
