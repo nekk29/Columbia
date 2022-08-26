@@ -1,0 +1,52 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Company.Product.Module.Apis": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:7202;http://localhost:5202",
+      "dotnetRunMessages": true
+    },
+    "Company.Product.Module.Apis.Dev": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Dev"
+      },
+      "applicationUrl": "https://localhost:7202;http://localhost:5202",
+      "dotnetRunMessages": true
+    },
+    "Company.Product.Module.Apis.Test": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Test"
+      },
+      "applicationUrl": "https://localhost:7202;http://localhost:5202",
+      "dotnetRunMessages": true
+    },
+    "Company.Product.Module.Apis.Prod": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Prod"
+      },
+      "applicationUrl": "https://localhost:7202;http://localhost:5202",
+      "dotnetRunMessages": true
+    },
+    "Company.Product.Module.Apis.Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}

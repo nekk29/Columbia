@@ -1,0 +1,17 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{2f3e085d-70eb-44c2-8182-01cca794f18d}</TemplateID>
+		<Name Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="103"/>
+		<Description Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="102"/>
+		<Icon Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="201" />
+		<ProjectType>CSharp</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>Columbia.cdm</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.cdm">cdm.cdm</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.cdm.diagram">cdm.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+

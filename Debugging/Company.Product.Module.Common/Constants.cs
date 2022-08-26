@@ -1,0 +1,13 @@
+﻿namespace Company.Product.Module.Common
+{
+    public class Constants
+    {
+        public struct Security
+        {
+            public struct User
+            {
+                public const string Admin = "admin";
+            }
+        }
+    }
+}

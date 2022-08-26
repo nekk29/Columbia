@@ -9,7 +9,7 @@
 		<SortOrder>1000</SortOrder>
 		<TemplateID>d6193928-1ac8-4f56-8bfc-4482256c836f</TemplateID>
 		<CreateNewFolder>true</CreateNewFolder>
-		<DefaultName>Columbia.Product.Module</DefaultName>
+		<DefaultName>Company.Product.Module</DefaultName>
 		<ProvideDefaultName>true</ProvideDefaultName>
 	</TemplateData>
 	<TemplateContent>

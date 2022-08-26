@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="FluentValidation" Version="11.2.0" />
+		<PackageReference Include="MediatR" Version="10.0.1" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Scrutor" Version="4.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Company.Product.Module.Common\Company.Product.Module.Common.csproj" />
+		<ProjectReference Include="..\Company.Product.Module.Dto\Company.Product.Module.Dto.csproj" />
+		<ProjectReference Include="..\Company.Product.Module.EmailClient\Company.Product.Module.EmailClient.csproj" />
+		<ProjectReference Include="..\Company.Product.Module.Repository.Abstractions\Company.Product.Module.Repository.Abstractions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\Common.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Common.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resources\User.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>User.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Common.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Common.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\User.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>User.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>
