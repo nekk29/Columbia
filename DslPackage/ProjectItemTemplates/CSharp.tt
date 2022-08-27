@@ -7,14 +7,18 @@
 		<TemplateID>{2f3e085d-70eb-44c2-8182-01cca794f18d}</TemplateID>
 		<Name Package="{<#= this.Dsl.PackageGuid #>}" ID="103"/>
 		<Description Package="{<#= this.Dsl.PackageGuid #>}" ID="102"/>
-		<Icon Package="{<#= this.Dsl.PackageGuid #>}" ID="201" />
+		<Icon Package="{<#= this.Dsl.PackageGuid #>}" ID="105" />
 		<ProjectType>CSharp</ProjectType>
 		<SortOrder>360</SortOrder>
-		<DefaultName><#=  this.Dsl.Name #>.<#=this.Dsl.Editor.FileExtension#></DefaultName>
+		<DefaultName>DomainModel.<#=this.Dsl.Editor.FileExtension#></DefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<ProjectItem TargetFileName="$fileinputname$.<#=this.Dsl.Editor.FileExtension#>"><#=this.Dsl.Editor.FileExtension#>.<#=this.Dsl.Editor.FileExtension#></ProjectItem>
-		<ProjectItem TargetFileName="$fileinputname$.<#=this.Dsl.Editor.FileExtension#>.diagram"><#=this.Dsl.Editor.FileExtension#>.diagram</ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.<#=this.Dsl.Editor.FileExtension#>"><#=this.Dsl.Editor.FileExtension#>.<#=this.Dsl.Editor.FileExtension#></ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.<#=this.Dsl.Editor.FileExtension#>.diagram"><#=this.Dsl.Editor.FileExtension#>.diagram</ProjectItem>
 	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ItemWizard</FullClassName>
+	</WizardExtension>
 </VSTemplate>
 

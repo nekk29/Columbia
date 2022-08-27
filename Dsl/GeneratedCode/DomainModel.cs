@@ -68,15 +68,24 @@ namespace Columbia.Dsl
 		{
 			return new global::System.Type[]
 			{
-				typeof(ExampleModel),
-				typeof(ExampleElement),
-				typeof(ExampleModelHasElements),
-				typeof(ExampleElementReferencesTargets),
+				typeof(DomainModel),
+				typeof(Entity),
+				typeof(PrimitiveProperty),
+				typeof(EntityProperty),
+				typeof(DomainModelHasEntities),
+				typeof(EntityReferencesTargetEntities),
+				typeof(EntityHasPrimitiveProperties),
+				typeof(EntityHasEntityProperties),
 				typeof(ColumbiaDiagram),
-				typeof(ExampleConnector),
-				typeof(ExampleShape),
+				typeof(EntityConnector),
+				typeof(EntityShape),
 				typeof(global::Columbia.Dsl.FixUpDiagram),
 				typeof(global::Columbia.Dsl.ConnectorRolePlayerChanged),
+				typeof(global::Columbia.Dsl.CompartmentItemAddRule),
+				typeof(global::Columbia.Dsl.CompartmentItemDeleteRule),
+				typeof(global::Columbia.Dsl.CompartmentItemRolePlayerChangeRule),
+				typeof(global::Columbia.Dsl.CompartmentItemRolePlayerPositionChangeRule),
+				typeof(global::Columbia.Dsl.CompartmentItemChangeRule),
 			};
 		}
 		/// <summary>
@@ -88,7 +97,23 @@ namespace Columbia.Dsl
 		{
 			return new DomainMemberInfo[]
 			{
-				new DomainMemberInfo(typeof(ExampleElement), "Name", ExampleElement.NameDomainPropertyId, typeof(ExampleElement.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Apis", DomainModel.ApisDomainPropertyId, typeof(DomainModel.ApisPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Application", DomainModel.ApplicationDomainPropertyId, typeof(DomainModel.ApplicationPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "ApplicationAbstractions", DomainModel.ApplicationAbstractionsDomainPropertyId, typeof(DomainModel.ApplicationAbstractionsPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Domain", DomainModel.DomainDomainPropertyId, typeof(DomainModel.DomainPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Dto", DomainModel.DtoDomainPropertyId, typeof(DomainModel.DtoPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Entity", DomainModel.EntityDomainPropertyId, typeof(DomainModel.EntityPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Repository", DomainModel.RepositoryDomainPropertyId, typeof(DomainModel.RepositoryPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "RepositoryAbstractions", DomainModel.RepositoryAbstractionsDomainPropertyId, typeof(DomainModel.RepositoryAbstractionsPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "RestClient", DomainModel.RestClientDomainPropertyId, typeof(DomainModel.RestClientPropertyHandler)),
+				new DomainMemberInfo(typeof(Entity), "EntityId", Entity.EntityIdDomainPropertyId, typeof(Entity.EntityIdPropertyHandler)),
+				new DomainMemberInfo(typeof(Entity), "Name", Entity.NameDomainPropertyId, typeof(Entity.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(PrimitiveProperty), "Name", PrimitiveProperty.NameDomainPropertyId, typeof(PrimitiveProperty.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(PrimitiveProperty), "Type", PrimitiveProperty.TypeDomainPropertyId, typeof(PrimitiveProperty.TypePropertyHandler)),
+				new DomainMemberInfo(typeof(PrimitiveProperty), "IsPrimaryKey", PrimitiveProperty.IsPrimaryKeyDomainPropertyId, typeof(PrimitiveProperty.IsPrimaryKeyPropertyHandler)),
+				new DomainMemberInfo(typeof(PrimitiveProperty), "Nullable", PrimitiveProperty.NullableDomainPropertyId, typeof(PrimitiveProperty.NullablePropertyHandler)),
+				new DomainMemberInfo(typeof(EntityProperty), "Name", EntityProperty.NameDomainPropertyId, typeof(EntityProperty.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(EntityProperty), "Type", EntityProperty.TypeDomainPropertyId, typeof(EntityProperty.TypePropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -99,10 +124,14 @@ namespace Columbia.Dsl
 		{
 			return new DomainRolePlayerInfo[]
 			{
-				new DomainRolePlayerInfo(typeof(ExampleModelHasElements), "ExampleModel", ExampleModelHasElements.ExampleModelDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ExampleModelHasElements), "Element", ExampleModelHasElements.ElementDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ExampleElementReferencesTargets), "Source", ExampleElementReferencesTargets.SourceDomainRoleId),
-				new DomainRolePlayerInfo(typeof(ExampleElementReferencesTargets), "Target", ExampleElementReferencesTargets.TargetDomainRoleId),
+				new DomainRolePlayerInfo(typeof(DomainModelHasEntities), "DomainModel", DomainModelHasEntities.DomainModelDomainRoleId),
+				new DomainRolePlayerInfo(typeof(DomainModelHasEntities), "Entity", DomainModelHasEntities.EntityDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntityReferencesTargetEntities), "SourceEntity", EntityReferencesTargetEntities.SourceEntityDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntityReferencesTargetEntities), "TargetEntity", EntityReferencesTargetEntities.TargetEntityDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntityHasPrimitiveProperties), "Entity", EntityHasPrimitiveProperties.EntityDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntityHasPrimitiveProperties), "PrimitiveProperty", EntityHasPrimitiveProperties.PrimitivePropertyDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntityHasEntityProperties), "Entity", EntityHasEntityProperties.EntityDomainRoleId),
+				new DomainRolePlayerInfo(typeof(EntityHasEntityProperties), "EntityProperty", EntityHasEntityProperties.EntityPropertyDomainRoleId),
 			};
 		}
 		#endregion
@@ -124,12 +153,14 @@ namespace Columbia.Dsl
 	
 			if (createElementMap == null)
 			{
-				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(5);
-				createElementMap.Add(typeof(ExampleModel), 0);
-				createElementMap.Add(typeof(ExampleElement), 1);
-				createElementMap.Add(typeof(ColumbiaDiagram), 2);
-				createElementMap.Add(typeof(ExampleConnector), 3);
-				createElementMap.Add(typeof(ExampleShape), 4);
+				createElementMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(7);
+				createElementMap.Add(typeof(DomainModel), 0);
+				createElementMap.Add(typeof(Entity), 1);
+				createElementMap.Add(typeof(PrimitiveProperty), 2);
+				createElementMap.Add(typeof(EntityProperty), 3);
+				createElementMap.Add(typeof(ColumbiaDiagram), 4);
+				createElementMap.Add(typeof(EntityConnector), 5);
+				createElementMap.Add(typeof(EntityShape), 6);
 			}
 			int index;
 			if (!createElementMap.TryGetValue(elementType, out index))
@@ -143,11 +174,13 @@ namespace Columbia.Dsl
 			}
 			switch (index)
 			{
-				case 0: return new ExampleModel(partition, propertyAssignments);
-				case 1: return new ExampleElement(partition, propertyAssignments);
-				case 2: return new ColumbiaDiagram(partition, propertyAssignments);
-				case 3: return new ExampleConnector(partition, propertyAssignments);
-				case 4: return new ExampleShape(partition, propertyAssignments);
+				case 0: return new DomainModel(partition, propertyAssignments);
+				case 1: return new Entity(partition, propertyAssignments);
+				case 2: return new PrimitiveProperty(partition, propertyAssignments);
+				case 3: return new EntityProperty(partition, propertyAssignments);
+				case 4: return new ColumbiaDiagram(partition, propertyAssignments);
+				case 5: return new EntityConnector(partition, propertyAssignments);
+				case 6: return new EntityShape(partition, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -170,9 +203,11 @@ namespace Columbia.Dsl
 	
 			if (createElementLinkMap == null)
 			{
-				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(2);
-				createElementLinkMap.Add(typeof(ExampleModelHasElements), 0);
-				createElementLinkMap.Add(typeof(ExampleElementReferencesTargets), 1);
+				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(4);
+				createElementLinkMap.Add(typeof(DomainModelHasEntities), 0);
+				createElementLinkMap.Add(typeof(EntityReferencesTargetEntities), 1);
+				createElementLinkMap.Add(typeof(EntityHasPrimitiveProperties), 2);
+				createElementLinkMap.Add(typeof(EntityHasEntityProperties), 3);
 			}
 			int index;
 			if (!createElementLinkMap.TryGetValue(elementLinkType, out index))
@@ -187,8 +222,10 @@ namespace Columbia.Dsl
 			}
 			switch (index)
 			{
-				case 0: return new ExampleModelHasElements(partition, roleAssignments, propertyAssignments);
-				case 1: return new ExampleElementReferencesTargets(partition, roleAssignments, propertyAssignments);
+				case 0: return new DomainModelHasEntities(partition, roleAssignments, propertyAssignments);
+				case 1: return new EntityReferencesTargetEntities(partition, roleAssignments, propertyAssignments);
+				case 2: return new EntityHasPrimitiveProperties(partition, roleAssignments, propertyAssignments);
+				case 3: return new EntityHasEntityProperties(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -310,6 +347,11 @@ namespace Columbia.Dsl
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.EnableRule(typeof(global::Columbia.Dsl.FixUpDiagram));
 			ruleManager.EnableRule(typeof(global::Columbia.Dsl.ConnectorRolePlayerChanged));
+			ruleManager.EnableRule(typeof(global::Columbia.Dsl.CompartmentItemAddRule));
+			ruleManager.EnableRule(typeof(global::Columbia.Dsl.CompartmentItemDeleteRule));
+			ruleManager.EnableRule(typeof(global::Columbia.Dsl.CompartmentItemRolePlayerChangeRule));
+			ruleManager.EnableRule(typeof(global::Columbia.Dsl.CompartmentItemRolePlayerPositionChangeRule));
+			ruleManager.EnableRule(typeof(global::Columbia.Dsl.CompartmentItemChangeRule));
 		}
 		
 		/// <summary>
@@ -322,6 +364,11 @@ namespace Columbia.Dsl
 			DslModeling::RuleManager ruleManager = store.RuleManager;
 			ruleManager.DisableRule(typeof(global::Columbia.Dsl.FixUpDiagram));
 			ruleManager.DisableRule(typeof(global::Columbia.Dsl.ConnectorRolePlayerChanged));
+			ruleManager.DisableRule(typeof(global::Columbia.Dsl.CompartmentItemAddRule));
+			ruleManager.DisableRule(typeof(global::Columbia.Dsl.CompartmentItemDeleteRule));
+			ruleManager.DisableRule(typeof(global::Columbia.Dsl.CompartmentItemRolePlayerChangeRule));
+			ruleManager.DisableRule(typeof(global::Columbia.Dsl.CompartmentItemRolePlayerPositionChangeRule));
+			ruleManager.DisableRule(typeof(global::Columbia.Dsl.CompartmentItemChangeRule));
 		}
 		#endregion
 	}
@@ -357,7 +404,9 @@ namespace Columbia.Dsl
 		public ColumbiaDeleteClosureBase()
 		{
 			#region Initialize DomainData Table
-			DomainRoles.Add(global::Columbia.Dsl.ExampleModelHasElements.ElementDomainRoleId, true);
+			DomainRoles.Add(global::Columbia.Dsl.DomainModelHasEntities.EntityDomainRoleId, true);
+			DomainRoles.Add(global::Columbia.Dsl.EntityHasPrimitiveProperties.PrimitivePropertyDomainRoleId, true);
+			DomainRoles.Add(global::Columbia.Dsl.EntityHasEntityProperties.EntityPropertyDomainRoleId, true);
 			#endregion
 		}
 		/// <summary>

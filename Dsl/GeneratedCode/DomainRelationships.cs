@@ -12,33 +12,33 @@ using DslDesign = global::Microsoft.VisualStudio.Modeling.Design;
 namespace Columbia.Dsl
 {
 	/// <summary>
-	/// DomainRelationship ExampleModelHasElements
-	/// Embedding relationship between the Model and Elements
+	/// DomainRelationship DomainModelHasEntities
+	/// Domain Model Has Entities
 	/// </summary>
-	[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleModelHasElements.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Columbia.Dsl.ExampleModelHasElements.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModelHasEntities.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Columbia.Dsl.DomainModelHasEntities.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship(IsEmbedding=true)]
-	[DslModeling::DomainObjectId("7a87fff1-3982-48f8-979b-07a084d06417")]
-	public partial class ExampleModelHasElements : DslModeling::ElementLink
+	[DslModeling::DomainObjectId("a3c0444c-1422-4536-af26-3faf8f1df6d1")]
+	public partial class DomainModelHasEntities : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// ExampleModelHasElements domain class Id.
+		/// DomainModelHasEntities domain class Id.
 		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x7a87fff1, 0x3982, 0x48f8, 0x97, 0x9b, 0x07, 0xa0, 0x84, 0xd0, 0x64, 0x17);
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xa3c0444c, 0x1422, 0x4536, 0xaf, 0x26, 0x3f, 0xaf, 0x8f, 0x1d, 0xf6, 0xd1);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a ExampleModelHasElements link in the same Partition as the given ExampleModel
+		/// Creates a DomainModelHasEntities link in the same Partition as the given DomainModel
 		/// </summary>
-		/// <param name="source">ExampleModel to use as the source of the relationship.</param>
-		/// <param name="target">ExampleElement to use as the target of the relationship.</param>
-		public ExampleModelHasElements(ExampleModel source, ExampleElement target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ExampleModelHasElements.ExampleModelDomainRoleId, source), new DslModeling::RoleAssignment(ExampleModelHasElements.ElementDomainRoleId, target)}, null)
+		/// <param name="source">DomainModel to use as the source of the relationship.</param>
+		/// <param name="target">Entity to use as the target of the relationship.</param>
+		public DomainModelHasEntities(DomainModel source, Entity target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(DomainModelHasEntities.DomainModelDomainRoleId, source), new DslModeling::RoleAssignment(DomainModelHasEntities.EntityDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -47,7 +47,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ExampleModelHasElements(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public DomainModelHasEntities(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -58,7 +58,7 @@ namespace Columbia.Dsl
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ExampleModelHasElements(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public DomainModelHasEntities(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -68,7 +68,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ExampleModelHasElements(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public DomainModelHasEntities(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -79,122 +79,124 @@ namespace Columbia.Dsl
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ExampleModelHasElements(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public DomainModelHasEntities(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
 		#endregion
-		#region ExampleModel domain role code
+		#region DomainModel domain role code
 		
 		/// <summary>
-		/// ExampleModel domain role Id.
+		/// DomainModel domain role Id.
 		/// </summary>
-		public static readonly global::System.Guid ExampleModelDomainRoleId = new global::System.Guid(0x381e5660, 0x4ac2, 0x4e0d, 0xbc, 0x97, 0xb6, 0x0e, 0x20, 0x1c, 0xbe, 0x86);
+		public static readonly global::System.Guid DomainModelDomainRoleId = new global::System.Guid(0xf97cf0fe, 0xcd52, 0x42ec, 0x80, 0x91, 0x2a, 0xd3, 0x98, 0x93, 0x4b, 0x22);
 		
 		/// <summary>
-		/// DomainRole ExampleModel
+		/// DomainRole DomainModel
+		/// Description for Columbia.Dsl.DomainModelHasEntities.DomainModel
 		/// </summary>
-		[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleModelHasElements/ExampleModel.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Columbia.Dsl.ExampleModelHasElements/ExampleModel.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Elements", PropertyDisplayNameKey="Columbia.Dsl.ExampleModelHasElements/ExampleModel.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
-		[DslModeling::DomainObjectId("381e5660-4ac2-4e0d-bc97-b60e201cbe86")]
-		public virtual ExampleModel ExampleModel
+		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModelHasEntities/DomainModel.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModelHasEntities/DomainModel.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Entities", PropertyDisplayNameKey="Columbia.Dsl.DomainModelHasEntities/DomainModel.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("f97cf0fe-cd52-42ec-8091-2ad398934b22")]
+		public virtual DomainModel DomainModel
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return (ExampleModel)DslModeling::DomainRoleInfo.GetRolePlayer(this, ExampleModelDomainRoleId);
+				return (DomainModel)DslModeling::DomainRoleInfo.GetRolePlayer(this, DomainModelDomainRoleId);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetRolePlayer(this, ExampleModelDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, DomainModelDomainRoleId, value);
 			}
 		}
 				
 		#endregion
-		#region Static methods to access ExampleModel of a ExampleElement
+		#region Static methods to access DomainModel of a Entity
 		/// <summary>
-		/// Gets ExampleModel.
+		/// Gets DomainModel.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static ExampleModel GetExampleModel(ExampleElement element)
+		public static DomainModel GetDomainModel(Entity element)
 		{
-			return DslModeling::DomainRoleInfo.GetLinkedElement(element, ElementDomainRoleId) as ExampleModel;
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, EntityDomainRoleId) as DomainModel;
 		}
 		
 		/// <summary>
-		/// Sets ExampleModel.
+		/// Sets DomainModel.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static void SetExampleModel(ExampleElement element, ExampleModel newExampleModel)
+		public static void SetDomainModel(Entity element, DomainModel newDomainModel)
 		{
-			DslModeling::DomainRoleInfo.SetLinkedElement(element, ElementDomainRoleId, newExampleModel);
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, EntityDomainRoleId, newDomainModel);
 		}
 		#endregion
-		#region Element domain role code
+		#region Entity domain role code
 		
 		/// <summary>
-		/// Element domain role Id.
+		/// Entity domain role Id.
 		/// </summary>
-		public static readonly global::System.Guid ElementDomainRoleId = new global::System.Guid(0xea88a025, 0xeca8, 0x4ee9, 0xb8, 0xe9, 0xc6, 0x81, 0x63, 0x3c, 0x9d, 0x11);
+		public static readonly global::System.Guid EntityDomainRoleId = new global::System.Guid(0xc20ff070, 0x95da, 0x4dbe, 0xa8, 0x51, 0xb3, 0x40, 0xb8, 0x28, 0xe6, 0x5d);
 		
 		/// <summary>
-		/// DomainRole Element
+		/// DomainRole Entity
+		/// Description for Columbia.Dsl.DomainModelHasEntities.Entity
 		/// </summary>
-		[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleModelHasElements/Element.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Columbia.Dsl.ExampleModelHasElements/Element.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "ExampleModel", PropertyDisplayNameKey="Columbia.Dsl.ExampleModelHasElements/Element.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
-		[DslModeling::DomainObjectId("ea88a025-eca8-4ee9-b8e9-c681633c9d11")]
-		public virtual ExampleElement Element
+		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModelHasEntities/Entity.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModelHasEntities/Entity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "DomainModel", PropertyDisplayNameKey="Columbia.Dsl.DomainModelHasEntities/Entity.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("c20ff070-95da-4dbe-a851-b340b828e65d")]
+		public virtual Entity Entity
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return (ExampleElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, ElementDomainRoleId);
+				return (Entity)DslModeling::DomainRoleInfo.GetRolePlayer(this, EntityDomainRoleId);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetRolePlayer(this, ElementDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EntityDomainRoleId, value);
 			}
 		}
 				
 		#endregion
-		#region Static methods to access Elements of a ExampleModel
+		#region Static methods to access Entities of a DomainModel
 		/// <summary>
-		/// Gets a list of Elements.
+		/// Gets a list of Entities.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<ExampleElement> GetElements(ExampleModel element)
+		public static DslModeling::LinkedElementCollection<Entity> GetEntities(DomainModel element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<ExampleElement>, ExampleElement>(element, ExampleModelDomainRoleId);
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Entity>, Entity>(element, DomainModelDomainRoleId);
 		}
 		#endregion
-		#region ExampleModel link accessor
+		#region DomainModel link accessor
 		/// <summary>
-		/// Get the list of ExampleModelHasElements links to a ExampleModel.
+		/// Get the list of DomainModelHasEntities links to a DomainModel.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.ExampleModelHasElements> GetLinksToElements ( global::Columbia.Dsl.ExampleModel exampleModelInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.DomainModelHasEntities> GetLinksToEntities ( global::Columbia.Dsl.DomainModel domainModelInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleModelHasElements>(exampleModelInstance, global::Columbia.Dsl.ExampleModelHasElements.ExampleModelDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.DomainModelHasEntities>(domainModelInstance, global::Columbia.Dsl.DomainModelHasEntities.DomainModelDomainRoleId);
 		}
 		#endregion
-		#region Element link accessor
+		#region Entity link accessor
 		/// <summary>
-		/// Get the ExampleModelHasElements link to a ExampleElement.
+		/// Get the DomainModelHasEntities link to a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Columbia.Dsl.ExampleModelHasElements GetLinkToExampleModel (global::Columbia.Dsl.ExampleElement elementInstance)
+		public static global::Columbia.Dsl.DomainModelHasEntities GetLinkToDomainModel (global::Columbia.Dsl.Entity entityInstance)
 		{
-			global::System.Collections.Generic.IList<global::Columbia.Dsl.ExampleModelHasElements> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleModelHasElements>(elementInstance, global::Columbia.Dsl.ExampleModelHasElements.ElementDomainRoleId);
-			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Element not obeyed.");
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.DomainModelHasEntities> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.DomainModelHasEntities>(entityInstance, global::Columbia.Dsl.DomainModelHasEntities.EntityDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Entity not obeyed.");
 			if ( links.Count == 0 )
 			{
 				return null;
@@ -205,20 +207,20 @@ namespace Columbia.Dsl
 			}
 		}
 		#endregion
-		#region ExampleModelHasElements instance accessors
+		#region DomainModelHasEntities instance accessors
 		
 		/// <summary>
-		/// Get any ExampleModelHasElements links between a given ExampleModel and a ExampleElement.
+		/// Get any DomainModelHasEntities links between a given DomainModel and a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.ExampleModelHasElements> GetLinks( global::Columbia.Dsl.ExampleModel source, global::Columbia.Dsl.ExampleElement target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.DomainModelHasEntities> GetLinks( global::Columbia.Dsl.DomainModel source, global::Columbia.Dsl.Entity target )
 		{
-			global::System.Collections.Generic.List<global::Columbia.Dsl.ExampleModelHasElements> outLinks = new global::System.Collections.Generic.List<global::Columbia.Dsl.ExampleModelHasElements>();
-			global::System.Collections.Generic.IList<global::Columbia.Dsl.ExampleModelHasElements> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleModelHasElements>(source, global::Columbia.Dsl.ExampleModelHasElements.ExampleModelDomainRoleId);
-			foreach ( global::Columbia.Dsl.ExampleModelHasElements link in links )
+			global::System.Collections.Generic.List<global::Columbia.Dsl.DomainModelHasEntities> outLinks = new global::System.Collections.Generic.List<global::Columbia.Dsl.DomainModelHasEntities>();
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.DomainModelHasEntities> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.DomainModelHasEntities>(source, global::Columbia.Dsl.DomainModelHasEntities.DomainModelDomainRoleId);
+			foreach ( global::Columbia.Dsl.DomainModelHasEntities link in links )
 			{
-				if ( target.Equals(link.Element) )
+				if ( target.Equals(link.Entity) )
 				{
 					outLinks.Add(link);
 				}
@@ -226,16 +228,16 @@ namespace Columbia.Dsl
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one ExampleModelHasElements link between a given ExampleModeland a ExampleElement.
+		/// Get the one DomainModelHasEntities link between a given DomainModeland a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Columbia.Dsl.ExampleModelHasElements GetLink( global::Columbia.Dsl.ExampleModel source, global::Columbia.Dsl.ExampleElement target )
+		public static global::Columbia.Dsl.DomainModelHasEntities GetLink( global::Columbia.Dsl.DomainModel source, global::Columbia.Dsl.Entity target )
 		{
-			global::System.Collections.Generic.IList<global::Columbia.Dsl.ExampleModelHasElements> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleModelHasElements>(source, global::Columbia.Dsl.ExampleModelHasElements.ExampleModelDomainRoleId);
-			foreach ( global::Columbia.Dsl.ExampleModelHasElements link in links )
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.DomainModelHasEntities> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.DomainModelHasEntities>(source, global::Columbia.Dsl.DomainModelHasEntities.DomainModelDomainRoleId);
+			foreach ( global::Columbia.Dsl.DomainModelHasEntities link in links )
 			{
-				if ( target.Equals(link.Element) )
+				if ( target.Equals(link.Entity) )
 				{
 					return link;
 				}
@@ -249,33 +251,33 @@ namespace Columbia.Dsl
 namespace Columbia.Dsl
 {
 	/// <summary>
-	/// DomainRelationship ExampleElementReferencesTargets
-	/// Reference relationship between Elements.
+	/// DomainRelationship EntityReferencesTargetEntities
+	/// Entity References Target Entities
 	/// </summary>
-	[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleElementReferencesTargets.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Columbia.Dsl.ExampleElementReferencesTargets.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Columbia.Dsl.EntityReferencesTargetEntities.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Columbia.Dsl.EntityReferencesTargetEntities.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainRelationship()]
-	[DslModeling::DomainObjectId("d32943cf-9512-4a66-8514-a48f23150e25")]
-	public partial class ExampleElementReferencesTargets : DslModeling::ElementLink
+	[DslModeling::DomainObjectId("1475b97d-c118-4ce9-bfcc-ce2f5627c80a")]
+	public partial class EntityReferencesTargetEntities : DslModeling::ElementLink
 	{
 		#region Constructors, domain class Id
 		
 		/// <summary>
-		/// ExampleElementReferencesTargets domain class Id.
+		/// EntityReferencesTargetEntities domain class Id.
 		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xd32943cf, 0x9512, 0x4a66, 0x85, 0x14, 0xa4, 0x8f, 0x23, 0x15, 0x0e, 0x25);
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x1475b97d, 0xc118, 0x4ce9, 0xbf, 0xcc, 0xce, 0x2f, 0x56, 0x27, 0xc8, 0x0a);
 	
 				
 		/// <summary>
 		/// Constructor
-		/// Creates a ExampleElementReferencesTargets link in the same Partition as the given ExampleElement
+		/// Creates a EntityReferencesTargetEntities link in the same Partition as the given Entity
 		/// </summary>
-		/// <param name="source">ExampleElement to use as the source of the relationship.</param>
-		/// <param name="target">ExampleElement to use as the target of the relationship.</param>
-		public ExampleElementReferencesTargets(ExampleElement source, ExampleElement target)
-			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(ExampleElementReferencesTargets.SourceDomainRoleId, source), new DslModeling::RoleAssignment(ExampleElementReferencesTargets.TargetDomainRoleId, target)}, null)
+		/// <param name="source">Entity to use as the source of the relationship.</param>
+		/// <param name="target">Entity to use as the target of the relationship.</param>
+		public EntityReferencesTargetEntities(Entity source, Entity target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(EntityReferencesTargetEntities.SourceEntityDomainRoleId, source), new DslModeling::RoleAssignment(EntityReferencesTargetEntities.TargetEntityDomainRoleId, target)}, null)
 		{
 		}
 		
@@ -284,7 +286,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ExampleElementReferencesTargets(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+		public EntityReferencesTargetEntities(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
 		{
 		}
@@ -295,7 +297,7 @@ namespace Columbia.Dsl
 		/// <param name="store">Store where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ExampleElementReferencesTargets(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public EntityReferencesTargetEntities(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
 		{
 		}
@@ -305,7 +307,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
-		public ExampleElementReferencesTargets(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+		public EntityReferencesTargetEntities(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
 			: base(partition, roleAssignments, null)
 		{
 		}
@@ -316,129 +318,129 @@ namespace Columbia.Dsl
 		/// <param name="partition">Partition where new link is to be created.</param>
 		/// <param name="roleAssignments">List of relationship role assignments.</param>
 		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
-		public ExampleElementReferencesTargets(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+		public EntityReferencesTargetEntities(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, roleAssignments, propertyAssignments)
 		{
 		}
 		#endregion
-		#region Source domain role code
+		#region SourceEntity domain role code
 		
 		/// <summary>
-		/// Source domain role Id.
+		/// SourceEntity domain role Id.
 		/// </summary>
-		public static readonly global::System.Guid SourceDomainRoleId = new global::System.Guid(0x0a8acea4, 0x838e, 0x45cf, 0xa9, 0xa5, 0x0b, 0x2d, 0x8d, 0x51, 0xb0, 0xb9);
+		public static readonly global::System.Guid SourceEntityDomainRoleId = new global::System.Guid(0x19759194, 0xb8ba, 0x46b8, 0xae, 0xae, 0x65, 0x7c, 0x05, 0x4f, 0xa5, 0xfc);
 		
 		/// <summary>
-		/// DomainRole Source
-		/// Description for Columbia.Dsl.ExampleRelationship.Target
+		/// DomainRole SourceEntity
+		/// Description for Columbia.Dsl.EntityReferencesTargetEntities.SourceEntity
 		/// </summary>
-		[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleElementReferencesTargets/Source.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Columbia.Dsl.ExampleElementReferencesTargets/Source.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Targets", PropertyDisplayNameKey="Columbia.Dsl.ExampleElementReferencesTargets/Source.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
-		[DslModeling::DomainObjectId("0a8acea4-838e-45cf-a9a5-0b2d8d51b0b9")]
-		public virtual ExampleElement Source
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityReferencesTargetEntities/SourceEntity.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityReferencesTargetEntities/SourceEntity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "TargetEntities", PropertyDisplayNameKey="Columbia.Dsl.EntityReferencesTargetEntities/SourceEntity.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("19759194-b8ba-46b8-aeae-657c054fa5fc")]
+		public virtual Entity SourceEntity
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return (ExampleElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, SourceDomainRoleId);
+				return (Entity)DslModeling::DomainRoleInfo.GetRolePlayer(this, SourceEntityDomainRoleId);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetRolePlayer(this, SourceDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, SourceEntityDomainRoleId, value);
 			}
 		}
 				
 		#endregion
-		#region Static methods to access Sources of a ExampleElement
+		#region Static methods to access SourceEntities of a Entity
 		/// <summary>
-		/// Gets a list of Sources.
+		/// Gets a list of SourceEntities.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<ExampleElement> GetSources(ExampleElement element)
+		public static DslModeling::LinkedElementCollection<Entity> GetSourceEntities(Entity element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<ExampleElement>, ExampleElement>(element, TargetDomainRoleId);
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Entity>, Entity>(element, TargetEntityDomainRoleId);
 		}
 		#endregion
-		#region Target domain role code
+		#region TargetEntity domain role code
 		
 		/// <summary>
-		/// Target domain role Id.
+		/// TargetEntity domain role Id.
 		/// </summary>
-		public static readonly global::System.Guid TargetDomainRoleId = new global::System.Guid(0x20e8087e, 0xad00, 0x4f84, 0x9a, 0x12, 0xbf, 0xbe, 0x05, 0x32, 0xc6, 0xba);
+		public static readonly global::System.Guid TargetEntityDomainRoleId = new global::System.Guid(0x1c8528c7, 0x0aa4, 0x40fa, 0xab, 0xd2, 0xdb, 0x76, 0x89, 0x0a, 0xb7, 0xf8);
 		
 		/// <summary>
-		/// DomainRole Target
-		/// Description for Columbia.Dsl.ExampleRelationship.Source
+		/// DomainRole TargetEntity
+		/// Description for Columbia.Dsl.EntityReferencesTargetEntities.TargetEntity
 		/// </summary>
-		[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleElementReferencesTargets/Target.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Columbia.Dsl.ExampleElementReferencesTargets/Target.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Sources", PropertyDisplayNameKey="Columbia.Dsl.ExampleElementReferencesTargets/Target.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
-		[DslModeling::DomainObjectId("20e8087e-ad00-4f84-9a12-bfbe0532c6ba")]
-		public virtual ExampleElement Target
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityReferencesTargetEntities/TargetEntity.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityReferencesTargetEntities/TargetEntity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "SourceEntities", PropertyDisplayNameKey="Columbia.Dsl.EntityReferencesTargetEntities/TargetEntity.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("1c8528c7-0aa4-40fa-abd2-db76890ab7f8")]
+		public virtual Entity TargetEntity
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return (ExampleElement)DslModeling::DomainRoleInfo.GetRolePlayer(this, TargetDomainRoleId);
+				return (Entity)DslModeling::DomainRoleInfo.GetRolePlayer(this, TargetEntityDomainRoleId);
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetRolePlayer(this, TargetDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, TargetEntityDomainRoleId, value);
 			}
 		}
 				
 		#endregion
-		#region Static methods to access Targets of a ExampleElement
+		#region Static methods to access TargetEntities of a Entity
 		/// <summary>
-		/// Gets a list of Targets.
+		/// Gets a list of TargetEntities.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static DslModeling::LinkedElementCollection<ExampleElement> GetTargets(ExampleElement element)
+		public static DslModeling::LinkedElementCollection<Entity> GetTargetEntities(Entity element)
 		{
-			return GetRoleCollection<DslModeling::LinkedElementCollection<ExampleElement>, ExampleElement>(element, SourceDomainRoleId);
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Entity>, Entity>(element, SourceEntityDomainRoleId);
 		}
 		#endregion
-		#region Source link accessor
+		#region SourceEntity link accessor
 		/// <summary>
-		/// Get the list of ExampleElementReferencesTargets links to a ExampleElement.
+		/// Get the list of EntityReferencesTargetEntities links to a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.ExampleElementReferencesTargets> GetLinksToTargets ( global::Columbia.Dsl.ExampleElement sourceInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityReferencesTargetEntities> GetLinksToTargetEntities ( global::Columbia.Dsl.Entity sourceEntityInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleElementReferencesTargets>(sourceInstance, global::Columbia.Dsl.ExampleElementReferencesTargets.SourceDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityReferencesTargetEntities>(sourceEntityInstance, global::Columbia.Dsl.EntityReferencesTargetEntities.SourceEntityDomainRoleId);
 		}
 		#endregion
-		#region Target link accessor
+		#region TargetEntity link accessor
 		/// <summary>
-		/// Get the list of ExampleElementReferencesTargets links to a ExampleElement.
+		/// Get the list of EntityReferencesTargetEntities links to a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.ExampleElementReferencesTargets> GetLinksToSources ( global::Columbia.Dsl.ExampleElement targetInstance )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityReferencesTargetEntities> GetLinksToSourceEntities ( global::Columbia.Dsl.Entity targetEntityInstance )
 		{
-			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleElementReferencesTargets>(targetInstance, global::Columbia.Dsl.ExampleElementReferencesTargets.TargetDomainRoleId);
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityReferencesTargetEntities>(targetEntityInstance, global::Columbia.Dsl.EntityReferencesTargetEntities.TargetEntityDomainRoleId);
 		}
 		#endregion
-		#region ExampleElementReferencesTargets instance accessors
+		#region EntityReferencesTargetEntities instance accessors
 		
 		/// <summary>
-		/// Get any ExampleElementReferencesTargets links between a given ExampleElement and a ExampleElement.
+		/// Get any EntityReferencesTargetEntities links between a given Entity and a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.ExampleElementReferencesTargets> GetLinks( global::Columbia.Dsl.ExampleElement source, global::Columbia.Dsl.ExampleElement target )
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityReferencesTargetEntities> GetLinks( global::Columbia.Dsl.Entity source, global::Columbia.Dsl.Entity target )
 		{
-			global::System.Collections.Generic.List<global::Columbia.Dsl.ExampleElementReferencesTargets> outLinks = new global::System.Collections.Generic.List<global::Columbia.Dsl.ExampleElementReferencesTargets>();
-			global::System.Collections.Generic.IList<global::Columbia.Dsl.ExampleElementReferencesTargets> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleElementReferencesTargets>(source, global::Columbia.Dsl.ExampleElementReferencesTargets.SourceDomainRoleId);
-			foreach ( global::Columbia.Dsl.ExampleElementReferencesTargets link in links )
+			global::System.Collections.Generic.List<global::Columbia.Dsl.EntityReferencesTargetEntities> outLinks = new global::System.Collections.Generic.List<global::Columbia.Dsl.EntityReferencesTargetEntities>();
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityReferencesTargetEntities> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityReferencesTargetEntities>(source, global::Columbia.Dsl.EntityReferencesTargetEntities.SourceEntityDomainRoleId);
+			foreach ( global::Columbia.Dsl.EntityReferencesTargetEntities link in links )
 			{
-				if ( target.Equals(link.Target) )
+				if ( target.Equals(link.TargetEntity) )
 				{
 					outLinks.Add(link);
 				}
@@ -446,16 +448,494 @@ namespace Columbia.Dsl
 			return outLinks.AsReadOnly();
 		}
 		/// <summary>
-		/// Get the one ExampleElementReferencesTargets link between a given ExampleElementand a ExampleElement.
+		/// Get the one EntityReferencesTargetEntities link between a given Entityand a Entity.
 		/// </summary>
 		[global::System.Diagnostics.DebuggerStepThrough]
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-		public static global::Columbia.Dsl.ExampleElementReferencesTargets GetLink( global::Columbia.Dsl.ExampleElement source, global::Columbia.Dsl.ExampleElement target )
+		public static global::Columbia.Dsl.EntityReferencesTargetEntities GetLink( global::Columbia.Dsl.Entity source, global::Columbia.Dsl.Entity target )
 		{
-			global::System.Collections.Generic.IList<global::Columbia.Dsl.ExampleElementReferencesTargets> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.ExampleElementReferencesTargets>(source, global::Columbia.Dsl.ExampleElementReferencesTargets.SourceDomainRoleId);
-			foreach ( global::Columbia.Dsl.ExampleElementReferencesTargets link in links )
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityReferencesTargetEntities> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityReferencesTargetEntities>(source, global::Columbia.Dsl.EntityReferencesTargetEntities.SourceEntityDomainRoleId);
+			foreach ( global::Columbia.Dsl.EntityReferencesTargetEntities link in links )
 			{
-				if ( target.Equals(link.Target) )
+				if ( target.Equals(link.TargetEntity) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Columbia.Dsl
+{
+	/// <summary>
+	/// DomainRelationship EntityHasPrimitiveProperties
+	/// Entity Has Primitive Properties
+	/// </summary>
+	[DslDesign::DisplayNameResource("Columbia.Dsl.EntityHasPrimitiveProperties.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Columbia.Dsl.EntityHasPrimitiveProperties.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("9a140409-6e11-4ef9-9128-fef0cdaad25c")]
+	public partial class EntityHasPrimitiveProperties : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// EntityHasPrimitiveProperties domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x9a140409, 0x6e11, 0x4ef9, 0x91, 0x28, 0xfe, 0xf0, 0xcd, 0xaa, 0xd2, 0x5c);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a EntityHasPrimitiveProperties link in the same Partition as the given Entity
+		/// </summary>
+		/// <param name="source">Entity to use as the source of the relationship.</param>
+		/// <param name="target">PrimitiveProperty to use as the target of the relationship.</param>
+		public EntityHasPrimitiveProperties(Entity source, PrimitiveProperty target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(EntityHasPrimitiveProperties.EntityDomainRoleId, source), new DslModeling::RoleAssignment(EntityHasPrimitiveProperties.PrimitivePropertyDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public EntityHasPrimitiveProperties(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public EntityHasPrimitiveProperties(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public EntityHasPrimitiveProperties(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public EntityHasPrimitiveProperties(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Entity domain role code
+		
+		/// <summary>
+		/// Entity domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityDomainRoleId = new global::System.Guid(0x25a85ecf, 0x2fda, 0x49b8, 0x8c, 0x23, 0xeb, 0x65, 0x2b, 0x85, 0x0d, 0x32);
+		
+		/// <summary>
+		/// DomainRole Entity
+		/// Description for Columbia.Dsl.EntityHasPrimitiveProperties.Entity
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityHasPrimitiveProperties/Entity.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityHasPrimitiveProperties/Entity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "PrimitiveProperties", PropertyDisplayNameKey="Columbia.Dsl.EntityHasPrimitiveProperties/Entity.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("25a85ecf-2fda-49b8-8c23-eb652b850d32")]
+		public virtual Entity Entity
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Entity)DslModeling::DomainRoleInfo.GetRolePlayer(this, EntityDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EntityDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Entity of a PrimitiveProperty
+		/// <summary>
+		/// Gets Entity.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Entity GetEntity(PrimitiveProperty element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, PrimitivePropertyDomainRoleId) as Entity;
+		}
+		
+		/// <summary>
+		/// Sets Entity.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetEntity(PrimitiveProperty element, Entity newEntity)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, PrimitivePropertyDomainRoleId, newEntity);
+		}
+		#endregion
+		#region PrimitiveProperty domain role code
+		
+		/// <summary>
+		/// PrimitiveProperty domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid PrimitivePropertyDomainRoleId = new global::System.Guid(0x3e7431e5, 0x4162, 0x4570, 0x93, 0xa0, 0x20, 0x71, 0x7a, 0x48, 0x8f, 0xd9);
+		
+		/// <summary>
+		/// DomainRole PrimitiveProperty
+		/// Description for Columbia.Dsl.EntityHasPrimitiveProperties.PrimitiveProperty
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityHasPrimitiveProperties/PrimitiveProperty.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityHasPrimitiveProperties/PrimitiveProperty.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Entity", PropertyDisplayNameKey="Columbia.Dsl.EntityHasPrimitiveProperties/PrimitiveProperty.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("3e7431e5-4162-4570-93a0-20717a488fd9")]
+		public virtual PrimitiveProperty PrimitiveProperty
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (PrimitiveProperty)DslModeling::DomainRoleInfo.GetRolePlayer(this, PrimitivePropertyDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, PrimitivePropertyDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access PrimitiveProperties of a Entity
+		/// <summary>
+		/// Gets a list of PrimitiveProperties.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<PrimitiveProperty> GetPrimitiveProperties(Entity element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<PrimitiveProperty>, PrimitiveProperty>(element, EntityDomainRoleId);
+		}
+		#endregion
+		#region Entity link accessor
+		/// <summary>
+		/// Get the list of EntityHasPrimitiveProperties links to a Entity.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityHasPrimitiveProperties> GetLinksToPrimitiveProperties ( global::Columbia.Dsl.Entity entityInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasPrimitiveProperties>(entityInstance, global::Columbia.Dsl.EntityHasPrimitiveProperties.EntityDomainRoleId);
+		}
+		#endregion
+		#region PrimitiveProperty link accessor
+		/// <summary>
+		/// Get the EntityHasPrimitiveProperties link to a PrimitiveProperty.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Columbia.Dsl.EntityHasPrimitiveProperties GetLinkToEntity (global::Columbia.Dsl.PrimitiveProperty primitivePropertyInstance)
+		{
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityHasPrimitiveProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasPrimitiveProperties>(primitivePropertyInstance, global::Columbia.Dsl.EntityHasPrimitiveProperties.PrimitivePropertyDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of PrimitiveProperty not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region EntityHasPrimitiveProperties instance accessors
+		
+		/// <summary>
+		/// Get any EntityHasPrimitiveProperties links between a given Entity and a PrimitiveProperty.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityHasPrimitiveProperties> GetLinks( global::Columbia.Dsl.Entity source, global::Columbia.Dsl.PrimitiveProperty target )
+		{
+			global::System.Collections.Generic.List<global::Columbia.Dsl.EntityHasPrimitiveProperties> outLinks = new global::System.Collections.Generic.List<global::Columbia.Dsl.EntityHasPrimitiveProperties>();
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityHasPrimitiveProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasPrimitiveProperties>(source, global::Columbia.Dsl.EntityHasPrimitiveProperties.EntityDomainRoleId);
+			foreach ( global::Columbia.Dsl.EntityHasPrimitiveProperties link in links )
+			{
+				if ( target.Equals(link.PrimitiveProperty) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one EntityHasPrimitiveProperties link between a given Entityand a PrimitiveProperty.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Columbia.Dsl.EntityHasPrimitiveProperties GetLink( global::Columbia.Dsl.Entity source, global::Columbia.Dsl.PrimitiveProperty target )
+		{
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityHasPrimitiveProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasPrimitiveProperties>(source, global::Columbia.Dsl.EntityHasPrimitiveProperties.EntityDomainRoleId);
+			foreach ( global::Columbia.Dsl.EntityHasPrimitiveProperties link in links )
+			{
+				if ( target.Equals(link.PrimitiveProperty) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Columbia.Dsl
+{
+	/// <summary>
+	/// DomainRelationship EntityHasEntityProperties
+	/// Entity Has Entity Properties
+	/// </summary>
+	[DslDesign::DisplayNameResource("Columbia.Dsl.EntityHasEntityProperties.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Columbia.Dsl.EntityHasEntityProperties.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("c4ff5d7a-8e5e-4e5c-9eba-74c7bd76d287")]
+	public partial class EntityHasEntityProperties : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// EntityHasEntityProperties domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xc4ff5d7a, 0x8e5e, 0x4e5c, 0x9e, 0xba, 0x74, 0xc7, 0xbd, 0x76, 0xd2, 0x87);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a EntityHasEntityProperties link in the same Partition as the given Entity
+		/// </summary>
+		/// <param name="source">Entity to use as the source of the relationship.</param>
+		/// <param name="target">EntityProperty to use as the target of the relationship.</param>
+		public EntityHasEntityProperties(Entity source, EntityProperty target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(EntityHasEntityProperties.EntityDomainRoleId, source), new DslModeling::RoleAssignment(EntityHasEntityProperties.EntityPropertyDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public EntityHasEntityProperties(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public EntityHasEntityProperties(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public EntityHasEntityProperties(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public EntityHasEntityProperties(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Entity domain role code
+		
+		/// <summary>
+		/// Entity domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityDomainRoleId = new global::System.Guid(0xde3e1065, 0x6419, 0x43ec, 0x86, 0x10, 0x0c, 0x9c, 0x3a, 0x19, 0x00, 0x3b);
+		
+		/// <summary>
+		/// DomainRole Entity
+		/// Description for Columbia.Dsl.EntityHasEntityProperties.Entity
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityHasEntityProperties/Entity.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityHasEntityProperties/Entity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "EntityProperties", PropertyDisplayNameKey="Columbia.Dsl.EntityHasEntityProperties/Entity.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("de3e1065-6419-43ec-8610-0c9c3a19003b")]
+		public virtual Entity Entity
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Entity)DslModeling::DomainRoleInfo.GetRolePlayer(this, EntityDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EntityDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Entity of a EntityProperty
+		/// <summary>
+		/// Gets Entity.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Entity GetEntity(EntityProperty element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, EntityPropertyDomainRoleId) as Entity;
+		}
+		
+		/// <summary>
+		/// Sets Entity.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetEntity(EntityProperty element, Entity newEntity)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, EntityPropertyDomainRoleId, newEntity);
+		}
+		#endregion
+		#region EntityProperty domain role code
+		
+		/// <summary>
+		/// EntityProperty domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityPropertyDomainRoleId = new global::System.Guid(0x3c11cddc, 0xb890, 0x43da, 0xb2, 0xe8, 0x03, 0x45, 0x09, 0xdd, 0xd7, 0x39);
+		
+		/// <summary>
+		/// DomainRole EntityProperty
+		/// Description for Columbia.Dsl.EntityHasEntityProperties.EntityProperty
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityHasEntityProperties/EntityProperty.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityHasEntityProperties/EntityProperty.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Entity", PropertyDisplayNameKey="Columbia.Dsl.EntityHasEntityProperties/EntityProperty.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("3c11cddc-b890-43da-b2e8-034509ddd739")]
+		public virtual EntityProperty EntityProperty
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (EntityProperty)DslModeling::DomainRoleInfo.GetRolePlayer(this, EntityPropertyDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, EntityPropertyDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access EntityProperties of a Entity
+		/// <summary>
+		/// Gets a list of EntityProperties.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<EntityProperty> GetEntityProperties(Entity element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<EntityProperty>, EntityProperty>(element, EntityDomainRoleId);
+		}
+		#endregion
+		#region Entity link accessor
+		/// <summary>
+		/// Get the list of EntityHasEntityProperties links to a Entity.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityHasEntityProperties> GetLinksToEntityProperties ( global::Columbia.Dsl.Entity entityInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasEntityProperties>(entityInstance, global::Columbia.Dsl.EntityHasEntityProperties.EntityDomainRoleId);
+		}
+		#endregion
+		#region EntityProperty link accessor
+		/// <summary>
+		/// Get the EntityHasEntityProperties link to a EntityProperty.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Columbia.Dsl.EntityHasEntityProperties GetLinkToEntity (global::Columbia.Dsl.EntityProperty entityPropertyInstance)
+		{
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityHasEntityProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasEntityProperties>(entityPropertyInstance, global::Columbia.Dsl.EntityHasEntityProperties.EntityPropertyDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of EntityProperty not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region EntityHasEntityProperties instance accessors
+		
+		/// <summary>
+		/// Get any EntityHasEntityProperties links between a given Entity and a EntityProperty.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Columbia.Dsl.EntityHasEntityProperties> GetLinks( global::Columbia.Dsl.Entity source, global::Columbia.Dsl.EntityProperty target )
+		{
+			global::System.Collections.Generic.List<global::Columbia.Dsl.EntityHasEntityProperties> outLinks = new global::System.Collections.Generic.List<global::Columbia.Dsl.EntityHasEntityProperties>();
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityHasEntityProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasEntityProperties>(source, global::Columbia.Dsl.EntityHasEntityProperties.EntityDomainRoleId);
+			foreach ( global::Columbia.Dsl.EntityHasEntityProperties link in links )
+			{
+				if ( target.Equals(link.EntityProperty) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one EntityHasEntityProperties link between a given Entityand a EntityProperty.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Columbia.Dsl.EntityHasEntityProperties GetLink( global::Columbia.Dsl.Entity source, global::Columbia.Dsl.EntityProperty target )
+		{
+			global::System.Collections.Generic.IList<global::Columbia.Dsl.EntityHasEntityProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Columbia.Dsl.EntityHasEntityProperties>(source, global::Columbia.Dsl.EntityHasEntityProperties.EntityDomainRoleId);
+			foreach ( global::Columbia.Dsl.EntityHasEntityProperties link in links )
+			{
+				if ( target.Equals(link.EntityProperty) )
 				{
 					return link;
 				}

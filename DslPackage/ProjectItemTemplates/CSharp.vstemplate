@@ -4,14 +4,18 @@
 		<TemplateID>{2f3e085d-70eb-44c2-8182-01cca794f18d}</TemplateID>
 		<Name Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="103"/>
 		<Description Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="102"/>
-		<Icon Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="201" />
+		<Icon Package="{3d6ef314-de50-4ddf-86a3-e67d43a67e64}" ID="105" />
 		<ProjectType>CSharp</ProjectType>
 		<SortOrder>360</SortOrder>
-		<DefaultName>Columbia.cdm</DefaultName>
+		<DefaultName>DomainModel.cdm</DefaultName>
 	</TemplateData>
 	<TemplateContent>
-		<ProjectItem TargetFileName="$fileinputname$.cdm">cdm.cdm</ProjectItem>
-		<ProjectItem TargetFileName="$fileinputname$.cdm.diagram">cdm.diagram</ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.cdm">cdm.cdm</ProjectItem>
+		<ProjectItem ReplaceParameters="true" TargetFileName="$fileinputname$.cdm.diagram">cdm.diagram</ProjectItem>
 	</TemplateContent>
+	<WizardExtension>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<FullClassName>Columbia.Wizard.ItemWizard</FullClassName>
+	</WizardExtension>
 </VSTemplate>
 

@@ -15,7 +15,7 @@
       <Parent guid="guidCmdSet" id="menuidContext" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>Columbia Designer Context Menu</CanonicalName>
+        <CanonicalName>Columbia Domain Model Designer Context Menu</CanonicalName>
         <ButtonText>Columbia Context</ButtonText>
       </Strings>
     </Menu>
@@ -23,7 +23,7 @@
       <Parent guid="guidCmdSet" id="menuidExplorer" />
       <CommandFlag>AlwaysCreate</CommandFlag>
       <Strings>
-        <CanonicalName>Columbia Explorer Context Menu</CanonicalName>
+        <CanonicalName>Columbia Domain Model Explorer Context Menu</CanonicalName>
         <ButtonText>Columbia Explorer</ButtonText>
       </Strings>
     </Menu>

@@ -48,9 +48,9 @@ namespace Columbia.Dsl
 		/// </remarks>
 		public const string ToolboxFilterString = "Columbia.1.0";
 		/// <summary>
-		/// Toolbox item filter string used to identify ExampleRelationship connector tool.
+		/// Toolbox item filter string used to identify EntityRelationship connector tool.
 		/// </summary>
-		public const string ExampleRelationshipFilterString = "ExampleRelationship.1.0";
+		public const string EntityRelationshipFilterString = "EntityRelationship.1.0";
 
 	
 		private global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem> toolboxItemCache = new global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem>();
@@ -147,38 +147,38 @@ namespace Columbia.Dsl
 			global::System.Globalization.CultureInfo resourceCulture = global::System.Globalization.CultureInfo.CurrentUICulture;
 			switch(itemId)
 			{
-				case "Columbia.Dsl.ExampleElementToolboxItem":
-					// Add ExampleElement shape tool.
+				case "Columbia.Dsl.EntityToolboxItem":
+					// Add Entity shape tool.
 					result = new DslDesign::ModelingToolboxItem(
-						"Columbia.Dsl.ExampleElementToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						"Columbia.Dsl.EntityToolboxItem", // Unique identifier (non-localized) for the toolbox item.
 						1, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("ExampleElementToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ExampleElementToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
+						resourceManager.GetString("EntityToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("EntityToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
 						"Columbia.Dsl.ColumbiaToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
 						resourceManager.GetString("ColumbiaToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
-						"CreateExampleClassF1Keyword", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("ExampleElementToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
-						CreateElementToolPrototype(store, global::Columbia.Dsl.ExampleElement.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
+						"CreateEntityF1Keyword", // F1 help keyword for the toolbox item.
+						resourceManager.GetString("EntityToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						CreateElementToolPrototype(store, global::Columbia.Dsl.Entity.DomainClassId), // ElementGroupPrototype (data object) representing model element on the toolbox.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
 						});
 					break;
-				case "Columbia.Dsl.ExampleRelationshipToolboxItem":
+				case "Columbia.Dsl.EntityRelationshipToolboxItem":
 
-					// Add ExampleRelationship connector tool.
+					// Add EntityRelationship connector tool.
 					result = new DslDesign::ModelingToolboxItem(
-						"Columbia.Dsl.ExampleRelationshipToolboxItem", // Unique identifier (non-localized) for the toolbox item.
+						"Columbia.Dsl.EntityRelationshipToolboxItem", // Unique identifier (non-localized) for the toolbox item.
 						2, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("ExampleRelationshipToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("ExampleRelationshipToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
+						resourceManager.GetString("EntityRelationshipToolboxItem", resourceCulture), // Localized display name for the item.
+						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("EntityRelationshipToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
 						"Columbia.Dsl.ColumbiaToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
 						resourceManager.GetString("ColumbiaToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
 						"ConnectExampleRelationF1Keyword", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("ExampleRelationshipToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
+						resourceManager.GetString("EntityRelationshipToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
 						null, // Connector toolbox items do not have an underlying data object.
 						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
 							new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require), 
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(ExampleRelationshipFilterString)
+							new global::System.ComponentModel.ToolboxItemFilterAttribute(EntityRelationshipFilterString)
 						});
 					break;
 				default:

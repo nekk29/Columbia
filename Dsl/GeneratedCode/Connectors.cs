@@ -14,16 +14,15 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace Columbia.Dsl
 {
 	/// <summary>
-	/// DomainClass ExampleConnector
-	/// Connector between the ExampleShapes. Represents ExampleRelationships on the
-	/// Diagram.
+	/// DomainClass EntityConnector
+	/// Relation connector between entities.
 	/// </summary>
-	[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleConnector.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Columbia.Dsl.ExampleConnector.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Columbia.Dsl.EntityConnector.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Columbia.Dsl.EntityConnector.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("46d2a4d6-5571-49e5-a49c-5e60f976f496")]
-	public partial class ExampleConnector : DslDiagrams::BinaryLinkShape
+	public partial class EntityConnector : DslDiagrams::BinaryLinkShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -88,9 +87,9 @@ namespace Columbia.Dsl
 		}
 		
 		/// <summary>
-		/// Finds a decorator associated with ExampleConnector.
+		/// Finds a decorator associated with EntityConnector.
 		/// </summary>
-		public static DslDiagrams::Decorator FindExampleConnectorDecorator(string decoratorName)
+		public static DslDiagrams::Decorator FindEntityConnectorDecorator(string decoratorName)
 		{	
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
@@ -109,12 +108,12 @@ namespace Columbia.Dsl
 			
 			// Line pen settings for this connector.
 			DslDiagrams::PenSettings linePen = new DslDiagrams::PenSettings();
-			linePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
+			linePen.Color = global::System.Drawing.Color.FromArgb(255, 112, 173, 71);
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ConnectionLineDecorator, linePen);
-			linePen.Width = 0.01f;
+			linePen.Width = 0.015f;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ConnectionLine, linePen);
 			DslDiagrams::BrushSettings lineBrush = new DslDiagrams::BrushSettings();
-			lineBrush.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
+			lineBrush.Color = global::System.Drawing.Color.FromArgb(255, 112, 173, 71);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ConnectionLineDecorator, lineBrush);
 			
 		}
@@ -133,7 +132,7 @@ namespace Columbia.Dsl
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// ExampleConnector domain class Id.
+		/// EntityConnector domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x46d2a4d6, 0x5571, 0x49e5, 0xa4, 0x9c, 0x5e, 0x60, 0xf9, 0x76, 0xf4, 0x96);
 		/// <summary>
@@ -141,7 +140,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ExampleConnector(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public EntityConnector(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -151,7 +150,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ExampleConnector(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public EntityConnector(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}

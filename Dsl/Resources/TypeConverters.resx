@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,20 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="101" xml:space="preserve">
-    <value>Columbia</value>
+  <data name="PrimitiveType_Boolean" xml:space="preserve">
+    <value>System.Boolean</value>
   </data>
-  <data name="102" xml:space="preserve">
-    <value>Adds a Columbia Domain Model file to the project.</value>
+  <data name="PrimitiveType_Byte" xml:space="preserve">
+    <value>System.Byte</value>
   </data>
-  <data name="103" xml:space="preserve">
-    <value>Columbia Domain Model</value>
+  <data name="PrimitiveType_Char" xml:space="preserve">
+    <value>System.Char</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="104" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\ModelExplorerToolWindowBitmaps.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PrimitiveType_DateTime" xml:space="preserve">
+    <value>System.DateTime</value>
   </data>
-  <data name="105" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\File.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PrimitiveType_Decimal" xml:space="preserve">
+    <value>System.Decimal</value>
+  </data>
+  <data name="PrimitiveType_Double" xml:space="preserve">
+    <value>System.Double</value>
+  </data>
+  <data name="PrimitiveType_Guid" xml:space="preserve">
+    <value>System.Guid</value>
+  </data>
+  <data name="PrimitiveType_Int16" xml:space="preserve">
+    <value>System.Int16</value>
+  </data>
+  <data name="PrimitiveType_Int32" xml:space="preserve">
+    <value>System.Int32</value>
+  </data>
+  <data name="PrimitiveType_Int64" xml:space="preserve">
+    <value>System.Int64</value>
+  </data>
+  <data name="PrimitiveType_SByte" xml:space="preserve">
+    <value>System.SByte</value>
+  </data>
+  <data name="PrimitiveType_Single" xml:space="preserve">
+    <value>System.Single</value>
+  </data>
+  <data name="PrimitiveType_String" xml:space="preserve">
+    <value>System.String</value>
+  </data>
+  <data name="PrimitiveType_UInt16" xml:space="preserve">
+    <value>System.UInt16</value>
+  </data>
+  <data name="PrimitiveType_UInt32" xml:space="preserve">
+    <value>System.UInt32</value>
+  </data>
+  <data name="PrimitiveType_UInt64" xml:space="preserve">
+    <value>System.UInt64</value>
   </data>
 </root>

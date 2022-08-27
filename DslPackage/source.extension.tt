@@ -24,7 +24,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="<#= this.Dsl.PackageGuid #>" Version="<#= this.Dsl.MajorVersion #>.<#= this.Dsl.MinorVersion #>.<#= this.Dsl.Build #>.<#= this.Dsl.Revision #>" Language="<#= language #>" Publisher="<#= string.IsNullOrEmpty(this.Dsl.CompanyName) ? "Anon" : this.Dsl.CompanyName #>" />
-    <DisplayName><#= this.Dsl.DisplayName #></DisplayName>
+    <DisplayName><#= this.Dsl.Name #></DisplayName>
     <Description xml:space="preserve"><#= this.Dsl.Description #></Description>
     <MoreInfo>https://github.com/nekk29/Columbia</MoreInfo>
     <Icon>Columbia.png</Icon>

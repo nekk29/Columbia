@@ -17,7 +17,8 @@ namespace Columbia.Dsl
 {
 	/// <summary>
 	/// DomainClass ColumbiaDiagram
-	/// Description for Columbia.Dsl.ColumbiaDiagram
+	/// Columbia domain model that allows you to generate code for Columbia Framework
+	/// Template
 	/// </summary>
 	[DslDesign::DisplayNameResource("Columbia.Dsl.ColumbiaDiagram.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 	[DslDesign::DescriptionResource("Columbia.Dsl.ColumbiaDiagram.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
@@ -74,6 +75,22 @@ namespace Columbia.Dsl
 			}
 		}
 		#endregion
+		#region Diagram styles
+		/// <summary>
+		/// Initializes style set resources for this shape type
+		/// </summary>
+		/// <param name="classStyleSet">The style set for this shape class</param>
+		protected override void InitializeResources(DslDiagrams::StyleSet classStyleSet)
+		{
+			base.InitializeResources(classStyleSet);
+			
+			// Fill brush settings for this shape.
+			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
+			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 179, 206, 235);
+			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.DiagramBackground, backgroundBrush);
+		
+		}
+		#endregion
 		#region Auto-placement
 		/// <summary>
 		/// Indicate that child shapes should added through view fixup should be placed automatically.
@@ -85,6 +102,88 @@ namespace Columbia.Dsl
 				return true;
 			}
 		}
+		#endregion
+		#region Compartment support
+		/// <summary>
+		/// Whether compartment items change events are subscribed to.
+		/// </summary>
+		private bool subscribedCompartmentItemsEvents;
+		
+		/// <summary>
+		/// Subscribe to events fired when compartment items changes.
+		/// </summary>
+		public void SubscribeCompartmentItemsEvents()
+		{
+			if (!subscribedCompartmentItemsEvents && this.Store != null)
+			{
+				subscribedCompartmentItemsEvents = true;
+				this.Store.EventManagerDirectory.ElementAdded.Add(new global::System.EventHandler<DslModeling::ElementAddedEventArgs>(this.CompartmentItemAdded));
+				this.Store.EventManagerDirectory.ElementDeleted.Add(new global::System.EventHandler<DslModeling::ElementDeletedEventArgs>(this.CompartmentItemDeleted));
+				this.Store.EventManagerDirectory.ElementPropertyChanged.Add(new global::System.EventHandler<DslModeling::ElementPropertyChangedEventArgs>(this.CompartmentItemPropertyChanged));
+				this.Store.EventManagerDirectory.RolePlayerChanged.Add(new global::System.EventHandler<DslModeling::RolePlayerChangedEventArgs>(this.CompartmentItemRolePlayerChanged));
+				this.Store.EventManagerDirectory.RolePlayerOrderChanged.Add(new global::System.EventHandler<DslModeling::RolePlayerOrderChangedEventArgs>(this.CompartmentItemRolePlayerOrderChanged));
+			}
+		}
+		
+		/// <summary>
+		/// Unsubscribe to events fired when compartment items changes.
+		/// </summary>
+		public void UnsubscribeCompartmentItemsEvents()
+		{
+			if (subscribedCompartmentItemsEvents)
+			{
+				this.Store.EventManagerDirectory.ElementAdded.Remove(new global::System.EventHandler<DslModeling::ElementAddedEventArgs>(this.CompartmentItemAdded));
+				this.Store.EventManagerDirectory.ElementDeleted.Remove(new global::System.EventHandler<DslModeling::ElementDeletedEventArgs>(this.CompartmentItemDeleted));
+				this.Store.EventManagerDirectory.ElementPropertyChanged.Remove(new global::System.EventHandler<DslModeling::ElementPropertyChangedEventArgs>(this.CompartmentItemPropertyChanged));
+				this.Store.EventManagerDirectory.RolePlayerChanged.Remove(new global::System.EventHandler<DslModeling::RolePlayerChangedEventArgs>(this.CompartmentItemRolePlayerChanged));
+				this.Store.EventManagerDirectory.RolePlayerOrderChanged.Remove(new global::System.EventHandler<DslModeling::RolePlayerOrderChangedEventArgs>(this.CompartmentItemRolePlayerOrderChanged));
+				subscribedCompartmentItemsEvents = false;
+			}
+		}
+		
+		#region Event handlers
+		/// <summary>
+		/// Event for element added.
+		/// </summary>
+		private void CompartmentItemAdded(object sender, DslModeling::ElementAddedEventArgs e)
+		{
+			// If in Undo, Redo or Rollback the compartment item rules are not run so we must refresh the compartment list at this point if required
+			bool repaintOnly = !e.ModelElement.Store.InUndoRedoOrRollback;
+			CompartmentItemAddRule.ElementAdded(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for element deleted.
+		/// </summary>
+		private void CompartmentItemDeleted(object sender, DslModeling::ElementDeletedEventArgs e)
+		{
+			bool repaintOnly = !e.ModelElement.Store.InUndoRedoOrRollback;
+			CompartmentItemDeleteRule.ElementDeleted(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for element property changed.
+		/// </summary>
+		private void CompartmentItemPropertyChanged(object sender, DslModeling::ElementPropertyChangedEventArgs e)
+		{
+			bool repaintOnly = !e.ModelElement.Store.InUndoRedoOrRollback;
+			CompartmentItemChangeRule.ElementPropertyChanged(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for role-player changed.
+		/// </summary>
+		private void CompartmentItemRolePlayerChanged(object sender, DslModeling::RolePlayerChangedEventArgs e)
+		{
+			bool repaintOnly = !e.ElementLink.Store.InUndoRedoOrRollback;
+			CompartmentItemRolePlayerChangeRule.RolePlayerChanged(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for role-player order changed.
+		/// </summary>
+		private void CompartmentItemRolePlayerOrderChanged(object sender, DslModeling::RolePlayerOrderChangedEventArgs e)
+		{
+			bool repaintOnly = !e.Link.Store.InUndoRedoOrRollback;
+			CompartmentItemRolePlayerPositionChangeRule.RolePlayerPositionChanged(e, repaintOnly);
+		}
+		#endregion
 		#endregion
 		#region Shape mapping
 		/// <summary>
@@ -191,15 +290,15 @@ namespace Columbia.Dsl
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]
 		protected override DslDiagrams::ShapeElement CreateChildShape(DslModeling::ModelElement element)
 		{
-			if(element is global::Columbia.Dsl.ExampleElement)
+			if(element is global::Columbia.Dsl.Entity)
 			{
-				global::Columbia.Dsl.ExampleShape newShape = new global::Columbia.Dsl.ExampleShape(this.Partition);
+				global::Columbia.Dsl.EntityShape newShape = new global::Columbia.Dsl.EntityShape(this.Partition);
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
-			if(element is global::Columbia.Dsl.ExampleElementReferencesTargets)
+			if(element is global::Columbia.Dsl.EntityReferencesTargetEntities)
 			{
-				global::Columbia.Dsl.ExampleConnector newShape = new global::Columbia.Dsl.ExampleConnector(this.Partition);
+				global::Columbia.Dsl.EntityConnector newShape = new global::Columbia.Dsl.EntityConnector(this.Partition);
 				return newShape;
 			}
 			return base.CreateChildShape(element);
@@ -213,24 +312,24 @@ namespace Columbia.Dsl
 		protected override void InitializeShapeFields(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields)
 		{
 			base.InitializeShapeFields(shapeFields);
-			global::Columbia.Dsl.ExampleShape.DecoratorsInitialized += ExampleShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Columbia.Dsl.EntityShape.DecoratorsInitialized += EntityShapeDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
-		/// Class containing decorator path traversal methods for ExampleShape.
+		/// Class containing decorator path traversal methods for EntityShape.
 		/// </summary>
-		internal static partial class ExampleShapeDecoratorMap
+		internal static partial class EntityShapeDecoratorMap
 		{
 			/// <summary>
-			/// Event handler called when decorator initialization is complete for ExampleShape.  Adds decorator mappings for this shape or connector.
+			/// Event handler called when decorator initialization is complete for EntityShape.  Adds decorator mappings for this shape or connector.
 			/// </summary>
 			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
 			{
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Columbia.Dsl.ExampleElement.NameDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Columbia.Dsl.Entity.NameDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Name").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -238,7 +337,7 @@ namespace Columbia.Dsl
 		
 		#region Connect actions
 		private bool changingMouseAction;
-		private global::Columbia.Dsl.ExampleRelationshipConnectAction exampleRelationshipConnectAction;
+		private global::Columbia.Dsl.EntityRelationshipConnectAction entityRelationshipConnectAction;
 		/// <summary>
 		/// Virtual method to provide a filter when to select the mouse action
 		/// </summary>
@@ -261,14 +360,14 @@ namespace Columbia.Dsl
 			if(activeView != null)
 			{
 				DslDiagrams::MouseAction action = null;
-				if (SelectedToolboxItemSupportsFilterString(activeView, global::Columbia.Dsl.ColumbiaToolboxHelper.ExampleRelationshipFilterString))
+				if (SelectedToolboxItemSupportsFilterString(activeView, global::Columbia.Dsl.ColumbiaToolboxHelper.EntityRelationshipFilterString))
 				{
-					if (this.exampleRelationshipConnectAction == null)
+					if (this.entityRelationshipConnectAction == null)
 					{
-						this.exampleRelationshipConnectAction = new global::Columbia.Dsl.ExampleRelationshipConnectAction(this);
-						this.exampleRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
+						this.entityRelationshipConnectAction = new global::Columbia.Dsl.EntityRelationshipConnectAction(this);
+						this.entityRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
 					}
-					action = this.exampleRelationshipConnectAction;
+					action = this.entityRelationshipConnectAction;
 				} 
 				else
 				{
@@ -327,11 +426,12 @@ namespace Columbia.Dsl
 			{
 				if(disposing)
 				{
-					if(this.exampleRelationshipConnectAction != null)
+					if(this.entityRelationshipConnectAction != null)
 					{
-						this.exampleRelationshipConnectAction.Dispose();
-						this.exampleRelationshipConnectAction = null;
+						this.entityRelationshipConnectAction.Dispose();
+						this.entityRelationshipConnectAction = null;
 					}
+					this.UnsubscribeCompartmentItemsEvents();
 				}
 			}
 			finally
@@ -385,8 +485,8 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Rule that initiates view fixup when an element that has an associated shape is added to the model. 
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.ExampleElement), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
-		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.ExampleElementReferencesTargets), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.Entity), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityReferencesTargetEntities), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
 			[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
@@ -402,9 +502,9 @@ namespace Columbia.Dsl
 				{
 					parentElement = GetParentForRelationship((DslModeling::ElementLink)childElement);
 				} else
-				if(childElement is global::Columbia.Dsl.ExampleElement)
+				if(childElement is global::Columbia.Dsl.Entity)
 				{
-					parentElement = GetParentForExampleElement((global::Columbia.Dsl.ExampleElement)childElement);
+					parentElement = GetParentForEntity((global::Columbia.Dsl.Entity)childElement);
 				} else
 				{
 					parentElement = null;
@@ -415,10 +515,10 @@ namespace Columbia.Dsl
 					DslDiagrams::Diagram.FixUpDiagram(parentElement, childElement);
 				}
 			}
-			public static global::Columbia.Dsl.ExampleModel GetParentForExampleElement( global::Columbia.Dsl.ExampleElement root )
+			public static global::Columbia.Dsl.DomainModel GetParentForEntity( global::Columbia.Dsl.Entity root )
 			{
 				// Segments 0 and 1
-				global::Columbia.Dsl.ExampleModel result = root.ExampleModel;
+				global::Columbia.Dsl.DomainModel result = root.DomainModel;
 				if ( result == null ) return null;
 				return result;
 			}
@@ -507,11 +607,292 @@ namespace Columbia.Dsl
 			}
 		}
 		
+		/// <summary>
+		/// Rule to update compartments when an item is added to the list
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasPrimitiveProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasEntityProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemAddRule : DslModeling::AddRule
+		{
+			/// <summary>
+			/// Called when an element is added. 
+			/// </summary>
+			/// <param name="e"></param>
+			public override void ElementAdded(DslModeling::ElementAddedEventArgs e)
+			{
+				ElementAdded(e, false);
+			}
+	
+			internal static void ElementAdded(DslModeling::ElementAddedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if (e.ModelElement.IsDeleted)
+					return;
+				if(e.ModelElement is global::Columbia.Dsl.EntityHasPrimitiveProperties)
+				{
+					global::System.Collections.IEnumerable elements = GetEntityForEntityShapePropertiesFromLastLink((global::Columbia.Dsl.EntityHasPrimitiveProperties)e.ModelElement);
+					UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Properties", repaintOnly);
+				}
+				if(e.ModelElement is global::Columbia.Dsl.EntityHasEntityProperties)
+				{
+					global::System.Collections.IEnumerable elements = GetEntityForEntityShapeRelationsFromLastLink((global::Columbia.Dsl.EntityHasEntityProperties)e.ModelElement);
+					UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Relations", repaintOnly);
+				}
+			}
+			
+			#region static DomainPath traversal methods to get the list of compartments to update
+			internal static global::System.Collections.ICollection GetEntityForEntityShapePropertiesFromLastLink(global::Columbia.Dsl.EntityHasPrimitiveProperties root)
+			{
+				// Segment 0
+				global::Columbia.Dsl.Entity result = root.Entity;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			internal static global::System.Collections.ICollection GetEntityForEntityShapeProperties(global::Columbia.Dsl.PrimitiveProperty root)
+			{
+				// Segments 1 and 0
+				global::Columbia.Dsl.Entity result = root.Entity;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			internal static global::System.Collections.ICollection GetEntityForEntityShapeRelationsFromLastLink(global::Columbia.Dsl.EntityHasEntityProperties root)
+			{
+				// Segment 0
+				global::Columbia.Dsl.Entity result = root.Entity;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			internal static global::System.Collections.ICollection GetEntityForEntityShapeRelations(global::Columbia.Dsl.EntityProperty root)
+			{
+				// Segments 1 and 0
+				global::Columbia.Dsl.Entity result = root.Entity;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			#endregion
+	
+			#region helper method to update compartments 
+			/// <summary>
+			/// Updates the compartments for the shapes associated to the given list of model elements
+			/// </summary>
+			/// <param name="elements">List of model elements</param>
+			/// <param name="shapeType">The type of shape that needs updating</param>
+			/// <param name="compartmentName">The name of the compartment to update</param>
+			/// <param name="repaintOnly">If true, the method will only invalidate the shape for a repaint, without re-initializing the shape.</param>
+			internal static void UpdateCompartments(global::System.Collections.IEnumerable elements, global::System.Type shapeType, string compartmentName, bool repaintOnly)
+			{
+				foreach (DslModeling::ModelElement element in elements)
+				{
+					DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
+					foreach (DslDiagrams::PresentationElement pel in pels)
+					{
+						DslDiagrams::CompartmentShape compartmentShape = pel as DslDiagrams::CompartmentShape;
+						if (compartmentShape != null && shapeType.IsAssignableFrom(compartmentShape.GetType()))
+						{
+							if (repaintOnly)
+							{
+								compartmentShape.Invalidate();
+							}
+							else
+							{
+								foreach(DslDiagrams::CompartmentMapping mapping in compartmentShape.GetCompartmentMappings())
+								{
+									if(mapping.CompartmentId==compartmentName)
+									{
+										mapping.InitializeCompartmentShape(compartmentShape);
+										break;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			#endregion
+		}
+		
+		/// <summary>
+		/// Rule to update compartments when an items is removed from the list
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasPrimitiveProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasEntityProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemDeleteRule : DslModeling::DeleteRule
+		{
+			/// <summary>
+			/// Called when an element is deleted
+			/// </summary>
+			/// <param name="e"></param>
+			public override void ElementDeleted(DslModeling::ElementDeletedEventArgs e)
+			{
+				ElementDeleted(e, false);
+			}
+			
+			internal static void ElementDeleted(DslModeling::ElementDeletedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(e.ModelElement is global::Columbia.Dsl.EntityHasPrimitiveProperties)
+				{
+					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetEntityForEntityShapePropertiesFromLastLink((global::Columbia.Dsl.EntityHasPrimitiveProperties)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Properties", repaintOnly);
+				}
+				if(e.ModelElement is global::Columbia.Dsl.EntityHasEntityProperties)
+				{
+					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetEntityForEntityShapeRelationsFromLastLink((global::Columbia.Dsl.EntityHasEntityProperties)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Relations", repaintOnly);
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Rule to update compartments when the property on an item being displayed changes.
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.PrimitiveProperty), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityProperty), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemChangeRule : DslModeling::ChangeRule 
+		{
+			/// <summary>
+			/// Called when an element is changed
+			/// </summary>
+			/// <param name="e"></param>
+			public override void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e)
+			{
+				ElementPropertyChanged(e, false);
+			}
+			
+			internal static void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(e.ModelElement is global::Columbia.Dsl.PrimitiveProperty && e.DomainProperty.Id == global::Columbia.Dsl.PrimitiveProperty.NameDomainPropertyId)
+				{
+					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeProperties((global::Columbia.Dsl.PrimitiveProperty)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Properties", repaintOnly);
+				}
+				if(e.ModelElement is global::Columbia.Dsl.EntityProperty && e.DomainProperty.Id == global::Columbia.Dsl.EntityProperty.NameDomainPropertyId)
+				{
+					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeRelations((global::Columbia.Dsl.EntityProperty)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Relations", repaintOnly);
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Rule to update compartments when a roleplayer change happens
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasPrimitiveProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasEntityProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemRolePlayerChangeRule : DslModeling::RolePlayerChangeRule 
+		{
+			/// <summary>
+			/// Called when the roleplayer on a link changes.
+			/// </summary>
+			/// <param name="e"></param>
+			public override void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e)
+			{
+				RolePlayerChanged(e, false);
+			}
+			
+			internal static void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(typeof(global::Columbia.Dsl.EntityHasPrimitiveProperties).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(e.DomainRole.IsSource)
+					{
+						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetEntityForEntityShapePropertiesFromLastLink((global::Columbia.Dsl.PrimitiveProperty)e.OldRolePlayer);
+						//foreach(DslModeling::ModelElement element in oldElements)
+						//{
+						//	DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
+						//	foreach(DslDiagrams::PresentationElement pel in pels)
+						//	{
+						//		global::Columbia.Dsl.EntityShape compartmentShape = pel as global::Columbia.Dsl.EntityShape;
+						//		if(compartmentShape != null)
+						//		{
+						//			compartmentShape.GetCompartmentMappings()[0].InitializeCompartmentShape(compartmentShape);
+						//		}
+						//	}
+						//}
+						
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapePropertiesFromLastLink((global::Columbia.Dsl.EntityHasPrimitiveProperties)e.ElementLink);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Properties", repaintOnly);
+					}
+					else 
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeProperties((global::Columbia.Dsl.PrimitiveProperty)e.NewRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Properties", repaintOnly);
+					}
+				}
+				if(typeof(global::Columbia.Dsl.EntityHasEntityProperties).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(e.DomainRole.IsSource)
+					{
+						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetEntityForEntityShapeRelationsFromLastLink((global::Columbia.Dsl.EntityProperty)e.OldRolePlayer);
+						//foreach(DslModeling::ModelElement element in oldElements)
+						//{
+						//	DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
+						//	foreach(DslDiagrams::PresentationElement pel in pels)
+						//	{
+						//		global::Columbia.Dsl.EntityShape compartmentShape = pel as global::Columbia.Dsl.EntityShape;
+						//		if(compartmentShape != null)
+						//		{
+						//			compartmentShape.GetCompartmentMappings()[1].InitializeCompartmentShape(compartmentShape);
+						//		}
+						//	}
+						//}
+						
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeRelationsFromLastLink((global::Columbia.Dsl.EntityHasEntityProperties)e.ElementLink);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Relations", repaintOnly);
+					}
+					else 
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeRelations((global::Columbia.Dsl.EntityProperty)e.NewRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Relations", repaintOnly);
+					}
+				}
+			}
+		}
+	
+		/// <summary>
+		/// Rule to update compartments when the order of items in the list changes.
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasPrimitiveProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityHasEntityProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemRolePlayerPositionChangeRule : DslModeling::RolePlayerPositionChangeRule 
+		{
+			/// <summary>
+			/// Called when the order of a roleplayer in a relationship changes
+			/// </summary>
+			/// <param name="e"></param>
+			public override void RolePlayerPositionChanged(DslModeling::RolePlayerOrderChangedEventArgs e)
+			{
+				RolePlayerPositionChanged(e, false);
+			}
+			
+			internal static void RolePlayerPositionChanged(DslModeling::RolePlayerOrderChangedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(typeof(global::Columbia.Dsl.EntityHasPrimitiveProperties).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(!e.CounterpartDomainRole.IsSource)
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeProperties((global::Columbia.Dsl.PrimitiveProperty)e.CounterpartRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Properties", repaintOnly);
+					}
+				}
+				if(typeof(global::Columbia.Dsl.EntityHasEntityProperties).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(!e.CounterpartDomainRole.IsSource)
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetEntityForEntityShapeRelations((global::Columbia.Dsl.EntityProperty)e.CounterpartRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Columbia.Dsl.EntityShape), "Relations", repaintOnly);
+					}
+				}
+			}
+		}
 	
 		/// <summary>
 		/// Reroute a connector when the role players of its underlying relationship change
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.ExampleElementReferencesTargets), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Columbia.Dsl.EntityReferencesTargetEntities), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed class ConnectorRolePlayerChanged : DslModeling::RolePlayerChangeRule
 		{
 			/// <summary>

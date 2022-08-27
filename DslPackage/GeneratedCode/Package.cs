@@ -30,19 +30,19 @@ namespace Columbia.Dsl
 	[VSShell::ProvideToolWindowVisibility(typeof(ColumbiaExplorerToolWindow), Constants.ColumbiaEditorFactoryId)]
 	[VSShell::ProvideStaticToolboxGroup("@ColumbiaToolboxTab;Columbia.Dsl.dll", "Columbia.Dsl.ColumbiaToolboxTab")]
 	[VSShell::ProvideStaticToolboxItem("Columbia.Dsl.ColumbiaToolboxTab",
-					"@ExampleElementToolboxItem;Columbia.Dsl.dll", 
-					"Columbia.Dsl.ExampleElementToolboxItem", 
+					"@EntityToolboxItem;Columbia.Dsl.dll", 
+					"Columbia.Dsl.EntityToolboxItem", 
 					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"CreateExampleClassF1Keyword", 
-					"@ExampleElementToolboxBitmap;Columbia.Dsl.dll", 
+					"CreateEntityF1Keyword", 
+					"@EntityToolboxBitmap;Columbia.Dsl.dll", 
 					0xff00ff,
 					Index = 0)]
 	[VSShell::ProvideStaticToolboxItem("Columbia.Dsl.ColumbiaToolboxTab",
-					"@ExampleRelationshipToolboxItem;Columbia.Dsl.dll", 
-					"Columbia.Dsl.ExampleRelationshipToolboxItem", 
+					"@EntityRelationshipToolboxItem;Columbia.Dsl.dll", 
+					"Columbia.Dsl.EntityRelationshipToolboxItem", 
 					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
 					"ConnectExampleRelationF1Keyword", 
-					"@ExampleRelationshipToolboxBitmap;Columbia.Dsl.dll", 
+					"@EntityRelationshipToolboxBitmap;Columbia.Dsl.dll", 
 					0xff00ff,
 					Index = 1)]
 	[VSShell::ProvideEditorFactory(typeof(ColumbiaEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]

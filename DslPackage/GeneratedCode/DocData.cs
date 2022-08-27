@@ -305,7 +305,7 @@ namespace Columbia.Dsl
 		protected override void Load(string fileName, bool isReload)
 		{
 			DslModeling::SerializationResult serializationResult = new DslModeling::SerializationResult();
-			global::Columbia.Dsl.ExampleModel modelRoot = null;
+			global::Columbia.Dsl.DomainModel modelRoot = null;
 			DslModeling::ISchemaResolver schemaResolver = new DslShell::ModelingSchemaResolver(this.ServiceProvider);
 			//clear the current root element
 			this.SetRootElement(null);
@@ -366,6 +366,46 @@ namespace Columbia.Dsl
 			}
 		}
 
+		/// <summary>
+		/// Called after the document is opened.
+		/// </summary>
+		/// <param name="e">Event Args.</param>
+		protected override void OnDocumentLoaded(global::System.EventArgs e)
+		{
+			base.OnDocumentLoaded(e);
+			this.OnDocumentLoaded();
+		}
+
+		/// <summary>
+		/// Called after the document is reloaded.
+		/// </summary>
+		protected override void OnDocumentReloaded(global::System.EventArgs e)
+		{
+			base.OnDocumentReloaded(e);
+			this.OnDocumentLoaded();
+		}
+		
+		/// <summary>
+		/// Called on both document load and reload.
+		/// </summary>
+		protected virtual void OnDocumentLoaded()
+		{
+			// Enable CompartmentItems events.
+			global::Columbia.Dsl.DomainModel modelRoot = this.RootElement as global::Columbia.Dsl.DomainModel;
+			if (modelRoot != null)
+			{
+				global::System.Collections.Generic.IList<DslDiagrams::PresentationElement> diagrams = DslDiagrams::PresentationViewsSubject.GetPresentation(modelRoot);
+				if (diagrams.Count > 0)
+				{
+					global::Columbia.Dsl.ColumbiaDiagram diagram = diagrams[0] as global::Columbia.Dsl.ColumbiaDiagram;
+					if (diagram != null)
+					{
+						diagram.SubscribeCompartmentItemsEvents();
+					}
+				}
+			}
+		}
+
 
 			
 		/// <summary>
@@ -410,7 +450,7 @@ namespace Columbia.Dsl
 		protected override void Save(string fileName)
 		{
 			DslModeling::SerializationResult serializationResult = new DslModeling::SerializationResult();
-			global::Columbia.Dsl.ExampleModel modelRoot = (global::Columbia.Dsl.ExampleModel)this.RootElement;
+			global::Columbia.Dsl.DomainModel modelRoot = (global::Columbia.Dsl.DomainModel)this.RootElement;
 
 			
 			// Only save the diagrams if
@@ -556,7 +596,7 @@ namespace Columbia.Dsl
 		{
 			get
 			{
-				global::Columbia.Dsl.ExampleModel modelRoot = this.RootElement as global::Columbia.Dsl.ExampleModel;
+				global::Columbia.Dsl.DomainModel modelRoot = this.RootElement as global::Columbia.Dsl.DomainModel;
 				string modelFile = string.Empty;
 				if (modelRoot != null)
 				{

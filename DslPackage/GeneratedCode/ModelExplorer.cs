@@ -67,7 +67,7 @@ namespace Columbia.Dsl
 		///</summary>
 		protected override global::System.Guid RootElementDomainClassId
 		{
-			get { return global::Columbia.Dsl.ExampleModel.DomainClassId; }
+			get { return global::Columbia.Dsl.DomainModel.DomainClassId; }
 		}
 		
 		/// <summary>

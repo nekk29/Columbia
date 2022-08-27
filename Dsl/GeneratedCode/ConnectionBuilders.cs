@@ -15,7 +15,7 @@ namespace Columbia.Dsl
 	/// <summary>
 	/// ConnectionBuilder class to provide logic for constructing connections between elements.
 	/// </summary>
-	public static partial class ExampleElementReferencesTargetsBuilder
+	public static partial class EntityReferencesTargetEntitiesBuilder
 	{
 		#region Accept Connection Methods
 		/// <summary>
@@ -27,7 +27,7 @@ namespace Columbia.Dsl
 		public static bool CanAcceptSource(DslModeling::ModelElement candidate)
 		{
 			if (candidate == null) return false;
-			else if (candidate is global::Columbia.Dsl.ExampleElement)
+			else if (candidate is global::Columbia.Dsl.Entity)
 			{ 
 				return true;
 			}
@@ -44,7 +44,7 @@ namespace Columbia.Dsl
 		public static bool CanAcceptTarget(DslModeling::ModelElement candidate)
 		{
 			if (candidate == null) return false;
-			else if (candidate is global::Columbia.Dsl.ExampleElement)
+			else if (candidate is global::Columbia.Dsl.Entity)
 			{ 
 				return true;
 			}
@@ -83,13 +83,13 @@ namespace Columbia.Dsl
 			}
 			else // Check combinations
 			{
-				if (candidateSource is global::Columbia.Dsl.ExampleElement)
+				if (candidateSource is global::Columbia.Dsl.Entity)
 				{
-					if (candidateTarget is global::Columbia.Dsl.ExampleElement)
+					if (candidateTarget is global::Columbia.Dsl.Entity)
 					{
-						global::Columbia.Dsl.ExampleElement sourceExampleElement = (global::Columbia.Dsl.ExampleElement)candidateSource;
-						global::Columbia.Dsl.ExampleElement targetExampleElement = (global::Columbia.Dsl.ExampleElement)candidateTarget;
-						if(targetExampleElement == null || sourceExampleElement == null || global::Columbia.Dsl.ExampleElementReferencesTargets.GetLinks(sourceExampleElement, targetExampleElement).Count > 0) return false;
+						global::Columbia.Dsl.Entity sourceEntity = (global::Columbia.Dsl.Entity)candidateSource;
+						global::Columbia.Dsl.Entity targetEntity = (global::Columbia.Dsl.Entity)candidateTarget;
+						if(targetEntity == null || sourceEntity == null || global::Columbia.Dsl.EntityReferencesTargetEntities.GetLinks(sourceEntity, targetEntity).Count > 0) return false;
 						return true;
 					}
 				}
@@ -121,13 +121,13 @@ namespace Columbia.Dsl
 			
 			if (CanAcceptSourceAndTarget(source, target))
 			{
-				if (source is global::Columbia.Dsl.ExampleElement)
+				if (source is global::Columbia.Dsl.Entity)
 				{
-					if (target is global::Columbia.Dsl.ExampleElement)
+					if (target is global::Columbia.Dsl.Entity)
 					{
-						global::Columbia.Dsl.ExampleElement sourceAccepted = (global::Columbia.Dsl.ExampleElement)source;
-						global::Columbia.Dsl.ExampleElement targetAccepted = (global::Columbia.Dsl.ExampleElement)target;
-						DslModeling::ElementLink result = new global::Columbia.Dsl.ExampleElementReferencesTargets(sourceAccepted, targetAccepted);
+						global::Columbia.Dsl.Entity sourceAccepted = (global::Columbia.Dsl.Entity)source;
+						global::Columbia.Dsl.Entity targetAccepted = (global::Columbia.Dsl.Entity)target;
+						DslModeling::ElementLink result = new global::Columbia.Dsl.EntityReferencesTargetEntities(sourceAccepted, targetAccepted);
 						if (DslModeling::DomainClassInfo.HasNameProperty(result))
 						{
 							DslModeling::DomainClassInfo.SetUniqueName(result);
@@ -146,14 +146,14 @@ namespace Columbia.Dsl
  	/// <summary>
 	/// Handles interaction between the ConnectionBuilder and the corresponding ConnectionTool.
 	/// </summary>
-	internal partial class ExampleRelationshipConnectAction : DslDiagrams::ConnectAction
+	internal partial class EntityRelationshipConnectAction : DslDiagrams::ConnectAction
 	{
 		private DslDiagrams::ConnectionType[] connectionTypes;
 		
 		/// <summary>
-		/// Constructs a new ExampleRelationshipConnectAction for the given Diagram.
+		/// Constructs a new EntityRelationshipConnectAction for the given Diagram.
 		/// </summary>
-		public ExampleRelationshipConnectAction(DslDiagrams::Diagram diagram): base(diagram, true) 
+		public EntityRelationshipConnectAction(DslDiagrams::Diagram diagram): base(diagram, true) 
 		{
 		}
 		
@@ -183,24 +183,24 @@ namespace Columbia.Dsl
 		
 		
 		/// <summary>
-		/// Returns the ExampleRelationshipConnectionType associated with this action.
+		/// Returns the EntityRelationshipConnectionType associated with this action.
 		/// </summary>
 		protected override DslDiagrams::ConnectionType[] GetConnectionTypes(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement)
 		{
 			if(this.connectionTypes == null)
 			{
-				this.connectionTypes = new DslDiagrams::ConnectionType[] { new ExampleRelationshipConnectionType() };
+				this.connectionTypes = new DslDiagrams::ConnectionType[] { new EntityRelationshipConnectionType() };
 			}
 			
 			return this.connectionTypes;
 		}
 		
-		private partial class ExampleRelationshipConnectionTypeBase : DslDiagrams::ConnectionType
+		private partial class EntityRelationshipConnectionTypeBase : DslDiagrams::ConnectionType
 		{
 			/// <summary>
-			/// Constructs a new the ExampleRelationshipConnectionType with the given ConnectionBuilder.
+			/// Constructs a new the EntityRelationshipConnectionType with the given ConnectionBuilder.
 			/// </summary>
-			protected ExampleRelationshipConnectionTypeBase() : base() {}
+			protected EntityRelationshipConnectionTypeBase() : base() {}
 			
 			private static DslDiagrams::ShapeElement RemovePassThroughShapes(DslDiagrams::ShapeElement shape)
 			{
@@ -220,7 +220,7 @@ namespace Columbia.Dsl
 			/// Called by the base ConnectAction class to determine if the given shapes can be connected.
 			/// </summary>
 			/// <remarks>
-			/// This implementation delegates calls to the ConnectionBuilder ExampleElementReferencesTargetsBuilder.
+			/// This implementation delegates calls to the ConnectionBuilder EntityReferencesTargetEntitiesBuilder.
 			/// </remarks>
 			public override bool CanCreateConnection(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement, ref string connectionWarning)
 			{
@@ -246,11 +246,11 @@ namespace Columbia.Dsl
 				{				
 					if(targetShapeElement == null)
 					{
-						return ExampleElementReferencesTargetsBuilder.CanAcceptSource(sourceElement);
+						return EntityReferencesTargetEntitiesBuilder.CanAcceptSource(sourceElement);
 					}
 					else
 					{				
-						return ExampleElementReferencesTargetsBuilder.CanAcceptSourceAndTarget(sourceElement, targetElement);
+						return EntityReferencesTargetEntitiesBuilder.CanAcceptSourceAndTarget(sourceElement, targetElement);
 					}
 				}
 				else
@@ -275,7 +275,7 @@ namespace Columbia.Dsl
 			/// Called by the base ConnectAction class to create the underlying relationship.
 			/// </summary>
 			/// <remarks>
-			/// This implementation delegates calls to the ConnectionBuilder ExampleElementReferencesTargetsBuilder.
+			/// This implementation delegates calls to the ConnectionBuilder EntityReferencesTargetEntitiesBuilder.
 			/// </remarks>
 			public override void CreateConnection(DslDiagrams::ShapeElement sourceShapeElement, DslDiagrams::ShapeElement targetShapeElement, DslDiagrams::PaintFeedbackArgs paintFeedbackArgs)
 			{
@@ -289,16 +289,16 @@ namespace Columbia.Dsl
 				if(sourceElement == null) sourceElement = sourceShapeElement;
 				DslModeling::ModelElement targetElement = targetShapeElement.ModelElement;
 				if(targetElement == null) targetElement = targetShapeElement;
-				ExampleElementReferencesTargetsBuilder.Connect(sourceElement, targetElement);
+				EntityReferencesTargetEntitiesBuilder.Connect(sourceElement, targetElement);
 			}
 		}
 		
-		private partial class ExampleRelationshipConnectionType : ExampleRelationshipConnectionTypeBase
+		private partial class EntityRelationshipConnectionType : EntityRelationshipConnectionTypeBase
 		{
 			/// <summary>
-			/// Constructs a new the ExampleRelationshipConnectionType with the given ConnectionBuilder.
+			/// Constructs a new the EntityRelationshipConnectionType with the given ConnectionBuilder.
 			/// </summary>
-			public ExampleRelationshipConnectionType() : base() {}
+			public EntityRelationshipConnectionType() : base() {}
 		}
 	}
 }

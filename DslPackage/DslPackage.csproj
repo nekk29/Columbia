@@ -195,12 +195,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CSharp.tt</DependentUpon>
     </VSItemTemplate>
-    <VSItemTemplate Include="ProjectItemTemplates\VisualBasic.vstemplate">
-      <OutputName>Columbia</OutputName>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VisualBasic.tt</DependentUpon>
-    </VSItemTemplate>
     <None Include="Resources\File.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -229,10 +223,6 @@
     </None>
     <None Include="ProjectItemTemplates\cdm.cdm" />
     <None Include="ProjectItemTemplates\cdm.diagram" />
-    <None Include="ProjectItemTemplates\VisualBasic.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>VisualBasic.vstemplate</LastGenOutput>
-    </None>
   </ItemGroup>
   <PropertyGroup>
     <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
@@ -244,6 +234,7 @@
       <Link>CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
     <Content Include="Columbia.png" />
+    <Content Include="Resources\File.bmp" />
     <Content Include="Resources\ModelExplorerToolWindowBitmaps.bmp" />
   </ItemGroup>
 </Project>

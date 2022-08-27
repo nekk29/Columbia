@@ -14,15 +14,15 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace Columbia.Dsl
 {
 	/// <summary>
-	/// DomainClass ExampleShape
-	/// Shape used to represent ExampleElements on a Diagram.
+	/// DomainClass EntityShape
+	/// Entity
 	/// </summary>
-	[DslDesign::DisplayNameResource("Columbia.Dsl.ExampleShape.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Columbia.Dsl.ExampleShape.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Columbia.Dsl.EntityShape.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Columbia.Dsl.EntityShape.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[DslModeling::DomainObjectId("0816cd36-f1f6-4e1d-9dc7-9e49ef32d6cc")]
-	public partial class ExampleShape : DslDiagrams::NodeShape
+	[DslModeling::DomainObjectId("e876a5a6-fb9a-4dfd-a8c7-bf0e77e7b892")]
+	public partial class EntityShape : DslDiagrams::CompartmentShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -87,9 +87,9 @@ namespace Columbia.Dsl
 		}
 		
 		/// <summary>
-		/// Finds a decorator associated with ExampleShape.
+		/// Finds a decorator associated with EntityShape.
 		/// </summary>
-		public static DslDiagrams::Decorator FindExampleShapeDecorator(string decoratorName)
+		public static DslDiagrams::Decorator FindEntityShapeDecorator(string decoratorName)
 		{	
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
@@ -123,7 +123,7 @@ namespace Columbia.Dsl
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(2, 0.75);
+				return new DslDiagrams::SizeD(2, 0.3);
 			}
 		}
 		#endregion
@@ -138,12 +138,12 @@ namespace Columbia.Dsl
 			
 			// Outline pen settings for this shape.
 			DslDiagrams::PenSettings outlinePen = new DslDiagrams::PenSettings();
-			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 113, 111, 110);
-			outlinePen.Width = 0.01F;
+			outlinePen.Color = global::System.Drawing.Color.FromArgb(255, 112, 173, 71);
+			outlinePen.Width = 0.015F;
 			classStyleSet.OverridePen(DslDiagrams::DiagramPens.ShapeOutline, outlinePen);
 			// Fill brush settings for this shape.
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
-			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 242, 239, 229);
+			backgroundBrush.Color = global::System.Drawing.Color.FromArgb(255, 189, 220, 168);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
 		
 		}
@@ -159,16 +159,6 @@ namespace Columbia.Dsl
 			}
 		}
 		
-		/// <summary>
-		/// Indicates the direction of the gradient.
-		/// </summary>
-		public override global::System.Drawing.Drawing2D.LinearGradientMode BackgroundGradientMode
-		{
-			get
-			{
-				return global::System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-			}
-		}
 		#endregion
 		#region Decorators
 		/// <summary>
@@ -177,14 +167,23 @@ namespace Columbia.Dsl
 		protected override void InitializeShapeFields(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields)
 		{
 			base.InitializeShapeFields(shapeFields);
-			DslDiagrams::TextField field1 = new DslDiagrams::TextField("NameDecorator");
-			field1.DefaultText = global::Columbia.Dsl.ColumbiaDomainModel.SingletonResourceManager.GetString("ExampleShapeNameDecoratorDefaultText");
-			field1.DefaultFocusable = true;
-			field1.DefaultAutoSize = true;
-			field1.AnchoringBehavior.MinimumHeightInLines = 1;
-			field1.AnchoringBehavior.MinimumWidthInCharacters = 1;
-			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
+			DslDiagrams::ImageField field1 = new DslDiagrams::ImageField("Icon");
+			field1.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::Columbia.Dsl.ColumbiaDomainModel.SingletonResourceManager.GetObject("EntityShapeIconDefaultImage"));
 			shapeFields.Add(field1);
+			
+			DslDiagrams::TextField field2 = new DslDiagrams::TextField("Name");
+			field2.DefaultText = global::Columbia.Dsl.ColumbiaDomainModel.SingletonResourceManager.GetString("EntityShapeNameDefaultText");
+			field2.DefaultFocusable = true;
+			field2.DefaultAutoSize = true;
+			field2.AnchoringBehavior.MinimumHeightInLines = 1;
+			field2.AnchoringBehavior.MinimumWidthInCharacters = 1;
+			field2.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
+			shapeFields.Add(field2);
+			
+			DslDiagrams::ChevronButtonField field3 = new DslDiagrams::ChevronButtonField("ExpandCollapse");
+			field3.DefaultSelectable = true;
+			field3.DefaultFocusable = true;
+			shapeFields.Add(field3);
 			
 		}
 		
@@ -197,9 +196,17 @@ namespace Columbia.Dsl
 		{
 			base.InitializeDecorators(shapeFields, decorators);
 			
-			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "NameDecorator");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.Center, DslDiagrams::PointD.Empty);
+			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Icon");
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
+				
+			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Name");
+			DslDiagrams::Decorator decorator2 = new DslDiagrams::ShapeDecorator(field2, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			decorators.Add(decorator2);
+				
+			DslDiagrams::ShapeField field3 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "ExpandCollapse");
+			DslDiagrams::Decorator decorator3 = new DslDiagrams::ExpandCollapseDecorator(this.Store, (DslDiagrams::ToggleButtonField)field3, DslDiagrams::ShapeDecoratorPosition.InnerTopRight, DslDiagrams::PointD.Empty);
+			decorators.Add(decorator3);
 				
 		}
 		
@@ -223,18 +230,172 @@ namespace Columbia.Dsl
 			}
 		}
 		#endregion
+		#region CompartmentShape code
+		/// <summary>
+		/// Returns a value indicating whether compartment header should be visible if there is only one of them.
+		/// </summary>
+		public override bool IsSingleCompartmentHeaderVisible
+		{
+			get { return true; }
+		}
+		
+		private static DslDiagrams::CompartmentDescription[] compartmentDescriptions;
+		
+		/// <summary>
+		/// Gets an array of CompartmentDescription for all compartments shown on this shape
+		/// (including compartments defined on base shapes).
+		/// </summary>
+		/// <returns></returns>
+		public override DslDiagrams::CompartmentDescription[] GetCompartmentDescriptions()
+		{
+			if(compartmentDescriptions == null)
+			{
+				// Initialize the array of compartment descriptions if we haven't done so already. 
+				// First we get any compartment descriptions in base shapes, and add on any compartments
+				// that are defined on this shape. 
+				DslDiagrams::CompartmentDescription[] baseCompartmentDescriptions = base.GetCompartmentDescriptions();
+				
+				int localCompartmentsOffset = 0;
+				if(baseCompartmentDescriptions!=null)
+				{
+					localCompartmentsOffset = baseCompartmentDescriptions.Length;
+				}
+				compartmentDescriptions = new DslDiagrams::ElementListCompartmentDescription[2+localCompartmentsOffset];
+				
+				if(baseCompartmentDescriptions!=null)
+				{
+					baseCompartmentDescriptions.CopyTo(compartmentDescriptions, 0);	
+				}
+				{
+					string title = global::Columbia.Dsl.ColumbiaDomainModel.SingletonResourceManager.GetString("EntityShapePropertiesTitle");
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("Properties", title, 
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.LightGray), false, 
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.White), false,
+						null, null,
+						false);
+					compartmentDescriptions[localCompartmentsOffset+0] = descriptor;
+				}
+				{
+					string title = global::Columbia.Dsl.ColumbiaDomainModel.SingletonResourceManager.GetString("EntityShapeRelationsTitle");
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("Relations", title, 
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.LightGray), false, 
+						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.White), false,
+						null, null,
+						false);
+					compartmentDescriptions[localCompartmentsOffset+1] = descriptor;
+				}
+			}
+			
+			return EntityShape.compartmentDescriptions;
+		}
+		
+		private static global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]> compartmentMappings;
+		
+		/// <summary>
+		/// Gets an array of CompartmentMappings for all compartments displayed on this shape
+		/// (including compartment maps defined on base shapes). 
+		/// </summary>
+		/// <param name="melType">The type of the DomainClass that this shape is mapped to</param>
+		/// <returns></returns>
+		protected override DslDiagrams::CompartmentMapping[] GetCompartmentMappings(global::System.Type melType)
+		{
+			if(melType==null) throw new global::System.ArgumentNullException("melType");
+			
+			if(compartmentMappings==null)
+			{
+				// Initialize the table of compartment mappings if we haven't done so already. 
+				// The table contains an array of CompartmentMapping for every Type that this
+				// shape can be mapped to. 
+				compartmentMappings = new global::System.Collections.Generic.Dictionary<global::System.Type, DslDiagrams::CompartmentMapping[]>();
+				{
+					// First we get the mappings defined for the base shape, and add on any mappings defined for this
+					// shape. 
+					DslDiagrams::CompartmentMapping[] baseMappings = base.GetCompartmentMappings(typeof(global::Columbia.Dsl.Entity));
+					int localCompartmentMappingsOffset = 0;
+					if(baseMappings!=null)
+					{
+						localCompartmentMappingsOffset = baseMappings.Length;
+					}
+					DslDiagrams::CompartmentMapping[] mappings = new DslDiagrams::CompartmentMapping[2+localCompartmentMappingsOffset];
+					
+					if(baseMappings!=null)
+					{
+						baseMappings.CopyTo(mappings, 0);
+					}
+					mappings[localCompartmentMappingsOffset+0] = new DslDiagrams::ElementListCompartmentMapping(
+																				"Properties", 
+																				global::Columbia.Dsl.PrimitiveProperty.NameDomainPropertyId, 
+																				global::Columbia.Dsl.PrimitiveProperty.DomainClassId, 
+																				GetElementsFromEntityForProperties,
+																				null,
+																				null,
+																				null);
+					mappings[localCompartmentMappingsOffset+1] = new DslDiagrams::ElementListCompartmentMapping(
+																				"Relations", 
+																				global::Columbia.Dsl.EntityProperty.NameDomainPropertyId, 
+																				global::Columbia.Dsl.EntityProperty.DomainClassId, 
+																				GetElementsFromEntityForRelations,
+																				null,
+																				null,
+																				null);
+					compartmentMappings.Add(typeof(global::Columbia.Dsl.Entity), mappings);
+				}
+			}
+			
+			// See if we can find the mapping being requested directly in the table. 
+			DslDiagrams::CompartmentMapping[] returnValue;
+			if(compartmentMappings.TryGetValue(melType, out returnValue))
+			{
+				return returnValue;
+			}
+			
+			// If not, loop through the types in the table, and find the 'most derived' base
+			// class of melType. 
+			global::System.Type selectedMappedType = null;
+			foreach(global::System.Type mappedType in compartmentMappings.Keys)
+			{
+				if(mappedType.IsAssignableFrom(melType) && (selectedMappedType==null || selectedMappedType.IsAssignableFrom(mappedType)))
+				{
+					selectedMappedType = mappedType;
+				}
+			}
+			if(selectedMappedType!=null)
+			{
+				return compartmentMappings[selectedMappedType];
+			}
+			return new DslDiagrams::CompartmentMapping[] {};
+		}
+		
+			#region DomainPath traversal methods to get the list of elements to display in a compartment.
+			internal static global::System.Collections.IList GetElementsFromEntityForProperties(DslModeling::ModelElement rootElement)
+			{
+				global::Columbia.Dsl.Entity root = (global::Columbia.Dsl.Entity)rootElement;
+					// Segments 0 and 1
+					DslModeling::LinkedElementCollection<global::Columbia.Dsl.PrimitiveProperty> result = root.PrimitiveProperties;
+				return result;
+			}
+			internal static global::System.Collections.IList GetElementsFromEntityForRelations(DslModeling::ModelElement rootElement)
+			{
+				global::Columbia.Dsl.Entity root = (global::Columbia.Dsl.Entity)rootElement;
+					// Segments 0 and 1
+					DslModeling::LinkedElementCollection<global::Columbia.Dsl.EntityProperty> result = root.EntityProperties;
+				return result;
+			}
+			#endregion
+		
+		#endregion
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// ExampleShape domain class Id.
+		/// EntityShape domain class Id.
 		/// </summary>
-		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x0816cd36, 0xf1f6, 0x4e1d, 0x9d, 0xc7, 0x9e, 0x49, 0xef, 0x32, 0xd6, 0xcc);
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xe876a5a6, 0xfb9a, 0x4dfd, 0xa8, 0xc7, 0xbf, 0x0e, 0x77, 0xe7, 0xb8, 0x92);
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ExampleShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public EntityShape(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -244,7 +405,7 @@ namespace Columbia.Dsl
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ExampleShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public EntityShape(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
