@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.Modeling;
 using System.ComponentModel;
 
-namespace Columbia.Dsl.CustomCode.Domain_Types.Base
+namespace Columbia.Dsl.CustomCode.DomainTypes.Base
 {
     public class BaseTypeConverter : TypeConverter
     {

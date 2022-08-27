@@ -14,7 +14,7 @@
 		<Icon>Database.ico</Icon>
 	</TemplateData>
 	<TemplateContent>
-		<Project TargetFileName="Database.sqlproj" File="Database.sqlproj" ReplaceParameters="true">
+		<Project TargetFileName="Database.csproj" File="Database.csproj" ReplaceParameters="true">
 			<Folder Name="Code" TargetFolderName="Code">
 				<Folder Name="Functions" TargetFolderName="Functions" />
 				<Folder Name="Procedures" TargetFolderName="Procedures" />

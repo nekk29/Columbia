@@ -307,6 +307,40 @@ namespace Columbia.Dsl
 					}
 				}
 			}
+			// Database
+			if (!serializationContext.Result.Failed)
+			{
+				string attribDatabase = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "database");
+				if (attribDatabase != null)
+				{
+					global::System.String valueOfDatabase;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribDatabase, out valueOfDatabase))
+					{
+						instanceOfDomainModel.Database = valueOfDatabase;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "database", typeof(global::System.String), attribDatabase);
+					}
+				}
+			}
+			// Test
+			if (!serializationContext.Result.Failed)
+			{
+				string attribTest = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "test");
+				if (attribTest != null)
+				{
+					global::System.String valueOfTest;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribTest, out valueOfTest))
+					{
+						instanceOfDomainModel.Test = valueOfTest;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "test", typeof(global::System.String), attribTest);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -825,7 +859,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.Apis;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Apis") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Apis") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "apis", propValue);
 					}
@@ -837,7 +871,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.Application;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Application") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Application") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "application", propValue);
 					}
@@ -849,7 +883,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.ApplicationAbstractions;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Application.Abstractions") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Application.Abstractions") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "applicationAbstractions", propValue);
 					}
@@ -861,7 +895,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.Domain;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Domain") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Domain") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "domain", propValue);
 					}
@@ -873,7 +907,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.Dto;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Dto") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Dto") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "dto", propValue);
 					}
@@ -885,7 +919,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.Entity;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Entity") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Entity") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "entity", propValue);
 					}
@@ -897,7 +931,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.Repository;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Repository") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Repository") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "repository", propValue);
 					}
@@ -909,7 +943,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.RepositoryAbstractions;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.Repository.Abstractions") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Repository.Abstractions") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "repositoryAbstractions", propValue);
 					}
@@ -921,9 +955,33 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfDomainModel.RestClient;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname$.RestClient") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.RestClient") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "restClient", propValue);
+					}
+				}
+			}
+			// Database
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfDomainModel.Database;
+				if (!serializationContext.Result.Failed)
+				{
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Database") != 0))
+					{	// No need to write the value out if it's the same as default value.
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "database", propValue);
+					}
+				}
+			}
+			// Test
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfDomainModel.Test;
+				if (!serializationContext.Result.Failed)
+				{
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "$safesolutionname1$.Test") != 0))
+					{	// No need to write the value out if it's the same as default value.
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "test", propValue);
 					}
 				}
 			}

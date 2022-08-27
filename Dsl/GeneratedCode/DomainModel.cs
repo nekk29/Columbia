@@ -106,6 +106,8 @@ namespace Columbia.Dsl
 				new DomainMemberInfo(typeof(DomainModel), "Repository", DomainModel.RepositoryDomainPropertyId, typeof(DomainModel.RepositoryPropertyHandler)),
 				new DomainMemberInfo(typeof(DomainModel), "RepositoryAbstractions", DomainModel.RepositoryAbstractionsDomainPropertyId, typeof(DomainModel.RepositoryAbstractionsPropertyHandler)),
 				new DomainMemberInfo(typeof(DomainModel), "RestClient", DomainModel.RestClientDomainPropertyId, typeof(DomainModel.RestClientPropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Database", DomainModel.DatabaseDomainPropertyId, typeof(DomainModel.DatabasePropertyHandler)),
+				new DomainMemberInfo(typeof(DomainModel), "Test", DomainModel.TestDomainPropertyId, typeof(DomainModel.TestPropertyHandler)),
 				new DomainMemberInfo(typeof(Entity), "EntityId", Entity.EntityIdDomainPropertyId, typeof(Entity.EntityIdPropertyHandler)),
 				new DomainMemberInfo(typeof(Entity), "Name", Entity.NameDomainPropertyId, typeof(Entity.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(PrimitiveProperty), "Name", PrimitiveProperty.NameDomainPropertyId, typeof(PrimitiveProperty.NamePropertyHandler)),

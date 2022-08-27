@@ -241,6 +241,30 @@
     <value>Implementation Projects</value>
     <comment>Category for DomainProperty &apos;RestClient&apos; on DomainClass &apos;DomainModel&apos;</comment>
   </data>
+  <data name="Columbia.Dsl.DomainModel/Database.Description" xml:space="preserve">
+    <value>Project which is used to generate database objects</value>
+    <comment>Description for DomainProperty &apos;Database&apos; on DomainClass &apos;DomainModel&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.DomainModel/Database.DisplayName" xml:space="preserve">
+    <value>Database</value>
+    <comment>DisplayName for DomainProperty &apos;Database&apos; on DomainClass &apos;DomainModel&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.DomainModel/Database.Category" xml:space="preserve">
+    <value>Implementation Projects</value>
+    <comment>Category for DomainProperty &apos;Database&apos; on DomainClass &apos;DomainModel&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.DomainModel/Test.Description" xml:space="preserve">
+    <value>Project which is used to generate unit tests</value>
+    <comment>Description for DomainProperty &apos;Test&apos; on DomainClass &apos;DomainModel&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.DomainModel/Test.DisplayName" xml:space="preserve">
+    <value>Test</value>
+    <comment>DisplayName for DomainProperty &apos;Test&apos; on DomainClass &apos;DomainModel&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.DomainModel/Test.Category" xml:space="preserve">
+    <value>Implementation Projects</value>
+    <comment>Category for DomainProperty &apos;Test&apos; on DomainClass &apos;DomainModel&apos;</comment>
+  </data>
   <data name="Columbia.Dsl.Entity.Description" xml:space="preserve">
     <value>Domain Entity</value>
     <comment>Description for DomainClass &apos;Entity&apos;</comment>

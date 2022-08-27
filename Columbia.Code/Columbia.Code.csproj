@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Database\Database.csproj" />
+    <None Include="Entity\Model\CoreModel.cdm" />
+    <None Include="Entity\Model\CoreModel.cdm.diagram" />
     <None Include="Test\UserUnitTests.cs" />
     <None Include="RestClient\UserRestService.cs" />
     <None Include="RestClient\Base\ServiceOptions.cs" />
@@ -164,7 +167,6 @@
     <None Include="Application\Application.csproj" />
     <None Include="Columbia.Code.ico" />
     <None Include="Common\Common.csproj" />
-    <None Include="Database\Database.sqlproj" />
     <None Include="Domain\Domain.csproj" />
     <None Include="Dto\Dto.csproj" />
     <None Include="EmailClient\EmailClient.csproj" />

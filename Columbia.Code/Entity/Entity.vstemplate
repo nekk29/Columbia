@@ -23,6 +23,10 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortDirection.cs">SortDirection.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortExpression.cs">SortExpression.cs</ProjectItem>
 			</Folder>
+			<Folder Name="Model" TargetFolderName="Model">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CoreModel.cdm">CoreModel.cdm</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CoreModel.cdm.diagram">CoreModel.cdm.diagram</ProjectItem>
+			</Folder>
 			<ProjectItem ReplaceParameters="true" TargetFileName="_GenerateDBContext.ps1">_GenerateDBContext.ps1</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationRole.cs">ApplicationRole.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationUser.cs">ApplicationUser.cs</ProjectItem>

@@ -1,4 +1,4 @@
-﻿using Columbia.Dsl.CustomCode.Domain_Types.Base;
+﻿using Columbia.Dsl.CustomCode.DomainTypes.Base;
 using Microsoft.VisualStudio.Modeling;
 using System.Collections.Generic;
 using System.ComponentModel;

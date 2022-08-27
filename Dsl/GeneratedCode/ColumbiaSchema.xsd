@@ -92,6 +92,18 @@
             <xsd:documentation>Project which is used to generate rest client objects</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: Database -->
+        <xsd:attribute name="database" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Project which is used to generate database objects</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: Test -->
+        <xsd:attribute name="test" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Project which is used to generate unit tests</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

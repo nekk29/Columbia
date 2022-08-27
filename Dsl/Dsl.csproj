@@ -82,6 +82,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TypeConverters.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CommonConstants.cs" />
+    <Compile Include="Utils\ProjectUtils.cs" />
     <None Include="..\Key.snk">
       <Link>Key.snk</Link>
     </None>

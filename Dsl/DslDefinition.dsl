@@ -3,47 +3,134 @@
   <Classes>
     <DomainClass Id="bb6ceb9b-f6a4-49b3-b75c-310b2666cecd" Description="Columbia Domain Model" Name="DomainModel" DisplayName="Domain Model" Namespace="Columbia.Dsl">
       <Properties>
-        <DomainProperty Id="171551e1-1dd1-4e5c-86f8-dae4d572d714" Description="Project which is used to generate api controllers" Name="Apis" DisplayName="Apis" DefaultValue="$safesolutionname$.Apis" Category="Implementation Projects">
+        <DomainProperty Id="171551e1-1dd1-4e5c-86f8-dae4d572d714" Description="Project which is used to generate api controllers" Name="Apis" DisplayName="Apis" DefaultValue="$safesolutionname1$.Apis" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="6566630f-59c4-47b6-bd98-53b844839d27" Description="Project which is used to generate application classes" Name="Application" DisplayName="Application" DefaultValue="$safesolutionname$.Application" Category="Implementation Projects">
+        <DomainProperty Id="6566630f-59c4-47b6-bd98-53b844839d27" Description="Project which is used to generate application classes" Name="Application" DisplayName="Application" DefaultValue="$safesolutionname1$.Application" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="21c4de20-1d09-4552-aa5f-d46044871826" Description="Project which is used to generate application interfaces" Name="ApplicationAbstractions" DisplayName="Application Abstractions" DefaultValue="$safesolutionname$.Application.Abstractions" Category="Implementation Projects">
+        <DomainProperty Id="21c4de20-1d09-4552-aa5f-d46044871826" Description="Project which is used to generate application interfaces" Name="ApplicationAbstractions" DisplayName="Application Abstractions" DefaultValue="$safesolutionname1$.Application.Abstractions" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="8f6eb373-a4f7-4c21-a476-acb9ac855e98" Description="Project which is used to generate commands and queries" Name="Domain" DisplayName="Domain" DefaultValue="$safesolutionname$.Domain" Category="Implementation Projects">
+        <DomainProperty Id="8f6eb373-a4f7-4c21-a476-acb9ac855e98" Description="Project which is used to generate commands and queries" Name="Domain" DisplayName="Domain" DefaultValue="$safesolutionname1$.Domain" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="f4a3ac56-a32d-49b5-aa5e-ec3af0d2a52b" Description="Project which is used to generate dto objects" Name="Dto" DisplayName="Dto" DefaultValue="$safesolutionname$.Dto" Category="Implementation Projects">
+        <DomainProperty Id="f4a3ac56-a32d-49b5-aa5e-ec3af0d2a52b" Description="Project which is used to generate dto objects" Name="Dto" DisplayName="Dto" DefaultValue="$safesolutionname1$.Dto" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="9d25f862-3fff-4712-87fb-e09f69058cc9" Description="Project which is used to generate entities" Name="Entity" DisplayName="Entity" DefaultValue="$safesolutionname$.Entity" Category="Implementation Projects">
+        <DomainProperty Id="9d25f862-3fff-4712-87fb-e09f69058cc9" Description="Project which is used to generate entities" Name="Entity" DisplayName="Entity" DefaultValue="$safesolutionname1$.Entity" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="f4e7e077-2e3b-46ad-9677-36d45c5e29d7" Description="Project which is used to generate repository classes" Name="Repository" DisplayName="Repository" DefaultValue="$safesolutionname$.Repository" Category="Implementation Projects">
+        <DomainProperty Id="f4e7e077-2e3b-46ad-9677-36d45c5e29d7" Description="Project which is used to generate repository classes" Name="Repository" DisplayName="Repository" DefaultValue="$safesolutionname1$.Repository" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="63ddd377-5da5-4db0-90bc-0eb5f7c9f6db" Description="Project which is used to generate repository interfaces" Name="RepositoryAbstractions" DisplayName="Repository Abstractions" DefaultValue="$safesolutionname$.Repository.Abstractions" Category="Implementation Projects">
+        <DomainProperty Id="63ddd377-5da5-4db0-90bc-0eb5f7c9f6db" Description="Project which is used to generate repository interfaces" Name="RepositoryAbstractions" DisplayName="Repository Abstractions" DefaultValue="$safesolutionname1$.Repository.Abstractions" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="7371ca93-0211-45a2-87e1-2f3d783788e6" Description="Project which is used to generate rest client objects" Name="RestClient" DisplayName="Rest Client" DefaultValue="$safesolutionname$.RestClient" Category="Implementation Projects">
+        <DomainProperty Id="7371ca93-0211-45a2-87e1-2f3d783788e6" Description="Project which is used to generate rest client objects" Name="RestClient" DisplayName="Rest Client" DefaultValue="$safesolutionname1$.RestClient" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="9441d07e-53ea-47ae-84c6-3765ba8041c5" Description="Project which is used to generate database objects" Name="Database" DisplayName="Database" DefaultValue="$safesolutionname1$.Database" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8e6b9971-37f2-4970-90e9-0b1a641dc783" Description="Project which is used to generate unit tests" Name="Test" DisplayName="Test" DefaultValue="$safesolutionname1$.Test" Category="Implementation Projects" IsUIReadOnly="true">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="&quot;Columbia.Dsl.CustomCode.DomainTypes.ProjectTypeConverter&quot;" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -281,6 +368,12 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="entities">
             <DomainRelationshipMoniker Name="DomainModelHasEntities" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="database">
+            <DomainPropertyMoniker Name="DomainModel/Database" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="test">
+            <DomainPropertyMoniker Name="DomainModel/Test" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EntityConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="entityConnectorMoniker" ElementName="entityConnector" MonikerTypeName="EntityConnectorMoniker">
