@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace $safesolutionname$.Repository.Security
+namespace $safesolutionname$.Repository.Abstractions.Security
 {
     public interface IUserIdentity
     {

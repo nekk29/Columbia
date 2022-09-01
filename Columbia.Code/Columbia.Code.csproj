@@ -67,7 +67,7 @@
     <None Include="Repository\Transactions\UnitOfWork.cs" />
     <None Include="Repository\Transactions\Transaction.cs" />
     <None Include="Repository\Transactions\ExecutionResult.cs" />
-    <None Include="Repository\Security\IUserIdentity.cs" />
+    <None Include="Repository.Abstractions\Security\IUserIdentity.cs" />
     <None Include="Repository\Extensions\RepositoryExtensions.cs" />
     <None Include="Repository\Extensions\ReflectionExtensions.cs" />
     <None Include="Repository\Extensions\IQueryableExtensions.cs" />

@@ -1,5 +1,5 @@
 ﻿using Company.Product.Module.Common;
-using Company.Product.Module.Repository.Security;
+using Company.Product.Module.Repository.Abstractions.Security;
 using System.Security.Claims;
 
 namespace Company.Product.Module.Apis.Security

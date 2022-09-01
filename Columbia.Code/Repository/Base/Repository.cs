@@ -1,7 +1,7 @@
 ﻿using $safesolutionname$.Entity.Base;
 using $safesolutionname$.Repository.Abstractions.Base;
+using $safesolutionname$.Repository.Abstractions.Security;
 using $safesolutionname$.Repository.Extensions;
-using $safesolutionname$.Repository.Security;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Linq.Expressions;

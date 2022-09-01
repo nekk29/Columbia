@@ -1,7 +1,7 @@
 ﻿using Company.Product.Module.Entity.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
+using Company.Product.Module.Repository.Abstractions.Security;
 using Company.Product.Module.Repository.Extensions;
-using Company.Product.Module.Repository.Security;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Linq.Expressions;

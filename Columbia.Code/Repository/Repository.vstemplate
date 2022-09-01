@@ -27,9 +27,6 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="ReflectionExtensions.cs">ReflectionExtensions.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="RepositoryServiceCollectionExtensions.cs">RepositoryExtensions.cs</ProjectItem>
 			</Folder>
-			<Folder Name="Security" TargetFolderName="Security">
-				<ProjectItem ReplaceParameters="true" TargetFileName="IUserIdentity.cs">IUserIdentity.cs</ProjectItem>
-			</Folder>
 			<Folder Name="Transactions" TargetFolderName="Transactions">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ExecutionResult.cs">ExecutionResult.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Transaction.cs">Transaction.cs</ProjectItem>

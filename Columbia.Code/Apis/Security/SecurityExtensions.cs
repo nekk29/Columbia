@@ -1,5 +1,5 @@
 ﻿using $safesolutionname$.Repository.Data;
-using $safesolutionname$.Repository.Security;
+using $safesolutionname$.Repository.Abstractions.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

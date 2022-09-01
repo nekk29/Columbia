@@ -1,5 +1,5 @@
 ﻿using $safesolutionname$.Common;
-using $safesolutionname$.Repository.Security;
+using $safesolutionname$.Repository.Abstractions.Security;
 using System.Security.Claims;
 
 namespace $safesolutionname$.Apis.Security

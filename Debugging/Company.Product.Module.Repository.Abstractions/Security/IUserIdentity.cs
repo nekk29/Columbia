@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Company.Product.Module.Repository.Security
+namespace Company.Product.Module.Repository.Abstractions.Security
 {
     public interface IUserIdentity
     {

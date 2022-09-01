@@ -1,5 +1,5 @@
-﻿using Company.Product.Module.Repository.Data;
-using Company.Product.Module.Repository.Security;
+﻿using Company.Product.Module.Repository.Abstractions.Security;
+using Company.Product.Module.Repository.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
