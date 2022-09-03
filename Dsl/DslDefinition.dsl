@@ -149,12 +149,12 @@
     </DomainClass>
     <DomainClass Id="fa7ecba8-f890-4298-ae43-e2f1e0e24578" Description="Domain Entity" Name="Entity" DisplayName="Entity" Namespace="Columbia.Dsl">
       <Properties>
-        <DomainProperty Id="408d7c56-fa41-4721-9eea-017452e05eb9" Description="Entity id" Name="EntityId" DisplayName="Entity Id" Category="Definition" IsBrowsable="false">
+        <DomainProperty Id="408d7c56-fa41-4721-9eea-017452e05eb9" Description="Entity id" Name="EntityId" DisplayName="Entity id" Category="Definition" IsBrowsable="false">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="4700c1e5-8796-4be3-a213-395a84dc6b87" Description="Entity name" Name="Name" DisplayName="Name" Category="Definition">
+        <DomainProperty Id="4700c1e5-8796-4be3-a213-395a84dc6b87" Description="Entity name" Name="Name" DisplayName="Entity name" Category="Definition" IsElementName="true">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -181,12 +181,12 @@
     </DomainClass>
     <DomainClass Id="dc90d05e-6092-4cc0-916a-b41e97a060f4" Description="Description for Columbia.Dsl.PrimitiveProperty" Name="PrimitiveProperty" DisplayName="Primitive Property" Namespace="Columbia.Dsl">
       <Properties>
-        <DomainProperty Id="e47f0f94-81c0-491c-b1b4-c0661377d7e6" Description="Name of the property" Name="Name" DisplayName="Name" DefaultValue="Property" Category="Definition" IsElementName="true">
+        <DomainProperty Id="e47f0f94-81c0-491c-b1b4-c0661377d7e6" Description="Property name" Name="Name" DisplayName="Property name" DefaultValue="Property" Category="Definition" IsElementName="true">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="75eaf0be-5a70-455e-bdc5-a3015a7475aa" Description="Type of the property" Name="Type" DisplayName="Type" DefaultValue="System.String" Category="Definition">
+        <DomainProperty Id="75eaf0be-5a70-455e-bdc5-a3015a7475aa" Description="Property type" Name="Type" DisplayName="Type" DefaultValue="System.String" Category="Definition">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.TypeConverter">
               <Parameters>
@@ -212,12 +212,22 @@
     </DomainClass>
     <DomainClass Id="53f85944-a77a-44d8-ab47-891a27e67dd5" Description="Description for Columbia.Dsl.EntityProperty" Name="EntityProperty" DisplayName="Entity Property" Namespace="Columbia.Dsl">
       <Properties>
-        <DomainProperty Id="22c69281-ae73-43fc-8a53-fd9b4367e8b4" Description="Name of the entity property" Name="Name" DisplayName="Name" DefaultValue="Entity" Category="Definition" IsElementName="true">
+        <DomainProperty Id="22c69281-ae73-43fc-8a53-fd9b4367e8b4" Description="Entity property id" Name="EntityPropertyId" DisplayName="Entity property id" DefaultValue="" Category="Definition" IsBrowsable="false">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="46c7641d-48ae-4953-9498-bcd15b405a05" Description="Type of the entity" Name="Type" DisplayName="Type" Category="Definition">
+        <DomainProperty Id="46c7641d-48ae-4953-9498-bcd15b405a05" Description="Entity id" Name="EntityId" DisplayName="Entity id" DefaultValue="" Category="Definition" IsBrowsable="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="b0d57d4b-28eb-49a7-8c3f-f1c5d1a45bec" Description="Property name" Name="Name" DisplayName="Property name" DefaultValue="" Category="Definition" IsElementName="true">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="d7fce8ab-7100-417e-8803-ee7c01f088fe" Description="Entity type" Name="Type" DisplayName="Entity type" Category="Definition">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.TypeConverter">
               <Parameters>
@@ -225,6 +235,11 @@
               </Parameters>
             </ClrAttribute>
           </Attributes>
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8275e1b0-b661-4993-825e-d7a2efde2b5c" Description="Description for Columbia.Dsl.EntityProperty.Entity References Target Entities Id" Name="EntityReferencesTargetEntitiesId" DisplayName="Entity References Target Entities Id" IsBrowsable="false">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -250,6 +265,13 @@
       </Target>
     </DomainRelationship>
     <DomainRelationship Id="1475b97d-c118-4ce9-bfcc-ce2f5627c80a" Description="Entity References Target Entities" Name="EntityReferencesTargetEntities" DisplayName="Entity References Target Entities" Namespace="Columbia.Dsl">
+      <Properties>
+        <DomainProperty Id="3fa9ebdf-3c49-49e1-aeeb-49c7b8b7ca9c" Description="Entity References Target Entities Id" Name="EntityReferencesTargetEntitiesId" DisplayName="Entity References Target Entities Id" Category="Definition" IsBrowsable="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
       <Source>
         <DomainRole Id="19759194-b8ba-46b8-aeae-657c054fa5fc" Description="Description for Columbia.Dsl.EntityReferencesTargetEntities.SourceEntity" Name="SourceEntity" DisplayName="Source Entity" PropertyName="TargetEntities" PropertyDisplayName="Target Entities">
           <RolePlayer>
@@ -407,6 +429,11 @@
       </XmlClassData>
       <XmlClassData TypeName="EntityReferencesTargetEntities" MonikerAttributeName="" SerializeId="true" MonikerElementName="entityReferencesTargetEntitiesMoniker" ElementName="entityReferencesTargetEntities" MonikerTypeName="EntityReferencesTargetEntitiesMoniker">
         <DomainRelationshipMoniker Name="EntityReferencesTargetEntities" />
+        <ElementData>
+          <XmlPropertyData XmlName="entityReferencesTargetEntitiesId">
+            <DomainPropertyMoniker Name="EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId" />
+          </XmlPropertyData>
+        </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EntityShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="entityShapeMoniker" ElementName="entityShape" MonikerTypeName="EntityShapeMoniker">
         <CompartmentShapeMoniker Name="EntityShape" />
@@ -431,11 +458,20 @@
       <XmlClassData TypeName="EntityProperty" MonikerAttributeName="" SerializeId="true" MonikerElementName="entityPropertyMoniker" ElementName="entityProperty" MonikerTypeName="EntityPropertyMoniker">
         <DomainClassMoniker Name="EntityProperty" />
         <ElementData>
+          <XmlPropertyData XmlName="entityPropertyId">
+            <DomainPropertyMoniker Name="EntityProperty/EntityPropertyId" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="entityId">
+            <DomainPropertyMoniker Name="EntityProperty/EntityId" />
+          </XmlPropertyData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="EntityProperty/Name" />
           </XmlPropertyData>
           <XmlPropertyData XmlName="type">
             <DomainPropertyMoniker Name="EntityProperty/Type" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="entityReferencesTargetEntitiesId">
+            <DomainPropertyMoniker Name="EntityProperty/EntityReferencesTargetEntitiesId" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

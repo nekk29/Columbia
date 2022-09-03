@@ -22,8 +22,8 @@ namespace Columbia.Dsl.Utils
                     continue;
                 }
 
-                if (project.Kind == CommonConstants.vsProjectKindMiscCSharp ||
-                    project.Kind == CommonConstants.vsProjectKindMiscOther)
+                if (project.Kind == CommonConstants.Projects.vsProjectKindMiscCSharp ||
+                    project.Kind == CommonConstants.Projects.vsProjectKindMiscOther)
                     projects.Add(project);
             }
 
@@ -52,8 +52,8 @@ namespace Columbia.Dsl.Utils
                         continue;
                     }
 
-                    if (project.Kind == CommonConstants.vsProjectKindMiscCSharp ||
-                        project.Kind == CommonConstants.vsProjectKindMiscOther)
+                    if (project.Kind == CommonConstants.Projects.vsProjectKindMiscCSharp ||
+                        project.Kind == CommonConstants.Projects.vsProjectKindMiscOther)
                         projects.Add(project);
                 }
             }

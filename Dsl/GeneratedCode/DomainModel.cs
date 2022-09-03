@@ -114,8 +114,12 @@ namespace Columbia.Dsl
 				new DomainMemberInfo(typeof(PrimitiveProperty), "Type", PrimitiveProperty.TypeDomainPropertyId, typeof(PrimitiveProperty.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(PrimitiveProperty), "IsPrimaryKey", PrimitiveProperty.IsPrimaryKeyDomainPropertyId, typeof(PrimitiveProperty.IsPrimaryKeyPropertyHandler)),
 				new DomainMemberInfo(typeof(PrimitiveProperty), "Nullable", PrimitiveProperty.NullableDomainPropertyId, typeof(PrimitiveProperty.NullablePropertyHandler)),
+				new DomainMemberInfo(typeof(EntityProperty), "EntityPropertyId", EntityProperty.EntityPropertyIdDomainPropertyId, typeof(EntityProperty.EntityPropertyIdPropertyHandler)),
+				new DomainMemberInfo(typeof(EntityProperty), "EntityId", EntityProperty.EntityIdDomainPropertyId, typeof(EntityProperty.EntityIdPropertyHandler)),
 				new DomainMemberInfo(typeof(EntityProperty), "Name", EntityProperty.NameDomainPropertyId, typeof(EntityProperty.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(EntityProperty), "Type", EntityProperty.TypeDomainPropertyId, typeof(EntityProperty.TypePropertyHandler)),
+				new DomainMemberInfo(typeof(EntityProperty), "EntityReferencesTargetEntitiesId", EntityProperty.EntityReferencesTargetEntitiesIdDomainPropertyId, typeof(EntityProperty.EntityReferencesTargetEntitiesIdPropertyHandler)),
+				new DomainMemberInfo(typeof(EntityReferencesTargetEntities), "EntityReferencesTargetEntitiesId", EntityReferencesTargetEntities.EntityReferencesTargetEntitiesIdDomainPropertyId, typeof(EntityReferencesTargetEntities.EntityReferencesTargetEntitiesIdPropertyHandler)),
 			};
 		}
 		/// <summary>

@@ -2956,6 +2956,40 @@ namespace Columbia.Dsl
 			EntityProperty instanceOfEntityProperty = element as EntityProperty;
 			global::System.Diagnostics.Debug.Assert(instanceOfEntityProperty != null, "Expecting an instance of EntityProperty");
 	
+			// EntityPropertyId
+			if (!serializationContext.Result.Failed)
+			{
+				string attribEntityPropertyId = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "entityPropertyId");
+				if (attribEntityPropertyId != null)
+				{
+					global::System.String valueOfEntityPropertyId;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribEntityPropertyId, out valueOfEntityPropertyId))
+					{
+						instanceOfEntityProperty.EntityPropertyId = valueOfEntityPropertyId;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "entityPropertyId", typeof(global::System.String), attribEntityPropertyId);
+					}
+				}
+			}
+			// EntityId
+			if (!serializationContext.Result.Failed)
+			{
+				string attribEntityId = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "entityId");
+				if (attribEntityId != null)
+				{
+					global::System.String valueOfEntityId;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribEntityId, out valueOfEntityId))
+					{
+						instanceOfEntityProperty.EntityId = valueOfEntityId;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "entityId", typeof(global::System.String), attribEntityId);
+					}
+				}
+			}
 			// Name
 			if (!serializationContext.Result.Failed)
 			{
@@ -2987,6 +3021,23 @@ namespace Columbia.Dsl
 					else
 					{	// Invalid property value, ignored.
 						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "type", typeof(global::System.String), attribType);
+					}
+				}
+			}
+			// EntityReferencesTargetEntitiesId
+			if (!serializationContext.Result.Failed)
+			{
+				string attribEntityReferencesTargetEntitiesId = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "entityReferencesTargetEntitiesId");
+				if (attribEntityReferencesTargetEntitiesId != null)
+				{
+					global::System.String valueOfEntityReferencesTargetEntitiesId;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribEntityReferencesTargetEntitiesId, out valueOfEntityReferencesTargetEntitiesId))
+					{
+						instanceOfEntityProperty.EntityReferencesTargetEntitiesId = valueOfEntityReferencesTargetEntitiesId;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "entityReferencesTargetEntitiesId", typeof(global::System.String), attribEntityReferencesTargetEntitiesId);
 					}
 				}
 			}
@@ -3415,13 +3466,37 @@ namespace Columbia.Dsl
 			EntityProperty instanceOfEntityProperty = element as EntityProperty;
 			global::System.Diagnostics.Debug.Assert(instanceOfEntityProperty != null, "Expecting an instance of EntityProperty");
 	
+			// EntityPropertyId
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntityProperty.EntityPropertyId;
+				if (!serializationContext.Result.Failed)
+				{
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, string.Empty) != 0))
+					{	// No need to write the value out if it's the same as default value.
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "entityPropertyId", propValue);
+					}
+				}
+			}
+			// EntityId
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntityProperty.EntityId;
+				if (!serializationContext.Result.Failed)
+				{
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, string.Empty) != 0))
+					{	// No need to write the value out if it's the same as default value.
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "entityId", propValue);
+					}
+				}
+			}
 			// Name
 			if (!serializationContext.Result.Failed)
 			{
 				global::System.String propValue = instanceOfEntityProperty.Name;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "Entity") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, string.Empty) != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", propValue);
 					}
@@ -3435,6 +3510,17 @@ namespace Columbia.Dsl
 				{
 					if (!string.IsNullOrEmpty(propValue))
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "type", propValue);
+	
+				}
+			}
+			// EntityReferencesTargetEntitiesId
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntityProperty.EntityReferencesTargetEntitiesId;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "entityReferencesTargetEntitiesId", propValue);
 	
 				}
 			}
@@ -4385,7 +4471,7 @@ namespace Columbia.Dsl
 			
 			// Read properties serialized as XML attributes.
 			ReadPropertiesFromAttributes(serializationContext, element, reader);
-				
+	
 			// Read nested XML elements, which include at least the monikerized instance of target role-player TargetEntity
 			if (!serializationContext.Result.Failed)
 			{
@@ -4497,7 +4583,26 @@ namespace Columbia.Dsl
 			// Always call the base class so any extensions are deserialized
 			base.ReadPropertiesFromAttributes(serializationContext, element, reader);
 	
-			// There is no property to read; do nothing
+			EntityReferencesTargetEntities instanceOfEntityReferencesTargetEntities = element as EntityReferencesTargetEntities;
+			global::System.Diagnostics.Debug.Assert(instanceOfEntityReferencesTargetEntities != null, "Expecting an instance of EntityReferencesTargetEntities");
+	
+			// EntityReferencesTargetEntitiesId
+			if (!serializationContext.Result.Failed)
+			{
+				string attribEntityReferencesTargetEntitiesId = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "entityReferencesTargetEntitiesId");
+				if (attribEntityReferencesTargetEntitiesId != null)
+				{
+					global::System.String valueOfEntityReferencesTargetEntitiesId;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribEntityReferencesTargetEntitiesId, out valueOfEntityReferencesTargetEntitiesId))
+					{
+						instanceOfEntityReferencesTargetEntities.EntityReferencesTargetEntitiesId = valueOfEntityReferencesTargetEntitiesId;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "entityReferencesTargetEntitiesId", typeof(global::System.String), attribEntityReferencesTargetEntitiesId);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -4981,7 +5086,20 @@ namespace Columbia.Dsl
 			// Always call the base class so any extensions are serialized
 			base.WritePropertiesAsAttributes(serializationContext, element, writer);
 	
-			// There are no properties; do nothing
+			EntityReferencesTargetEntities instanceOfEntityReferencesTargetEntities = element as EntityReferencesTargetEntities;
+			global::System.Diagnostics.Debug.Assert(instanceOfEntityReferencesTargetEntities != null, "Expecting an instance of EntityReferencesTargetEntities");
+	
+			// EntityReferencesTargetEntitiesId
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntityReferencesTargetEntities.EntityReferencesTargetEntitiesId;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "entityReferencesTargetEntitiesId", propValue);
+	
+				}
+			}
 		}
 	
 		/// <summary>

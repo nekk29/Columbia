@@ -77,12 +77,18 @@
     <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Modeling" Version="17.0.*-*" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCode\Domain Model\ColumbiaDomainModel.cs" />
+    <Compile Include="CustomRules\Domain Classes\EntityPropertyRules.cs" />
+    <Compile Include="CustomRules\Domain Classes\EntityRules.cs" />
+    <Compile Include="CustomRules\Domain Relationships\EntityReferencesTargetEntitiesRules.cs" />
     <Compile Include="Resources\TypeConverters.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TypeConverters.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\CommonConstants.cs" />
+    <Compile Include="Utils\CommonFunctions.cs" />
+    <Compile Include="Utils\GlobalVariables.cs" />
     <Compile Include="Utils\ProjectUtils.cs" />
     <None Include="..\Key.snk">
       <Link>Key.snk</Link>
@@ -278,7 +284,5 @@
     <Folder Include="CustomCode\Domain Classes\" />
     <Folder Include="CustomCode\Domain Relationships\" />
     <Folder Include="CustomRules\Connection Builders\" />
-    <Folder Include="CustomRules\Domain Classes\" />
-    <Folder Include="CustomRules\Domain Relationships\" />
   </ItemGroup>
 </Project>

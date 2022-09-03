@@ -233,13 +233,13 @@
         <!-- Property: Name -->
         <xsd:attribute name="name" type="xsd:string" >
           <xsd:annotation>
-            <xsd:documentation>Name of the property</xsd:documentation>
+            <xsd:documentation>Property name</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Type -->
         <xsd:attribute name="type" type="xsd:string" >
           <xsd:annotation>
-            <xsd:documentation>Type of the property</xsd:documentation>
+            <xsd:documentation>Property type</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: IsPrimaryKey -->
@@ -286,18 +286,32 @@
             <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: EntityPropertyId -->
+        <xsd:attribute name="entityPropertyId" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Entity property id</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: EntityId -->
+        <xsd:attribute name="entityId" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Entity id</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <!-- Property: Name -->
         <xsd:attribute name="name" type="xsd:string" >
           <xsd:annotation>
-            <xsd:documentation>Name of the entity property</xsd:documentation>
+            <xsd:documentation>Property name</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Type -->
         <xsd:attribute name="type" type="xsd:string" >
           <xsd:annotation>
-            <xsd:documentation>Type of the entity</xsd:documentation>
+            <xsd:documentation>Entity type</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: EntityReferencesTargetEntitiesId -->
+        <xsd:attribute name="entityReferencesTargetEntitiesId" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -382,6 +396,12 @@
         <xsd:attribute name="Id" type="xsd:string">
           <xsd:annotation>
             <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: EntityReferencesTargetEntitiesId -->
+        <xsd:attribute name="entityReferencesTargetEntitiesId" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Entity References Target Entities Id</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>

@@ -1173,6 +1173,7 @@ namespace Columbia.Dsl
 	[DslDesign::DescriptionResource("Columbia.Dsl.Entity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Columbia.Dsl.ColumbiaDomainModel))]
 	[global::System.CLSCompliant(true)]
+	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (Name = {namePropertyStorage})")]
 	[DslModeling::DomainObjectId("fa7ecba8-f890-4298-ae43-e2f1e0e24578")]
 	public partial class Entity : DslModeling::ModelElement
 	{
@@ -1310,6 +1311,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.Entity/Name.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.Entity/Name.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.Entity/Name.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::ElementName]
 		[DslModeling::DomainObjectId("4700c1e5-8796-4be3-a213-395a84dc6b87")]
 		public global::System.String Name
 		{
@@ -1639,7 +1641,7 @@ namespace Columbia.Dsl
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
-		/// Name of the property
+		/// Property name
 		/// </summary>
 		[DslDesign::DisplayNameResource("Columbia.Dsl.PrimitiveProperty/Name.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.PrimitiveProperty/Name.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
@@ -1729,7 +1731,7 @@ namespace Columbia.Dsl
 		
 		/// <summary>
 		/// Gets or sets the value of Type domain property.
-		/// Type of the property
+		/// Property type
 		/// </summary>
 		[System.ComponentModel.TypeConverter("Columbia.Dsl.CustomCode.DomainTypes.PrimitiveTypeTypeConverter")]
 		[DslDesign::DisplayNameResource("Columbia.Dsl.PrimitiveProperty/Type.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
@@ -2042,28 +2044,208 @@ namespace Columbia.Dsl
 		{
 		}
 		#endregion
+		#region EntityPropertyId domain property code
+		
+		/// <summary>
+		/// EntityPropertyId domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityPropertyIdDomainPropertyId = new global::System.Guid(0x22c69281, 0xae73, 0x43fc, 0x8a, 0x53, 0xfd, 0x9b, 0x43, 0x67, 0xe8, 0xb4);
+		
+		/// <summary>
+		/// Storage for EntityPropertyId
+		/// </summary>
+		private global::System.String entityPropertyIdPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of EntityPropertyId domain property.
+		/// Entity property id
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/EntityPropertyId.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.EntityProperty/EntityPropertyId.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/EntityPropertyId.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("")]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainObjectId("22c69281-ae73-43fc-8a53-fd9b4367e8b4")]
+		public global::System.String EntityPropertyId
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return entityPropertyIdPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				EntityPropertyIdPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EntityProperty.EntityPropertyId domain property.
+		/// </summary>
+		internal sealed partial class EntityPropertyIdPropertyHandler : DslModeling::DomainPropertyValueHandler<EntityProperty, global::System.String>
+		{
+			private EntityPropertyIdPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EntityProperty.EntityPropertyId domain property value handler.
+			/// </summary>
+			public static readonly EntityPropertyIdPropertyHandler Instance = new EntityPropertyIdPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EntityProperty.EntityPropertyId domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return EntityPropertyIdDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EntityProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.entityPropertyIdPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EntityProperty element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.entityPropertyIdPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region EntityId domain property code
+		
+		/// <summary>
+		/// EntityId domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityIdDomainPropertyId = new global::System.Guid(0x46c7641d, 0x48ae, 0x4953, 0x94, 0x98, 0xbc, 0xd1, 0x5b, 0x40, 0x5a, 0x05);
+		
+		/// <summary>
+		/// Storage for EntityId
+		/// </summary>
+		private global::System.String entityIdPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of EntityId domain property.
+		/// Entity id
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/EntityId.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.EntityProperty/EntityId.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/EntityId.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue("")]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainObjectId("46c7641d-48ae-4953-9498-bcd15b405a05")]
+		public global::System.String EntityId
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return entityIdPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				EntityIdPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EntityProperty.EntityId domain property.
+		/// </summary>
+		internal sealed partial class EntityIdPropertyHandler : DslModeling::DomainPropertyValueHandler<EntityProperty, global::System.String>
+		{
+			private EntityIdPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EntityProperty.EntityId domain property value handler.
+			/// </summary>
+			public static readonly EntityIdPropertyHandler Instance = new EntityIdPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EntityProperty.EntityId domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return EntityIdDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EntityProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.entityIdPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EntityProperty element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.entityIdPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Name domain property code
 		
 		/// <summary>
 		/// Name domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x22c69281, 0xae73, 0x43fc, 0x8a, 0x53, 0xfd, 0x9b, 0x43, 0x67, 0xe8, 0xb4);
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0xb0d57d4b, 0x28eb, 0x49a7, 0x8c, 0x3f, 0xf1, 0xc5, 0xd1, 0xa4, 0x5b, 0xec);
 		
 		/// <summary>
 		/// Storage for Name
 		/// </summary>
-		private global::System.String namePropertyStorage = "Entity";
+		private global::System.String namePropertyStorage = string.Empty;
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
-		/// Name of the entity property
+		/// Property name
 		/// </summary>
 		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/Name.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.EntityProperty/Name.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/Name.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("Entity")]
+		[global::System.ComponentModel.DefaultValue("")]
 		[DslModeling::ElementName]
-		[DslModeling::DomainObjectId("22c69281-ae73-43fc-8a53-fd9b4367e8b4")]
+		[DslModeling::DomainObjectId("b0d57d4b-28eb-49a7-8c3f-f1c5d1a45bec")]
 		public global::System.String Name
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
@@ -2137,7 +2319,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Type domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0x46c7641d, 0x48ae, 0x4953, 0x94, 0x98, 0xbc, 0xd1, 0x5b, 0x40, 0x5a, 0x05);
+		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0xd7fce8ab, 0x7100, 0x417e, 0x88, 0x03, 0xee, 0x7c, 0x01, 0xf0, 0x88, 0xfe);
 		
 		/// <summary>
 		/// Storage for Type
@@ -2146,13 +2328,13 @@ namespace Columbia.Dsl
 		
 		/// <summary>
 		/// Gets or sets the value of Type domain property.
-		/// Type of the entity
+		/// Entity type
 		/// </summary>
 		[System.ComponentModel.TypeConverter("Columbia.Dsl.CustomCode.DomainTypes.EntityTypeTypeConverter")]
 		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/Type.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.EntityProperty/Type.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/Type.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("46c7641d-48ae-4953-9498-bcd15b405a05")]
+		[DslModeling::DomainObjectId("d7fce8ab-7100-417e-8803-ee7c01f088fe")]
 		public global::System.String Type
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
@@ -2215,6 +2397,94 @@ namespace Columbia.Dsl
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.typePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region EntityReferencesTargetEntitiesId domain property code
+		
+		/// <summary>
+		/// EntityReferencesTargetEntitiesId domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityReferencesTargetEntitiesIdDomainPropertyId = new global::System.Guid(0x8275e1b0, 0xb661, 0x4993, 0x82, 0x5e, 0xd7, 0xa2, 0xef, 0xde, 0x2b, 0x5c);
+		
+		/// <summary>
+		/// Storage for EntityReferencesTargetEntitiesId
+		/// </summary>
+		private global::System.String entityReferencesTargetEntitiesIdPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of EntityReferencesTargetEntitiesId domain property.
+		/// Description for Columbia.Dsl.EntityProperty.Entity References Target Entities Id
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/EntityReferencesTargetEntitiesId.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/EntityReferencesTargetEntitiesId.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainObjectId("8275e1b0-b661-4993-825e-d7a2efde2b5c")]
+		public global::System.String EntityReferencesTargetEntitiesId
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return entityReferencesTargetEntitiesIdPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				EntityReferencesTargetEntitiesIdPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EntityProperty.EntityReferencesTargetEntitiesId domain property.
+		/// </summary>
+		internal sealed partial class EntityReferencesTargetEntitiesIdPropertyHandler : DslModeling::DomainPropertyValueHandler<EntityProperty, global::System.String>
+		{
+			private EntityReferencesTargetEntitiesIdPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EntityProperty.EntityReferencesTargetEntitiesId domain property value handler.
+			/// </summary>
+			public static readonly EntityReferencesTargetEntitiesIdPropertyHandler Instance = new EntityReferencesTargetEntitiesIdPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EntityProperty.EntityReferencesTargetEntitiesId domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return EntityReferencesTargetEntitiesIdDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EntityProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.entityReferencesTargetEntitiesIdPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EntityProperty element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.entityReferencesTargetEntitiesIdPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

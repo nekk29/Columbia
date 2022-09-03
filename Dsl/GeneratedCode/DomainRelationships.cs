@@ -405,6 +405,95 @@ namespace Columbia.Dsl
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Entity>, Entity>(element, SourceEntityDomainRoleId);
 		}
 		#endregion
+		#region EntityReferencesTargetEntitiesId domain property code
+		
+		/// <summary>
+		/// EntityReferencesTargetEntitiesId domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid EntityReferencesTargetEntitiesIdDomainPropertyId = new global::System.Guid(0x3fa9ebdf, 0x3c49, 0x49e1, 0xae, 0xeb, 0x49, 0xc7, 0xb8, 0xb7, 0xca, 0x9c);
+		
+		/// <summary>
+		/// Storage for EntityReferencesTargetEntitiesId
+		/// </summary>
+		private global::System.String entityReferencesTargetEntitiesIdPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of EntityReferencesTargetEntitiesId domain property.
+		/// Entity References Target Entities Id
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainObjectId("3fa9ebdf-3c49-49e1-aeeb-49c7b8b7ca9c")]
+		public global::System.String EntityReferencesTargetEntitiesId
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return entityReferencesTargetEntitiesIdPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				EntityReferencesTargetEntitiesIdPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EntityReferencesTargetEntities.EntityReferencesTargetEntitiesId domain property.
+		/// </summary>
+		internal sealed partial class EntityReferencesTargetEntitiesIdPropertyHandler : DslModeling::DomainPropertyValueHandler<EntityReferencesTargetEntities, global::System.String>
+		{
+			private EntityReferencesTargetEntitiesIdPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EntityReferencesTargetEntities.EntityReferencesTargetEntitiesId domain property value handler.
+			/// </summary>
+			public static readonly EntityReferencesTargetEntitiesIdPropertyHandler Instance = new EntityReferencesTargetEntitiesIdPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EntityReferencesTargetEntities.EntityReferencesTargetEntitiesId domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return EntityReferencesTargetEntitiesIdDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EntityReferencesTargetEntities element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.entityReferencesTargetEntitiesIdPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EntityReferencesTargetEntities element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.entityReferencesTargetEntitiesIdPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region SourceEntity link accessor
 		/// <summary>
 		/// Get the list of EntityReferencesTargetEntities links to a Entity.

@@ -278,7 +278,7 @@
     <comment>Description for DomainProperty &apos;EntityId&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/EntityId.DisplayName" xml:space="preserve">
-    <value>Entity Id</value>
+    <value>Entity id</value>
     <comment>DisplayName for DomainProperty &apos;EntityId&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/EntityId.Category" xml:space="preserve">
@@ -290,7 +290,7 @@
     <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/Name.DisplayName" xml:space="preserve">
-    <value>Name</value>
+    <value>Entity name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/Name.Category" xml:space="preserve">
@@ -306,11 +306,11 @@
     <comment>DisplayName for DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.PrimitiveProperty/Name.Description" xml:space="preserve">
-    <value>Name of the property</value>
+    <value>Property name</value>
     <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.PrimitiveProperty/Name.DisplayName" xml:space="preserve">
-    <value>Name</value>
+    <value>Property name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.PrimitiveProperty/Name.Category" xml:space="preserve">
@@ -318,7 +318,7 @@
     <comment>Category for DomainProperty &apos;Name&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.PrimitiveProperty/Type.Description" xml:space="preserve">
-    <value>Type of the property</value>
+    <value>Property type</value>
     <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.PrimitiveProperty/Type.DisplayName" xml:space="preserve">
@@ -361,12 +361,36 @@
     <value>Entity Property</value>
     <comment>DisplayName for DomainClass &apos;EntityProperty&apos;</comment>
   </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityPropertyId.Description" xml:space="preserve">
+    <value>Entity property id</value>
+    <comment>Description for DomainProperty &apos;EntityPropertyId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityPropertyId.DisplayName" xml:space="preserve">
+    <value>Entity property id</value>
+    <comment>DisplayName for DomainProperty &apos;EntityPropertyId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityPropertyId.Category" xml:space="preserve">
+    <value>Definition</value>
+    <comment>Category for DomainProperty &apos;EntityPropertyId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityId.Description" xml:space="preserve">
+    <value>Entity id</value>
+    <comment>Description for DomainProperty &apos;EntityId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityId.DisplayName" xml:space="preserve">
+    <value>Entity id</value>
+    <comment>DisplayName for DomainProperty &apos;EntityId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityId.Category" xml:space="preserve">
+    <value>Definition</value>
+    <comment>Category for DomainProperty &apos;EntityId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
   <data name="Columbia.Dsl.EntityProperty/Name.Description" xml:space="preserve">
-    <value>Name of the entity property</value>
+    <value>Property name</value>
     <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityProperty/Name.DisplayName" xml:space="preserve">
-    <value>Name</value>
+    <value>Property name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityProperty/Name.Category" xml:space="preserve">
@@ -374,16 +398,24 @@
     <comment>Category for DomainProperty &apos;Name&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityProperty/Type.Description" xml:space="preserve">
-    <value>Type of the entity</value>
+    <value>Entity type</value>
     <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityProperty/Type.DisplayName" xml:space="preserve">
-    <value>Type</value>
+    <value>Entity type</value>
     <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityProperty/Type.Category" xml:space="preserve">
     <value>Definition</value>
     <comment>Category for DomainProperty &apos;Type&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityReferencesTargetEntitiesId.Description" xml:space="preserve">
+    <value>Description for Columbia.Dsl.EntityProperty.Entity References Target Entities Id</value>
+    <comment>Description for DomainProperty &apos;EntityReferencesTargetEntitiesId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/EntityReferencesTargetEntitiesId.DisplayName" xml:space="preserve">
+    <value>Entity References Target Entities Id</value>
+    <comment>DisplayName for DomainProperty &apos;EntityReferencesTargetEntitiesId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.DomainModelHasEntities.Description" xml:space="preserve">
     <value>Domain Model Has Entities</value>
@@ -424,6 +456,18 @@
   <data name="Columbia.Dsl.EntityReferencesTargetEntities.DisplayName" xml:space="preserve">
     <value>Entity References Target Entities</value>
     <comment>DisplayName for DomainClass &apos;EntityReferencesTargetEntities&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId.Description" xml:space="preserve">
+    <value>Entity References Target Entities Id</value>
+    <comment>Description for DomainProperty &apos;EntityReferencesTargetEntitiesId&apos; on DomainClass &apos;EntityReferencesTargetEntities&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId.DisplayName" xml:space="preserve">
+    <value>Entity References Target Entities Id</value>
+    <comment>DisplayName for DomainProperty &apos;EntityReferencesTargetEntitiesId&apos; on DomainClass &apos;EntityReferencesTargetEntities&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityReferencesTargetEntities/EntityReferencesTargetEntitiesId.Category" xml:space="preserve">
+    <value>Definition</value>
+    <comment>Category for DomainProperty &apos;EntityReferencesTargetEntitiesId&apos; on DomainClass &apos;EntityReferencesTargetEntities&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityReferencesTargetEntities/SourceEntity.Description" xml:space="preserve">
     <value>Description for Columbia.Dsl.EntityReferencesTargetEntities.SourceEntity</value>
