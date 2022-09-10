@@ -1,5 +1,4 @@
 ﻿using Columbia.DslPackage.CustomCode.Commands.Entity;
-using Microsoft.VisualStudio.Modeling.Shell;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;

@@ -14,11 +14,11 @@ using VSLangProj;
 
 namespace Columbia.DslPackage.CustomCode.Commands.Base
 {
-    internal abstract class CommandBase
+    internal abstract class CommandBase<TGenerator>  where TGenerator : CodeGeneratorBase, new()
     {
         protected abstract bool OverrideFile { get; }
         protected abstract prjBuildAction BuildAction { get; }
-        protected abstract CodeGeneratorBase Generator { get; }
+        protected CodeGeneratorBase Generator { get; } = new TGenerator();
 
         protected Dsl.Entity CurrentEntity { get; set; }
         protected ColumbiaCommandSet ColumbiaCommandSet { get; set; }

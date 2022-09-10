@@ -1,16 +1,16 @@
 ﻿using Columbia.Dsl;
-using Columbia.DslPackage.CodeGenerators.Entity;
+using Columbia.DslPackage.CodeGenerators.Dto;
 using Columbia.DslPackage.CustomCode.Commands.Base;
 using VSLangProj;
 
-namespace Columbia.DslPackage.CustomCode.Commands.Entity
+namespace Columbia.DslPackage.CustomCode.Commands.Dto
 {
-    internal class CreateEntityCommand : CommandBase<EntityCodeGenerator>
+    internal class ListDtoCommand : CommandBase<ListDtoCodeGenerator>
     {
         protected override bool OverrideFile => true;
         protected override prjBuildAction BuildAction => prjBuildAction.prjBuildActionCompile;
 
-        public CreateEntityCommand(ColumbiaCommandSet columbiaCommandSet) : base(columbiaCommandSet)
+        public ListDtoCommand(ColumbiaCommandSet columbiaCommandSet) : base(columbiaCommandSet)
         {
 
         }
@@ -22,7 +22,7 @@ namespace Columbia.DslPackage.CustomCode.Commands.Entity
 
         protected override string GetFileName(Dsl.Entity entity)
         {
-            return $"{entity.Name}.cs";
+            return $"{entity.Name}/List{entity.Name}Dto.cs";
         }
     }
 }
