@@ -118,51 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PrimitiveType_Boolean" xml:space="preserve">
-    <value>System.Boolean</value>
+    <value>bool</value>
   </data>
   <data name="PrimitiveType_Byte" xml:space="preserve">
-    <value>System.Byte</value>
+    <value>byte</value>
+  </data>
+  <data name="PrimitiveType_ByteArray" xml:space="preserve">
+    <value>byte[]</value>
   </data>
   <data name="PrimitiveType_Char" xml:space="preserve">
-    <value>System.Char</value>
+    <value>char</value>
   </data>
   <data name="PrimitiveType_DateTime" xml:space="preserve">
-    <value>System.DateTime</value>
+    <value>DateTime</value>
+  </data>
+  <data name="PrimitiveType_DateTimeOffest" xml:space="preserve">
+    <value>DateTimeOffset</value>
   </data>
   <data name="PrimitiveType_Decimal" xml:space="preserve">
-    <value>System.Decimal</value>
+    <value>decimal</value>
   </data>
   <data name="PrimitiveType_Double" xml:space="preserve">
-    <value>System.Double</value>
+    <value>double</value>
   </data>
   <data name="PrimitiveType_Guid" xml:space="preserve">
-    <value>System.Guid</value>
+    <value>Guid</value>
   </data>
   <data name="PrimitiveType_Int16" xml:space="preserve">
-    <value>System.Int16</value>
+    <value>short</value>
   </data>
   <data name="PrimitiveType_Int32" xml:space="preserve">
-    <value>System.Int32</value>
+    <value>int</value>
   </data>
   <data name="PrimitiveType_Int64" xml:space="preserve">
-    <value>System.Int64</value>
+    <value>long</value>
   </data>
   <data name="PrimitiveType_SByte" xml:space="preserve">
-    <value>System.SByte</value>
+    <value>sbyte</value>
+  </data>
+  <data name="PrimitiveType_SByteArray" xml:space="preserve">
+    <value>sbyte[]</value>
   </data>
   <data name="PrimitiveType_Single" xml:space="preserve">
-    <value>System.Single</value>
+    <value>float</value>
   </data>
   <data name="PrimitiveType_String" xml:space="preserve">
-    <value>System.String</value>
+    <value>string</value>
   </data>
   <data name="PrimitiveType_UInt16" xml:space="preserve">
-    <value>System.UInt16</value>
+    <value>ushort</value>
   </data>
   <data name="PrimitiveType_UInt32" xml:space="preserve">
-    <value>System.UInt32</value>
+    <value>uint</value>
   </data>
   <data name="PrimitiveType_UInt64" xml:space="preserve">
-    <value>System.UInt64</value>
+    <value>ulong</value>
   </data>
 </root>

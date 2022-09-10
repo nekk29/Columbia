@@ -2259,14 +2259,14 @@ namespace Columbia.Dsl
 				string attribNullable = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "nullable");
 				if (attribNullable != null)
 				{
-					global::System.String valueOfNullable;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribNullable, out valueOfNullable))
+					global::System.Boolean valueOfNullable;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribNullable, out valueOfNullable))
 					{
 						instanceOfPrimitiveProperty.Nullable = valueOfNullable;
 					}
 					else
 					{	// Invalid property value, ignored.
-						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "nullable", typeof(global::System.String), attribNullable);
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "nullable", typeof(global::System.Boolean), attribNullable);
 					}
 				}
 			}
@@ -2713,7 +2713,7 @@ namespace Columbia.Dsl
 				global::System.String propValue = instanceOfPrimitiveProperty.Type;
 				if (!serializationContext.Result.Failed)
 				{
-					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "System.String") != 0))
+					if (propValue != null && (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(propValue, "string") != 0))
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "type", propValue);
 					}
@@ -2735,12 +2735,11 @@ namespace Columbia.Dsl
 			// Nullable
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfPrimitiveProperty.Nullable;
+				global::System.Boolean propValue = instanceOfPrimitiveProperty.Nullable;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<global::System.Boolean>(serializationContext, propValue);
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
-						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "nullable", propValue);
-	
+					ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "nullable", serializedPropValue);
 				}
 			}
 		}

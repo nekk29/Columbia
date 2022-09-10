@@ -61,7 +61,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Boolean.
+        ///   Looks up a localized string similar to bool.
         /// </summary>
         internal static string PrimitiveType_Boolean {
             get {
@@ -70,7 +70,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Byte.
+        ///   Looks up a localized string similar to byte.
         /// </summary>
         internal static string PrimitiveType_Byte {
             get {
@@ -79,7 +79,16 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Char.
+        ///   Looks up a localized string similar to byte[].
+        /// </summary>
+        internal static string PrimitiveType_ByteArray {
+            get {
+                return ResourceManager.GetString("PrimitiveType_ByteArray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to char.
         /// </summary>
         internal static string PrimitiveType_Char {
             get {
@@ -88,7 +97,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.DateTime.
+        ///   Looks up a localized string similar to DateTime.
         /// </summary>
         internal static string PrimitiveType_DateTime {
             get {
@@ -97,7 +106,16 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Decimal.
+        ///   Looks up a localized string similar to DateTimeOffset.
+        /// </summary>
+        internal static string PrimitiveType_DateTimeOffest {
+            get {
+                return ResourceManager.GetString("PrimitiveType_DateTimeOffest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to decimal.
         /// </summary>
         internal static string PrimitiveType_Decimal {
             get {
@@ -106,7 +124,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Double.
+        ///   Looks up a localized string similar to double.
         /// </summary>
         internal static string PrimitiveType_Double {
             get {
@@ -115,7 +133,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Guid.
+        ///   Looks up a localized string similar to Guid.
         /// </summary>
         internal static string PrimitiveType_Guid {
             get {
@@ -124,7 +142,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Int16.
+        ///   Looks up a localized string similar to short.
         /// </summary>
         internal static string PrimitiveType_Int16 {
             get {
@@ -133,7 +151,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Int32.
+        ///   Looks up a localized string similar to int.
         /// </summary>
         internal static string PrimitiveType_Int32 {
             get {
@@ -142,7 +160,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Int64.
+        ///   Looks up a localized string similar to long.
         /// </summary>
         internal static string PrimitiveType_Int64 {
             get {
@@ -151,7 +169,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.SByte.
+        ///   Looks up a localized string similar to sbyte.
         /// </summary>
         internal static string PrimitiveType_SByte {
             get {
@@ -160,7 +178,16 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.Single.
+        ///   Looks up a localized string similar to sbyte[].
+        /// </summary>
+        internal static string PrimitiveType_SByteArray {
+            get {
+                return ResourceManager.GetString("PrimitiveType_SByteArray", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to float.
         /// </summary>
         internal static string PrimitiveType_Single {
             get {
@@ -169,7 +196,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.String.
+        ///   Looks up a localized string similar to string.
         /// </summary>
         internal static string PrimitiveType_String {
             get {
@@ -178,7 +205,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.UInt16.
+        ///   Looks up a localized string similar to ushort.
         /// </summary>
         internal static string PrimitiveType_UInt16 {
             get {
@@ -187,7 +214,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.UInt32.
+        ///   Looks up a localized string similar to uint.
         /// </summary>
         internal static string PrimitiveType_UInt32 {
             get {
@@ -196,7 +223,7 @@ namespace Columbia.Dsl.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System.UInt64.
+        ///   Looks up a localized string similar to ulong.
         /// </summary>
         internal static string PrimitiveType_UInt64 {
             get {

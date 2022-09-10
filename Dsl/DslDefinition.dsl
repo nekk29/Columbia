@@ -186,7 +186,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="75eaf0be-5a70-455e-bdc5-a3015a7475aa" Description="Property type" Name="Type" DisplayName="Type" DefaultValue="System.String" Category="Definition">
+        <DomainProperty Id="75eaf0be-5a70-455e-bdc5-a3015a7475aa" Description="Property type" Name="Type" DisplayName="Type" DefaultValue="string" Category="Definition">
           <Attributes>
             <ClrAttribute Name="System.ComponentModel.TypeConverter">
               <Parameters>
@@ -205,7 +205,7 @@
         </DomainProperty>
         <DomainProperty Id="678d8826-485e-4028-8861-f616b574f9ef" Description="Specify if the property is nullable" Name="Nullable" DisplayName="Nullable" Category="Definition">
           <Type>
-            <ExternalTypeMoniker Name="/System/String" />
+            <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
       </Properties>

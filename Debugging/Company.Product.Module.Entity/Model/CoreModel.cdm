@@ -1,2 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<domainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fbf977f3-a376-443e-8380-29a0b8909ad7" apis="Company.Product.Module.Apis" application="Company.Product.Module.Application" applicationAbstractions="Company.Product.Module.Application.Abstractions" domain="Company.Product.Module.Domain" dto="Company.Product.Module.Dto" entity="Company.Product.Module.Entity" repository="Company.Product.Module.Repository" repositoryAbstractions="Company.Product.Module.Repository.Abstractions" restClient="Company.Product.Module.RestClient" database="Company.Product.Module.Database" test="Company.Product.Module.Test" xmlns="http://schemas.microsoft.com/dsltools/Columbia" />
+<domainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fbf977f3-a376-443e-8380-29a0b8909ad7" apis="Company.Product.Module.Apis" application="Company.Product.Module.Application" applicationAbstractions="Company.Product.Module.Application.Abstractions" domain="Company.Product.Module.Domain" dto="Company.Product.Module.Dto" entity="Company.Product.Module.Entity" repository="Company.Product.Module.Repository" repositoryAbstractions="Company.Product.Module.Repository.Abstractions" restClient="Company.Product.Module.RestClient" database="Company.Product.Module.Database" test="Company.Product.Module.Test" xmlns="http://schemas.microsoft.com/dsltools/Columbia">
+  <entities>
+    <domainModelHasEntities Id="4d8a489f-11c1-4ae1-a915-8184dd4d1464">
+      <entity Id="8a1e475c-1485-4788-9cee-e8d639f51dcc" name="Sample">
+        <primitiveProperties>
+          <entityHasPrimitiveProperties Id="4afbb2c8-cfc1-4410-8f4b-c4202b785634">
+            <primitiveProperty Id="3f5adbf1-e889-4af5-b980-1f48623161c9" name="Id" type="Guid" isPrimaryKey="true" nullable="false" />
+          </entityHasPrimitiveProperties>
+          <entityHasPrimitiveProperties Id="e1c478bd-2719-4c1b-b9e8-aeaf269e19f3">
+            <primitiveProperty Id="ca3027b9-11e6-4b5f-9751-dc139901b80a" name="Code" nullable="false" />
+          </entityHasPrimitiveProperties>
+          <entityHasPrimitiveProperties Id="d64a163f-c21f-4bfe-bc2f-fa5445189590">
+            <primitiveProperty Id="8fe7a2a6-c34e-4aef-b7c2-647d7d0f0c36" name="Description" nullable="false" />
+          </entityHasPrimitiveProperties>
+          <entityHasPrimitiveProperties Id="55029c16-ca55-48c9-8dbe-b53094c76ba6">
+            <primitiveProperty Id="b39da8a5-bfe9-419c-8d69-fd804fab5769" name="Remarks" nullable="true" />
+          </entityHasPrimitiveProperties>
+        </primitiveProperties>
+        <entityProperties>
+          <entityHasEntityProperties Id="77f0536a-5df8-40c2-92f1-e7de14e58833">
+            <entityProperty Id="bac5e7d4-2264-4993-ac5e-fde1c1a97b9e" entityPropertyId="00001" name="RelatedSample" type="RelatedSample" entityReferencesTargetEntitiesId="00001" />
+          </entityHasEntityProperties>
+        </entityProperties>
+      </entity>
+    </domainModelHasEntities>
+    <domainModelHasEntities Id="4ca386fe-5d5f-47d8-bb32-2075925be2b7">
+      <entity Id="f5a0de7a-4d80-433c-95ac-31aac2d09bb2" name="RelatedSample">
+        <targetEntities>
+          <entityReferencesTargetEntities Id="9fb0e4c7-7adf-4376-838b-5d010c77564d" entityReferencesTargetEntitiesId="00001">
+            <entityMoniker Id="8a1e475c-1485-4788-9cee-e8d639f51dcc" />
+          </entityReferencesTargetEntities>
+        </targetEntities>
+        <primitiveProperties>
+          <entityHasPrimitiveProperties Id="e0e37ffc-2dd2-4928-a73c-8df9a2ccdf40">
+            <primitiveProperty Id="f0d5de49-4906-436b-8aed-14374137e6a3" name="Id" type="Guid" isPrimaryKey="true" nullable="false" />
+          </entityHasPrimitiveProperties>
+          <entityHasPrimitiveProperties Id="e2b9282f-5143-4304-9489-ced208129bb7">
+            <primitiveProperty Id="a30acf4a-715f-4a6c-9b75-03eb5f6f24f5" name="Code" nullable="false" />
+          </entityHasPrimitiveProperties>
+          <entityHasPrimitiveProperties Id="f41f4876-00d5-4a39-9582-6dabe9548dea">
+            <primitiveProperty Id="bc54e9ea-4b48-4b01-8bf6-74a3dcda17d6" name="Description" nullable="false" />
+          </entityHasPrimitiveProperties>
+        </primitiveProperties>
+      </entity>
+    </domainModelHasEntities>
+  </entities>
+</domainModel>

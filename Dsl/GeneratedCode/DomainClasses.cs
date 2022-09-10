@@ -1727,7 +1727,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Type
 		/// </summary>
-		private global::System.String typePropertyStorage = "System.String";
+		private global::System.String typePropertyStorage = "string";
 		
 		/// <summary>
 		/// Gets or sets the value of Type domain property.
@@ -1737,7 +1737,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.PrimitiveProperty/Type.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.PrimitiveProperty/Type.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.PrimitiveProperty/Type.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("System.String")]
+		[global::System.ComponentModel.DefaultValue("string")]
 		[DslModeling::DomainObjectId("75eaf0be-5a70-455e-bdc5-a3015a7475aa")]
 		public global::System.String Type
 		{
@@ -1905,7 +1905,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Nullable
 		/// </summary>
-		private global::System.String nullablePropertyStorage = string.Empty;
+		private global::System.Boolean nullablePropertyStorage;
 		
 		/// <summary>
 		/// Gets or sets the value of Nullable domain property.
@@ -1915,7 +1915,7 @@ namespace Columbia.Dsl
 		[DslDesign::CategoryResource("Columbia.Dsl.PrimitiveProperty/Nullable.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.PrimitiveProperty/Nullable.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("678d8826-485e-4028-8861-f616b574f9ef")]
-		public global::System.String Nullable
+		public global::System.Boolean Nullable
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -1931,7 +1931,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Value handler for the PrimitiveProperty.Nullable domain property.
 		/// </summary>
-		internal sealed partial class NullablePropertyHandler : DslModeling::DomainPropertyValueHandler<PrimitiveProperty, global::System.String>
+		internal sealed partial class NullablePropertyHandler : DslModeling::DomainPropertyValueHandler<PrimitiveProperty, global::System.Boolean>
 		{
 			private NullablePropertyHandler() { }
 		
@@ -1957,7 +1957,7 @@ namespace Columbia.Dsl
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(PrimitiveProperty element)
+			public override sealed global::System.Boolean GetValue(PrimitiveProperty element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.nullablePropertyStorage;
@@ -1968,11 +1968,11 @@ namespace Columbia.Dsl
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(PrimitiveProperty element, global::System.String newValue)
+			public override sealed void SetValue(PrimitiveProperty element, global::System.Boolean newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
-				global::System.String oldValue = GetValue(element);
+				global::System.Boolean oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);

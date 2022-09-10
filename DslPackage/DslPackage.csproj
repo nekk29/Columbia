@@ -74,6 +74,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeGenerators\Base\CodeGeneratorBase.cs" />
+    <Compile Include="CodeGenerators\Entity\EntityCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCode\CommandSet.cs" />
+    <Compile Include="CustomCode\Commands\Base\CommandBase.cs" />
+    <Compile Include="CustomCode\Commands\Entity\CreateEntityCommand.cs" />
     <Compile Include="GeneratedCode\CommandSet.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -233,8 +242,13 @@
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
       <Link>CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <Content Include="CodeGenerators\Entity\EntityCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EntityCodeGenerator.cs</LastGenOutput>
+    </Content>
     <Content Include="Columbia.png" />
     <Content Include="Resources\File.bmp" />
     <Content Include="Resources\ModelExplorerToolWindowBitmaps.bmp" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

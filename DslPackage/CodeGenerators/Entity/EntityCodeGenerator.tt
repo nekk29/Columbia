@@ -1,0 +1,75 @@
+﻿<#@ template language="C#" inherits="Columbia.DslPackage.CodeGenerators.Base.CodeGeneratorBase" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace <#= DomainModel.Entity #>
+{
+<#
+if(Entity != null)
+{
+#>
+<#
+	PushIndent(DefautIndent);
+#>
+public class <#= Entity.Name #>
+{
+<#
+	PushIndent(DefautIndent);
+	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => x.IsPrimaryKey))
+	{
+#>
+[Key]
+public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
+<#
+	}
+	PopIndent();
+#>
+<#
+	PushIndent(DefautIndent);
+	foreach (var entityProperty in Entity.EntityProperties)
+	{
+		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
+		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
+#>
+<#
+		if(relatedEntityKey != null)
+		{
+#>
+[ForeignKey("<#= entityProperty.Name #><#= relatedEntityKey.Name #>")]
+<#
+		}
+#>
+public <#= entityProperty.Type #> <#= entityProperty.Name #> { get; set; } = null!;
+<#
+		if(relatedEntityKey != null)
+		{
+#>
+public <#= relatedEntityKey.Type #> <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; }
+<#
+		}
+#>
+<#
+	}
+	PopIndent();
+#>
+<#
+	PushIndent(DefautIndent);
+	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
+	{
+#>
+public <#= primitiveProperty.Type #><#= primitiveProperty.Nullable ? "?" : string.Empty #> <#= primitiveProperty.Name #> { get; set; } <#= primitiveProperty.Nullable ? string.Empty : "= null!;" #>
+<#
+	}
+	PopIndent();
+#>
+}
+<#
+ClearIndent();
+}
+#>
+}

@@ -1,1 +1,27 @@
-﻿ 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<columbiaDiagram dslVersion="1.0.0.0" Id="834131e8-0539-4ee5-97c7-c630aef27e69" absoluteBounds="0, 0, 11, 8.5" name="CoreModel">
+  <domainModelMoniker Id="fbf977f3-a376-443e-8380-29a0b8909ad7" />
+  <nestedChildShapes>
+    <entityShape Id="27341de9-1e71-415f-a437-87ad36f02809" absoluteBounds="1, 1.125, 2, 1.8802864583333334">
+      <entityMoniker Id="8a1e475c-1485-4788-9cee-e8d639f51dcc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cb4546e-9895-484d-baa8-fbb539d6afc7" absoluteBounds="1.015, 1.435, 1.9700000000000002, 1.0185953776041665" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f8d5c806-0aea-4c80-9196-1a94293287f1" absoluteBounds="1.015, 2.4635953776041664, 1.9700000000000002, 0.44169108072916674" name="Relations" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <entityShape Id="9310315e-7443-41b2-9da8-f2611982e216" absoluteBounds="4.875, 3.125, 2, 1.49568359375">
+      <entityMoniker Id="f5a0de7a-4d80-433c-95ac-31aac2d09bb2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb16f095-eeb5-459a-b4f0-613c2d085a9f" absoluteBounds="4.89, 3.435, 1.9700000000000002, 0.8262939453125" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="213566b2-f034-4e1c-b34c-d1531052aea4" absoluteBounds="4.89, 4.2712939453125, 1.9700000000000002, 0.2493896484375" name="Relations" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+    <entityConnector Id="16f0c95f-bdf2-4ca8-81bf-7e60075c40fb" edgePoints="[(4.875 : 3.872841796875); (2 : 3.872841796875); (2 : 3.00528645833333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <entityReferencesTargetEntitiesMoniker Id="9fb0e4c7-7adf-4376-838b-5d010c77564d" />
+      <nodes>
+        <entityShapeMoniker Id="9310315e-7443-41b2-9da8-f2611982e216" />
+        <entityShapeMoniker Id="27341de9-1e71-415f-a437-87ad36f02809" />
+      </nodes>
+    </entityConnector>
+  </nestedChildShapes>
+</columbiaDiagram>

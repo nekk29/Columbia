@@ -30,7 +30,7 @@ namespace Columbia.Dsl.Utils
             return projects;
         }
 
-        public static IEnumerable<Project> GetSolutionFolderProjects(Project solutionFolder)
+        private static IEnumerable<Project> GetSolutionFolderProjects(Project solutionFolder)
         {
             var projects = new List<Project>();
 

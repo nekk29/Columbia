@@ -249,7 +249,7 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Nullable -->
-        <xsd:attribute name="nullable" type="xsd:string" >
+        <xsd:attribute name="nullable" type="xsd:boolean" >
           <xsd:annotation>
             <xsd:documentation>Specify if the property is nullable</xsd:documentation>
           </xsd:annotation>

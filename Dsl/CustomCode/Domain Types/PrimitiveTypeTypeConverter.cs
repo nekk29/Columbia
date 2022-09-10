@@ -15,8 +15,10 @@ namespace Columbia.Dsl.CustomCode.DomainTypes
             {
                 values.Add(Resources.TypeConverters.PrimitiveType_Boolean);
                 values.Add(Resources.TypeConverters.PrimitiveType_Byte);
+                values.Add(Resources.TypeConverters.PrimitiveType_ByteArray);
                 values.Add(Resources.TypeConverters.PrimitiveType_Char);
                 values.Add(Resources.TypeConverters.PrimitiveType_DateTime);
+                values.Add(Resources.TypeConverters.PrimitiveType_DateTimeOffest);
                 values.Add(Resources.TypeConverters.PrimitiveType_Decimal);
                 values.Add(Resources.TypeConverters.PrimitiveType_Double);
                 values.Add(Resources.TypeConverters.PrimitiveType_Guid);
@@ -24,6 +26,7 @@ namespace Columbia.Dsl.CustomCode.DomainTypes
                 values.Add(Resources.TypeConverters.PrimitiveType_Int32);
                 values.Add(Resources.TypeConverters.PrimitiveType_Int64);
                 values.Add(Resources.TypeConverters.PrimitiveType_SByte);
+                values.Add(Resources.TypeConverters.PrimitiveType_SByteArray);
                 values.Add(Resources.TypeConverters.PrimitiveType_Single);
                 values.Add(Resources.TypeConverters.PrimitiveType_String);
                 values.Add(Resources.TypeConverters.PrimitiveType_UInt16);

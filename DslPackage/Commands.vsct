@@ -14,5 +14,28 @@
   <Extern href="DSLToolsCmdID.h"/>
   <Include href="GeneratedCode\GeneratedVsct.vsct"/>
   <Commands package="guidPkg">
+	  <Groups>
+		  <Group guid="columbiaCmdSetGuid" id="columbiaMenuGroup" priority="0x0100">
+			  <Parent guid="guidCmdSet" id="menuidContext" />
+		  </Group>
+	  </Groups>
+	  <Buttons>
+		  <Button guid="columbiaCmdSetGuid" id="columbiaGenerateMenuCmd" priority="0x0200" type="Button">
+			  <Parent guid="columbiaCmdSetGuid" id="columbiaMenuGroup"/>
+			  <CommandFlag>DynamicVisibility</CommandFlag>
+			  <Strings>
+				  <ButtonText>Generate CRUD</ButtonText>
+			  </Strings>
+		  </Button>
+	  </Buttons>
   </Commands>
+	<VisibilityConstraints>
+		<VisibilityItem guid="columbiaCmdSetGuid" id="columbiaGenerateMenuCmd" context="guidEditor"/>
+	</VisibilityConstraints>
+	<Symbols>
+		<GuidSymbol name="columbiaCmdSetGuid" value="{479B2C12-8EF7-40D7-99C9-079C4171F91D}" >
+			<IDSymbol name="columbiaMenuGroup" value="0x0100"/>
+			<IDSymbol name="columbiaGenerateMenuCmd" value="0x0200"/>
+		</GuidSymbol>
+	</Symbols>
 </CommandTable>
