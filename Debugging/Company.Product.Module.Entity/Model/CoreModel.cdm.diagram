@@ -9,14 +9,14 @@
         <elementListCompartment Id="f8d5c806-0aea-4c80-9196-1a94293287f1" absoluteBounds="1.015, 2.4635953776041664, 1.9700000000000002, 0.44169108072916674" name="Relations" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entityShape>
-    <entityShape Id="9310315e-7443-41b2-9da8-f2611982e216" absoluteBounds="4.875, 3.125, 2, 1.49568359375">
+    <entityShape Id="9310315e-7443-41b2-9da8-f2611982e216" absoluteBounds="4.25, 1.375, 2, 1.49568359375">
       <entityMoniker Id="f5a0de7a-4d80-433c-95ac-31aac2d09bb2" />
       <nestedChildShapes>
-        <elementListCompartment Id="bb16f095-eeb5-459a-b4f0-613c2d085a9f" absoluteBounds="4.89, 3.435, 1.9700000000000002, 0.8262939453125" name="Properties" titleTextColor="Black" itemTextColor="Black" />
-        <elementListCompartment Id="213566b2-f034-4e1c-b34c-d1531052aea4" absoluteBounds="4.89, 4.2712939453125, 1.9700000000000002, 0.2493896484375" name="Relations" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bb16f095-eeb5-459a-b4f0-613c2d085a9f" absoluteBounds="4.265, 1.685, 1.9700000000000002, 0.8262939453125" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="213566b2-f034-4e1c-b34c-d1531052aea4" absoluteBounds="4.265, 2.5212939453125003, 1.9700000000000002, 0.2493896484375" name="Relations" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entityShape>
-    <entityConnector Id="16f0c95f-bdf2-4ca8-81bf-7e60075c40fb" edgePoints="[(4.875 : 3.872841796875); (2 : 3.872841796875); (2 : 3.00528645833333)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <entityConnector Id="16f0c95f-bdf2-4ca8-81bf-7e60075c40fb" edgePoints="[(4.25 : 2.122841796875); (3 : 2.122841796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <entityReferencesTargetEntitiesMoniker Id="9fb0e4c7-7adf-4376-838b-5d010c77564d" />
       <nodes>
         <entityShapeMoniker Id="9310315e-7443-41b2-9da8-f2611982e216" />

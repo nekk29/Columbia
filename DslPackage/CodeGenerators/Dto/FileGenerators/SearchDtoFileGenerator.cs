@@ -1,28 +1,23 @@
 ﻿using Columbia.Dsl;
-using Columbia.DslPackage.CodeGenerators.Dto;
-using Columbia.DslPackage.CustomCode.Commands.Base;
+using Columbia.DslPackage.CodeGenerators.Base;
+using Columbia.DslPackage.CodeGenerators.Dto.Templates;
 using VSLangProj;
 
 namespace Columbia.DslPackage.CustomCode.Commands.Dto
 {
-    internal class SearchFilterDtoCommand : CommandBase<SearchFilterDtoCodeGenerator>
+    internal class SearchDtoFileGenerator : FileGeneratorBase<SearchDtoCodeGenerator>
     {
         protected override bool OverrideFile => true;
         protected override prjBuildAction BuildAction => prjBuildAction.prjBuildActionCompile;
 
-        public SearchFilterDtoCommand(ColumbiaCommandSet columbiaCommandSet) : base(columbiaCommandSet)
-        {
-
-        }
-
         protected override string GetProject(DomainModel domainModel)
         {
-            return domainModel?.Entity ?? string.Empty;
+            return domainModel?.Dto;
         }
 
         protected override string GetFileName(Dsl.Entity entity)
         {
-            return $"{entity.Name}/Search{entity.Name}FilterDto.cs";
+            return entity != null ? $"{entity.Name}\\Search{entity.Name}Dto.cs" : null;
         }
     }
 }

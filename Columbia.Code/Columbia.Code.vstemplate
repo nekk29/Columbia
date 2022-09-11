@@ -69,7 +69,7 @@
 		</ProjectCollection>
 	</TemplateContent>
 	<WizardExtension>
-		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f52bb20263c1d500</Assembly>
+		<Assembly>Columbia.Wizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7e4dfc74951b6762</Assembly>
 		<FullClassName>Columbia.Wizard.SolutionWizard</FullClassName>
 	</WizardExtension>
 </VSTemplate>

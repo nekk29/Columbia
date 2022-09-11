@@ -1,4 +1,4 @@
-﻿using Columbia.DslPackage.CustomCode.Commands.Entity;
+﻿using Columbia.DslPackage.CustomCode.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -15,8 +15,8 @@ namespace Columbia.Dsl
         {
             var commands = base.GetMenuCommands();
 
-            var createEntityCommand = new CreateEntityCommand(this);
-            commands.Add(createEntityCommand.GetCommand(columbiaCmdSetGuid, createEntityMenuCmd));
+            var createCrudCommand = new CreateCrudCommand(this);
+            commands.Add(createCrudCommand.GetCommand(columbiaCmdSetGuid, createEntityMenuCmd));
 
             return commands;
         }

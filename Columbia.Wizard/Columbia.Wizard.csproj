@@ -34,7 +34,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Columbia.Wizard.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -59,10 +59,10 @@
     <Compile Include="SolutionWizard.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Columbia.Wizard.PublicKeyToken.txt" />
+    <Content Include="PublicKeyToken.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Columbia.Wizard.pfx" />
+    <None Include="Key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

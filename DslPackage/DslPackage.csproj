@@ -75,56 +75,58 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeGenerators\Base\CodeGeneratorBase.cs" />
-    <Compile Include="CodeGenerators\Dto\CreateDtoCodeGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="CodeGenerators\Base\FileGeneratorBase.cs" />
+    <Compile Include="CodeGenerators\Dto\Templates\CreateDtoCodeGenerator.cs">
       <DependentUpon>CreateDtoCodeGenerator.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="CodeGenerators\Dto\DtoCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Dto\Templates\DtoCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DtoCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\Dto\GetDtoCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Dto\Templates\GetDtoCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GetDtoCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\Dto\ListDtoCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Dto\Templates\ListDtoCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ListDtoCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\Dto\SearchDtoCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchDtoCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\Dto\SearchFilterDtoCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchFilterDtoCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\Dto\UpdateDtoCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Dto\Templates\UpdateDtoCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdateDtoCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\Entity\EntityCodeGenerator.cs">
+    <Compile Include="CodeGenerators\Entity\Templates\EntityCodeGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityCodeGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomCode\CommandSet.cs" />
     <Compile Include="CustomCode\Commands\Base\CommandBase.cs" />
-    <Compile Include="CustomCode\Commands\Dto\UpdateDtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Dto\SearchFilterDtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Dto\SearchDtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Dto\ListDtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Dto\GetDtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Dto\DtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Dto\CreateDtoCommand.cs" />
-    <Compile Include="CustomCode\Commands\Entity\CreateEntityCommand.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\UpdateDtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\SearchFilterDtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\SearchDtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\ListDtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\GetDtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\DtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Dto\FileGenerators\CreateDtoFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Entity\FileGenerators\CreateEntityFileGenerator.cs" />
+    <Compile Include="CustomCode\Commands\CreateCrudCommand.cs" />
     <Compile Include="GeneratedCode\CommandSet.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,35 +286,35 @@
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
       <Link>CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
-    <Content Include="CodeGenerators\Dto\CreateDtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\CreateDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateDtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Dto\DtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\DtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Dto\GetDtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GetDtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Dto\ListDtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\ListDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListDtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Dto\SearchDtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SearchDtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Dto\SearchFilterDtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SearchFilterDtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Dto\UpdateDtoCodeGenerator.tt">
+    <Content Include="CodeGenerators\Dto\Templates\UpdateDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UpdateDtoCodeGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="CodeGenerators\Entity\EntityCodeGenerator.tt">
+    <Content Include="CodeGenerators\Entity\Templates\EntityCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityCodeGenerator.cs</LastGenOutput>
     </Content>
@@ -320,7 +322,5 @@
     <Content Include="Resources\File.bmp" />
     <Content Include="Resources\ModelExplorerToolWindowBitmaps.bmp" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomCode\Commands\Crud\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
