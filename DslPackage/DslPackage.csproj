@@ -74,8 +74,122 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeGenerators\Apis\FileGenerators\ControllerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Apis\Templates\ControllerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\ApplicationAbstractions\FileGenerators\ApplicationAbstractionsFileGenerator.cs" />
+    <Compile Include="CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationAbstractionsCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Application\FileGenerators\ApplicationFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Application\Templates\ApplicationCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationCodeGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="CodeGenerators\Base\CodeGeneratorBase.cs" />
     <Compile Include="CodeGenerators\Base\FileGeneratorBase.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\CreateCommandFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\CreateCommandHandlerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\CreateCommandValidatorFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\DeleteCommandFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\DeleteCommandHandlerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\DeleteCommandValidatorFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\GetQueryFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\GetQueryHandlerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\ListQueryFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\ListQueryHandlerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\MappingProfileFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\SearchQueryFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\SearchQueryHandlerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\UpdateCommandFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\UpdateCommandHandlerFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\UpdateCommandValidatorFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateCommandCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\CreateCommandHandlerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateCommandHandlerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateCommandValidatorCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteCommandCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteCommandHandlerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteCommandValidatorCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\GetQueryCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetQueryCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\GetQueryHandlerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetQueryHandlerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\ListQueryCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListQueryCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListQueryHandlerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MappingProfileCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchQueryCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchQueryHandlerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateCommandCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateCommandHandlerCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UpdateCommandValidatorCodeGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="CodeGenerators\Dto\Templates\CreateDtoCodeGenerator.cs">
       <DependentUpon>CreateDtoCodeGenerator.tt</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -115,6 +229,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\RestClient\FileGenerators\RestServiceFileGenerator.cs" />
+    <Compile Include="CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestServiceCodeGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomCode\CommandSet.cs" />
     <Compile Include="CustomCode\Commands\Base\CommandBase.cs" />
@@ -286,6 +406,82 @@
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
       <Link>CodeAnalysisDictionary.xml</Link>
     </CodeAnalysisDictionary>
+    <Content Include="CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ControllerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApplicationAbstractionsCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Application\Templates\ApplicationCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ApplicationCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreateCommandCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\CreateCommandHandlerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreateCommandHandlerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>CreateCommandValidatorCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DeleteCommandCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DeleteCommandHandlerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DeleteCommandValidatorCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GetQueryCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\GetQueryHandlerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>GetQueryHandlerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ListQueryCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ListQueryHandlerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MappingProfileCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SearchQueryCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SearchQueryHandlerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UpdateCommandCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UpdateCommandHandlerCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UpdateCommandValidatorCodeGenerator.cs</LastGenOutput>
+    </Content>
     <Content Include="CodeGenerators\Dto\Templates\CreateDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateDtoCodeGenerator.cs</LastGenOutput>
@@ -317,6 +513,10 @@
     <Content Include="CodeGenerators\Entity\Templates\EntityCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityCodeGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RestServiceCodeGenerator.cs</LastGenOutput>
     </Content>
     <Content Include="Columbia.png" />
     <Content Include="Resources\File.bmp" />
