@@ -1,4 +1,4 @@
-﻿namespace $safesolutionname$.Client.Base
+﻿namespace $safesolutionname$.RestClient.Base
 {
     public class ServiceOptions
     {

@@ -3,3 +3,22 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Domain #>.Commands.Base;
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+#>
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Delete<#= Entity.Name #>Command : CommandBase
+    {
+<#
+	if(keyProperty != null)
+    {
+#>
+        public Delete<#= Entity.Name #>Command(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) => <#= keyProperty.Name #> = <#= LowerFirst(keyProperty.Name) #>;
+        public <#= keyProperty.Type #> <#= keyProperty.Name #> { get; set; }
+<#
+	}
+#>
+    }
+}

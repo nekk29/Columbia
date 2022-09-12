@@ -58,7 +58,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Apis
 		/// </summary>
-		private global::System.String apisPropertyStorage = "$safesolutionname1$.Apis";
+		private global::System.String apisPropertyStorage = "$safesolutionname$.Apis";
 		
 		/// <summary>
 		/// Gets or sets the value of Apis domain property.
@@ -68,7 +68,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Apis.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Apis.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Apis.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Apis")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Apis")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("171551e1-1dd1-4e5c-86f8-dae4d572d714")]
 		public global::System.String Apis
@@ -149,7 +149,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Application
 		/// </summary>
-		private global::System.String applicationPropertyStorage = "$safesolutionname1$.Application";
+		private global::System.String applicationPropertyStorage = "$safesolutionname$.Application";
 		
 		/// <summary>
 		/// Gets or sets the value of Application domain property.
@@ -159,7 +159,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Application.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Application.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Application.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Application")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Application")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("6566630f-59c4-47b6-bd98-53b844839d27")]
 		public global::System.String Application
@@ -240,7 +240,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for ApplicationAbstractions
 		/// </summary>
-		private global::System.String applicationAbstractionsPropertyStorage = "$safesolutionname1$.Application.Abstractions";
+		private global::System.String applicationAbstractionsPropertyStorage = "$safesolutionname$.Application.Abstractions";
 		
 		/// <summary>
 		/// Gets or sets the value of ApplicationAbstractions domain property.
@@ -250,7 +250,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/ApplicationAbstractions.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/ApplicationAbstractions.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/ApplicationAbstractions.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Application.Abstractions")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Application.Abstractions")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("21c4de20-1d09-4552-aa5f-d46044871826")]
 		public global::System.String ApplicationAbstractions
@@ -331,7 +331,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Domain
 		/// </summary>
-		private global::System.String domainPropertyStorage = "$safesolutionname1$.Domain";
+		private global::System.String domainPropertyStorage = "$safesolutionname$.Domain";
 		
 		/// <summary>
 		/// Gets or sets the value of Domain domain property.
@@ -341,7 +341,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Domain.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Domain.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Domain.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Domain")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Domain")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("8f6eb373-a4f7-4c21-a476-acb9ac855e98")]
 		public global::System.String Domain
@@ -422,7 +422,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Dto
 		/// </summary>
-		private global::System.String dtoPropertyStorage = "$safesolutionname1$.Dto";
+		private global::System.String dtoPropertyStorage = "$safesolutionname$.Dto";
 		
 		/// <summary>
 		/// Gets or sets the value of Dto domain property.
@@ -432,7 +432,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Dto.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Dto.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Dto.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Dto")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Dto")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("f4a3ac56-a32d-49b5-aa5e-ec3af0d2a52b")]
 		public global::System.String Dto
@@ -513,7 +513,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Entity
 		/// </summary>
-		private global::System.String entityPropertyStorage = "$safesolutionname1$.Entity";
+		private global::System.String entityPropertyStorage = "$safesolutionname$.Entity";
 		
 		/// <summary>
 		/// Gets or sets the value of Entity domain property.
@@ -523,7 +523,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Entity.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Entity.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Entity.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Entity")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Entity")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("9d25f862-3fff-4712-87fb-e09f69058cc9")]
 		public global::System.String Entity
@@ -604,7 +604,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Repository
 		/// </summary>
-		private global::System.String repositoryPropertyStorage = "$safesolutionname1$.Repository";
+		private global::System.String repositoryPropertyStorage = "$safesolutionname$.Repository";
 		
 		/// <summary>
 		/// Gets or sets the value of Repository domain property.
@@ -614,7 +614,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Repository.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Repository.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Repository.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Repository")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Repository")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("f4e7e077-2e3b-46ad-9677-36d45c5e29d7")]
 		public global::System.String Repository
@@ -695,7 +695,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for RepositoryAbstractions
 		/// </summary>
-		private global::System.String repositoryAbstractionsPropertyStorage = "$safesolutionname1$.Repository.Abstractions";
+		private global::System.String repositoryAbstractionsPropertyStorage = "$safesolutionname$.Repository.Abstractions";
 		
 		/// <summary>
 		/// Gets or sets the value of RepositoryAbstractions domain property.
@@ -705,7 +705,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/RepositoryAbstractions.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/RepositoryAbstractions.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/RepositoryAbstractions.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Repository.Abstractions")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Repository.Abstractions")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("63ddd377-5da5-4db0-90bc-0eb5f7c9f6db")]
 		public global::System.String RepositoryAbstractions
@@ -786,7 +786,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for RestClient
 		/// </summary>
-		private global::System.String restClientPropertyStorage = "$safesolutionname1$.RestClient";
+		private global::System.String restClientPropertyStorage = "$safesolutionname$.RestClient";
 		
 		/// <summary>
 		/// Gets or sets the value of RestClient domain property.
@@ -796,7 +796,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/RestClient.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/RestClient.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/RestClient.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.RestClient")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.RestClient")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("7371ca93-0211-45a2-87e1-2f3d783788e6")]
 		public global::System.String RestClient
@@ -877,7 +877,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Database
 		/// </summary>
-		private global::System.String databasePropertyStorage = "$safesolutionname1$.Database";
+		private global::System.String databasePropertyStorage = "$safesolutionname$.Database";
 		
 		/// <summary>
 		/// Gets or sets the value of Database domain property.
@@ -887,7 +887,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Database.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Database.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Database.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Database")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Database")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("9441d07e-53ea-47ae-84c6-3765ba8041c5")]
 		public global::System.String Database
@@ -968,7 +968,7 @@ namespace Columbia.Dsl
 		/// <summary>
 		/// Storage for Test
 		/// </summary>
-		private global::System.String testPropertyStorage = "$safesolutionname1$.Test";
+		private global::System.String testPropertyStorage = "$safesolutionname$.Test";
 		
 		/// <summary>
 		/// Gets or sets the value of Test domain property.
@@ -978,7 +978,7 @@ namespace Columbia.Dsl
 		[DslDesign::DisplayNameResource("Columbia.Dsl.DomainModel/Test.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.DomainModel/Test.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Columbia.Dsl.DomainModel/Test.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("$safesolutionname1$.Test")]
+		[global::System.ComponentModel.DefaultValue("$safesolutionname$.Test")]
 		[global::System.ComponentModel.ReadOnly(true)]
 		[DslModeling::DomainObjectId("8e6b9971-37f2-4970-90e9-0b1a641dc783")]
 		public global::System.String Test
@@ -1375,6 +1375,95 @@ namespace Columbia.Dsl
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region IsAuditable domain property code
+		
+		/// <summary>
+		/// IsAuditable domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid IsAuditableDomainPropertyId = new global::System.Guid(0xf5634650, 0xface, 0x42e8, 0xb1, 0xd6, 0x79, 0xfa, 0xd6, 0xcc, 0x77, 0x77);
+		
+		/// <summary>
+		/// Storage for IsAuditable
+		/// </summary>
+		private global::System.Boolean isAuditablePropertyStorage = true;
+		
+		/// <summary>
+		/// Gets or sets the value of IsAuditable domain property.
+		/// Specify if the entity inherit base auditable class
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.Entity/IsAuditable.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.Entity/IsAuditable.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.Entity/IsAuditable.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue(true)]
+		[DslModeling::DomainObjectId("f5634650-face-42e8-b1d6-79fad6cc7777")]
+		public global::System.Boolean IsAuditable
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return isAuditablePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				IsAuditablePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Entity.IsAuditable domain property.
+		/// </summary>
+		internal sealed partial class IsAuditablePropertyHandler : DslModeling::DomainPropertyValueHandler<Entity, global::System.Boolean>
+		{
+			private IsAuditablePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Entity.IsAuditable domain property value handler.
+			/// </summary>
+			public static readonly IsAuditablePropertyHandler Instance = new IsAuditablePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Entity.IsAuditable domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return IsAuditableDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(Entity element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.isAuditablePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Entity element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.isAuditablePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

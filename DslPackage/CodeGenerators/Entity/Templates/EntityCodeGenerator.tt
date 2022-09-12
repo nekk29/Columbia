@@ -4,8 +4,20 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+<#
+if(Entity.IsAuditable)
+{
+#>
+using <#= DomainModel.Entity #>.Base;
+<#
+}
+#>
+<#
+var relatedEntities = DomainModel.Entities.Where(x => x.EntityProperties.Any(p => p.Type == Entity.Name));
+#>
 
 namespace <#= DomainModel.Entity #>
 {
@@ -16,10 +28,35 @@ if(Entity != null)
 <#
 	PushIndent(DefautIndent);
 #>
-public class <#= Entity.Name #>
+public class <#= Entity.Name #><#= Entity.IsAuditable ? " : SystemEntity" : string.Empty #>
 {
 <#
+	if(relatedEntities.Any())
+	{
+		PushIndent(DefautIndent);
+#>
+public <#= Entity.Name #>()
+{
+<#
+		PushIndent(DefautIndent);
+
+		foreach(var relatedEntity in relatedEntities)
+		{
+#>
+<#= relatedEntity.Name #>s = new HashSet<<#= relatedEntity.Name #>>();
+<#
+		}
+
+		PopIndent();
+#>
+}
+
+<#	
+		PopIndent();
+	}
+	
 	PushIndent(DefautIndent);
+
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => x.IsPrimaryKey))
 	{
 #>
@@ -27,10 +64,12 @@ public class <#= Entity.Name #>
 public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
 <#
 	}
+
 	PopIndent();
 #>
 <#
 	PushIndent(DefautIndent);
+
 	foreach (var entityProperty in Entity.EntityProperties)
 	{
 		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
@@ -44,7 +83,7 @@ public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
 <#
 		}
 #>
-public <#= entityProperty.Type #> <#= entityProperty.Name #> { get; set; } = null!;
+public virtual <#= entityProperty.Type #> <#= entityProperty.Name #> { get; set; } = null!;
 <#
 		if(relatedEntityKey != null)
 		{
@@ -55,17 +94,37 @@ public <#= relatedEntityKey.Type #> <#= entityProperty.Name #><#= relatedEntityK
 #>
 <#
 	}
+
 	PopIndent();
 #>
 <#
 	PushIndent(DefautIndent);
+
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
 	{
 #>
 public <#= primitiveProperty.Type #><#= primitiveProperty.Nullable ? "?" : string.Empty #> <#= primitiveProperty.Name #> { get; set; } <#= primitiveProperty.Nullable ? string.Empty : "= null!;" #>
 <#
 	}
+
 	PopIndent();
+
+	if(relatedEntities.Any())
+	{
+#>
+
+<#
+		PushIndent(DefautIndent);
+
+		foreach(var relatedEntity in relatedEntities)
+		{
+#>
+public virtual ICollection<<#= relatedEntity.Name #>> <#= relatedEntity.Name #>s { get; set; }
+<#
+		}
+
+		PopIndent();
+	}
 #>
 }
 <#

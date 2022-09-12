@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Net.Http.Json;
 
-namespace $safesolutionname$.Client.Base
+namespace $safesolutionname$.RestClient.Base
 {
     public class BaseService
     {

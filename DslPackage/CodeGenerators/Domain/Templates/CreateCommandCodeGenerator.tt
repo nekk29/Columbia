@@ -3,3 +3,14 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Domain #>.Commands.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Create<#= Entity.Name #>Command : CommandBase<Get<#= Entity.Name #>Dto>
+    {
+        public Create<#= Entity.Name #>Command(Create<#= Entity.Name #>Dto createDto) => CreateDto = createDto;
+        public Create<#= Entity.Name #>Dto CreateDto { get; set; }
+    }
+}

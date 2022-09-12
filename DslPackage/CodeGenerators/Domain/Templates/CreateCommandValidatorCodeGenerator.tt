@@ -3,3 +3,15 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Domain #>.Commands.Base;
+
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Create<#= Entity.Name #>CommandValidator : CommandValidatorBase<Create<#= Entity.Name #>Command>
+    {
+        public Create<#= Entity.Name #>CommandValidator()
+        {
+            RequiredInformation(x => x.CreateDto);
+        }
+    }
+}

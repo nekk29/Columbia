@@ -15,7 +15,7 @@ namespace $safesolutionname$.Repository.Extensions
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services.AddSqlServer<CoreDbContext>(connectionString);
+            services.AddSqlServer<CoreDbContext>(connectionString, b => b.MigrationsAssembly("$safesolutionname$.Apis"));
 
             services.AddScoped<DbContext, CoreDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork<DbContext>>();

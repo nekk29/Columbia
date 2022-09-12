@@ -10,6 +10,7 @@
 		<CreateNewFolder>true</CreateNewFolder>
 		<DefaultName>Company.Product.Module</DefaultName>
 		<ProvideDefaultName>true</ProvideDefaultName>
+		<CreateInPlace>true</CreateInPlace>
 	</TemplateData>
 	<TemplateContent>
 		<ProjectCollection>

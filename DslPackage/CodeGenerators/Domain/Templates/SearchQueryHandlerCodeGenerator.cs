@@ -28,6 +28,238 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
+            this.Write("using AutoMapper;\r\nusing ");
+            
+            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Queries.Base;\r\nusing ");
+            
+            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".Base;\r\nusing ");
+            
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\nusing ");
+            
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RepositoryAbstractions));
+            
+            #line default
+            #line hidden
+            this.Write(".Base;\r\nusing System.Linq.Expressions;\r\n\r\nnamespace ");
+            
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Queries.");
+            
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    public class Search");
+            
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("QueryHandler : SearchQueryHandlerBase<Search");
+            
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Query, Search");
+            
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("FilterDto, Search");
+            
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>\r\n    {\r\n        private readonly IRepository<Entity.");
+            
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("> _");
+            
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("Repository;\r\n\r\n        public Search");
+            
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("QueryHandler(\r\n            IMapper mapper,\r\n            IRepository<Entity.");
+            
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("> ");
+            
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("Repository\r\n        ) : base(mapper)\r\n        {\r\n            _");
+            
+            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("Repository = ");
+            
+            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("Repository;\r\n        }\r\n\r\n        protected override async Task<ResponseDto<Searc" +
+                    "hResultDto<Search");
+            
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>>> HandleQuery(Search");
+            
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Query request, CancellationToken cancellationToken)\r\n        {\r\n            var r" +
+                    "esponse = new ResponseDto<SearchResultDto<Search");
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>>();\r\n\r\n            Expression<Func<Entity.");
+            
+            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", bool>> filter = x => true;\r\n\r\n            var filters = request.SearchParams?.F" +
+                    "ilter;\r\n\r\n            /*\r\n                Place your filters here...\r\n          " +
+                    "  */\r\n\r\n            var ");
+            
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("s = await _");
+            
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write(@"Repository.SearchByAsNoTrackingAsync(
+                request.SearchParams?.Page?.Page ?? 1,
+                request.SearchParams?.Page?.PageSize ?? 10,
+                null,
+                filter//,
+                /* Include navigation properties... */
+            );
+
+            var ");
+            
+            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("Dtos = _mapper?.Map<IEnumerable<Search");
+            
+            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>>(");
+            
+            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("s.Items);\r\n\r\n            var searchResult = new SearchResultDto<Search");
+            
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>(\r\n                ");
+            
+            #line 50 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("Dtos ?? new List<Search");
+            
+            #line 50 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>(),\r\n                ");
+            
+            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            
+            #line default
+            #line hidden
+            this.Write("s.Total,\r\n                request.SearchParams\r\n            );\r\n\r\n            res" +
+                    "ponse.UpdateData(searchResult);\r\n\r\n            return await Task.FromResult(resp" +
+                    "onse);\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

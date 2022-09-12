@@ -3,3 +3,44 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using AutoMapper;
+using <#= DomainModel.Domain #>.Queries.Base;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.RepositoryAbstractions #>.Base;
+
+namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
+{
+    public class Get<#= Entity.Name #>QueryHandler : QueryHandlerBase<Get<#= Entity.Name #>Query, Get<#= Entity.Name #>Dto>
+    {
+        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
+
+        public Get<#= Entity.Name #>QueryHandler(
+            IMapper mapper,
+            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+        ) : base(mapper)
+        {
+            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
+        }
+
+        protected override async Task<ResponseDto<Get<#= Entity.Name #>Dto>> HandleQuery(Get<#= Entity.Name #>Query request, CancellationToken cancellationToken)
+        {
+            var response = new ResponseDto<Get<#= Entity.Name #>Dto>();
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+	if (keyProperty != null)
+	{
+#>
+            var <#= LowerFirst(Entity.Name) #> = await _<#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.<#= keyProperty.Name #>);
+            var <#= LowerFirst(Entity.Name) #>Dto = _mapper?.Map<Get<#= Entity.Name #>Dto>(<#= LowerFirst(Entity.Name) #>);
+
+            if (<#= LowerFirst(Entity.Name) #>Dto != null)
+                response.UpdateData(<#= LowerFirst(Entity.Name) #>Dto);
+
+<#
+    }
+#>
+            return await Task.FromResult(response);
+        }
+    }
+}

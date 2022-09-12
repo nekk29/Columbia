@@ -3,3 +3,41 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using MediatR;
+using <#= DomainModel.ApplicationAbstractions #>;
+using <#= DomainModel.Application #>.Base;
+using <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>;
+using <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+#>
+namespace <#= DomainModel.Application #>
+{
+    public class <#= Entity.Name #>Application : ApplicationBase, I<#= Entity.Name #>Application
+    {
+        public <#= Entity.Name #>Application(IMediator mediator) : base(mediator)
+        {
+
+        }
+
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create(Create<#= Entity.Name #>Dto createDto)
+            => await _mediator.Send(new Create<#= Entity.Name #>Command(createDto));
+
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto)
+            => await _mediator.Send(new Update<#= Entity.Name #>Command(updateDto));
+
+        public async Task<ResponseDto> Delete(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+            => await _mediator.Send(new Delete<#= Entity.Name #>Command(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>));
+
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+            => await _mediator.Send(new Get<#= Entity.Name #>Query(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>));
+
+        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List()
+            => await _mediator.Send(new List<#= Entity.Name #>Query());
+
+        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams)
+            => await _mediator.Send(new Search<#= Entity.Name #>Query(searchParams));
+    }
+}

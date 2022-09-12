@@ -65,12 +65,18 @@
     <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" Version="17.0.*-*" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +106,8 @@
     <Compile Include="CodeGenerators\Domain\FileGenerators\DeleteCommandFileGenerator.cs" />
     <Compile Include="CodeGenerators\Domain\FileGenerators\DeleteCommandHandlerFileGenerator.cs" />
     <Compile Include="CodeGenerators\Domain\FileGenerators\DeleteCommandValidatorFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\ResourcesFileGenerator.cs" />
+    <Compile Include="CodeGenerators\Domain\FileGenerators\ResourcesCodeFileGenerator.cs" />
     <Compile Include="CodeGenerators\Domain\FileGenerators\GetQueryFileGenerator.cs" />
     <Compile Include="CodeGenerators\Domain\FileGenerators\GetQueryHandlerFileGenerator.cs" />
     <Compile Include="CodeGenerators\Domain\FileGenerators\ListQueryFileGenerator.cs" />
@@ -164,6 +172,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MappingProfileCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\ResourcesCodeCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesCodeCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\Domain\Templates\ResourcesCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesCodeGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.cs">
       <AutoGen>True</AutoGen>
@@ -400,7 +418,7 @@
   <PropertyGroup>
     <StartProgram>$(DevEnvDir)\devenv.exe</StartProgram>
     <StartAction>Program</StartAction>
-    <StartArguments>/rootsuffix Exp "..\..\..\Debugging\Debugging.sln"</StartArguments>
+    <StartArguments>/rootsuffix Exp "..\..\..\Debugging\Company.Product.Module.sln"</StartArguments>
   </PropertyGroup>
   <ItemGroup>
     <CodeAnalysisDictionary Include="..\CodeAnalysisDictionary.xml">
@@ -409,118 +427,155 @@
     <Content Include="CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ControllerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApplicationAbstractionsCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Application\Templates\ApplicationCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApplicationCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateCommandCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\CreateCommandHandlerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateCommandHandlerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateCommandValidatorCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DeleteCommandCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DeleteCommandHandlerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DeleteCommandValidatorCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GetQueryCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\GetQueryHandlerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GetQueryHandlerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListQueryCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListQueryHandlerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MappingProfileCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\ResourcesCodeCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourcesCodeCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
+    </Content>
+    <Content Include="CodeGenerators\Domain\Templates\ResourcesCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ResourcesCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SearchQueryCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\SearchQueryHandlerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SearchQueryHandlerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UpdateCommandCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UpdateCommandHandlerCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UpdateCommandValidatorCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\CreateDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>CreateDtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\DtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>DtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>GetDtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\ListDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ListDtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SearchDtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>SearchFilterDtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Dto\Templates\UpdateDtoCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>UpdateDtoCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\Entity\Templates\EntityCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>EntityCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>RestServiceCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="Columbia.png" />
     <Content Include="Resources\File.bmp" />
     <Content Include="Resources\ModelExplorerToolWindowBitmaps.bmp" />
   </ItemGroup>
-  <ItemGroup />
 </Project>

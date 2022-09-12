@@ -1,6 +1,6 @@
 ﻿using Columbia.Dsl;
+using Columbia.DslPackage.CodeGenerators;
 using Columbia.DslPackage.CodeGenerators.Base;
-using Columbia.DslPackage.CodeGenerators.Entity.Templates;
 using VSLangProj;
 
 namespace Columbia.DslPackage.CustomCode.Commands.Entity

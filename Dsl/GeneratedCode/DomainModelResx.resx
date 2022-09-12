@@ -297,6 +297,18 @@
     <value>Definition</value>
     <comment>Category for DomainProperty &apos;Name&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
+  <data name="Columbia.Dsl.Entity/IsAuditable.Description" xml:space="preserve">
+    <value>Specify if the entity inherit base auditable class</value>
+    <comment>Description for DomainProperty &apos;IsAuditable&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.Entity/IsAuditable.DisplayName" xml:space="preserve">
+    <value>Is Auditable</value>
+    <comment>DisplayName for DomainProperty &apos;IsAuditable&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.Entity/IsAuditable.Category" xml:space="preserve">
+    <value>Definition</value>
+    <comment>Category for DomainProperty &apos;IsAuditable&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
   <data name="Columbia.Dsl.PrimitiveProperty.Description" xml:space="preserve">
     <value>Description for Columbia.Dsl.PrimitiveProperty</value>
     <comment>Description for DomainClass &apos;PrimitiveProperty&apos;</comment>

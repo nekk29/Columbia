@@ -22,6 +22,7 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchResult.cs">SearchResult.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortDirection.cs">SortDirection.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortExpression.cs">SortExpression.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SystemEntity.cs">SystemEntity.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Model" TargetFolderName="Model">
 				<ProjectItem ReplaceParameters="true" TargetFileName="CoreModel.cdm">CoreModel.cdm</ProjectItem>

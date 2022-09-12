@@ -1,6 +1,6 @@
-﻿using Company.Product.Module.Client.Base;
-using Company.Product.Module.Dto.Base;
+﻿using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.User;
+using Company.Product.Module.RestClient.Base;
 
 namespace Company.Product.Module.Client
 {

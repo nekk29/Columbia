@@ -12,10 +12,21 @@ namespace Columbia.DslPackage.CodeGenerators.Base
         #region Constants
         protected string DefautIndent = "   ";
         #endregion
+
         #region CustomFields
         public string Action { get; set; }
         public Dsl.Entity Entity { get; set; }
         public DomainModel DomainModel { get; set; }
+        #endregion
+
+        #region CustomMethods
+        protected string LowerFirst(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return value;
+
+            return char.ToLower(value[0]) + value.Substring(1);
+        }
         #endregion
 
         #region Fields
@@ -26,6 +37,7 @@ namespace Columbia.DslPackage.CodeGenerators.Base
         private bool endsWithNewline;
         private global::System.Collections.Generic.IDictionary<string, object> sessionField;
         #endregion
+
         #region Properties
         /// <summary>
         /// The string builder that generation-time code is using to assemble generated output
@@ -236,6 +248,7 @@ namespace Columbia.DslPackage.CodeGenerators.Base
             this.currentIndentField = "";
         }
         #endregion
+
         #region ToString Helpers
         /// <summary>
         /// Utility class to produce culture-oriented representation of an object as a string.

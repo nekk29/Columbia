@@ -3,3 +3,58 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using AutoMapper;
+using <#= DomainModel.Domain #>.Queries.Base;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.RepositoryAbstractions #>.Base;
+using System.Linq.Expressions;
+
+namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
+{
+    public class Search<#= Entity.Name #>QueryHandler : SearchQueryHandlerBase<Search<#= Entity.Name #>Query, Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>
+    {
+        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
+
+        public Search<#= Entity.Name #>QueryHandler(
+            IMapper mapper,
+            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+        ) : base(mapper)
+        {
+            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
+        }
+
+        protected override async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> HandleQuery(Search<#= Entity.Name #>Query request, CancellationToken cancellationToken)
+        {
+            var response = new ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>();
+
+            Expression<Func<Entity.<#= Entity.Name #>, bool>> filter = x => true;
+
+            var filters = request.SearchParams?.Filter;
+
+            /*
+                Place your filters here...
+            */
+
+            var <#= LowerFirst(Entity.Name) #>s = await _<#= LowerFirst(Entity.Name) #>Repository.SearchByAsNoTrackingAsync(
+                request.SearchParams?.Page?.Page ?? 1,
+                request.SearchParams?.Page?.PageSize ?? 10,
+                null,
+                filter//,
+                /* Include navigation properties... */
+            );
+
+            var <#= LowerFirst(Entity.Name) #>Dtos = _mapper?.Map<IEnumerable<Search<#= Entity.Name #>Dto>>(<#= LowerFirst(Entity.Name) #>s.Items);
+
+            var searchResult = new SearchResultDto<Search<#= Entity.Name #>Dto>(
+                <#= LowerFirst(Entity.Name) #>Dtos ?? new List<Search<#= Entity.Name #>Dto>(),
+                <#= LowerFirst(Entity.Name) #>s.Total,
+                request.SearchParams
+            );
+
+            response.UpdateData(searchResult);
+
+            return await Task.FromResult(response);
+        }
+    }
+}

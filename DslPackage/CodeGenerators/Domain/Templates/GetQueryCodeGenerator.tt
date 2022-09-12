@@ -3,3 +3,23 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Domain #>.Queries.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+#>
+namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
+{
+    public class Get<#= Entity.Name #>Query : QueryBase<Get<#= Entity.Name #>Dto>
+    {
+<#
+	if(keyProperty != null)
+    {
+#>
+        public Get<#= Entity.Name #>Query(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) => <#= keyProperty.Name #> = <#= LowerFirst(keyProperty.Name) #>;
+        public <#= keyProperty.Type #> <#= keyProperty.Name #> { get; set; }
+<#
+	}
+#>
+    }
+}

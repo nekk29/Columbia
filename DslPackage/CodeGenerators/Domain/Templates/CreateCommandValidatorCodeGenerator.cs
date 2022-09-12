@@ -28,6 +28,50 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
+            this.Write("using ");
+            
+            #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Commands.Base;\r\n\r\nnamespace ");
+            
+            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Commands.");
+            
+            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    public class Create");
+            
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("CommandValidator : CommandValidatorBase<Create");
+            
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Command>\r\n    {\r\n        public Create");
+            
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("CommandValidator()\r\n        {\r\n            RequiredInformation(x => x.CreateDto);" +
+                    "\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

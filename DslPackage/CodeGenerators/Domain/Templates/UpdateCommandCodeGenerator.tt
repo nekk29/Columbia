@@ -3,3 +3,14 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Domain #>.Commands.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Update<#= Entity.Name #>Command : CommandBase<Get<#= Entity.Name #>Dto>
+    {
+        public Update<#= Entity.Name #>Command(Update<#= Entity.Name #>Dto updateDto) => UpdateDto = updateDto;
+        public Update<#= Entity.Name #>Dto UpdateDto { get; set; }
+    }
+}

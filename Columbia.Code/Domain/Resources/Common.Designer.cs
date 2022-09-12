@@ -149,6 +149,15 @@ namespace $safesolutionname$.Domain.Resources {
                 return ResourceManager.GetString("GetRecordNotFound", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to El identificador es requerido.
+        /// </summary>
+        internal static string IdentifierRequired {
+            get {
+                return ResourceManager.GetString("IdentifierRequired", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to La información a procesar es requerida.

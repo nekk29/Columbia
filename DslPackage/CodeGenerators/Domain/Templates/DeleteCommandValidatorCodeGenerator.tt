@@ -3,3 +3,57 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+using <#= DomainModel.Domain #>.Commands.Base;
+using <#= DomainModel.RepositoryAbstractions #>.Base;
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+#>
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Delete<#= Entity.Name #>CommandValidator : CommandValidatorBase<Delete<#= Entity.Name #>Command>
+    {
+        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
+
+        public Delete<#= Entity.Name #>CommandValidator(IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository)
+        {
+            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
+
+            RequiredField(x => x.<#= keyProperty.Name #>, Resources.Common.IdentifierRequired)
+                .DependentRules(() =>
+                {
+<#
+    if(keyProperty != null)
+    {
+#>
+                    RuleFor(x => x.<#= keyProperty.Name #>)
+                        .MustAsync(ValidateExistenceAsync)
+                        .WithCustomValidationMessage();
+<#
+    }
+    else
+    {
+#>
+                    /* Place your validations here... */
+<#
+    }
+#>
+                });
+        }
+<#
+    if(keyProperty != null)
+    {
+#>
+
+        protected async Task<bool> ValidateExistenceAsync(Delete<#= Entity.Name #>Command command, <#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>, ValidationContext<Delete<#= Entity.Name #>Command> context, CancellationToken cancellationToken)
+        {
+            var exists = await _<#= LowerFirst(Entity.Name) #>Repository.FindAll().Where(x => x.<#= keyProperty.Name #> == <#= LowerFirst(keyProperty.Name) #>).AnyAsync(cancellationToken);
+            if (!exists) return CustomValidationMessage(context, Resources.Common.DeleteRecordNotFound);
+            return true;
+        }
+<#
+    }
+#>
+    }
+}

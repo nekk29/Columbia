@@ -3,3 +3,37 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.RestClient #>.Base;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
+namespace <#= DomainModel.RestClient #>
+{
+    public class <#= Entity.Name #>Service : BaseService
+    {
+        protected override string ApiController => "api/<#= LowerFirst(Entity.Name) #>";
+
+        public <#= Entity.Name #>Service(ServiceOptions options) : base(options)
+        {
+
+        }
+
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Insert(Create<#= Entity.Name #>Dto createDto)
+            => await Post<Create<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(string.Empty, createDto)!;
+
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto)
+            => await Put<Update<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(string.Empty, updateDto)!;
+
+        public async Task<ResponseDto> Delete(int id)
+            => await Delete($"/{id}")!;
+
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(int id)
+            => await Get<Get<#= Entity.Name #>Dto>($"/{id}")!;
+
+        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List()
+            => await Get<IEnumerable<List<#= Entity.Name #>Dto>>("list")!;
+
+        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> filter)
+            => await Post<SearchParamsDto<Search<#= Entity.Name #>FilterDto>, SearchResultDto<Search<#= Entity.Name #>Dto>>("/search", filter)!;
+    }
+}

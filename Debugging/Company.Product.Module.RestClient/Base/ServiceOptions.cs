@@ -1,4 +1,4 @@
-﻿namespace Company.Product.Module.Client.Base
+﻿namespace Company.Product.Module.RestClient.Base
 {
     public class ServiceOptions
     {

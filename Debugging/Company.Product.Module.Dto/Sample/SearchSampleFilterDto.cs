@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Company.Product.Module.Dto
+namespace Company.Product.Module.Dto.Sample
 {
    public class SearchSampleFilterDto : SampleDto
    {

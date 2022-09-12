@@ -179,6 +179,17 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to El identificador es requerido.
+        /// </summary>
+        internal static string IdentifierRequired
+        {
+            get
+            {
+                return ResourceManager.GetString("IdentifierRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to La información a procesar es requerida.
         /// </summary>
         internal static string InformationRequired

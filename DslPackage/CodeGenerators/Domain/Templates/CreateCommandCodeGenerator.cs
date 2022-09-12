@@ -28,6 +28,77 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
+            this.Write("using ");
+            
+            #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Commands.Base;\r\nusing ");
+            
+            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\r\nnamespace ");
+            
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Commands.");
+            
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n    public class Create");
+            
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Command : CommandBase<Get");
+            
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>\r\n    {\r\n        public Create");
+            
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Command(Create");
+            
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto createDto) => CreateDto = createDto;\r\n        public Create");
+            
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto CreateDto { get; set; }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

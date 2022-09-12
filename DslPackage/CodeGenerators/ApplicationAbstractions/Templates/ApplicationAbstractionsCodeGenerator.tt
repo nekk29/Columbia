@@ -3,3 +3,20 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+#>
+namespace <#= DomainModel.ApplicationAbstractions #>
+{
+    public interface I<#= Entity.Name #>Application
+    {
+        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create(Create<#= Entity.Name #>Dto createDto);
+        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto);
+        Task<ResponseDto> Delete(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>);
+        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>);
+        Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List();
+        Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams);
+    }
+}

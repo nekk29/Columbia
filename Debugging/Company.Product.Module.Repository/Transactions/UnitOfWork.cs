@@ -243,6 +243,11 @@ namespace Company.Product.Module.Repository.Transactions
         {
             await _dbContext.SaveChangesAsync();
         }
+
+        public void SendAudit()
+        {
+
+        }
     }
 }
 #pragma warning restore CS8603 // Possible null reference return.

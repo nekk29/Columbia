@@ -1,4 +1,4 @@
-﻿using $safesolutionname$.Client.Base;
+﻿using $safesolutionname$.RestClient.Base;
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.User;
 

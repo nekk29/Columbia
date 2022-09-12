@@ -148,6 +148,7 @@
     <None Include="Entity\Base\SearchResult.cs" />
     <None Include="Entity\Base\SortDirection.cs" />
     <None Include="Entity\Base\SortExpression.cs" />
+    <None Include="Entity\Base\SystemEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />

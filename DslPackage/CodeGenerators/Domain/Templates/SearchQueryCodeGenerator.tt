@@ -3,3 +3,17 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using <#= DomainModel.Domain #>.Queries.Base;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
+namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
+{
+    public class Search<#= Entity.Name #>Query : SearchQueryBase<Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>
+    {
+        public Search<#= Entity.Name #>Query(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams) : base(searchParams)
+        {
+
+        }
+    }
+}

@@ -27,6 +27,7 @@ namespace $safesolutionname$.Repository.Base
             UpdateAuditTrails(entity);
 
             await _dbContext.Set<TEntity>().AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
 
             return await Task.FromResult(entity);
         }
@@ -39,6 +40,7 @@ namespace $safesolutionname$.Repository.Base
             foreach (var entity in entities) UpdateAuditTrails(entity);
 
             await _dbContext.Set<TEntity>().AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
 
             return await Task.FromResult(entities);
         }
@@ -267,7 +269,7 @@ namespace $safesolutionname$.Repository.Base
                 UpdateProperty(entity, properties, "CreationUser", usuario);
                 UpdateProperty(entity, properties, "CreationDate", nowNullable, typeof(DateTimeOffset?));
                 UpdateProperty(entity, properties, "CreationDate", now);
-                UpdateProperty(entity, properties, "Active", true);
+                UpdateProperty(entity, properties, "IsActive", true);
             }
 
             UpdateProperty(entity, properties, "UpdateUser", usuario);

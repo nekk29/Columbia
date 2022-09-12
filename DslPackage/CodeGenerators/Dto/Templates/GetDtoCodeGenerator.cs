@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage.CodeGenerators.Dto.Templates
+namespace Columbia.DslPackage
 {
     using System.Linq;
     using System.Text;
@@ -32,6 +32,13 @@ namespace Columbia.DslPackage.CodeGenerators.Dto.Templates
             
             #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden

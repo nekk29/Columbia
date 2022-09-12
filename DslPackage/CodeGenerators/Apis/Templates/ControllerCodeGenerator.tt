@@ -3,3 +3,46 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using Microsoft.AspNetCore.Mvc;
+using <#= DomainModel.ApplicationAbstractions #>;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+#>
+namespace <#= DomainModel.Apis #>.Controllers
+{
+    [ApiController]
+    [Route("api/<#= LowerFirst(Entity.Name) #>")]
+    public class <#= Entity.Name #>Controller
+    {
+        private readonly I<#= Entity.Name #>Application _<#= LowerFirst(Entity.Name) #>Application;
+
+        public <#= Entity.Name #>Controller(I<#= Entity.Name #>Application <#= LowerFirst(Entity.Name) #>Application)
+            => _<#= LowerFirst(Entity.Name) #>Application = <#= LowerFirst(Entity.Name) #>Application;
+
+        [HttpPost]
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create(Create<#= Entity.Name #>Dto createDto)
+            => await _<#= LowerFirst(Entity.Name) #>Application.Create(createDto);
+
+        [HttpPut]
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto)
+            => await _<#= LowerFirst(Entity.Name) #>Application.Update(updateDto);
+
+        [HttpDelete("{<#= LowerFirst(keyProperty.Name) #>}")]
+        public async Task<ResponseDto> Delete(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+            => await _<#= LowerFirst(Entity.Name) #>Application.Delete(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>);
+
+        [HttpGet("{<#= LowerFirst(keyProperty.Name) #>}")]
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+            => await _<#= LowerFirst(Entity.Name) #>Application.Get(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>);
+
+        [HttpGet("list")]
+        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List()
+            => await _<#= LowerFirst(Entity.Name) #>Application.List();
+
+        [HttpPost("search")]
+        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams)
+            => await _<#= LowerFirst(Entity.Name) #>Application.Search(searchParams);
+    }
+}

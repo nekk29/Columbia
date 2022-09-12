@@ -3,3 +3,63 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using AutoMapper;
+using <#= DomainModel.Domain #>.Commands.Base;
+using <#= DomainModel.RepositoryAbstractions #>.Base;
+using <#= DomainModel.RepositoryAbstractions #>.Transactions;
+using <#= DomainModel.Dto #>.Base;
+
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Delete<#= Entity.Name #>CommandHandler : CommandHandlerBase<Delete<#= Entity.Name #>Command>
+    {
+        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
+
+        public Delete<#= Entity.Name #>CommandHandler(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            Delete<#= Entity.Name #>CommandValidator validator,
+            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+        ) : base(unitOfWork, mapper, validator)
+        {
+            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
+        }
+
+        public override async Task<ResponseDto> HandleCommand(Delete<#= Entity.Name #>Command request, CancellationToken cancellationToken)
+        {
+            var response = new ResponseDto();
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+	if (keyProperty != null)
+	{
+#>
+            var <#= LowerFirst(Entity.Name) #> = await _<#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.<#= keyProperty.Name #>);
+
+            if (<#= LowerFirst(Entity.Name) #> != null)
+            {
+<#
+	    if (Entity.IsAuditable)
+	    {
+#>
+                <#= LowerFirst(Entity.Name) #>.IsActive = false;
+                await _<#= LowerFirst(Entity.Name) #>Repository.UpdateAsync(<#= LowerFirst(Entity.Name) #>);
+<#
+	    }
+        else
+        {
+#>
+                await _<#= LowerFirst(Entity.Name) #>Repository.DeleteAsync(<#= LowerFirst(Entity.Name) #>);
+<#
+        }
+#>
+            }
+<#
+    }
+#>
+
+            response.AddOkResult(Resources.Common.DeleteSuccessMessage);
+            
+            return response;
+        }
+    }
+}

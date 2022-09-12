@@ -3,3 +3,32 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using AutoMapper;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
+namespace <#= DomainModel.Domain #>.Mapping.<#= Entity.Name #>
+{
+    public class <#= Entity.Name #>Profile : Profile
+    {
+        public <#= Entity.Name #>Profile()
+        {
+            CreateMap<Entity.<#= Entity.Name #>, <#= Entity.Name #>Dto>()
+                .ReverseMap();
+
+            CreateMap<Entity.<#= Entity.Name #>, Create<#= Entity.Name #>Dto>()
+                .ReverseMap();
+
+            CreateMap<Entity.<#= Entity.Name #>, Update<#= Entity.Name #>Dto>()
+                .ReverseMap();
+
+            CreateMap<Entity.<#= Entity.Name #>, Get<#= Entity.Name #>Dto>()
+                .ReverseMap();
+
+            CreateMap<Entity.<#= Entity.Name #>, List<#= Entity.Name #>Dto>()
+                .ReverseMap();
+
+            CreateMap<Entity.<#= Entity.Name #>, Search<#= Entity.Name #>Dto>()
+                .ReverseMap();
+        }
+    }
+}

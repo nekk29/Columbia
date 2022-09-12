@@ -3,3 +3,54 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+using AutoMapper;
+using <#= DomainModel.Domain #>.Commands.Base;
+using <#= DomainModel.RepositoryAbstractions #>.Base;
+using <#= DomainModel.RepositoryAbstractions #>.Transactions;
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
+namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+{
+    public class Update<#= Entity.Name #>CommandHandler : CommandHandlerBase<Update<#= Entity.Name #>Command, Get<#= Entity.Name #>Dto>
+    {
+        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
+
+        public Update<#= Entity.Name #>CommandHandler(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            Update<#= Entity.Name #>CommandValidator validator,
+            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+        ) : base(unitOfWork, mapper, validator)
+        {
+            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
+        }
+
+        public override async Task<ResponseDto<Get<#= Entity.Name #>Dto>> HandleCommand(Update<#= Entity.Name #>Command request, CancellationToken cancellationToken)
+        {
+            var response = new ResponseDto<Get<#= Entity.Name #>Dto>();
+
+<#
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+	if (keyProperty != null)
+	{
+#>
+            var <#= LowerFirst(Entity.Name) #> = await _<#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.UpdateDto.<#= keyProperty.Name #>);
+            if (<#= LowerFirst(Entity.Name) #> != null)
+            {
+                _mapper?.Map(request.UpdateDto, <#= LowerFirst(Entity.Name) #>);
+                await _<#= LowerFirst(Entity.Name) #>Repository.UpdateAsync(<#= LowerFirst(Entity.Name) #>);
+            }
+
+            var <#= LowerFirst(Entity.Name) #>Dto = _mapper?.Map<Get<#= Entity.Name #>Dto>(<#= LowerFirst(Entity.Name) #>);
+            if (<#= LowerFirst(Entity.Name) #>Dto != null) response.UpdateData(<#= LowerFirst(Entity.Name) #>Dto);
+
+<#
+    }
+#>
+            response.AddOkResult(Resources.Common.UpdateSuccessMessage);
+
+            return await Task.FromResult(response);
+        }
+    }
+}
