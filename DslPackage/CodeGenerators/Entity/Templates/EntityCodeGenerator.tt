@@ -103,7 +103,7 @@ public <#= relatedEntityKey.Type #> <#= entityProperty.Name #><#= relatedEntityK
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
 	{
 #>
-public <#= primitiveProperty.Type #><#= primitiveProperty.Nullable ? "?" : string.Empty #> <#= primitiveProperty.Name #> { get; set; } <#= primitiveProperty.Nullable ? string.Empty : "= null!;" #>
+public <#= primitiveProperty.Type #><#= primitiveProperty.Nullable ? "?" : string.Empty #> <#= primitiveProperty.Name #> { get; set; }<#= primitiveProperty.Nullable ? " = null!;" : string.Empty #>
 <#
 	}
 

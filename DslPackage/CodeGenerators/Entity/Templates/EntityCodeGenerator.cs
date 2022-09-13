@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -333,10 +333,10 @@ if(Entity != null)
             
             #line default
             #line hidden
-            this.Write(" { get; set; } ");
+            this.Write(" { get; set; }");
             
             #line 106 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Nullable ? string.Empty : "= null!;"));
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Nullable ? " = null!;" : string.Empty));
             
             #line default
             #line hidden
