@@ -24,7 +24,7 @@ namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
                 .DependentRules(() =>
                 {
 <#
-    if(keyProperty != null)
+    if (keyProperty != null)
     {
 #>
                     RuleFor(x => x.<#= keyProperty.Name #>)
@@ -42,7 +42,7 @@ namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
                 });
         }
 <#
-    if(keyProperty != null)
+    if (keyProperty != null)
     {
 #>
 

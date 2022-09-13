@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -70,8 +70,184 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("CommandValidator()\r\n        {\r\n            RequiredInformation(x => x.CreateDto);" +
-                    "\r\n        }\r\n    }\r\n}\r\n");
+            this.Write("CommandValidator()\r\n        {\r\n            RequiredInformation(x => x.CreateDto)\r" +
+                    "\n                .DependentRules(() =>\r\n                {\r\n");
+            
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+	foreach (var entityProperty in Entity.EntityProperties)
+	{
+        if (!entityProperty.Required) continue;
+
+		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
+		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
+        
+		if (relatedEntityKey != null)
+		{
+            if (relatedEntityKey.Type == "string") {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    //RequiredString(x => x.CreateDto.");
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", Resources.");
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", {Min}, {Max});\r\n");
+            
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+            } else {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    //RequiredField(x => x.CreateDto.");
+            
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", Resources.");
+            
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n");
+            
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+            }
+        }
+	}
+
+            
+            #line default
+            #line hidden
+            
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
+	{
+        if (!primitiveProperty.Required) continue;
+        if (primitiveProperty.Type == "string") {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    //RequiredString(x => x.CreateDto.");
+            
+            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", Resources.");
+            
+            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", {Min}, {Max});\r\n");
+            
+            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+        } else {
+
+            
+            #line default
+            #line hidden
+            this.Write("                    //RequiredField(x => x.CreateDto.");
+            
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", Resources.");
+            
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n");
+            
+            #line 50 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+        }
+	}
+
+            
+            #line default
+            #line hidden
+            this.Write("                });\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

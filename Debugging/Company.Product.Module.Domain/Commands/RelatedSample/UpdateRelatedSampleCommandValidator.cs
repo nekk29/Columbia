@@ -18,6 +18,9 @@ namespace Company.Product.Module.Domain.Commands.RelatedSample
                     RuleFor(x => x.UpdateDto.Id)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();
+
+                    //RequiredString(x => x.CreateDto.Code, Resources.RelatedSample.Code, {Min}, {Max});
+                    //RequiredString(x => x.CreateDto.Description, Resources.RelatedSample.Description, {Min}, {Max});
                 });
         }
 

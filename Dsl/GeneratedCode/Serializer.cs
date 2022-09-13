@@ -2283,20 +2283,20 @@ namespace Columbia.Dsl
 					}
 				}
 			}
-			// Nullable
+			// Required
 			if (!serializationContext.Result.Failed)
 			{
-				string attribNullable = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "nullable");
-				if (attribNullable != null)
+				string attribRequired = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "required");
+				if (attribRequired != null)
 				{
-					global::System.Boolean valueOfNullable;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribNullable, out valueOfNullable))
+					global::System.Boolean valueOfRequired;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribRequired, out valueOfRequired))
 					{
-						instanceOfPrimitiveProperty.Nullable = valueOfNullable;
+						instanceOfPrimitiveProperty.Required = valueOfRequired;
 					}
 					else
 					{	// Invalid property value, ignored.
-						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "nullable", typeof(global::System.Boolean), attribNullable);
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "required", typeof(global::System.Boolean), attribRequired);
 					}
 				}
 			}
@@ -2762,14 +2762,17 @@ namespace Columbia.Dsl
 					}
 				}
 			}
-			// Nullable
+			// Required
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.Boolean propValue = instanceOfPrimitiveProperty.Nullable;
+				global::System.Boolean propValue = instanceOfPrimitiveProperty.Required;
 				string serializedPropValue = DslModeling::SerializationUtilities.GetString<global::System.Boolean>(serializationContext, propValue);
 				if (!serializationContext.Result.Failed)
 				{
-					ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "nullable", serializedPropValue);
+					if (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(serializedPropValue, "true") != 0)
+					{	// No need to write the value out if it's the same as default value.
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "required", serializedPropValue);
+					}
 				}
 			}
 		}
@@ -3067,6 +3070,23 @@ namespace Columbia.Dsl
 					else
 					{	// Invalid property value, ignored.
 						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "entityReferencesTargetEntitiesId", typeof(global::System.String), attribEntityReferencesTargetEntitiesId);
+					}
+				}
+			}
+			// Required
+			if (!serializationContext.Result.Failed)
+			{
+				string attribRequired = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "required");
+				if (attribRequired != null)
+				{
+					global::System.Boolean valueOfRequired;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribRequired, out valueOfRequired))
+					{
+						instanceOfEntityProperty.Required = valueOfRequired;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "required", typeof(global::System.Boolean), attribRequired);
 					}
 				}
 			}
@@ -3551,6 +3571,19 @@ namespace Columbia.Dsl
 					if (!string.IsNullOrEmpty(propValue))
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "entityReferencesTargetEntitiesId", propValue);
 	
+				}
+			}
+			// Required
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.Boolean propValue = instanceOfEntityProperty.Required;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<global::System.Boolean>(serializationContext, propValue);
+				if (!serializationContext.Result.Failed)
+				{
+					if (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(serializedPropValue, "true") != 0)
+					{	// No need to write the value out if it's the same as default value.
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "required", serializedPropValue);
+					}
 				}
 			}
 		}

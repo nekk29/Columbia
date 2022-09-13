@@ -1984,60 +1984,61 @@ namespace Columbia.Dsl
 		}
 		
 		#endregion
-		#region Nullable domain property code
+		#region Required domain property code
 		
 		/// <summary>
-		/// Nullable domain property Id.
+		/// Required domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid NullableDomainPropertyId = new global::System.Guid(0x678d8826, 0x485e, 0x4028, 0x88, 0x61, 0xf6, 0x16, 0xb5, 0x74, 0xf9, 0xef);
+		public static readonly global::System.Guid RequiredDomainPropertyId = new global::System.Guid(0x678d8826, 0x485e, 0x4028, 0x88, 0x61, 0xf6, 0x16, 0xb5, 0x74, 0xf9, 0xef);
 		
 		/// <summary>
-		/// Storage for Nullable
+		/// Storage for Required
 		/// </summary>
-		private global::System.Boolean nullablePropertyStorage;
+		private global::System.Boolean requiredPropertyStorage = true;
 		
 		/// <summary>
-		/// Gets or sets the value of Nullable domain property.
-		/// Specify if the property is nullable
+		/// Gets or sets the value of Required domain property.
+		/// Specify if the property is required
 		/// </summary>
-		[DslDesign::DisplayNameResource("Columbia.Dsl.PrimitiveProperty/Nullable.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslDesign::CategoryResource("Columbia.Dsl.PrimitiveProperty/Nullable.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Columbia.Dsl.PrimitiveProperty/Nullable.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Columbia.Dsl.PrimitiveProperty/Required.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.PrimitiveProperty/Required.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.PrimitiveProperty/Required.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue(true)]
 		[DslModeling::DomainObjectId("678d8826-485e-4028-8861-f616b574f9ef")]
-		public global::System.Boolean Nullable
+		public global::System.Boolean Required
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return nullablePropertyStorage;
+				return requiredPropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				NullablePropertyHandler.Instance.SetValue(this, value);
+				RequiredPropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the PrimitiveProperty.Nullable domain property.
+		/// Value handler for the PrimitiveProperty.Required domain property.
 		/// </summary>
-		internal sealed partial class NullablePropertyHandler : DslModeling::DomainPropertyValueHandler<PrimitiveProperty, global::System.Boolean>
+		internal sealed partial class RequiredPropertyHandler : DslModeling::DomainPropertyValueHandler<PrimitiveProperty, global::System.Boolean>
 		{
-			private NullablePropertyHandler() { }
+			private RequiredPropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the PrimitiveProperty.Nullable domain property value handler.
+			/// Gets the singleton instance of the PrimitiveProperty.Required domain property value handler.
 			/// </summary>
-			public static readonly NullablePropertyHandler Instance = new NullablePropertyHandler();
+			public static readonly RequiredPropertyHandler Instance = new RequiredPropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the PrimitiveProperty.Nullable domain property.
+			/// Gets the Id of the PrimitiveProperty.Required domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return NullableDomainPropertyId;
+					return RequiredDomainPropertyId;
 				}
 			}
 			
@@ -2049,7 +2050,7 @@ namespace Columbia.Dsl
 			public override sealed global::System.Boolean GetValue(PrimitiveProperty element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.nullablePropertyStorage;
+				return element.requiredPropertyStorage;
 			}
 		
 			/// <summary>
@@ -2065,7 +2066,7 @@ namespace Columbia.Dsl
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.nullablePropertyStorage = newValue;
+					element.requiredPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}
@@ -2574,6 +2575,95 @@ namespace Columbia.Dsl
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.entityReferencesTargetEntitiesIdPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Required domain property code
+		
+		/// <summary>
+		/// Required domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid RequiredDomainPropertyId = new global::System.Guid(0x31f9c3f8, 0x4b0a, 0x4c7e, 0xa0, 0xda, 0xd1, 0xfe, 0x8c, 0xe6, 0x7e, 0x5e);
+		
+		/// <summary>
+		/// Storage for Required
+		/// </summary>
+		private global::System.Boolean requiredPropertyStorage = true;
+		
+		/// <summary>
+		/// Gets or sets the value of Required domain property.
+		/// Specify if the property is required
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/Required.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.EntityProperty/Required.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/Required.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue(true)]
+		[DslModeling::DomainObjectId("31f9c3f8-4b0a-4c7e-a0da-d1fe8ce67e5e")]
+		public global::System.Boolean Required
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return requiredPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				RequiredPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EntityProperty.Required domain property.
+		/// </summary>
+		internal sealed partial class RequiredPropertyHandler : DslModeling::DomainPropertyValueHandler<EntityProperty, global::System.Boolean>
+		{
+			private RequiredPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EntityProperty.Required domain property value handler.
+			/// </summary>
+			public static readonly RequiredPropertyHandler Instance = new RequiredPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EntityProperty.Required domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return RequiredDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(EntityProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.requiredPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EntityProperty element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.requiredPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

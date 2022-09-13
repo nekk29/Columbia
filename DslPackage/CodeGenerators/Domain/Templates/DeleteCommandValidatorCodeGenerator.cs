@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -140,7 +140,7 @@ namespace Columbia.DslPackage
             
             #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
 
-    if(keyProperty != null)
+    if (keyProperty != null)
     {
 
             
@@ -178,7 +178,7 @@ namespace Columbia.DslPackage
             
             #line 44 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
 
-    if(keyProperty != null)
+    if (keyProperty != null)
     {
 
             

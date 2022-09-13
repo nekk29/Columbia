@@ -15,6 +15,6 @@ namespace Company.Product.Module.Entity
       public Guid RelatedSampleId { get; set; }
       public string Code { get; set; } = null!;
       public string Description { get; set; } = null!;
-      public string? Remarks { get; set; } 
+      public string? Remarks { get; set; } = null!;
    }
 }

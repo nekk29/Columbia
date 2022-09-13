@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -46,7 +46,7 @@ namespace Columbia.DslPackage
             
             #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
 
-if(Entity != null)
+if (Entity != null)
 {
 	PushIndent(DefautIndent);
 
@@ -71,7 +71,7 @@ if(Entity != null)
 		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
 		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
 
-		if(relatedEntityKey != null)
+		if (relatedEntityKey != null)
 		{
 
             
@@ -81,6 +81,12 @@ if(Entity != null)
             
             #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Type));
+            
+            #line default
+            #line hidden
+            
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
@@ -97,7 +103,14 @@ if(Entity != null)
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n");
+            this.Write(" { get; set; }");
+            
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (entityProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
             
             #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
 
@@ -122,7 +135,7 @@ if(Entity != null)
             #line hidden
             
             #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Nullable ? "?" : string.Empty));
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
@@ -133,10 +146,10 @@ if(Entity != null)
             
             #line default
             #line hidden
-            this.Write(" { get; set; } ");
+            this.Write(" { get; set; }");
             
             #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Nullable ? string.Empty : "= null!;"));
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? (primitiveProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden

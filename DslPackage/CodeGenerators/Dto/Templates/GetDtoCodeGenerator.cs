@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -46,7 +46,7 @@ namespace Columbia.DslPackage
             
             #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
 
-if(Entity != null)
+if (Entity != null)
 {
 	PushIndent(DefautIndent);
 

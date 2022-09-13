@@ -208,7 +208,7 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="678d8826-485e-4028-8861-f616b574f9ef" Description="Specify if the property is nullable" Name="Nullable" DisplayName="Nullable" Category="Definition">
+        <DomainProperty Id="678d8826-485e-4028-8861-f616b574f9ef" Description="Specify if the property is required" Name="Required" DisplayName="Required" DefaultValue="true" Category="Definition">
           <Type>
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
@@ -247,6 +247,11 @@
         <DomainProperty Id="8275e1b0-b661-4993-825e-d7a2efde2b5c" Description="Description for Columbia.Dsl.EntityProperty.Entity References Target Entities Id" Name="EntityReferencesTargetEntitiesId" DisplayName="Entity References Target Entities Id" IsBrowsable="false">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="31f9c3f8-4b0a-4c7e-a0da-d1fe8ce67e5e" Description="Specify if the property is required" Name="Required" DisplayName="Required" DefaultValue="true" Category="Definition">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -458,8 +463,8 @@
           <XmlPropertyData XmlName="isPrimaryKey">
             <DomainPropertyMoniker Name="PrimitiveProperty/IsPrimaryKey" />
           </XmlPropertyData>
-          <XmlPropertyData XmlName="nullable">
-            <DomainPropertyMoniker Name="PrimitiveProperty/Nullable" />
+          <XmlPropertyData XmlName="required">
+            <DomainPropertyMoniker Name="PrimitiveProperty/Required" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
@@ -480,6 +485,9 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="entityReferencesTargetEntitiesId">
             <DomainPropertyMoniker Name="EntityProperty/EntityReferencesTargetEntitiesId" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="required">
+            <DomainPropertyMoniker Name="EntityProperty/Required" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

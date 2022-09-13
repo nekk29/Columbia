@@ -13,7 +13,7 @@ namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
     public class Get<#= Entity.Name #>Query : QueryBase<Get<#= Entity.Name #>Dto>
     {
 <#
-	if(keyProperty != null)
+	if (keyProperty != null)
     {
 #>
         public Get<#= Entity.Name #>Query(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) => <#= keyProperty.Name #> = <#= LowerFirst(keyProperty.Name) #>;

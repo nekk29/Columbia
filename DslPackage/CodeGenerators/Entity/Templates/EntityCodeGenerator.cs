@@ -33,7 +33,7 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
-if(Entity.IsAuditable)
+if (Entity.IsAuditable)
 {
 
             
@@ -74,7 +74,7 @@ var relatedEntities = DomainModel.Entities.Where(x => x.EntityProperties.Any(p =
             
             #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
-if(Entity != null)
+if (Entity != null)
 {
 
             
@@ -105,7 +105,7 @@ if(Entity != null)
             
             #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
-	if(relatedEntities.Any())
+	if (relatedEntities.Any())
 	{
 		PushIndent(DefautIndent);
 
@@ -211,7 +211,7 @@ if(Entity != null)
             
             #line 78 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
-		if(relatedEntityKey != null)
+		if (relatedEntityKey != null)
 		{
 
             
@@ -246,6 +246,12 @@ if(Entity != null)
             
             #line default
             #line hidden
+            
+            #line 86 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? string.Empty : "?"));
+            
+            #line default
+            #line hidden
             this.Write(" ");
             
             #line 86 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
@@ -257,7 +263,7 @@ if(Entity != null)
             
             #line 87 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
-		if(relatedEntityKey != null)
+		if (relatedEntityKey != null)
 		{
 
             
@@ -267,6 +273,12 @@ if(Entity != null)
             
             #line 91 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Type));
+            
+            #line default
+            #line hidden
+            
+            #line 91 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
@@ -283,7 +295,14 @@ if(Entity != null)
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n");
+            this.Write(" { get; set; }");
+            
+            #line 91 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (entityProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
             
             #line 92 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
@@ -322,7 +341,7 @@ if(Entity != null)
             #line hidden
             
             #line 106 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Nullable ? "?" : string.Empty));
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
@@ -336,7 +355,7 @@ if(Entity != null)
             this.Write(" { get; set; }");
             
             #line 106 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Nullable ? " = null!;" : string.Empty));
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? (primitiveProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden
@@ -348,7 +367,7 @@ if(Entity != null)
 
 	PopIndent();
 
-	if(relatedEntities.Any())
+	if (relatedEntities.Any())
 	{
 
             

@@ -5,16 +5,16 @@
       <entity Id="8a1e475c-1485-4788-9cee-e8d639f51dcc" name="Sample">
         <primitiveProperties>
           <entityHasPrimitiveProperties Id="4afbb2c8-cfc1-4410-8f4b-c4202b785634">
-            <primitiveProperty Id="3f5adbf1-e889-4af5-b980-1f48623161c9" name="Id" type="Guid" isPrimaryKey="true" nullable="false" />
+            <primitiveProperty Id="3f5adbf1-e889-4af5-b980-1f48623161c9" name="Id" type="Guid" isPrimaryKey="true" />
           </entityHasPrimitiveProperties>
           <entityHasPrimitiveProperties Id="e1c478bd-2719-4c1b-b9e8-aeaf269e19f3">
-            <primitiveProperty Id="ca3027b9-11e6-4b5f-9751-dc139901b80a" name="Code" nullable="false" />
+            <primitiveProperty Id="ca3027b9-11e6-4b5f-9751-dc139901b80a" name="Code" />
           </entityHasPrimitiveProperties>
           <entityHasPrimitiveProperties Id="d64a163f-c21f-4bfe-bc2f-fa5445189590">
-            <primitiveProperty Id="8fe7a2a6-c34e-4aef-b7c2-647d7d0f0c36" name="Description" nullable="false" />
+            <primitiveProperty Id="8fe7a2a6-c34e-4aef-b7c2-647d7d0f0c36" name="Description" />
           </entityHasPrimitiveProperties>
           <entityHasPrimitiveProperties Id="55029c16-ca55-48c9-8dbe-b53094c76ba6">
-            <primitiveProperty Id="b39da8a5-bfe9-419c-8d69-fd804fab5769" name="Remarks" nullable="true" />
+            <primitiveProperty Id="b39da8a5-bfe9-419c-8d69-fd804fab5769" name="Remarks" required="false" />
           </entityHasPrimitiveProperties>
         </primitiveProperties>
         <entityProperties>
@@ -33,13 +33,13 @@
         </targetEntities>
         <primitiveProperties>
           <entityHasPrimitiveProperties Id="e0e37ffc-2dd2-4928-a73c-8df9a2ccdf40">
-            <primitiveProperty Id="f0d5de49-4906-436b-8aed-14374137e6a3" name="Id" type="Guid" isPrimaryKey="true" nullable="false" />
+            <primitiveProperty Id="f0d5de49-4906-436b-8aed-14374137e6a3" name="Id" type="Guid" isPrimaryKey="true" />
           </entityHasPrimitiveProperties>
           <entityHasPrimitiveProperties Id="e2b9282f-5143-4304-9489-ced208129bb7">
-            <primitiveProperty Id="a30acf4a-715f-4a6c-9b75-03eb5f6f24f5" name="Code" nullable="false" />
+            <primitiveProperty Id="a30acf4a-715f-4a6c-9b75-03eb5f6f24f5" name="Code" />
           </entityHasPrimitiveProperties>
           <entityHasPrimitiveProperties Id="f41f4876-00d5-4a39-9582-6dabe9548dea">
-            <primitiveProperty Id="bc54e9ea-4b48-4b01-8bf6-74a3dcda17d6" name="Description" nullable="false" />
+            <primitiveProperty Id="bc54e9ea-4b48-4b01-8bf6-74a3dcda17d6" name="Description" />
           </entityHasPrimitiveProperties>
         </primitiveProperties>
       </entity>

@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -46,7 +46,7 @@ namespace Columbia.DslPackage
             
             #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
 
-if(Entity != null)
+if (Entity != null)
 {
 	PushIndent(DefautIndent);
 
@@ -107,7 +107,7 @@ if(Entity != null)
 		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
 		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
 
-		if(relatedEntityKey != null)
+		if (relatedEntityKey != null)
 		{
 
             

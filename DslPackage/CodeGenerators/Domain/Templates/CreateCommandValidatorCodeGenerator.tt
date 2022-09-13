@@ -11,7 +11,47 @@ namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
     {
         public Create<#= Entity.Name #>CommandValidator()
         {
-            RequiredInformation(x => x.CreateDto);
+            RequiredInformation(x => x.CreateDto)
+                .DependentRules(() =>
+                {
+<#
+	foreach (var entityProperty in Entity.EntityProperties)
+	{
+        if (!entityProperty.Required) continue;
+
+		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
+		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
+        
+		if (relatedEntityKey != null)
+		{
+            if (relatedEntityKey.Type == "string") {
+#>
+                    //RequiredString(x => x.CreateDto.<#= entityProperty.Name #><#= relatedEntityKey.Name #>, Resources.<#= Entity.Name #>.<#= entityProperty.Name #><#= relatedEntityKey.Name #>, {Min}, {Max});
+<#
+            } else {
+#>
+                    //RequiredField(x => x.CreateDto.<#= entityProperty.Name #><#= relatedEntityKey.Name #>, Resources.<#= Entity.Name #>.<#= entityProperty.Name #><#= relatedEntityKey.Name #>);
+<#
+            }
+        }
+	}
+#>
+<#
+	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
+	{
+        if (!primitiveProperty.Required) continue;
+        if (primitiveProperty.Type == "string") {
+#>
+                    //RequiredString(x => x.CreateDto.<#= primitiveProperty.Name #>, Resources.<#= Entity.Name #>.<#= primitiveProperty.Name #>, {Min}, {Max});
+<#
+        } else {
+#>
+                    //RequiredField(x => x.CreateDto.<#= primitiveProperty.Name #>, Resources.<#= Entity.Name #>.<#= primitiveProperty.Name #>);
+<#
+        }
+	}
+#>
+                });
         }
     }
 }

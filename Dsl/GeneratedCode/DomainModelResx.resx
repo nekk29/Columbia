@@ -353,17 +353,17 @@
     <value>Definition</value>
     <comment>Category for DomainProperty &apos;IsPrimaryKey&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
-  <data name="Columbia.Dsl.PrimitiveProperty/Nullable.Description" xml:space="preserve">
-    <value>Specify if the property is nullable</value>
-    <comment>Description for DomainProperty &apos;Nullable&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
+  <data name="Columbia.Dsl.PrimitiveProperty/Required.Description" xml:space="preserve">
+    <value>Specify if the property is required</value>
+    <comment>Description for DomainProperty &apos;Required&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
-  <data name="Columbia.Dsl.PrimitiveProperty/Nullable.DisplayName" xml:space="preserve">
-    <value>Nullable</value>
-    <comment>DisplayName for DomainProperty &apos;Nullable&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
+  <data name="Columbia.Dsl.PrimitiveProperty/Required.DisplayName" xml:space="preserve">
+    <value>Required</value>
+    <comment>DisplayName for DomainProperty &apos;Required&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
-  <data name="Columbia.Dsl.PrimitiveProperty/Nullable.Category" xml:space="preserve">
+  <data name="Columbia.Dsl.PrimitiveProperty/Required.Category" xml:space="preserve">
     <value>Definition</value>
-    <comment>Category for DomainProperty &apos;Nullable&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
+    <comment>Category for DomainProperty &apos;Required&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.EntityProperty.Description" xml:space="preserve">
     <value>Description for Columbia.Dsl.EntityProperty</value>
@@ -428,6 +428,18 @@
   <data name="Columbia.Dsl.EntityProperty/EntityReferencesTargetEntitiesId.DisplayName" xml:space="preserve">
     <value>Entity References Target Entities Id</value>
     <comment>DisplayName for DomainProperty &apos;EntityReferencesTargetEntitiesId&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/Required.Description" xml:space="preserve">
+    <value>Specify if the property is required</value>
+    <comment>Description for DomainProperty &apos;Required&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/Required.DisplayName" xml:space="preserve">
+    <value>Required</value>
+    <comment>DisplayName for DomainProperty &apos;Required&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/Required.Category" xml:space="preserve">
+    <value>Definition</value>
+    <comment>Category for DomainProperty &apos;Required&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.DomainModelHasEntities.Description" xml:space="preserve">
     <value>Domain Model Has Entities</value>

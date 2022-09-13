@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -90,7 +90,7 @@ namespace Columbia.DslPackage
             
             #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
 
-	if(keyProperty != null)
+	if (keyProperty != null)
     {
 
             
