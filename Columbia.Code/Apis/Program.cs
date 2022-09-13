@@ -22,7 +22,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.UseSwaggerDocumentation(configuration);
 
 // Repositories
-builder.Services.UseRepositories(configuration);
+builder.Services.UseRepositories(configuration, typeof(Program).Assembly.GetName().Name!);
 
 // Domain Services
 builder.Services.UseDomainServices();

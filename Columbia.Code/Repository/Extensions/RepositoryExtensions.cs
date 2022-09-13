@@ -11,11 +11,11 @@ namespace $safesolutionname$.Repository.Extensions
 {
     public static class RepositoryServiceCollectionExtensions
     {
-        public static IServiceCollection UseRepositories(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection UseRepositories(this IServiceCollection services, IConfiguration configuration, string migrationsAssembly)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services.AddSqlServer<CoreDbContext>(connectionString, b => b.MigrationsAssembly("$safesolutionname$.Apis"));
+            services.AddSqlServer<CoreDbContext>(connectionString, b => b.MigrationsAssembly(migrationsAssembly));
 
             services.AddScoped<DbContext, CoreDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork<DbContext>>();
