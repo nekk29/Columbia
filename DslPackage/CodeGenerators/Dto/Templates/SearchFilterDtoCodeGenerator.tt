@@ -12,7 +12,7 @@ if(Entity != null)
 {
 	PushIndent(DefautIndent);
 #>
-public class Search<#= Entity.Name #>FilterDto : <#= Entity.Name #>Dto
+public class Search<#= Entity.Name #>FilterDto
 {
 <#
 	PushIndent(DefautIndent);
@@ -20,7 +20,35 @@ public class Search<#= Entity.Name #>FilterDto : <#= Entity.Name #>Dto
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => x.IsPrimaryKey))
 	{
 #>
-public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
+public <#= primitiveProperty.Type #>? <#= primitiveProperty.Name #> { get; set; } = null!;
+<#
+	}
+
+	PopIndent();
+#>
+<#
+	PushIndent(DefautIndent);
+
+	foreach (var entityProperty in Entity.EntityProperties)
+	{
+		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
+		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
+
+		if(relatedEntityKey != null)
+		{
+#>
+public <#= relatedEntityKey.Type #>? <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; } = null!;
+<#
+		}
+	}
+
+	PopIndent();
+	PushIndent(DefautIndent);
+
+	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
+	{
+#>
+public <#= primitiveProperty.Type #>? <#= primitiveProperty.Name #> { get; set; } = null!;
 <#
 	}
 

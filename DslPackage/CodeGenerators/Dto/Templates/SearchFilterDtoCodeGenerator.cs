@@ -60,14 +60,7 @@ if(Entity != null)
             
             #line default
             #line hidden
-            this.Write("FilterDto : ");
-            
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Dto\r\n{\r\n");
+            this.Write("FilterDto\r\n{\r\n");
             
             #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
 
@@ -86,14 +79,14 @@ if(Entity != null)
             
             #line default
             #line hidden
-            this.Write(" ");
+            this.Write("? ");
             
             #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n");
+            this.Write(" { get; set; } = null!;\r\n");
             
             #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
 
@@ -104,9 +97,86 @@ if(Entity != null)
             
             #line default
             #line hidden
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+
+	PushIndent(DefautIndent);
+
+	foreach (var entityProperty in Entity.EntityProperties)
+	{
+		var relatedEntity = DomainModel.Entities.FirstOrDefault(x => x.Name == entityProperty.Type);
+		var relatedEntityKey = relatedEntity != null ? relatedEntity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey) : null;
+
+		if(relatedEntityKey != null)
+		{
+
+            
+            #line default
+            #line hidden
+            this.Write("public ");
+            
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Type));
+            
+            #line default
+            #line hidden
+            this.Write("? ");
+            
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
+            
+            #line default
+            #line hidden
+            
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; set; } = null!;\r\n");
+            
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+
+		}
+	}
+
+	PopIndent();
+	PushIndent(DefautIndent);
+
+	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
+	{
+
+            
+            #line default
+            #line hidden
+            this.Write("public ");
+            
+            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type));
+            
+            #line default
+            #line hidden
+            this.Write("? ");
+            
+            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
+            
+            #line default
+            #line hidden
+            this.Write(" { get; set; } = null!;\r\n");
+            
+            #line 52 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+
+	}
+
+	PopIndent();
+
+            
+            #line default
+            #line hidden
             this.Write("}\r\n");
             
-            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
+            #line 58 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchFilterDtoCodeGenerator.tt"
 
 }
 

@@ -2,8 +2,10 @@
 
 namespace Company.Product.Module.Dto.RelatedSample
 {
-   public class SearchRelatedSampleFilterDto : RelatedSampleDto
+   public class SearchRelatedSampleFilterDto
    {
-      public Guid Id { get; set; }
+      public Guid? Id { get; set; } = null!;
+      public string? Code { get; set; } = null!;
+      public string? Description { get; set; } = null!;
    }
 }
