@@ -29,6 +29,7 @@ namespace Columbia.Wizard
         public void RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
             replacementsDictionary.Add("$safesolutionname$", SolutionWizard.GlobalDictionary["$safesolutionname$"]);
+            replacementsDictionary.Add("$safesolutionname_lower$", SolutionWizard.GlobalDictionary["$safesolutionname$"].ToLower());
         }
 
         public bool ShouldAddProjectItem(string filePath) => true;
