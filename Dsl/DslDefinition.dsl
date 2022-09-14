@@ -218,6 +218,11 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="a52989e2-fd8c-47a2-b783-c3968ff63a71" Description="Column" Name="Column" DisplayName="Column" Category="Database">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
       </Properties>
     </DomainClass>
     <DomainClass Id="53f85944-a77a-44d8-ab47-891a27e67dd5" Description="Description for Columbia.Dsl.EntityProperty" Name="EntityProperty" DisplayName="Entity Property" Namespace="Columbia.Dsl">
@@ -257,6 +262,11 @@
         <DomainProperty Id="31f9c3f8-4b0a-4c7e-a0da-d1fe8ce67e5e" Description="Specify if the property is required" Name="Required" DisplayName="Required" DefaultValue="true" Category="Definition">
           <Type>
             <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="3eb9dc80-a77d-4112-8649-75bcb795db5e" Description="Foreign Key" Name="ForeignKey" DisplayName="Foreign Key" Category="Database">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -474,6 +484,9 @@
           <XmlPropertyData XmlName="required">
             <DomainPropertyMoniker Name="PrimitiveProperty/Required" />
           </XmlPropertyData>
+          <XmlPropertyData XmlName="column">
+            <DomainPropertyMoniker Name="PrimitiveProperty/Column" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EntityProperty" MonikerAttributeName="" SerializeId="true" MonikerElementName="entityPropertyMoniker" ElementName="entityProperty" MonikerTypeName="EntityPropertyMoniker">
@@ -496,6 +509,9 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="required">
             <DomainPropertyMoniker Name="EntityProperty/Required" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="foreignKey">
+            <DomainPropertyMoniker Name="EntityProperty/ForeignKey" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

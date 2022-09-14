@@ -2,7 +2,7 @@
 <domainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="fbf977f3-a376-443e-8380-29a0b8909ad7" apis="Company.Product.Module.Apis" application="Company.Product.Module.Application" applicationAbstractions="Company.Product.Module.Application.Abstractions" domain="Company.Product.Module.Domain" dto="Company.Product.Module.Dto" entity="Company.Product.Module.Entity" repository="Company.Product.Module.Repository" repositoryAbstractions="Company.Product.Module.Repository.Abstractions" restClient="Company.Product.Module.RestClient" database="Company.Product.Module.Database" test="Company.Product.Module.Test" xmlns="http://schemas.microsoft.com/dsltools/Columbia">
   <entities>
     <domainModelHasEntities Id="4d8a489f-11c1-4ae1-a915-8184dd4d1464">
-      <entity Id="8a1e475c-1485-4788-9cee-e8d639f51dcc" name="Sample" tableName="Samples">
+      <entity Id="8a1e475c-1485-4788-9cee-e8d639f51dcc" name="Sample" isAuditable="false" tableName="Samples">
         <primitiveProperties>
           <entityHasPrimitiveProperties Id="4afbb2c8-cfc1-4410-8f4b-c4202b785634">
             <primitiveProperty Id="3f5adbf1-e889-4af5-b980-1f48623161c9" name="Id" type="Guid" isPrimaryKey="true" />
@@ -14,12 +14,12 @@
             <primitiveProperty Id="8fe7a2a6-c34e-4aef-b7c2-647d7d0f0c36" name="Description" />
           </entityHasPrimitiveProperties>
           <entityHasPrimitiveProperties Id="55029c16-ca55-48c9-8dbe-b53094c76ba6">
-            <primitiveProperty Id="b39da8a5-bfe9-419c-8d69-fd804fab5769" name="Remarks" required="false" />
+            <primitiveProperty Id="b39da8a5-bfe9-419c-8d69-fd804fab5769" name="Remarks" required="false" column="Comments" />
           </entityHasPrimitiveProperties>
         </primitiveProperties>
         <entityProperties>
           <entityHasEntityProperties Id="77f0536a-5df8-40c2-92f1-e7de14e58833">
-            <entityProperty Id="bac5e7d4-2264-4993-ac5e-fde1c1a97b9e" entityPropertyId="00001" name="RelatedSample" type="RelatedSample" entityReferencesTargetEntitiesId="00001" />
+            <entityProperty Id="bac5e7d4-2264-4993-ac5e-fde1c1a97b9e" entityPropertyId="00001" name="RelatedSample" type="RelatedSample" entityReferencesTargetEntitiesId="00001" foreignKey="RelatedId" />
           </entityHasEntityProperties>
         </entityProperties>
       </entity>

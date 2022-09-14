@@ -27,8 +27,7 @@ namespace Company.Product.Module.Domain.Commands.Sample
 
             if (sample != null)
             {
-                sample.IsActive = false;
-                await _sampleRepository.UpdateAsync(sample);
+                await _sampleRepository.DeleteAsync(sample);
             }
 
             response.AddOkResult(Resources.Common.DeleteSuccessMessage);

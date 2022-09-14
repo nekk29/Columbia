@@ -36,8 +36,9 @@ public <#= primitiveProperty.Type #>? <#= primitiveProperty.Name #> { get; set; 
 
 		if (relatedEntityKey != null)
 		{
+			var foreignKey = string.IsNullOrEmpty(entityProperty.ForeignKey) ? entityProperty.Name + relatedEntityKey.Name : entityProperty.ForeignKey;
 #>
-public <#= relatedEntityKey.Type #>? <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; } = null!;
+public <#= relatedEntityKey.Type #>? <#= foreignKey #> { get; set; } = null!;
 <#
 		}
 	}

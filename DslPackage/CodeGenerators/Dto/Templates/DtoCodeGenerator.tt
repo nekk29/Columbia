@@ -24,8 +24,9 @@ public class <#= Entity.Name #>Dto
 
 		if (relatedEntityKey != null)
 		{
+            var foreignKey = string.IsNullOrEmpty(entityProperty.ForeignKey) ? entityProperty.Name + relatedEntityKey.Name : entityProperty.ForeignKey;
 #>
-public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; }<#= entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
+public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= foreignKey #> { get; set; }<#= entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
 <#
 		}
 	}

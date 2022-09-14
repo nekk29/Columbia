@@ -377,6 +377,18 @@
     <value>Definition</value>
     <comment>Category for DomainProperty &apos;Required&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
   </data>
+  <data name="Columbia.Dsl.PrimitiveProperty/Column.Description" xml:space="preserve">
+    <value>Column</value>
+    <comment>Description for DomainProperty &apos;Column&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.PrimitiveProperty/Column.DisplayName" xml:space="preserve">
+    <value>Column</value>
+    <comment>DisplayName for DomainProperty &apos;Column&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.PrimitiveProperty/Column.Category" xml:space="preserve">
+    <value>Database</value>
+    <comment>Category for DomainProperty &apos;Column&apos; on DomainClass &apos;PrimitiveProperty&apos;</comment>
+  </data>
   <data name="Columbia.Dsl.EntityProperty.Description" xml:space="preserve">
     <value>Description for Columbia.Dsl.EntityProperty</value>
     <comment>Description for DomainClass &apos;EntityProperty&apos;</comment>
@@ -452,6 +464,18 @@
   <data name="Columbia.Dsl.EntityProperty/Required.Category" xml:space="preserve">
     <value>Definition</value>
     <comment>Category for DomainProperty &apos;Required&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/ForeignKey.Description" xml:space="preserve">
+    <value>Foreign Key</value>
+    <comment>Description for DomainProperty &apos;ForeignKey&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/ForeignKey.DisplayName" xml:space="preserve">
+    <value>Foreign Key</value>
+    <comment>DisplayName for DomainProperty &apos;ForeignKey&apos; on DomainClass &apos;EntityProperty&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.EntityProperty/ForeignKey.Category" xml:space="preserve">
+    <value>Database</value>
+    <comment>Category for DomainProperty &apos;ForeignKey&apos; on DomainClass &apos;EntityProperty&apos;</comment>
   </data>
   <data name="Columbia.Dsl.DomainModelHasEntities.Description" xml:space="preserve">
     <value>Domain Model Has Entities</value>

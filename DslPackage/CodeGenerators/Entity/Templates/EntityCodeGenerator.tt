@@ -60,6 +60,12 @@ public <#= Entity.Name #>()
 
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => x.IsPrimaryKey))
 	{
+		if(!string.IsNullOrEmpty(primitiveProperty.Column))
+		{
+#>
+[Column("<#= primitiveProperty.Column #>")]
+<#	
+		}
 #>
 [Key]
 public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }<#= primitiveProperty.Type == "string" ? " = null!;" : string.Empty #>
@@ -79,17 +85,11 @@ public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
 <#
 		if (relatedEntityKey != null)
 		{
+			var foreignKey = string.IsNullOrEmpty(entityProperty.ForeignKey) ? entityProperty.Name + relatedEntityKey.Name : entityProperty.ForeignKey;
 #>
-[ForeignKey("<#= entityProperty.Name #><#= relatedEntityKey.Name #>")]
-<#
-		}
-#>
+[ForeignKey("<#= foreignKey #>")]
 public virtual <#= entityProperty.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= entityProperty.Name #> { get; set; } = null!;
-<#
-		if (relatedEntityKey != null)
-		{
-#>
-public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; }<#= entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
+public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= foreignKey #> { get; set; }<#= entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
 <#
 		}
 #>
@@ -103,6 +103,12 @@ public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : 
 
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
 	{
+		if(!string.IsNullOrEmpty(primitiveProperty.Column))
+		{
+#>
+[Column("<#= primitiveProperty.Column #>")]
+<#	
+		}
 #>
 public <#= primitiveProperty.Type #><#= primitiveProperty.Required ? string.Empty : "?" #> <#= primitiveProperty.Name #> { get; set; }<#= primitiveProperty.Required ? (primitiveProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
 <#

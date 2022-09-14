@@ -2328,6 +2328,23 @@ namespace Columbia.Dsl
 					}
 				}
 			}
+			// Column
+			if (!serializationContext.Result.Failed)
+			{
+				string attribColumn = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "column");
+				if (attribColumn != null)
+				{
+					global::System.String valueOfColumn;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribColumn, out valueOfColumn))
+					{
+						instanceOfPrimitiveProperty.Column = valueOfColumn;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "column", typeof(global::System.String), attribColumn);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -2803,6 +2820,17 @@ namespace Columbia.Dsl
 					}
 				}
 			}
+			// Column
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfPrimitiveProperty.Column;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "column", propValue);
+	
+				}
+			}
 		}
 	
 		/// <summary>
@@ -3115,6 +3143,23 @@ namespace Columbia.Dsl
 					else
 					{	// Invalid property value, ignored.
 						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "required", typeof(global::System.Boolean), attribRequired);
+					}
+				}
+			}
+			// ForeignKey
+			if (!serializationContext.Result.Failed)
+			{
+				string attribForeignKey = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "foreignKey");
+				if (attribForeignKey != null)
+				{
+					global::System.String valueOfForeignKey;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribForeignKey, out valueOfForeignKey))
+					{
+						instanceOfEntityProperty.ForeignKey = valueOfForeignKey;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "foreignKey", typeof(global::System.String), attribForeignKey);
 					}
 				}
 			}
@@ -3612,6 +3657,17 @@ namespace Columbia.Dsl
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "required", serializedPropValue);
 					}
+				}
+			}
+			// ForeignKey
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntityProperty.ForeignKey;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "foreignKey", propValue);
+	
 				}
 			}
 		}

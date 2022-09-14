@@ -73,46 +73,41 @@ if (Entity != null)
 
 		if (relatedEntityKey != null)
 		{
+            var foreignKey = string.IsNullOrEmpty(entityProperty.ForeignKey) ? entityProperty.Name + relatedEntityKey.Name : entityProperty.ForeignKey;
 
             
             #line default
             #line hidden
             this.Write("public ");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Type));
             
             #line default
             #line hidden
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
-            
-            #line default
-            #line hidden
-            
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
             this.Write(" { get; set; }");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
 
 		}
 	}
@@ -128,34 +123,34 @@ if (Entity != null)
             #line hidden
             this.Write("public ");
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type));
             
             #line default
             #line hidden
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }");
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? (primitiveProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
 
 	}
 
@@ -166,7 +161,7 @@ if (Entity != null)
             #line hidden
             this.Write("}\r\n");
             
-            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
+            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
 
 }
 

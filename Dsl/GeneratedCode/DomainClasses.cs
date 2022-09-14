@@ -2161,6 +2161,94 @@ namespace Columbia.Dsl
 		}
 		
 		#endregion
+		#region Column domain property code
+		
+		/// <summary>
+		/// Column domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ColumnDomainPropertyId = new global::System.Guid(0xa52989e2, 0xfd8c, 0x47a2, 0xb7, 0x83, 0xc3, 0x96, 0x8f, 0xf6, 0x3a, 0x71);
+		
+		/// <summary>
+		/// Storage for Column
+		/// </summary>
+		private global::System.String columnPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Column domain property.
+		/// Column
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.PrimitiveProperty/Column.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.PrimitiveProperty/Column.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.PrimitiveProperty/Column.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("a52989e2-fd8c-47a2-b783-c3968ff63a71")]
+		public global::System.String Column
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return columnPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ColumnPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the PrimitiveProperty.Column domain property.
+		/// </summary>
+		internal sealed partial class ColumnPropertyHandler : DslModeling::DomainPropertyValueHandler<PrimitiveProperty, global::System.String>
+		{
+			private ColumnPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the PrimitiveProperty.Column domain property value handler.
+			/// </summary>
+			public static readonly ColumnPropertyHandler Instance = new ColumnPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the PrimitiveProperty.Column domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ColumnDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(PrimitiveProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.columnPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(PrimitiveProperty element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.columnPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Entity opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Entity.
@@ -2752,6 +2840,94 @@ namespace Columbia.Dsl
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.requiredPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region ForeignKey domain property code
+		
+		/// <summary>
+		/// ForeignKey domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ForeignKeyDomainPropertyId = new global::System.Guid(0x3eb9dc80, 0xa77d, 0x4112, 0x86, 0x49, 0x75, 0xbc, 0xb7, 0x95, 0xdb, 0x5e);
+		
+		/// <summary>
+		/// Storage for ForeignKey
+		/// </summary>
+		private global::System.String foreignKeyPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of ForeignKey domain property.
+		/// Foreign Key
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.EntityProperty/ForeignKey.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.EntityProperty/ForeignKey.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.EntityProperty/ForeignKey.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("3eb9dc80-a77d-4112-8649-75bcb795db5e")]
+		public global::System.String ForeignKey
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return foreignKeyPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ForeignKeyPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EntityProperty.ForeignKey domain property.
+		/// </summary>
+		internal sealed partial class ForeignKeyPropertyHandler : DslModeling::DomainPropertyValueHandler<EntityProperty, global::System.String>
+		{
+			private ForeignKeyPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EntityProperty.ForeignKey domain property value handler.
+			/// </summary>
+			public static readonly ForeignKeyPropertyHandler Instance = new ForeignKeyPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EntityProperty.ForeignKey domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ForeignKeyDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EntityProperty element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.foreignKeyPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EntityProperty element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.foreignKeyPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

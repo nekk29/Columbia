@@ -266,6 +266,12 @@
             <xsd:documentation>Specify if the property is required</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: Column -->
+        <xsd:attribute name="column" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Column</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -328,6 +334,12 @@
         <xsd:attribute name="required" type="xsd:boolean" >
           <xsd:annotation>
             <xsd:documentation>Specify if the property is required</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: ForeignKey -->
+        <xsd:attribute name="foreignKey" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Foreign Key</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>

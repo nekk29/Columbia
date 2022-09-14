@@ -173,34 +173,52 @@ if (Entity != null)
 
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => x.IsPrimaryKey))
 	{
+		if(!string.IsNullOrEmpty(primitiveProperty.Column))
+		{
+
+            
+            #line default
+            #line hidden
+            this.Write("[Column(\"");
+            
+            #line 66 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Column));
+            
+            #line default
+            #line hidden
+            this.Write("\")]\r\n");
+            
+            #line 67 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+	
+		}
 
             
             #line default
             #line hidden
             this.Write("[Key]\r\npublic ");
             
-            #line 65 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 71 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 65 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 71 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }");
             
-            #line 65 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 71 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type == "string" ? " = null!;" : string.Empty));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 66 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 72 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 	}
 
@@ -210,7 +228,7 @@ if (Entity != null)
             #line default
             #line hidden
             
-            #line 71 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 77 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 	PushIndent(DefautIndent);
 
@@ -223,67 +241,43 @@ if (Entity != null)
             #line default
             #line hidden
             
-            #line 79 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 85 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 		if (relatedEntityKey != null)
 		{
+			var foreignKey = string.IsNullOrEmpty(entityProperty.ForeignKey) ? entityProperty.Name + relatedEntityKey.Name : entityProperty.ForeignKey;
 
             
             #line default
             #line hidden
             this.Write("[ForeignKey(\"");
             
-            #line 83 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
+            #line 90 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
+            this.Write("\")]\r\npublic virtual ");
             
-            #line 83 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\")]\r\n");
-            
-            #line 84 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-
-		}
-
-            
-            #line default
-            #line hidden
-            this.Write("public virtual ");
-            
-            #line 87 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 91 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Type));
             
             #line default
             #line hidden
             
-            #line 87 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 91 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 87 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 91 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
             
             #line default
             #line hidden
-            this.Write(" { get; set; } = null!;\r\n");
-            
-            #line 88 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-
-		if (relatedEntityKey != null)
-		{
-
-            
-            #line default
-            #line hidden
-            this.Write("public ");
+            this.Write(" { get; set; } = null!;\r\npublic ");
             
             #line 92 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Type));
@@ -299,13 +293,7 @@ if (Entity != null)
             this.Write(" ");
             
             #line 92 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Name));
-            
-            #line default
-            #line hidden
-            
-            #line 92 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntityKey.Name));
+            this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
@@ -342,40 +330,58 @@ if (Entity != null)
 
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
 	{
+		if(!string.IsNullOrEmpty(primitiveProperty.Column))
+		{
+
+            
+            #line default
+            #line hidden
+            this.Write("[Column(\"");
+            
+            #line 109 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Column));
+            
+            #line default
+            #line hidden
+            this.Write("\")]\r\n");
+            
+            #line 110 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+	
+		}
 
             
             #line default
             #line hidden
             this.Write("public ");
             
-            #line 107 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 113 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type));
             
             #line default
             #line hidden
             
-            #line 107 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 113 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? string.Empty : "?"));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 107 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 113 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }");
             
-            #line 107 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 113 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Required ? (primitiveProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 108 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 114 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 	}
 
@@ -389,7 +395,7 @@ if (Entity != null)
             #line hidden
             this.Write("\r\n");
             
-            #line 117 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 123 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 		PushIndent(DefautIndent);
 
@@ -401,21 +407,21 @@ if (Entity != null)
             #line hidden
             this.Write("public virtual ICollection<");
             
-            #line 123 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 129 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntity.Name));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 123 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 129 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(relatedEntity.Name));
             
             #line default
             #line hidden
             this.Write("s { get; set; }\r\n");
             
-            #line 124 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 130 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 		}
 
@@ -427,7 +433,7 @@ if (Entity != null)
             #line hidden
             this.Write("}\r\n");
             
-            #line 131 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
+            #line 137 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
 
 ClearIndent();
 }

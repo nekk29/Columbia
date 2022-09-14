@@ -24,13 +24,15 @@ namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
         
 		if (relatedEntityKey != null)
 		{
+			var foreignKey = string.IsNullOrEmpty(entityProperty.ForeignKey) ? entityProperty.Name + relatedEntityKey.Name : entityProperty.ForeignKey;
+
             if (relatedEntityKey.Type == "string") {
 #>
-                    //RequiredString(x => x.CreateDto.<#= entityProperty.Name #><#= relatedEntityKey.Name #>, Resources.<#= Entity.Name #>.<#= entityProperty.Name #><#= relatedEntityKey.Name #>, {Min}, {Max});
+                    //RequiredString(x => x.CreateDto.<#= foreignKey #>, Resources.<#= Entity.Name #>.<#= foreignKey #>, {Min}, {Max});
 <#
             } else {
 #>
-                    //RequiredField(x => x.CreateDto.<#= entityProperty.Name #><#= relatedEntityKey.Name #>, Resources.<#= Entity.Name #>.<#= entityProperty.Name #><#= relatedEntityKey.Name #>);
+                    //RequiredField(x => x.CreateDto.<#= foreignKey #>, Resources.<#= Entity.Name #>.<#= foreignKey #>);
 <#
             }
         }
