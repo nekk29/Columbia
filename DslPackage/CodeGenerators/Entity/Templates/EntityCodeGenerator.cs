@@ -312,7 +312,7 @@ if (Entity != null)
             this.Write(" { get; set; }");
             
             #line 92 "D:\Projects\Columbia\DslPackage\CodeGenerators\Entity\Templates\EntityCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (entityProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden

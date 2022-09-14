@@ -207,7 +207,7 @@
         <!-- Property: TableName -->
         <xsd:attribute name="tableName" type="xsd:string" >
           <xsd:annotation>
-            <xsd:documentation>Database Table Name</xsd:documentation>
+            <xsd:documentation>Table Name</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>

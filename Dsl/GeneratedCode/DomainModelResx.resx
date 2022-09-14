@@ -310,11 +310,11 @@
     <comment>Category for DomainProperty &apos;IsAuditable&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/TableName.Description" xml:space="preserve">
-    <value>Database Table Name</value>
+    <value>Table Name</value>
     <comment>Description for DomainProperty &apos;TableName&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/TableName.DisplayName" xml:space="preserve">
-    <value>Database Table Name</value>
+    <value>Table Name</value>
     <comment>DisplayName for DomainProperty &apos;TableName&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
   <data name="Columbia.Dsl.Entity/TableName.Category" xml:space="preserve">

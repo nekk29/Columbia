@@ -1484,7 +1484,7 @@ namespace Columbia.Dsl
 		
 		/// <summary>
 		/// Gets or sets the value of TableName domain property.
-		/// Database Table Name
+		/// Table Name
 		/// </summary>
 		[DslDesign::DisplayNameResource("Columbia.Dsl.Entity/TableName.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Columbia.Dsl.Entity/TableName.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]

@@ -89,7 +89,7 @@ public virtual <#= entityProperty.Type #><#= entityProperty.Required ? string.Em
 		if (relatedEntityKey != null)
 		{
 #>
-public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; }<#= entityProperty.Required ? (entityProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
+public <#= relatedEntityKey.Type #><#= entityProperty.Required ? string.Empty : "?" #> <#= entityProperty.Name #><#= relatedEntityKey.Name #> { get; set; }<#= entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;" #>
 <#
 		}
 #>

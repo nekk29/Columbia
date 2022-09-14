@@ -164,7 +164,7 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="9a71e66e-e555-4165-9bd3-6e98f749f7a4" Description="Database Table Name" Name="TableName" DisplayName="Database Table Name" Category="Database">
+        <DomainProperty Id="9a71e66e-e555-4165-9bd3-6e98f749f7a4" Description="Table Name" Name="TableName" DisplayName="Table Name" Category="Database">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>

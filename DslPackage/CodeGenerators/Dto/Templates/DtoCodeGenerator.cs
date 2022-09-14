@@ -106,7 +106,7 @@ if (Entity != null)
             this.Write(" { get; set; }");
             
             #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\DtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (entityProperty.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
+            this.Write(this.ToStringHelper.ToStringWithCulture(entityProperty.Required ? (relatedEntityKey.Type == "string" ? " = null!;" : string.Empty) : " = null!;"));
             
             #line default
             #line hidden
