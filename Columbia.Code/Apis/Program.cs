@@ -12,6 +12,9 @@ var configuration = builder.Configuration;
 
 #region Services
 
+// HttpContextAccessor
+builder.Services.AddHttpContextAccessor();
+
 // Controllers
 builder.Services.AddControllers();
 
