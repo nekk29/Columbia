@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
+
 namespace Company.Product.Module.Domain.Commands.Sample
 {
     public class UpdateSampleCommandValidator : CommandValidatorBase<UpdateSampleCommand>
@@ -19,9 +20,9 @@ namespace Company.Product.Module.Domain.Commands.Sample
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();
 
+                    //RequiredField(x => x.CreateDto.RelatedSampleId, Resources.Sample.RelatedSampleId);
                     //RequiredString(x => x.CreateDto.Code, Resources.Sample.Code, {Min}, {Max});
                     //RequiredString(x => x.CreateDto.Description, Resources.Sample.Description, {Min}, {Max});
-                    //RequiredField(x => x.CreateDto.RelatedSampleId, Resources.Sample.RelatedSampleId);
                 });
         }
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
+
 namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
     public class UpdateRelatedSampleCommandValidator : CommandValidatorBase<UpdateRelatedSampleCommand>

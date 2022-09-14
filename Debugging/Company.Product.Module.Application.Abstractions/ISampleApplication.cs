@@ -1,5 +1,6 @@
 ﻿using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Sample;
+
 namespace Company.Product.Module.Application.Abstractions
 {
     public interface ISampleApplication

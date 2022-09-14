@@ -9,8 +9,6 @@ namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
     public class CreateRelatedSampleCommandHandler : CommandHandlerBase<CreateRelatedSampleCommand, GetRelatedSampleDto>
     {
-        protected override bool UseTransaction => false;
-
         private readonly IRepository<Entity.RelatedSample> _relatedSampleRepository;
 
         public CreateRelatedSampleCommandHandler(

@@ -5,6 +5,7 @@ using Company.Product.Module.Domain.Commands.Sample;
 using Company.Product.Module.Domain.Queries.Sample;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Sample;
+
 namespace Company.Product.Module.Application
 {
     public class SampleApplication : ApplicationBase, ISampleApplication

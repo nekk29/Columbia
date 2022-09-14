@@ -2,6 +2,7 @@
 using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.RelatedSample;
+
 namespace Company.Product.Module.Apis.Controllers
 {
     [ApiController]

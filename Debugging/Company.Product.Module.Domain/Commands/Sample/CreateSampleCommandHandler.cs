@@ -9,8 +9,6 @@ namespace Company.Product.Module.Domain.Commands.Sample
 {
     public class CreateSampleCommandHandler : CommandHandlerBase<CreateSampleCommand, GetSampleDto>
     {
-        protected override bool UseTransaction => false;
-
         private readonly IRepository<Entity.Sample> _sampleRepository;
 
         public CreateSampleCommandHandler(

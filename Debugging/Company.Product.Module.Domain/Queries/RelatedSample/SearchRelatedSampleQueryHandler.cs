@@ -35,8 +35,7 @@ namespace Company.Product.Module.Domain.Queries.RelatedSample
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
                 null,
-                filter//,
-                /* Include navigation properties... */
+                filter //Include navigation properties...
             );
 
             var relatedSampleDtos = _mapper?.Map<IEnumerable<SearchRelatedSampleDto>>(relatedSamples.Items);

@@ -5,6 +5,7 @@ using Company.Product.Module.Domain.Commands.RelatedSample;
 using Company.Product.Module.Domain.Queries.RelatedSample;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.RelatedSample;
+
 namespace Company.Product.Module.Application
 {
     public class RelatedSampleApplication : ApplicationBase, IRelatedSampleApplication

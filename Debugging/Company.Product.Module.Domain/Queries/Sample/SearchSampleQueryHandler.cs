@@ -35,8 +35,7 @@ namespace Company.Product.Module.Domain.Queries.Sample
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
                 null,
-                filter//,
-                /* Include navigation properties... */
+                filter //Include navigation properties...
             );
 
             var sampleDtos = _mapper?.Map<IEnumerable<SearchSampleDto>>(samples.Items);
