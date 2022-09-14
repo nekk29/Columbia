@@ -22,6 +22,7 @@
 		<ProjectReference Include="..\Company.Product.Module.Common\Company.Product.Module.Common.csproj" />
 		<ProjectReference Include="..\Company.Product.Module.Dto\Company.Product.Module.Dto.csproj" />
 		<ProjectReference Include="..\Company.Product.Module.EmailClient\Company.Product.Module.EmailClient.csproj" />
+		<ProjectReference Include="..\Company.Product.Module.Repository\Company.Product.Module.Repository.csproj" />
 		<ProjectReference Include="..\Company.Product.Module.Repository.Abstractions\Company.Product.Module.Repository.Abstractions.csproj" />
 	</ItemGroup>
 

@@ -264,7 +264,11 @@
     <Compile Include="CodeGenerators\Dto\FileGenerators\DtoFileGenerator.cs" />
     <Compile Include="CodeGenerators\Dto\FileGenerators\CreateDtoFileGenerator.cs" />
     <Compile Include="CodeGenerators\Entity\FileGenerators\CreateEntityFileGenerator.cs" />
-    <Compile Include="CustomCode\Commands\CreateCrudCommand.cs" />
+    <Compile Include="CustomCode\Commands\GenerateQueriesCommand.cs" />
+    <Compile Include="CustomCode\Commands\GenerateCommandsCommand.cs" />
+    <Compile Include="CustomCode\Commands\GenerateDtosCommand.cs" />
+    <Compile Include="CustomCode\Commands\GenerateEntityCommand.cs" />
+    <Compile Include="CustomCode\Commands\GenerateCrudCommand.cs" />
     <Compile Include="GeneratedCode\CommandSet.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

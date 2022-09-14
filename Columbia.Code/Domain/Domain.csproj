@@ -22,6 +22,7 @@
 		<ProjectReference Include="..\$safesolutionname$.Common\$safesolutionname$.Common.csproj" />
 		<ProjectReference Include="..\$safesolutionname$.Dto\$safesolutionname$.Dto.csproj" />
 		<ProjectReference Include="..\$safesolutionname$.EmailClient\$safesolutionname$.EmailClient.csproj" />
+		<ProjectReference Include="..\$safesolutionname$.Repository\$safesolutionname$.Repository.csproj" />
 		<ProjectReference Include="..\$safesolutionname$.Repository.Abstractions\$safesolutionname$.Repository.Abstractions.csproj" />
 	</ItemGroup>
 

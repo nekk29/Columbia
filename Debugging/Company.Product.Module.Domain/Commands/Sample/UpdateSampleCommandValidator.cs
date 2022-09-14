@@ -29,7 +29,7 @@ namespace Company.Product.Module.Domain.Commands.Sample
         protected async Task<bool> ValidateExistenceAsync(UpdateSampleCommand command, Guid id, ValidationContext<UpdateSampleCommand> context, CancellationToken cancellationToken)
         {
             var exists = await _sampleRepository.FindAll().Where(x => x.Id == id).AnyAsync(cancellationToken);
-            if (!exists) return CustomValidationMessage(context, Resources.Common.DeleteRecordNotFound);
+            if (!exists) return CustomValidationMessage(context, Resources.Common.UpdateRecordNotFound);
             return true;
         }
     }

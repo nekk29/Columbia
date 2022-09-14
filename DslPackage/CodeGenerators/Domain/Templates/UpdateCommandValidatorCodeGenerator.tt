@@ -89,7 +89,7 @@ namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
         protected async Task<bool> ValidateExistenceAsync(Update<#= Entity.Name #>Command command, <#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>, ValidationContext<Update<#= Entity.Name #>Command> context, CancellationToken cancellationToken)
         {
             var exists = await _<#= LowerFirst(Entity.Name) #>Repository.FindAll().Where(x => x.<#= keyProperty.Name #> == <#= LowerFirst(keyProperty.Name) #>).AnyAsync(cancellationToken);
-            if (!exists) return CustomValidationMessage(context, Resources.Common.DeleteRecordNotFound);
+            if (!exists) return CustomValidationMessage(context, Resources.Common.UpdateRecordNotFound);
             return true;
         }
 <#

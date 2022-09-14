@@ -7,7 +7,7 @@ namespace Columbia.DslPackage.CodeGenerators.RestClient.FileGenerators
 {
     internal class RestServiceFileGenerator : FileGeneratorBase<RestServiceCodeGenerator>
     {
-        protected override bool OverrideFile => false;
+        protected override bool OverwriteFile => false;
         protected override prjBuildAction BuildAction => prjBuildAction.prjBuildActionCompile;
 
         protected override string GetProject(DomainModel domainModel)

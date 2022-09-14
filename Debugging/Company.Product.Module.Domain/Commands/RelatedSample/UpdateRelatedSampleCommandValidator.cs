@@ -28,7 +28,7 @@ namespace Company.Product.Module.Domain.Commands.RelatedSample
         protected async Task<bool> ValidateExistenceAsync(UpdateRelatedSampleCommand command, Guid id, ValidationContext<UpdateRelatedSampleCommand> context, CancellationToken cancellationToken)
         {
             var exists = await _relatedSampleRepository.FindAll().Where(x => x.Id == id).AnyAsync(cancellationToken);
-            if (!exists) return CustomValidationMessage(context, Resources.Common.DeleteRecordNotFound);
+            if (!exists) return CustomValidationMessage(context, Resources.Common.UpdateRecordNotFound);
             return true;
         }
     }

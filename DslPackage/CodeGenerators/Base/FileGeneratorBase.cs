@@ -13,14 +13,14 @@ namespace Columbia.DslPackage.CodeGenerators.Base
 {
     internal abstract class FileGeneratorBase<TGenerator> where TGenerator : CodeGeneratorBase, new()
     {
-        protected abstract bool OverrideFile { get; }
+        protected abstract bool OverwriteFile { get; }
         protected abstract prjBuildAction BuildAction { get; }
         protected CodeGeneratorBase Generator { get; } = new TGenerator();
 
         protected abstract string GetFileName(Dsl.Entity entity);
         protected abstract string GetProject(DomainModel domainModel);
 
-        public void GenerateFile(IServiceProvider serviceProvider, Dsl.Entity entity)
+        public void GenerateFile(IServiceProvider serviceProvider, Dsl.Entity entity, bool? overwriteFile = null)
         {
             if (Generator == null) return;
 
@@ -30,10 +30,10 @@ namespace Columbia.DslPackage.CodeGenerators.Base
 
             var code = Generator.TransformText();
 
-            GenerateCodeFile(serviceProvider, code);
+            GenerateCodeFile(serviceProvider, code, overwriteFile);
         }
 
-        private void GenerateCodeFile(IServiceProvider serviceProvider, string code)
+        private void GenerateCodeFile(IServiceProvider serviceProvider, string code, bool? overwriteFile = null)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
@@ -50,6 +50,7 @@ namespace Columbia.DslPackage.CodeGenerators.Base
             var targetProject = GetSolutionProject(dte, projectName);
             if (targetProject == null) return;
 
+            var overwrite = overwriteFile.HasValue ? overwriteFile.Value : OverwriteFile;
             var folderPath = Path.GetDirectoryName(targetProject.FullName);
 
             if (fileName.Contains("\\"))
@@ -75,7 +76,7 @@ namespace Columbia.DslPackage.CodeGenerators.Base
 
             if (File.Exists(fileGeneratedPath))
             {
-                if (OverrideFile) File.Delete(fileGeneratedPath);
+                if (overwrite) File.Delete(fileGeneratedPath);
                 else return;
             }
 

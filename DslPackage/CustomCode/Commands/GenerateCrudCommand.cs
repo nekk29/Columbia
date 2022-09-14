@@ -11,9 +11,9 @@ using System;
 
 namespace Columbia.DslPackage.CustomCode.Commands
 {
-    internal class CreateCrudCommand : CommandBase
+    internal class GenerateCrudCommand : CommandBase
     {
-        public CreateCrudCommand(ColumbiaCommandSet columbiaCommandSet) : base(columbiaCommandSet)
+        public GenerateCrudCommand(ColumbiaCommandSet columbiaCommandSet) : base(columbiaCommandSet)
         {
 
         }
@@ -23,17 +23,17 @@ namespace Columbia.DslPackage.CustomCode.Commands
             var serviceProvider = ColumbiaCommandSet.GetServiceProvider();
 
             #region Entity
-            new CreateEntityFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
+            new CreateEntityFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             #endregion
 
             #region Dtos
-            new DtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
-            new CreateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
-            new UpdateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
-            new GetDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
-            new ListDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
-            new SearchDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
-            new SearchFilterDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
+            new DtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new CreateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new UpdateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new GetDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new ListDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new SearchDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new SearchFilterDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             #endregion
 
             #region Domain

@@ -8,6 +8,7 @@ using <#= DomainModel.Domain #>.Queries.Base;
 using <#= DomainModel.Dto #>.Base;
 using <#= DomainModel.Dto #>.<#= Entity.Name #>;
 using <#= DomainModel.RepositoryAbstractions #>.Base;
+using <#= DomainModel.Repository #>.Extensions;
 using System.Linq.Expressions;
 
 namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>

@@ -7,7 +7,7 @@ namespace Columbia.DslPackage.CustomCode.Commands.Dto
 {
     internal class SearchDtoFileGenerator : FileGeneratorBase<SearchDtoCodeGenerator>
     {
-        protected override bool OverrideFile => true;
+        protected override bool OverwriteFile => true;
         protected override prjBuildAction BuildAction => prjBuildAction.prjBuildActionCompile;
 
         protected override string GetProject(DomainModel domainModel)

@@ -20,22 +20,54 @@
 		  </Group>
 	  </Groups>
 	  <Buttons>
-		  <Button guid="columbiaCmdSetGuid" id="columbiaGenerateMenuCmd" priority="0x0200" type="Button">
+		  <Button guid="columbiaCmdSetGuid" id="generateCrudMenuCmd" priority="0x0200" type="Button">
 			  <Parent guid="columbiaCmdSetGuid" id="columbiaMenuGroup"/>
 			  <CommandFlag>DynamicVisibility</CommandFlag>
 			  <Strings>
 				  <ButtonText>Generate CRUD</ButtonText>
 			  </Strings>
 		  </Button>
+		  <Button guid="columbiaCmdSetGuid" id="generateEntityMenuCmd" priority="0x0300" type="Button">
+			  <Parent guid="columbiaCmdSetGuid" id="columbiaMenuGroup"/>
+			  <CommandFlag>DynamicVisibility</CommandFlag>
+			  <Strings>
+				  <ButtonText>Generate Entity</ButtonText>
+			  </Strings>
+		  </Button>
+		  <Button guid="columbiaCmdSetGuid" id="generateDtosMenuCmd" priority="0x0400" type="Button">
+			  <Parent guid="columbiaCmdSetGuid" id="columbiaMenuGroup"/>
+			  <CommandFlag>DynamicVisibility</CommandFlag>
+			  <Strings>
+				  <ButtonText>Generate Dtos</ButtonText>
+			  </Strings>
+		  </Button>
+		  <Button guid="columbiaCmdSetGuid" id="generateCommandsMenuCmd" priority="0x0500" type="Button">
+			  <Parent guid="columbiaCmdSetGuid" id="columbiaMenuGroup"/>
+			  <CommandFlag>DynamicVisibility</CommandFlag>
+			  <Strings>
+				  <ButtonText>Generate Commands</ButtonText>
+			  </Strings>
+		  </Button>
+		  <Button guid="columbiaCmdSetGuid" id="generateQueriesMenuCmd" priority="0x0600" type="Button">
+			  <Parent guid="columbiaCmdSetGuid" id="columbiaMenuGroup"/>
+			  <CommandFlag>DynamicVisibility</CommandFlag>
+			  <Strings>
+				  <ButtonText>Generate Queries</ButtonText>
+			  </Strings>
+		  </Button>
 	  </Buttons>
   </Commands>
 	<VisibilityConstraints>
-		<VisibilityItem guid="columbiaCmdSetGuid" id="columbiaGenerateMenuCmd" context="guidEditor"/>
+		<VisibilityItem guid="columbiaCmdSetGuid" id="generateCrudMenuCmd" context="guidEditor"/>
 	</VisibilityConstraints>
 	<Symbols>
 		<GuidSymbol name="columbiaCmdSetGuid" value="{479B2C12-8EF7-40D7-99C9-079C4171F91D}" >
 			<IDSymbol name="columbiaMenuGroup" value="0x0100"/>
-			<IDSymbol name="columbiaGenerateMenuCmd" value="0x0200"/>
+			<IDSymbol name="generateCrudMenuCmd" value="0x0200"/>
+			<IDSymbol name="generateEntityMenuCmd" value="0x0300"/>
+			<IDSymbol name="generateDtosMenuCmd" value="0x0400"/>
+			<IDSymbol name="generateCommandsMenuCmd" value="0x0500"/>
+			<IDSymbol name="generateQueriesMenuCmd" value="0x0600"/>
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>

@@ -409,7 +409,7 @@ namespace Columbia.DslPackage.CodeGenerators
             #line default
             #line hidden
             this.Write(").AnyAsync(cancellationToken);\r\n            if (!exists) return CustomValidationM" +
-                    "essage(context, Resources.Common.DeleteRecordNotFound);\r\n            return true" +
+                    "essage(context, Resources.Common.UpdateRecordNotFound);\r\n            return true" +
                     ";\r\n        }\r\n");
             
             #line 95 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
