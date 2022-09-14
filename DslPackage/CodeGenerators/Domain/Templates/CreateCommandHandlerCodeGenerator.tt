@@ -14,8 +14,6 @@ namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
 {
     public class Create<#= Entity.Name #>CommandHandler : CommandHandlerBase<Create<#= Entity.Name #>Command, Get<#= Entity.Name #>Dto>
     {
-        protected override bool UseTransaction => false;
-
         private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
 
         public Create<#= Entity.Name #>CommandHandler(

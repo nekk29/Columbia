@@ -93,7 +93,14 @@ if (Entity != null)
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n");
+            this.Write(" { get; set; }");
+            
+            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type == "string" ? " = null!;" : string.Empty));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n");
             
             #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
 

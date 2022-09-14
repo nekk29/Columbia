@@ -3,11 +3,12 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-using <#= DomainModel.Dto #>.Base;
-using <#= DomainModel.Dto #>.<#= Entity.Name #>;
 <#
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
+using <#= DomainModel.Dto #>.Base;
+using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+
 namespace <#= DomainModel.ApplicationAbstractions #>
 {
     public interface I<#= Entity.Name #>Application

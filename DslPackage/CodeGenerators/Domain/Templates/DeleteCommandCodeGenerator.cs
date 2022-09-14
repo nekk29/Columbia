@@ -28,46 +28,45 @@ namespace Columbia.DslPackage.CodeGenerators
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using ");
             
             #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
-            
-            #line default
-            #line hidden
-            this.Write(".Commands.Base;\r\n");
-            
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
 
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 
             
             #line default
             #line hidden
-            this.Write("namespace ");
+            this.Write("using ");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
+            
+            #line default
+            #line hidden
+            this.Write(".Commands.Base;\r\n\r\nnamespace ");
+            
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class Delete");
             
-            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Command : CommandBase\r\n    {\r\n");
             
-            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
 
 	if (keyProperty != null)
     {
@@ -77,56 +76,56 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("        public Delete");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Command(");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
             this.Write(") => ");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(" = ");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
             this.Write(";\r\n        public ");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
 
 	}
 

@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -28,130 +28,129 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using Microsoft.AspNetCore.Mvc;\r\nusing ");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.ApplicationAbstractions));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\nusing ");
-            
-            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
-            
-            #line default
-            #line hidden
-            this.Write(".Base;\r\nusing ");
-            
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
-            
-            #line default
-            #line hidden
-            this.Write(".");
-            
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\n");
-            
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
 
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 
             
             #line default
             #line hidden
-            this.Write("namespace ");
+            this.Write("using Microsoft.AspNetCore.Mvc;\r\nusing ");
             
-            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.ApplicationAbstractions));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\nusing ");
+            
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".Base;\r\nusing ");
+            
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\r\nnamespace ");
+            
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Apis));
             
             #line default
             #line hidden
             this.Write(".Controllers\r\n{\r\n    [ApiController]\r\n    [Route(\"api/");
             
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("\")]\r\n    public class ");
             
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Controller\r\n    {\r\n        private readonly I");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Application _");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application;\r\n\r\n        public ");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Application ");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application)\r\n            => _");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application = ");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application;\r\n\r\n        [HttpPost]\r\n        public async Task<ResponseDto<Get");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> Create(Create");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto createDto)\r\n            => await _");
             
-            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
@@ -159,84 +158,84 @@ namespace Columbia.DslPackage
             this.Write("Application.Create(createDto);\r\n\r\n        [HttpPut]\r\n        public async Task<Re" +
                     "sponseDto<Get");
             
-            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> Update(Update");
             
-            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto updateDto)\r\n            => await _");
             
-            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application.Update(updateDto);\r\n\r\n        [HttpDelete(\"{");
             
-            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
             this.Write("}\")]\r\n        public async Task<ResponseDto> Delete(");
             
-            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty));
             
             #line default
             #line hidden
             this.Write(")\r\n            => await _");
             
-            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application.Delete(");
             
-            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty));
             
             #line default
             #line hidden
             this.Write(");\r\n\r\n        [HttpGet(\"{");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 37 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
             this.Write("}\")]\r\n        public async Task<ResponseDto<Get");
             
-            #line 37 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> Get(");
             
-            #line 37 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty));
             
             #line default
             #line hidden
             this.Write(")\r\n            => await _");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Application.Get(");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty));
             
             #line default
@@ -244,14 +243,14 @@ namespace Columbia.DslPackage
             this.Write(");\r\n\r\n        [HttpGet(\"list\")]\r\n        public async Task<ResponseDto<IEnumerabl" +
                     "e<List");
             
-            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 42 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>>> List()\r\n            => await _");
             
-            #line 42 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 43 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
@@ -259,21 +258,21 @@ namespace Columbia.DslPackage
             this.Write("Application.List();\r\n\r\n        [HttpPost(\"search\")]\r\n        public async Task<Re" +
                     "sponseDto<SearchResultDto<Search");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>>> Search(SearchParamsDto<Search");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("FilterDto> searchParams)\r\n            => await _");
             
-            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
+            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default

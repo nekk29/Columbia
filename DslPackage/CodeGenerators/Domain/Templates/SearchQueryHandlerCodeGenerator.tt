@@ -40,8 +40,7 @@ namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
                 null,
-                filter//,
-                /* Include navigation properties... */
+                filter //Include navigation properties...
             );
 
             var <#= LowerFirst(Entity.Name) #>Dtos = _mapper?.Map<IEnumerable<Search<#= Entity.Name #>Dto>>(<#= LowerFirst(Entity.Name) #>s.Items);

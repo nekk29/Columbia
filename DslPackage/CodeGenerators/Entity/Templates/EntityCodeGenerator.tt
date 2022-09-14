@@ -61,7 +61,7 @@ public <#= Entity.Name #>()
 	{
 #>
 [Key]
-public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
+public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }<#= primitiveProperty.Type == "string" ? " = null!;" : string.Empty #>
 <#
 	}
 

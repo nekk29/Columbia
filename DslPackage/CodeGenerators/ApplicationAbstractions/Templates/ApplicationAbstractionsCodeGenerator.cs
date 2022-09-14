@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -28,116 +28,115 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using ");
             
             #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
-            
-            #line default
-            #line hidden
-            this.Write(".Base;\r\nusing ");
-            
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
-            
-            #line default
-            #line hidden
-            this.Write(".");
-            
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write(";\r\n");
-            
-            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
 
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 
             
             #line default
             #line hidden
-            this.Write("namespace ");
+            this.Write("using ");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".Base;\r\nusing ");
+            
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n\r\nnamespace ");
+            
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.ApplicationAbstractions));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public interface I");
             
-            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Application\r\n    {\r\n        Task<ResponseDto<Get");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> Create(Create");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto createDto);\r\n        Task<ResponseDto<Get");
             
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> Update(Update");
             
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto updateDto);\r\n        Task<ResponseDto> Delete(");
             
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty));
             
             #line default
             #line hidden
             this.Write(");\r\n        Task<ResponseDto<Get");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> Get(");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty));
             
             #line default
             #line hidden
             this.Write(");\r\n        Task<ResponseDto<IEnumerable<List");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>>> List();\r\n        Task<ResponseDto<SearchResultDto<Search");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>>> Search(SearchParamsDto<Search");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\ApplicationAbstractions\Templates\ApplicationAbstractionsCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
