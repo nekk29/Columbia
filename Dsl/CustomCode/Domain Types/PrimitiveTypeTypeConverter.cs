@@ -1,6 +1,7 @@
 ﻿using Columbia.Dsl.CustomCode.DomainTypes.Base;
 using Microsoft.VisualStudio.Modeling;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Columbia.Dsl.CustomCode.DomainTypes
 {
@@ -33,6 +34,8 @@ namespace Columbia.Dsl.CustomCode.DomainTypes
                 values.Add(Resources.TypeConverters.PrimitiveType_UInt32);
                 values.Add(Resources.TypeConverters.PrimitiveType_UInt64);
             }
+
+            values = values.OrderBy(x => x).ToList();
 
             return new StandardValuesCollection(values);
         }

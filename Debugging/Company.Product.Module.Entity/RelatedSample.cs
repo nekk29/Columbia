@@ -6,6 +6,7 @@ using Company.Product.Module.Entity.Base;
 
 namespace Company.Product.Module.Entity
 {
+   [Table("RelatedSamples")]
    public class RelatedSample : SystemEntity
    {
       public RelatedSample()

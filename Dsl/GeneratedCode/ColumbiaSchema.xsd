@@ -204,6 +204,12 @@
             <xsd:documentation>Specify if the entity inherit base auditable class</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: TableName -->
+        <xsd:attribute name="tableName" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Database Table Name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

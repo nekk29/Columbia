@@ -1470,6 +1470,94 @@ namespace Columbia.Dsl
 		}
 		
 		#endregion
+		#region TableName domain property code
+		
+		/// <summary>
+		/// TableName domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid TableNameDomainPropertyId = new global::System.Guid(0x9a71e66e, 0xe555, 0x4165, 0x9b, 0xd3, 0x6e, 0x98, 0xf7, 0x49, 0xf7, 0xa4);
+		
+		/// <summary>
+		/// Storage for TableName
+		/// </summary>
+		private global::System.String tableNamePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of TableName domain property.
+		/// Database Table Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.Entity/TableName.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.Entity/TableName.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.Entity/TableName.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("9a71e66e-e555-4165-9bd3-6e98f749f7a4")]
+		public global::System.String TableName
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return tableNamePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				TableNamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Entity.TableName domain property.
+		/// </summary>
+		internal sealed partial class TableNamePropertyHandler : DslModeling::DomainPropertyValueHandler<Entity, global::System.String>
+		{
+			private TableNamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Entity.TableName domain property value handler.
+			/// </summary>
+			public static readonly TableNamePropertyHandler Instance = new TableNamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Entity.TableName domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return TableNameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Entity element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.tableNamePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Entity element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.tableNamePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region DomainModel opposite domain role accessor
 		/// <summary>
 		/// Gets or sets DomainModel.

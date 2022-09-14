@@ -164,6 +164,11 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="9a71e66e-e555-4165-9bd3-6e98f749f7a4" Description="Database Table Name" Name="TableName" DisplayName="Database Table Name" Category="Database">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -434,6 +439,9 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="isAuditable">
             <DomainPropertyMoniker Name="Entity/IsAuditable" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="tableName">
+            <DomainPropertyMoniker Name="Entity/TableName" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

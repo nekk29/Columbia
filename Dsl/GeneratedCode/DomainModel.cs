@@ -111,6 +111,7 @@ namespace Columbia.Dsl
 				new DomainMemberInfo(typeof(Entity), "EntityId", Entity.EntityIdDomainPropertyId, typeof(Entity.EntityIdPropertyHandler)),
 				new DomainMemberInfo(typeof(Entity), "Name", Entity.NameDomainPropertyId, typeof(Entity.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Entity), "IsAuditable", Entity.IsAuditableDomainPropertyId, typeof(Entity.IsAuditablePropertyHandler)),
+				new DomainMemberInfo(typeof(Entity), "TableName", Entity.TableNameDomainPropertyId, typeof(Entity.TableNamePropertyHandler)),
 				new DomainMemberInfo(typeof(PrimitiveProperty), "Name", PrimitiveProperty.NameDomainPropertyId, typeof(PrimitiveProperty.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(PrimitiveProperty), "Type", PrimitiveProperty.TypeDomainPropertyId, typeof(PrimitiveProperty.TypePropertyHandler)),
 				new DomainMemberInfo(typeof(PrimitiveProperty), "IsPrimaryKey", PrimitiveProperty.IsPrimaryKeyDomainPropertyId, typeof(PrimitiveProperty.IsPrimaryKeyPropertyHandler)),

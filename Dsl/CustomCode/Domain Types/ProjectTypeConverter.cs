@@ -26,6 +26,8 @@ namespace Columbia.Dsl.CustomCode.DomainTypes
 
             values.AddRange(projects.Select(x => x.Name));
 
+            values = values.OrderBy(x => x).ToList();
+
             return new StandardValuesCollection(values);
         }
     }

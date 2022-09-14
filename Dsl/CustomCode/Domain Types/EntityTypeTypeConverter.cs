@@ -1,5 +1,4 @@
 ﻿using Columbia.Dsl.CustomCode.DomainTypes.Base;
-using Microsoft.VisualStudio.Modeling;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,11 +9,13 @@ namespace Columbia.Dsl.CustomCode.DomainTypes
     {
         public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
         {
-            Store store = GetStore(context.Instance);
-            List<string> values = new List<string>();
+            var store = GetStore(context.Instance);
+            var values = new List<string>();
 
             if (store != null)
                 values.AddRange(store.ElementDirectory.FindElements<Entity>().Select(e => { return e.Name; }));
+
+            values = values.OrderBy(x => x).ToList();
 
             return new StandardValuesCollection(values);
         }

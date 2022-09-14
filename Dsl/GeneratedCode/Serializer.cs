@@ -1284,6 +1284,23 @@ namespace Columbia.Dsl
 					}
 				}
 			}
+			// TableName
+			if (!serializationContext.Result.Failed)
+			{
+				string attribTableName = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "tableName");
+				if (attribTableName != null)
+				{
+					global::System.String valueOfTableName;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribTableName, out valueOfTableName))
+					{
+						instanceOfEntity.TableName = valueOfTableName;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "tableName", typeof(global::System.String), attribTableName);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -1948,6 +1965,17 @@ namespace Columbia.Dsl
 					{	// No need to write the value out if it's the same as default value.
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "isAuditable", serializedPropValue);
 					}
+				}
+			}
+			// TableName
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntity.TableName;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "tableName", propValue);
+	
 				}
 			}
 		}

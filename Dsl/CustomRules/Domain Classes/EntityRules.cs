@@ -21,6 +21,7 @@ namespace Columbia.Dsl.CustomRules.DomainClasses
             if (domainModel == null) return;
 
             var entityId = CommonFunctions.GetMaxEntityId(domainModel) + 1;
+
             entity.EntityId = CommonFunctions.GetStringId(entityId, CommonConstants.Numbers.Five);
         }
     }
@@ -35,7 +36,7 @@ namespace Columbia.Dsl.CustomRules.DomainClasses
             switch (e.DomainProperty.Name)
             {
                 case DomainPropertyName:
-                    this.ElementPropertyChangedName(e);
+                    ElementPropertyChangedName(e);
                     break;
             }
         }
@@ -49,6 +50,8 @@ namespace Columbia.Dsl.CustomRules.DomainClasses
 
             var domainModel = entity.DomainModel;
             if (domainModel == null) return;
+
+            if (string.IsNullOrEmpty(entity.TableName)) entity.TableName = entity.Name;
 
             foreach (var entityTarget in domainModel.Entities)
             {

@@ -309,6 +309,18 @@
     <value>Definition</value>
     <comment>Category for DomainProperty &apos;IsAuditable&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
+  <data name="Columbia.Dsl.Entity/TableName.Description" xml:space="preserve">
+    <value>Database Table Name</value>
+    <comment>Description for DomainProperty &apos;TableName&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.Entity/TableName.DisplayName" xml:space="preserve">
+    <value>Database Table Name</value>
+    <comment>DisplayName for DomainProperty &apos;TableName&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.Entity/TableName.Category" xml:space="preserve">
+    <value>Database</value>
+    <comment>Category for DomainProperty &apos;TableName&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
   <data name="Columbia.Dsl.PrimitiveProperty.Description" xml:space="preserve">
     <value>Description for Columbia.Dsl.PrimitiveProperty</value>
     <comment>Description for DomainClass &apos;PrimitiveProperty&apos;</comment>

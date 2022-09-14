@@ -28,6 +28,7 @@ if (Entity != null)
 <#
 	PushIndent(DefautIndent);
 #>
+[Table("<#= string.IsNullOrEmpty(Entity.TableName) ? Entity.Name : Entity.TableName #>")]
 public class <#= Entity.Name #><#= Entity.IsAuditable ? " : SystemEntity" : string.Empty #>
 {
 <#

@@ -9,11 +9,11 @@ namespace Columbia.Dsl
     {
         private Guid columbiaCmdSetGuid = new Guid("479B2C12-8EF7-40D7-99C9-079C4171F91D");
 
-        private const int generateCrudMenuCmd = 0x0200;
-        private const int generateEntityMenuCmd = 0x0300;
-        private const int generateDtosMenuCmd = 0x0400;
-        private const int generateCommandsMenuCmd = 0x0500;
-        private const int generateQueriesMenuCmd = 0x0600;
+        private const int generateEntityMenuCmd = 0x0200;
+        private const int generateDtosMenuCmd = 0x0300;
+        private const int generateCommandsMenuCmd = 0x0400;
+        private const int generateQueriesMenuCmd = 0x0500;
+        private const int generateCrudMenuCmd = 0x0600;
 
         protected override IList<MenuCommand> GetMenuCommands()
         {
