@@ -24,6 +24,8 @@ namespace Columbia.DslPackage.CustomCode.Commands
 
             #region Dtos
             new DtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new CreateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            new UpdateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             new GetDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             new ListDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             new SearchDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
