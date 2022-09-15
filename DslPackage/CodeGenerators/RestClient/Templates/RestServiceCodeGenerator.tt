@@ -5,7 +5,9 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#
     var entitySuffix = !string.IsNullOrEmpty(Entity.Module) && Entity.Module != Entity.Name ? Entity.Name : string.Empty;
+    var entitySuffixAct = !string.IsNullOrEmpty(entitySuffix) ? "/" + LowerFirst(entitySuffix) : string.Empty;
     var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
 using <#= DomainModel.RestClient #>.Base;
 using <#= DomainModel.Dto #>.Base;
@@ -13,31 +15,31 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.RestClient #>
 {
-    public class <#= module #>Service : BaseService
+    public class <#= module #>RestService : BaseService
     {
         protected override string ApiController => "api/<#= LowerFirst(module) #>";
 
-        public <#= module #>Service(ServiceOptions options) : base(options)
+        public <#= module #>RestService(ServiceOptions options) : base(options)
         {
 
         }
 
         public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create<#= entitySuffix #>(Create<#= Entity.Name #>Dto createDto)
-            => await Post<Create<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(string.Empty, createDto)!;
+            => await Post<Create<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(<#= string.IsNullOrEmpty(entitySuffixAct) ? "string.Empty" : "\"" + entitySuffixAct + "\"" #>, createDto)!;
 
         public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update<#= entitySuffix #>(Update<#= Entity.Name #>Dto updateDto)
-            => await Put<Update<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(string.Empty, updateDto)!;
+            => await Put<Update<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(<#= string.IsNullOrEmpty(entitySuffixAct) ? "string.Empty" : "\"" + entitySuffixAct + "\"" #>, updateDto)!;
 
-        public async Task<ResponseDto> Delete<#= entitySuffix #>(int id)
-            => await Delete($"/{id}")!;
+        public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+            => await Delete($"<#= string.IsNullOrEmpty(entitySuffixAct) ? string.Empty : entitySuffixAct #><#= keyProperty != null ? "/{" + LowerFirst(keyProperty.Name) + "}" : string.Empty #>")!;
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(int id)
-            => await Get<Get<#= Entity.Name #>Dto>($"/{id}")!;
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+            => await Get<Get<#= Entity.Name #>Dto>($"<#= string.IsNullOrEmpty(entitySuffixAct) ? string.Empty : entitySuffixAct #><#= keyProperty != null ? "/{" + LowerFirst(keyProperty.Name) + "}" : string.Empty #>")!;
 
         public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List<#= entitySuffix #>()
-            => await Get<IEnumerable<List<#= Entity.Name #>Dto>>("list")!;
+            => await Get<IEnumerable<List<#= Entity.Name #>Dto>>("<#= entitySuffixAct #>/list")!;
 
         public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= Entity.Name #>FilterDto> filter)
-            => await Post<SearchParamsDto<Search<#= Entity.Name #>FilterDto>, SearchResultDto<Search<#= Entity.Name #>Dto>>("/search", filter)!;
+            => await Post<SearchParamsDto<Search<#= Entity.Name #>FilterDto>, SearchResultDto<Search<#= Entity.Name #>Dto>>("<#= entitySuffixAct #>/search", filter)!;
     }
 }

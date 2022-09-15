@@ -19,7 +19,7 @@ namespace Columbia.DslPackage.CodeGenerators.RestClient.FileGenerators
         {
             if (entity == null) return null;
             var module = !string.IsNullOrEmpty(entity.Module) ? entity.Module : entity.Name;
-            return $"{module}Service.cs";
+            return $"{module}RestService.cs";
         }
     }
 }
