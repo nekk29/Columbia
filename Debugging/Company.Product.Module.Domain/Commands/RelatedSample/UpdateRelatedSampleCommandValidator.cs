@@ -14,8 +14,7 @@ namespace Company.Product.Module.Domain.Commands.RelatedSample
             _relatedSampleRepository = relatedSampleRepository;
 
             RequiredInformation(x => x.UpdateDto)
-                .DependentRules(() =>
-                {
+                .DependentRules(() => {
                     RuleFor(x => x.UpdateDto.Id)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();

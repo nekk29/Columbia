@@ -15,8 +15,15 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
         public Create<#= Entity.Name #>CommandValidator()
         {
             RequiredInformation(x => x.CreateDto)
-                .DependentRules(() =>
-                {
+                .DependentRules(() => {
+<#
+if(!Entity.EntityProperties.Any() && !Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey).Any())
+{
+#>
+                    /* Place your validations here... */
+<#
+}
+#>
 <#
 	foreach (var entityProperty in Entity.EntityProperties)
 	{

@@ -218,7 +218,7 @@ namespace Columbia.DslPackage.CodeGenerators
             this.Write(@"Repository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
-                null,
+                null, //Include sort expressions...
                 filter //Include navigation properties...
             );
 

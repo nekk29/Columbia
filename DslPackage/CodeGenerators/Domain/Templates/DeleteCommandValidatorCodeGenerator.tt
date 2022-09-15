@@ -27,21 +27,21 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 #>
 
             RequiredField(x => x.<#= keyProperty.Name #>, Resources.Common.IdentifierRequired)
-                .DependentRules(() =>
-                {
+                .DependentRules(() => {
                     RuleFor(x => x.<#= keyProperty.Name #>)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();
+                });
 <#
     }
     else
     {
 #>
-                    /* Place your validations here... */
+
+            /* Place your validations here... */
 <#
     }
 #>
-                });
         }
 <#
     if (keyProperty != null)

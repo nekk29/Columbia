@@ -129,9 +129,9 @@ namespace Columbia.DslPackage.CodeGenerators
             #line default
             #line hidden
             this.Write("Repository;\r\n\r\n            RequiredInformation(x => x.UpdateDto)\r\n               " +
-                    " .DependentRules(() =>\r\n                {\r\n");
+                    " .DependentRules(() => {\r\n");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
 
     if (keyProperty != null)
     {
@@ -141,13 +141,13 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("                    RuleFor(x => x.UpdateDto.");
             
-            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
+            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(")\r\n                        .MustAsync(ValidateExistenceAsync)\r\n                  " +
-                    "      .WithCustomValidationMessage();\r\n");
+                    "      .WithCustomValidationMessage();\r\n\r\n");
             
             #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
 
@@ -159,13 +159,13 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
 
-    if (Entity.PrimitiveProperties.Any(x => x.Required) || Entity.EntityProperties.Any(x => x.Required))
+    if(!Entity.EntityProperties.Any() && !Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey).Any())
     {
 
             
             #line default
             #line hidden
-            this.Write("\r\n");
+            this.Write("                    /* Place your validations here... */\r\n");
             
             #line 43 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandValidatorCodeGenerator.tt"
 

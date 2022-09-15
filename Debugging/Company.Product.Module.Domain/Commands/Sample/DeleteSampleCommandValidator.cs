@@ -14,8 +14,7 @@ namespace Company.Product.Module.Domain.Commands.Sample
             _sampleRepository = sampleRepository;
 
             RequiredField(x => x.Id, Resources.Common.IdentifierRequired)
-                .DependentRules(() =>
-                {
+                .DependentRules(() => {
                     RuleFor(x => x.Id)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();

@@ -51,8 +51,6 @@ namespace Columbia.Dsl.CustomRules.DomainClasses
             var domainModel = entity.DomainModel;
             if (domainModel == null) return;
 
-            if (string.IsNullOrEmpty(entity.TableName)) entity.TableName = entity.Name;
-
             foreach (var entityTarget in domainModel.Entities)
             {
                 if (entityTarget.EntityProperties == null) continue;

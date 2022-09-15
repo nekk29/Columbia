@@ -2,6 +2,7 @@
 using Columbia.DslPackage.CodeGenerators.Domain.FileGenerators;
 using Columbia.DslPackage.CustomCode.Commands.Base;
 using Columbia.DslPackage.CustomCode.Commands.Dto;
+using Columbia.DslPackage.CustomCode.Commands.Entity;
 using System;
 
 namespace Columbia.DslPackage.CustomCode.Commands
@@ -17,10 +18,18 @@ namespace Columbia.DslPackage.CustomCode.Commands
         {
             var serviceProvider = ColumbiaCommandSet.GetServiceProvider();
 
+            #region Entity
+            new CreateEntityFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            #endregion
+
             #region Dtos
             new DtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             new CreateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             new UpdateDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
+            #endregion
+
+            #region Mapping
+            new MappingProfileFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
             #endregion
 
             #region Commands

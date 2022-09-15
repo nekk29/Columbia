@@ -145,16 +145,16 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line default
             #line hidden
-            this.Write(", Resources.Common.IdentifierRequired)\r\n                .DependentRules(() =>\r\n  " +
-                    "              {\r\n                    RuleFor(x => x.");
+            this.Write(", Resources.Common.IdentifierRequired)\r\n                .DependentRules(() => {\r\n" +
+                    "                    RuleFor(x => x.");
             
-            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
+            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(")\r\n                        .MustAsync(ValidateExistenceAsync)\r\n                  " +
-                    "      .WithCustomValidationMessage();\r\n");
+                    "      .WithCustomValidationMessage();\r\n                });\r\n");
             
             #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
 
@@ -165,16 +165,16 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line default
             #line hidden
-            this.Write("                    /* Place your validations here... */\r\n");
+            this.Write("\r\n            /* Place your validations here... */\r\n");
             
-            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
+            #line 42 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
 
     }
 
             
             #line default
             #line hidden
-            this.Write("                });\r\n        }\r\n");
+            this.Write("        }\r\n");
             
             #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
 

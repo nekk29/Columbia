@@ -4,10 +4,29 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
-    var entitySuffix = !string.IsNullOrEmpty(Entity.Module) && Entity.Module != Entity.Name ? Entity.Name : string.Empty;
-    var entitySuffixAct = !string.IsNullOrEmpty(entitySuffix) ? "/" + LowerFirst(entitySuffix) : string.Empty;
-    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+    var entity = Entity.Name;
+    var entityLower = LowerFirst(entity);
+    var entityModule = Entity.Module;
+    
+    var module = !string.IsNullOrEmpty(entityModule) && entityModule.ToLower() != entity.ToLower()  ? entityModule : entity;
+    var moduleLower = LowerFirst(module);
+
+    var entitySuffix = !string.IsNullOrEmpty(entityModule) && entityModule.ToLower() != entity.ToLower() ? entity : string.Empty;
+    var entitySuffixLower = LowerFirst(entitySuffix);
+
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
+	var keyPropertyParam = keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty;
+	var keyPropertyParamIn = keyProperty != null ? $"{keyProperty.Type} {LowerFirst(keyProperty.Name)}" : string.Empty;
+	var keyPropertyParamRoute = keyProperty != null ? "{" + LowerFirst(keyProperty.Name) + "}" : string.Empty;
+
+    var createRoute = string.IsNullOrEmpty(entitySuffixLower) ? "string.Empty" : $"\"/{entitySuffixLower}\"";
+    var updateRoute = createRoute;
+    var deleteRoute = string.IsNullOrEmpty(entitySuffixLower) ?
+        (!string.IsNullOrEmpty(keyPropertyParamRoute) ? $"$\"/{keyPropertyParamRoute}\"" : "") :
+        (!string.IsNullOrEmpty(keyPropertyParamRoute) ? $"$\"/{entitySuffixLower}/{keyPropertyParamRoute}\"" : $"\"/{entitySuffixLower}\"");
+    var getRoute = deleteRoute;
+    var listRoute = string.IsNullOrEmpty(entitySuffixLower) ? $"\"/list\"" : $"\"/{entitySuffixLower}/list\"";
+    var searchRoute = string.IsNullOrEmpty(entitySuffixLower) ? $"\"/search\"" : $"\"/{entitySuffixLower}/search\"";
 #>
 using <#= DomainModel.RestClient #>.Base;
 using <#= DomainModel.Dto #>.Base;
@@ -17,29 +36,29 @@ namespace <#= DomainModel.RestClient #>
 {
     public class <#= module #>RestService : BaseService
     {
-        protected override string ApiController => "api/<#= LowerFirst(module) #>";
+        protected override string ApiController => "api/<#= moduleLower #>";
 
         public <#= module #>RestService(ServiceOptions options) : base(options)
         {
 
         }
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create<#= entitySuffix #>(Create<#= Entity.Name #>Dto createDto)
-            => await Post<Create<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(<#= string.IsNullOrEmpty(entitySuffixAct) ? "string.Empty" : "\"" + entitySuffixAct + "\"" #>, createDto)!;
+        public async Task<ResponseDto<Get<#= entity #>Dto>> Create<#= entitySuffix #>(Create<#= entity #>Dto createDto)
+            => await Post<Create<#= entity #>Dto, Get<#= entity #>Dto>(<#= createRoute #>, createDto)!;
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update<#= entitySuffix #>(Update<#= Entity.Name #>Dto updateDto)
-            => await Put<Update<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(<#= string.IsNullOrEmpty(entitySuffixAct) ? "string.Empty" : "\"" + entitySuffixAct + "\"" #>, updateDto)!;
+        public async Task<ResponseDto<Get<#= entity #>Dto>> Update<#= entitySuffix #>(Update<#= entity #>Dto updateDto)
+            => await Put<Update<#= entity #>Dto, Get<#= entity #>Dto>(<#= updateRoute #>, updateDto)!;
 
-        public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
-            => await Delete($"<#= string.IsNullOrEmpty(entitySuffixAct) ? string.Empty : entitySuffixAct #><#= keyProperty != null ? "/{" + LowerFirst(keyProperty.Name) + "}" : string.Empty #>")!;
+        public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyPropertyParamIn #>)
+            => await Delete(<#= deleteRoute #>)!;
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
-            => await Get<Get<#= Entity.Name #>Dto>($"<#= string.IsNullOrEmpty(entitySuffixAct) ? string.Empty : entitySuffixAct #><#= keyProperty != null ? "/{" + LowerFirst(keyProperty.Name) + "}" : string.Empty #>")!;
+        public async Task<ResponseDto<Get<#= entity #>Dto>> Get<#= entitySuffix #>(<#= keyPropertyParamIn #>)
+            => await Get<Get<#= entity #>Dto>(<#= getRoute #>)!;
 
-        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List<#= entitySuffix #>()
-            => await Get<IEnumerable<List<#= Entity.Name #>Dto>>("<#= entitySuffixAct #>/list")!;
+        public async Task<ResponseDto<IEnumerable<List<#= entity #>Dto>>> List<#= entitySuffix #>()
+            => await Get<IEnumerable<List<#= entity #>Dto>>(<#= listRoute #>)!;
 
-        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= Entity.Name #>FilterDto> filter)
-            => await Post<SearchParamsDto<Search<#= Entity.Name #>FilterDto>, SearchResultDto<Search<#= Entity.Name #>Dto>>("<#= entitySuffixAct #>/search", filter)!;
+        public async Task<ResponseDto<SearchResultDto<Search<#= entity #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= entity #>FilterDto> filter)
+            => await Post<SearchParamsDto<Search<#= entity #>FilterDto>, SearchResultDto<Search<#= entity #>Dto>>(<#= searchRoute #>, filter)!;
     }
 }

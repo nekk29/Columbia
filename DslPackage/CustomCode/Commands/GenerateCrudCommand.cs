@@ -36,8 +36,11 @@ namespace Columbia.DslPackage.CustomCode.Commands
             new SearchFilterDtoFileGenerator().GenerateFile(serviceProvider, CurrentEntity, true);
             #endregion
 
-            #region Domain
+            #region Mapping
             new MappingProfileFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
+            #endregion
+
+            #region Domain
             new CreateCommandFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
             new CreateCommandHandlerFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
             new CreateCommandValidatorFileGenerator().GenerateFile(serviceProvider, CurrentEntity);

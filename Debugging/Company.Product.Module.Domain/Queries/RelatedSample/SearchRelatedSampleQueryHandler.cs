@@ -35,7 +35,7 @@ namespace Company.Product.Module.Domain.Queries.RelatedSample
             var relatedSamples = await _relatedSampleRepository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
-                null,
+                null, //Include sort expressions...
                 filter //Include navigation properties...
             );
 
