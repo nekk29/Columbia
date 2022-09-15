@@ -4,21 +4,22 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
 using MediatR;
 using <#= DomainModel.ApplicationAbstractions #>;
 using <#= DomainModel.Application #>.Base;
-using <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>;
-using <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>;
+using <#= DomainModel.Domain #>.Commands.<#= module #>;
+using <#= DomainModel.Domain #>.Queries.<#= module #>;
 using <#= DomainModel.Dto #>.Base;
-using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Application #>
 {
-    public class <#= Entity.Name #>Application : ApplicationBase, I<#= Entity.Name #>Application
+    public class <#= module #>Application : ApplicationBase, I<#= module #>Application
     {
-        public <#= Entity.Name #>Application(IMediator mediator) : base(mediator)
+        public <#= module #>Application(IMediator mediator) : base(mediator)
         {
 
         }

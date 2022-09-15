@@ -210,6 +210,12 @@
             <xsd:documentation>Table Name</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: Module -->
+        <xsd:attribute name="module" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Module</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

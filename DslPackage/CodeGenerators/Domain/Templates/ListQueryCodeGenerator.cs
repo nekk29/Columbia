@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -28,51 +28,59 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using ");
             
             #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+
+            
+            #line default
+            #line hidden
+            this.Write("using ");
+            
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Queries.Base;\r\nusing ");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\nnamespace ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Queries.");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class List");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Query : QueryBase<IEnumerable<List");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default

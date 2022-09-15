@@ -17,7 +17,9 @@ namespace Columbia.DslPackage.CodeGenerators.Apis.FileGenerators
 
         protected override string GetFileName(Entity entity)
         {
-            return entity != null ? $"Controllers\\{entity.Name}Controller.cs" : null;
+            if (entity == null) return null;
+            var module = !string.IsNullOrEmpty(entity.Module) ? entity.Module : entity.Name;
+            return $"Controllers\\{module}Controller.cs";
         }
     }
 }

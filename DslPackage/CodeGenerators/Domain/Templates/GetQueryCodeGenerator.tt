@@ -4,12 +4,13 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
 using <#= DomainModel.Domain #>.Queries.Base;
-using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.Dto #>.<#= module #>;
 
-namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
+namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
     public class Get<#= Entity.Name #>Query : QueryBase<Get<#= Entity.Name #>Dto>
     {

@@ -321,6 +321,18 @@
     <value>Database</value>
     <comment>Category for DomainProperty &apos;TableName&apos; on DomainClass &apos;Entity&apos;</comment>
   </data>
+  <data name="Columbia.Dsl.Entity/Module.Description" xml:space="preserve">
+    <value>Module</value>
+    <comment>Description for DomainProperty &apos;Module&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.Entity/Module.DisplayName" xml:space="preserve">
+    <value>Module</value>
+    <comment>DisplayName for DomainProperty &apos;Module&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
+  <data name="Columbia.Dsl.Entity/Module.Category" xml:space="preserve">
+    <value>Definition</value>
+    <comment>Category for DomainProperty &apos;Module&apos; on DomainClass &apos;Entity&apos;</comment>
+  </data>
   <data name="Columbia.Dsl.PrimitiveProperty.Description" xml:space="preserve">
     <value>Description for Columbia.Dsl.PrimitiveProperty</value>
     <comment>Description for DomainClass &apos;PrimitiveProperty&apos;</comment>

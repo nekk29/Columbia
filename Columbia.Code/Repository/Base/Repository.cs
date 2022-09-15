@@ -257,12 +257,12 @@ namespace $safesolutionname$.Repository.Base
         private void UpdateAuditInfo(object entity, bool creation = true)
         {
             if (entity == null) return;
-
-            var now = DateTimeOffset.UtcNow;
+            
+            var usuario = _userIdentity.GetCurrentUser();
             var properties = entity.GetType().GetProperties();
 
+            var now = DateTimeOffset.UtcNow;
             DateTimeOffset? nowNullable = now;
-            var usuario = _userIdentity.GetCurrentUser();
 
             if (creation)
             {

@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -28,100 +28,108 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
+            
+            #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+
+            
+            #line default
+            #line hidden
             this.Write("using AutoMapper;\r\nusing ");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.Base;\r\nusing ");
             
-            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RepositoryAbstractions));
             
             #line default
             #line hidden
             this.Write(".Base;\r\nusing ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RepositoryAbstractions));
             
             #line default
             #line hidden
             this.Write(".Transactions;\r\nusing ");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".Base;\r\nusing ");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\nnamespace ");
             
-            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.");
             
-            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class Update");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("CommandHandler : CommandHandlerBase<Update");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Command, Get");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>\r\n    {\r\n        private readonly IRepository<Entity.");
             
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("> _");
             
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository;\r\n\r\n        public Update");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
@@ -129,21 +137,21 @@ namespace Columbia.DslPackage
             this.Write("CommandHandler(\r\n            IUnitOfWork unitOfWork,\r\n            IMapper mapper," +
                     "\r\n            Update");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("CommandValidator validator,\r\n            IRepository<Entity.");
             
-            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
@@ -151,28 +159,28 @@ namespace Columbia.DslPackage
             this.Write("Repository\r\n        ) : base(unitOfWork, mapper, validator)\r\n        {\r\n         " +
                     "   _");
             
-            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository = ");
             
-            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository;\r\n        }\r\n\r\n        public override async Task<ResponseDto<Get");
             
-            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>> HandleCommand(Update");
             
-            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
@@ -180,14 +188,14 @@ namespace Columbia.DslPackage
             this.Write("Command request, CancellationToken cancellationToken)\r\n        {\r\n            var" +
                     " response = new ResponseDto<Get");
             
-            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>();\r\n\r\n");
             
-            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
 
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 	if (keyProperty != null)
@@ -198,98 +206,98 @@ namespace Columbia.DslPackage
             #line hidden
             this.Write("            var ");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(" = await _");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository.GetByAsync(x => x.");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(" == request.UpdateDto.");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(");\r\n            if (");
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 42 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(" != null)\r\n            {\r\n                _mapper?.Map(request.UpdateDto, ");
             
-            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 44 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(");\r\n                await _");
             
-            #line 42 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository.UpdateAsync(");
             
-            #line 42 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(");\r\n            }\r\n\r\n            var ");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Dto = _mapper?.Map<Get");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>(");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(");\r\n            if (");
             
-            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Dto != null) response.UpdateData(");
             
-            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Dto);\r\n\r\n");
             
-            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
+            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandHandlerCodeGenerator.tt"
 
     }
 

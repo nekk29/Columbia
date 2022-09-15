@@ -3,17 +3,20 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+#>
 using <#= DomainModel.RestClient #>.Base;
 using <#= DomainModel.Dto #>.Base;
-using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.RestClient #>
 {
-    public class <#= Entity.Name #>Service : BaseService
+    public class <#= module #>Service : BaseService
     {
-        protected override string ApiController => "api/<#= LowerFirst(Entity.Name) #>";
+        protected override string ApiController => "api/<#= LowerFirst(module) #>";
 
-        public <#= Entity.Name #>Service(ServiceOptions options) : base(options)
+        public <#= module #>Service(ServiceOptions options) : base(options)
         {
 
         }

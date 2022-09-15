@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -28,79 +28,87 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
+            
+            #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+
+            
+            #line default
+            #line hidden
             this.Write("using AutoMapper;\r\nusing ");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.Base;\r\nusing ");
             
-            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RepositoryAbstractions));
             
             #line default
             #line hidden
             this.Write(".Base;\r\nusing ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RepositoryAbstractions));
             
             #line default
             #line hidden
             this.Write(".Transactions;\r\nusing ");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".Base;\r\n\r\nnamespace ");
             
-            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.");
             
-            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class Delete");
             
-            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("CommandHandler : CommandHandlerBase<Delete");
             
-            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Command>\r\n    {\r\n        private readonly IRepository<Entity.");
             
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("> _");
             
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository;\r\n\r\n        public Delete");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
@@ -108,21 +116,21 @@ namespace Columbia.DslPackage
             this.Write("CommandHandler(\r\n            IUnitOfWork unitOfWork,\r\n            IMapper mapper," +
                     "\r\n            Delete");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("CommandValidator validator,\r\n            IRepository<Entity.");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
@@ -130,14 +138,14 @@ namespace Columbia.DslPackage
             this.Write("Repository\r\n        ) : base(unitOfWork, mapper, validator)\r\n        {\r\n         " +
                     "   _");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository = ");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
@@ -145,7 +153,7 @@ namespace Columbia.DslPackage
             this.Write("Repository;\r\n        }\r\n\r\n        public override async Task<ResponseDto> HandleC" +
                     "ommand(Delete");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
@@ -153,7 +161,7 @@ namespace Columbia.DslPackage
             this.Write("Command request, CancellationToken cancellationToken)\r\n        {\r\n            var" +
                     " response = new ResponseDto();\r\n");
             
-            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
 
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 	if (keyProperty != null)
@@ -164,42 +172,42 @@ namespace Columbia.DslPackage
             #line hidden
             this.Write("            var ");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(" = await _");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository.GetByAsync(x => x.");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(" == request.");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(");\r\n\r\n            if (");
             
-            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(" != null)\r\n            {\r\n");
             
-            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 43 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
 
 	    if (Entity.IsAuditable)
 	    {
@@ -209,28 +217,28 @@ namespace Columbia.DslPackage
             #line hidden
             this.Write("                ");
             
-            #line 44 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(".IsActive = false;\r\n                await _");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository.UpdateAsync(");
             
-            #line 45 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 46 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 49 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
 
 	    }
         else
@@ -241,21 +249,21 @@ namespace Columbia.DslPackage
             #line hidden
             this.Write("                await _");
             
-            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 54 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write("Repository.DeleteAsync(");
             
-            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 54 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 52 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 55 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
 
         }
 
@@ -264,7 +272,7 @@ namespace Columbia.DslPackage
             #line hidden
             this.Write("            }\r\n");
             
-            #line 56 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
+            #line 59 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandHandlerCodeGenerator.tt"
 
     }
 

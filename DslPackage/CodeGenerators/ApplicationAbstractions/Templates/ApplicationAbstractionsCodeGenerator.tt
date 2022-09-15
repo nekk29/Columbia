@@ -4,14 +4,15 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
 using <#= DomainModel.Dto #>.Base;
-using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.ApplicationAbstractions #>
 {
-    public interface I<#= Entity.Name #>Application
+    public interface I<#= module #>Application
     {
         Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create(Create<#= Entity.Name #>Dto createDto);
         Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto);

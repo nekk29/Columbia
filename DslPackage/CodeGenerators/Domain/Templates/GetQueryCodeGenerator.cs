@@ -31,6 +31,7 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
 
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 
             
@@ -38,56 +39,56 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("using ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Queries.Base;\r\nusing ");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\nnamespace ");
             
-            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Queries.");
             
-            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class Get");
             
-            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Query : QueryBase<Get");
             
-            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>\r\n    {\r\n");
             
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
 
 	if (keyProperty != null)
     {
@@ -97,56 +98,56 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("        public Get");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Query(");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
             this.Write(") => ");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(" = ");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
             this.Write(";\r\n        public ");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
+            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\GetQueryCodeGenerator.tt"
 
 	}
 

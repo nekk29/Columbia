@@ -1558,6 +1558,94 @@ namespace Columbia.Dsl
 		}
 		
 		#endregion
+		#region Module domain property code
+		
+		/// <summary>
+		/// Module domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid ModuleDomainPropertyId = new global::System.Guid(0x612866e8, 0x8be7, 0x4278, 0x87, 0xf1, 0x78, 0x1a, 0x1e, 0x7c, 0xa3, 0x26);
+		
+		/// <summary>
+		/// Storage for Module
+		/// </summary>
+		private global::System.String modulePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Module domain property.
+		/// Module
+		/// </summary>
+		[DslDesign::DisplayNameResource("Columbia.Dsl.Entity/Module.DisplayName", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Columbia.Dsl.Entity/Module.Category", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Columbia.Dsl.Entity/Module.Description", typeof(global::Columbia.Dsl.ColumbiaDomainModel), "Columbia.Dsl.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("612866e8-8be7-4278-87f1-781a1e7ca326")]
+		public global::System.String Module
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return modulePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				ModulePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Entity.Module domain property.
+		/// </summary>
+		internal sealed partial class ModulePropertyHandler : DslModeling::DomainPropertyValueHandler<Entity, global::System.String>
+		{
+			private ModulePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Entity.Module domain property value handler.
+			/// </summary>
+			public static readonly ModulePropertyHandler Instance = new ModulePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Entity.Module domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return ModuleDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Entity element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.modulePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Entity element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.modulePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region DomainModel opposite domain role accessor
 		/// <summary>
 		/// Gets or sets DomainModel.

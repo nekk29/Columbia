@@ -3,11 +3,14 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+#>
 using <#= DomainModel.Domain #>.Queries.Base;
 using <#= DomainModel.Dto #>.Base;
-using <#= DomainModel.Dto #>.<#= Entity.Name #>;
+using <#= DomainModel.Dto #>.<#= module #>;
 
-namespace <#= DomainModel.Domain #>.Queries.<#= Entity.Name #>
+namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
     public class Search<#= Entity.Name #>Query : SearchQueryBase<Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>
     {

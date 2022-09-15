@@ -4,6 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
 using FluentValidation;
@@ -11,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using <#= DomainModel.Domain #>.Commands.Base;
 using <#= DomainModel.RepositoryAbstractions #>.Base;
 
-namespace <#= DomainModel.Domain #>.Commands.<#= Entity.Name #>
+namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 {
     public class Delete<#= Entity.Name #>CommandValidator : CommandValidatorBase<Delete<#= Entity.Name #>Command>
     {

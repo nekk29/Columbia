@@ -17,7 +17,9 @@ namespace Columbia.DslPackage.CustomCode.Commands.Dto
 
         protected override string GetFileName(Dsl.Entity entity)
         {
-            return entity != null ? $"{entity.Name}\\Create{entity.Name}Dto.cs" : null;
+            if (entity == null) return null;
+            var module = !string.IsNullOrEmpty(entity.Module) ? entity.Module : entity.Name;
+            return $"{module}\\Create{entity.Name}Dto.cs";
         }
     }
 }

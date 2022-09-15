@@ -169,6 +169,11 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="612866e8-8be7-4278-87f1-781a1e7ca326" Description="Module" Name="Module" DisplayName="Module" Category="Definition">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -452,6 +457,9 @@
           </XmlPropertyData>
           <XmlPropertyData XmlName="tableName">
             <DomainPropertyMoniker Name="Entity/TableName" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="module">
+            <DomainPropertyMoniker Name="Entity/Module" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

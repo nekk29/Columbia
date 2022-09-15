@@ -28,44 +28,52 @@ namespace Columbia.DslPackage.CodeGenerators
         /// </summary>
         public override string TransformText()
         {
-            this.Write("using ");
             
             #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+
+            
+            #line default
+            #line hidden
+            this.Write("using ");
+            
+            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.Base;\r\n\r\nnamespace ");
             
-            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
             this.Write(".Commands.");
             
-            #line 8 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class Create");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("CommandValidator : CommandValidatorBase<Create");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Command>\r\n    {\r\n        public Create");
             
-            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
@@ -73,7 +81,7 @@ namespace Columbia.DslPackage.CodeGenerators
             this.Write("CommandValidator()\r\n        {\r\n            RequiredInformation(x => x.CreateDto)\r" +
                     "\n                .DependentRules(() =>\r\n                {\r\n");
             
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
 
 	foreach (var entityProperty in Entity.EntityProperties)
 	{
@@ -93,28 +101,28 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("                    //RequiredString(x => x.CreateDto.");
             
-            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
             this.Write(", Resources.");
             
-            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
             this.Write(", {Min}, {Max});\r\n");
             
-            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
 
             } else {
 
@@ -123,28 +131,28 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("                    //RequiredField(x => x.CreateDto.");
             
-            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
             this.Write(", Resources.");
             
-            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(foreignKey));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
 
             }
         }
@@ -154,7 +162,7 @@ namespace Columbia.DslPackage.CodeGenerators
             #line default
             #line hidden
             
-            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 44 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
 
 	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey))
 	{
@@ -166,28 +174,28 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("                    //RequiredString(x => x.CreateDto.");
             
-            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 50 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(", Resources.");
             
-            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 50 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 47 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 50 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(", {Min}, {Max});\r\n");
             
-            #line 48 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
 
         } else {
 
@@ -196,28 +204,28 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("                    //RequiredField(x => x.CreateDto.");
             
-            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 54 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(", Resources.");
             
-            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 54 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 51 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 54 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
             
             #line default
             #line hidden
             this.Write(");\r\n");
             
-            #line 52 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
+            #line 55 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\CreateCommandValidatorCodeGenerator.tt"
 
         }
 	}

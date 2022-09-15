@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -28,128 +28,129 @@ namespace Columbia.DslPackage
         /// </summary>
         public override string TransformText()
         {
+            
+            #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+
+            
+            #line default
+            #line hidden
             this.Write("using AutoMapper;\r\nusing ");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 7 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\nnamespace ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Domain));
             
             #line default
             #line hidden
-            this.Write(".Mapping.");
+            this.Write(".Mapping\r\n{\r\n    public class ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n{\r\n    public class ");
-            
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Profile : Profile\r\n    {\r\n        public ");
             
-            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Profile()\r\n        {\r\n            CreateMap<Entity.");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(", ");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>()\r\n                .ReverseMap();\r\n\r\n            CreateMap<Entity.");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(", Create");
             
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>()\r\n                .ReverseMap();\r\n\r\n            CreateMap<Entity.");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(", Update");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>()\r\n                .ReverseMap();\r\n\r\n            CreateMap<Entity.");
             
-            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(", Get");
             
-            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>()\r\n                .ReverseMap();\r\n\r\n            CreateMap<Entity.");
             
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(", List");
             
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>()\r\n                .ReverseMap();\r\n\r\n            CreateMap<Entity.");
             
-            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write(", Search");
             
-            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
+            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\MappingProfileCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default

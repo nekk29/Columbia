@@ -3,9 +3,12 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#
+    var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
+#>
 using System;
 
-namespace <#= DomainModel.Dto #>.<#= Entity.Name #>
+namespace <#= DomainModel.Dto #>.<#= module #>
 {
 <#
 if (Entity != null)

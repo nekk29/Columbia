@@ -1301,6 +1301,23 @@ namespace Columbia.Dsl
 					}
 				}
 			}
+			// Module
+			if (!serializationContext.Result.Failed)
+			{
+				string attribModule = ColumbiaSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "module");
+				if (attribModule != null)
+				{
+					global::System.String valueOfModule;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribModule, out valueOfModule))
+					{
+						instanceOfEntity.Module = valueOfModule;
+					}
+					else
+					{	// Invalid property value, ignored.
+						ColumbiaSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "module", typeof(global::System.String), attribModule);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -1975,6 +1992,17 @@ namespace Columbia.Dsl
 				{
 					if (!string.IsNullOrEmpty(propValue))
 						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "tableName", propValue);
+	
+				}
+			}
+			// Module
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEntity.Module;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						ColumbiaSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "module", propValue);
 	
 				}
 			}
