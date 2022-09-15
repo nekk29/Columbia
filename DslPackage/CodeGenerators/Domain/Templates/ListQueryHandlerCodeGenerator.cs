@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage.CodeGenerators
+namespace Columbia.DslPackage
 {
     using System.Linq;
     using System.Text;
