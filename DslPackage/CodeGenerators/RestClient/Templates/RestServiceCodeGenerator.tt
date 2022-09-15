@@ -4,6 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var entitySuffix = !string.IsNullOrEmpty(Entity.Module) && Entity.Module != Entity.Name ? Entity.Name : string.Empty;
     var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 #>
 using <#= DomainModel.RestClient #>.Base;
@@ -21,22 +22,22 @@ namespace <#= DomainModel.RestClient #>
 
         }
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Insert(Create<#= Entity.Name #>Dto createDto)
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create<#= entitySuffix #>(Create<#= Entity.Name #>Dto createDto)
             => await Post<Create<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(string.Empty, createDto)!;
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto)
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update<#= entitySuffix #>(Update<#= Entity.Name #>Dto updateDto)
             => await Put<Update<#= Entity.Name #>Dto, Get<#= Entity.Name #>Dto>(string.Empty, updateDto)!;
 
-        public async Task<ResponseDto> Delete(int id)
+        public async Task<ResponseDto> Delete<#= entitySuffix #>(int id)
             => await Delete($"/{id}")!;
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(int id)
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(int id)
             => await Get<Get<#= Entity.Name #>Dto>($"/{id}")!;
 
-        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List()
+        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List<#= entitySuffix #>()
             => await Get<IEnumerable<List<#= Entity.Name #>Dto>>("list")!;
 
-        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> filter)
+        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= Entity.Name #>FilterDto> filter)
             => await Post<SearchParamsDto<Search<#= Entity.Name #>FilterDto>, SearchResultDto<Search<#= Entity.Name #>Dto>>("/search", filter)!;
     }
 }

@@ -31,6 +31,7 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line 6 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
 
+    var entitySuffix = !string.IsNullOrEmpty(Entity.Module) && Entity.Module != Entity.Name ? Entity.Name : string.Empty;
     var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 
             
@@ -38,42 +39,42 @@ namespace Columbia.DslPackage.CodeGenerators
             #line hidden
             this.Write("using ");
             
-            #line 9 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RestClient));
             
             #line default
             #line hidden
             this.Write(".Base;\r\nusing ");
             
-            #line 10 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".Base;\r\nusing ");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.Dto));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 11 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 12 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\nnamespace ");
             
-            #line 13 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(DomainModel.RestClient));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    public class ");
             
-            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
@@ -81,14 +82,14 @@ namespace Columbia.DslPackage.CodeGenerators
             this.Write("Service : BaseService\r\n    {\r\n        protected override string ApiController => " +
                     "\"api/");
             
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(module)));
             
             #line default
             #line hidden
             this.Write("\";\r\n\r\n        public ");
             
-            #line 19 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(module));
             
             #line default
@@ -96,114 +97,155 @@ namespace Columbia.DslPackage.CodeGenerators
             this.Write("Service(ServiceOptions options) : base(options)\r\n        {\r\n\r\n        }\r\n\r\n      " +
                     "  public async Task<ResponseDto<Get");
             
-            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>> Insert(Create");
+            this.Write("Dto>> Create");
             
-            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entitySuffix));
+            
+            #line default
+            #line hidden
+            this.Write("(Create");
+            
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto createDto)\r\n            => await Post<Create");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto, Get");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>(string.Empty, createDto)!;\r\n\r\n        public async Task<ResponseDto<Get");
             
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>> Update(Update");
+            this.Write("Dto>> Update");
             
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entitySuffix));
+            
+            #line default
+            #line hidden
+            this.Write("(Update");
+            
+            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto updateDto)\r\n            => await Put<Update");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto, Get");
             
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>(string.Empty, updateDto)!;\r\n\r\n        public async Task<ResponseDto> Delete(" +
-                    "int id)\r\n            => await Delete($\"/{id}\")!;\r\n\r\n        public async Task<Re" +
+            this.Write("Dto>(string.Empty, updateDto)!;\r\n\r\n        public async Task<ResponseDto> Delete");
+            
+            #line 31 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entitySuffix));
+            
+            #line default
+            #line hidden
+            this.Write("(int id)\r\n            => await Delete($\"/{id}\")!;\r\n\r\n        public async Task<Re" +
                     "sponseDto<Get");
-            
-            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Dto>> Get(int id)\r\n            => await Get<Get");
             
             #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>($\"/{id}\")!;\r\n\r\n        public async Task<ResponseDto<IEnumerable<List");
+            this.Write("Dto>> Get");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entitySuffix));
+            
+            #line default
+            #line hidden
+            this.Write("(int id)\r\n            => await Get<Get");
+            
+            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>>> List()\r\n            => await Get<IEnumerable<List");
+            this.Write("Dto>($\"/{id}\")!;\r\n\r\n        public async Task<ResponseDto<IEnumerable<List");
             
             #line 37 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>>(\"list\")!;\r\n\r\n        public async Task<ResponseDto<SearchResultDto<Search");
+            this.Write("Dto>>> List");
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 37 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entitySuffix));
+            
+            #line default
+            #line hidden
+            this.Write("()\r\n            => await Get<IEnumerable<List");
+            
+            #line 38 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>>> Search(SearchParamsDto<Search");
+            this.Write("Dto>>(\"list\")!;\r\n\r\n        public async Task<ResponseDto<SearchResultDto<Search");
             
-            #line 39 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>>> Search");
+            
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(entitySuffix));
+            
+            #line default
+            #line hidden
+            this.Write("(SearchParamsDto<Search");
+            
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("FilterDto> filter)\r\n            => await Post<SearchParamsDto<Search");
             
-            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("FilterDto>, SearchResultDto<Search");
             
-            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
+            #line 41 "D:\Projects\Columbia\DslPackage\CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default

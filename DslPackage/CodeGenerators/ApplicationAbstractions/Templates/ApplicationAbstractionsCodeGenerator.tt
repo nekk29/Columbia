@@ -4,6 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var entitySuffix = !string.IsNullOrEmpty(Entity.Module) && Entity.Module != Entity.Name ? Entity.Name : string.Empty;
     var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
@@ -14,11 +15,11 @@ namespace <#= DomainModel.ApplicationAbstractions #>
 {
     public interface I<#= module #>Application
     {
-        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create(Create<#= Entity.Name #>Dto createDto);
-        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto);
-        Task<ResponseDto> Delete(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>);
-        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>);
-        Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List();
-        Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams);
+        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create<#= entitySuffix #>(Create<#= Entity.Name #>Dto createDto);
+        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update<#= entitySuffix #>(Update<#= Entity.Name #>Dto updateDto);
+        Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>);
+        Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>);
+        Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List<#= entitySuffix #>();
+        Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams);
     }
 }

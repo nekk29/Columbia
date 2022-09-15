@@ -21,14 +21,14 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
         public Delete<#= Entity.Name #>CommandValidator(IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository)
         {
             _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
-
-            RequiredField(x => x.<#= keyProperty.Name #>, Resources.Common.IdentifierRequired)
-                .DependentRules(() =>
-                {
 <#
     if (keyProperty != null)
     {
 #>
+
+            RequiredField(x => x.<#= keyProperty.Name #>, Resources.Common.IdentifierRequired)
+                .DependentRules(() =>
+                {
                     RuleFor(x => x.<#= keyProperty.Name #>)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();

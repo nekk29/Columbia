@@ -128,17 +128,9 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line default
             #line hidden
-            this.Write("Repository;\r\n\r\n            RequiredField(x => x.");
+            this.Write("Repository;\r\n");
             
-            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
-            
-            #line default
-            #line hidden
-            this.Write(", Resources.Common.IdentifierRequired)\r\n                .DependentRules(() =>\r\n  " +
-                    "              {\r\n");
-            
-            #line 28 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
+            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
 
     if (keyProperty != null)
     {
@@ -146,7 +138,15 @@ namespace Columbia.DslPackage.CodeGenerators
             
             #line default
             #line hidden
-            this.Write("                    RuleFor(x => x.");
+            this.Write("\r\n            RequiredField(x => x.");
+            
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
+            
+            #line default
+            #line hidden
+            this.Write(", Resources.Common.IdentifierRequired)\r\n                .DependentRules(() =>\r\n  " +
+                    "              {\r\n                    RuleFor(x => x.");
             
             #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandValidatorCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));

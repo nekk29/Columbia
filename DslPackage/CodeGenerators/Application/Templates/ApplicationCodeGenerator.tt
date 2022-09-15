@@ -4,6 +4,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#
+    var entitySuffix = !string.IsNullOrEmpty(Entity.Module) && Entity.Module != Entity.Name ? Entity.Name : string.Empty;
     var module = !string.IsNullOrEmpty(Entity.Module) ? Entity.Module : Entity.Name;
 	var keyProperty = Entity.PrimitiveProperties.FirstOrDefault(x => x.IsPrimaryKey);
 #>
@@ -24,22 +25,22 @@ namespace <#= DomainModel.Application #>
 
         }
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create(Create<#= Entity.Name #>Dto createDto)
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create<#= entitySuffix #>(Create<#= Entity.Name #>Dto createDto)
             => await _mediator.Send(new Create<#= Entity.Name #>Command(createDto));
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update(Update<#= Entity.Name #>Dto updateDto)
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update<#= entitySuffix #>(Update<#= Entity.Name #>Dto updateDto)
             => await _mediator.Send(new Update<#= Entity.Name #>Command(updateDto));
 
-        public async Task<ResponseDto> Delete(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+        public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
             => await _mediator.Send(new Delete<#= Entity.Name #>Command(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>));
 
-        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
+        public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
             => await _mediator.Send(new Get<#= Entity.Name #>Query(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>));
 
-        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List()
+        public async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> List<#= entitySuffix #>()
             => await _mediator.Send(new List<#= Entity.Name #>Query());
 
-        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams)
+        public async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams)
             => await _mediator.Send(new Search<#= Entity.Name #>Query(searchParams));
     }
 }
