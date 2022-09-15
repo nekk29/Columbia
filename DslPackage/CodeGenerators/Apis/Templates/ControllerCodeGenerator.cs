@@ -224,7 +224,7 @@ namespace Columbia.DslPackage.CodeGenerators
             this.Write("(updateDto);\r\n\r\n        [HttpDelete");
             
             #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : string.Empty));
+            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : (!string.IsNullOrEmpty(entitySuffix) ? "(\"" + entitySuffix +"\")" : string.Empty)));
             
             #line default
             #line hidden
@@ -266,7 +266,7 @@ namespace Columbia.DslPackage.CodeGenerators
             this.Write(");\r\n\r\n        [HttpGet");
             
             #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Apis\Templates\ControllerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : string.Empty));
+            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : (!string.IsNullOrEmpty(entitySuffix) ? "(\"" + entitySuffix +"\")" : string.Empty)));
             
             #line default
             #line hidden

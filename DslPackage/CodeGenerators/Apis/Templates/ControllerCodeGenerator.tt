@@ -33,11 +33,11 @@ namespace <#= DomainModel.Apis #>.Controllers
         public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Update<#= entitySuffix #>(Update<#= Entity.Name #>Dto updateDto)
             => await _<#= LowerFirst(module) #>Application.Update<#= entitySuffix #>(updateDto);
 
-        [HttpDelete<#= keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : string.Empty #>]
+        [HttpDelete<#= keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : (!string.IsNullOrEmpty(entitySuffix) ? "(\"" + entitySuffix +"\")" : string.Empty) #>]
         public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
             => await _<#= LowerFirst(module) #>Application.Delete<#= entitySuffix #>(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>);
 
-        [HttpGet<#= keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : string.Empty #>]
+        [HttpGet<#= keyProperty != null ? "(\"" + entitySuffixAct + "{" + LowerFirst(keyProperty.Name) + "}\")" : (!string.IsNullOrEmpty(entitySuffix) ? "(\"" + entitySuffix +"\")" : string.Empty) #>]
         public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Get<#= entitySuffix #>(<#= keyProperty != null ? keyProperty.Type + " " + LowerFirst(keyProperty.Name) : string.Empty #>)
             => await _<#= LowerFirst(module) #>Application.Get<#= entitySuffix #>(<#= keyProperty != null ? LowerFirst(keyProperty.Name) : string.Empty #>);
 
