@@ -35,7 +35,10 @@ namespace $safesolutionname$.Apis.Exception
                         }
                     };
 
-                    await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse));
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse, new JsonSerializerSettings
+                    {
+                        ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    }));
                 });
             });
         }
