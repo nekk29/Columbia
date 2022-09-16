@@ -4,8 +4,9 @@ namespace $safesolutionname$.Repository.Abstractions.Security
 {
     public interface IUserIdentity
     {
-        IEnumerable<Claim> GetCurrentUserClaims();
+        IEnumerable<Claim> GetClaims();
+        T? GetClaim<T>(string type);
         string GetCurrentUser();
-        int? GetCurrentUserId();
+        string? GetCurrentUserId();
     }
 }
