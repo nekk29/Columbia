@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Repetir Contraseña</value>
+    <value>Confirm Password</value>
   </data>
   <data name="CreateUserEmailBody" xml:space="preserve">
     <value>&lt;html&gt;
@@ -168,57 +168,57 @@
         &lt;img width="100" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" /&gt;
     &lt;/div&gt;
     &lt;div class="app-text"&gt;
-        Has sido registrado como usuario en al aplicación {APLICACION}
+        You have been registered as user in the application {APLICACION}
     &lt;/div&gt;
     &lt;div class="app-text-small"&gt;
-        Tus credenciales son:
+        Your credentials are:
     &lt;/div&gt;
     &lt;div class="app-credentials"&gt;
-        &lt;p&gt;Usuario:&lt;/p&gt;&lt;label&gt;{USER}&lt;/label&gt;
+        &lt;p&gt;User:&lt;/p&gt;&lt;label&gt;{USER}&lt;/label&gt;
     &lt;/div&gt;
     &lt;div class="app-credentials"&gt;
-        &lt;p&gt;Contraseña:&lt;/p&gt;&lt;label&gt;{PASSWORD}&lt;/label&gt;
+        &lt;p&gt;Password:&lt;/p&gt;&lt;label&gt;{PASSWORD}&lt;/label&gt;
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</value>
   </data>
   <data name="CreateUserEmailSubject" xml:space="preserve">
-    <value>Registro de Usuario</value>
+    <value>User Registration</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Correo Electrónico</value>
+    <value>EMail</value>
   </data>
   <data name="FirstName" xml:space="preserve">
-    <value>Nombres</value>
+    <value>Name</value>
   </data>
   <data name="LastName" xml:space="preserve">
-    <value>Apellidos</value>
+    <value>Last Name</value>
   </data>
   <data name="Login2FARequired" xml:space="preserve">
-    <value>Se requiere autenticación en dos pasos</value>
+    <value>Two factor authentication is required</value>
   </data>
   <data name="LoginAccessTokenError" xml:space="preserve">
-    <value>Ocurrió un error generando el token</value>
+    <value>An error occurred generating user token</value>
   </data>
   <data name="LoginEmailNotConfirmed" xml:space="preserve">
-    <value>El correo no ha sido confirmado</value>
+    <value>Email has not been confirmed yet</value>
   </data>
   <data name="LoginFailed" xml:space="preserve">
-    <value>Inicio de sesión incorrecto</value>
+    <value>Failed sign in</value>
   </data>
   <data name="LoginLockout" xml:space="preserve">
-    <value>Inicio de sesión bloqueado despues de {0} intentos, por favor reintente en {1} minutos</value>
+    <value>Login blocked after {0} attempts, please try again in {1} minutes</value>
   </data>
   <data name="LoginSucceeded" xml:space="preserve">
-    <value>Inicio de sesión correcto</value>
+    <value>Successful sign in</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Password</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>Número de Teléfono</value>
+    <value>Phone number</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>Nombre de Usuario</value>
+    <value>Username</value>
   </data>
 </root>
