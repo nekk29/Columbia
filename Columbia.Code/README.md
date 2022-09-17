@@ -1,2 +1,2 @@
-# Columbia.Solution
-Columbia.Solution is a solution sample for Columbia Framework
+# Columbia
+Columbia framework template for api projects using .Net 6, Entity Framework, CQRS and more.

@@ -1,6 +1,7 @@
 ﻿using $safesolutionname$.Dto.Base;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Net;
 
 namespace $safesolutionname$.Apis.Exception

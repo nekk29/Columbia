@@ -117,108 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
+  <data name="CreateSuccessMessage" xml:space="preserve">
+    <value>El registro fue creado correctamente</value>
   </data>
-  <data name="CreateUserEmailBody" xml:space="preserve">
-    <value>&lt;html&gt;
-&lt;head&gt;
-    &lt;style&gt;
-        body {
-            text-align: center;
-            font-family: monospace;
-        }
-
-        .app-logo {
-            margin: 15px;
-        }
-
-        .app-text {
-            margin: 12px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .app-text-small {
-            margin: 10px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .app-credentials &gt; p {
-            margin: 8px;
-            color: rgb(15, 20, 25);
-            font-weight: 500;
-            display: inline;
-            font-size: 12px;
-        }
-
-        .app-credentials label {
-            margin: 8px;
-            color: rgb(29, 155, 240);
-            font-weight: 100;
-            font-size: 12px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="app-logo"&gt;
-        &lt;img width="100" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" /&gt;
-    &lt;/div&gt;
-    &lt;div class="app-text"&gt;
-        You have been registered as user in the application {APLICACION}
-    &lt;/div&gt;
-    &lt;div class="app-text-small"&gt;
-        Your credentials are:
-    &lt;/div&gt;
-    &lt;div class="app-credentials"&gt;
-        &lt;p&gt;User:&lt;/p&gt;&lt;label&gt;{USER}&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="app-credentials"&gt;
-        &lt;p&gt;Password:&lt;/p&gt;&lt;label&gt;{PASSWORD}&lt;/label&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
+  <data name="CustomValidationMessage" xml:space="preserve">
+    <value>{CustomMessage}</value>
   </data>
-  <data name="CreateUserEmailSubject" xml:space="preserve">
-    <value>User Registration</value>
+  <data name="CustomValidationMessageArgument" xml:space="preserve">
+    <value>CustomMessage</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>EMail</value>
+  <data name="DeleteRecordNotFound" xml:space="preserve">
+    <value>El registro a eliminar no fue encontrado</value>
   </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>Name</value>
+  <data name="DeleteSuccessMessage" xml:space="preserve">
+    <value>El registro fue eliminado correctamente</value>
   </data>
-  <data name="LastName" xml:space="preserve">
-    <value>Last Name</value>
+  <data name="DuplicateRecord" xml:space="preserve">
+    <value>Ya existe un registro con la misma clave</value>
   </data>
-  <data name="Login2FARequired" xml:space="preserve">
-    <value>Two factor authentication is required</value>
+  <data name="FieldMaxLength" xml:space="preserve">
+    <value>El campo {0} debe tener como máximo {1} caracteres</value>
+    <comment>0: Field, 1: Caracteres</comment>
   </data>
-  <data name="LoginAccessTokenError" xml:space="preserve">
-    <value>An error occurred generating user token</value>
+  <data name="FieldMinLength" xml:space="preserve">
+    <value>El campo {0} debe tener como mínimo {1} caracteres</value>
+    <comment>0: Field, 1: Caracteres</comment>
   </data>
-  <data name="LoginEmailNotConfirmed" xml:space="preserve">
-    <value>Email has not been confirmed yet</value>
+  <data name="FieldRequired" xml:space="preserve">
+    <value>El campo {0} es requerido</value>
+    <comment>0: Field </comment>
   </data>
-  <data name="LoginFailed" xml:space="preserve">
-    <value>Failed sign in</value>
+  <data name="GetRecordNotFound" xml:space="preserve">
+    <value>El registro no fue encontrado</value>
   </data>
-  <data name="LoginLockout" xml:space="preserve">
-    <value>Login blocked after {0} attempts, please try again in {1} minutes</value>
+  <data name="IdentifierRequired" xml:space="preserve">
+    <value>El identificador es requerido</value>
   </data>
-  <data name="LoginSucceeded" xml:space="preserve">
-    <value>Successful sign in</value>
+  <data name="InformationRequired" xml:space="preserve">
+    <value>La información a procesar es requerida</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="PageField" xml:space="preserve">
+    <value>Número de página</value>
   </data>
-  <data name="PhoneNumber" xml:space="preserve">
-    <value>Phone number</value>
+  <data name="PageFieldMinValue" xml:space="preserve">
+    <value>El número de página debe ser mayor a 0</value>
   </data>
-  <data name="UserName" xml:space="preserve">
-    <value>Username</value>
+  <data name="PageSizeField" xml:space="preserve">
+    <value>Tamaño de Página</value>
+  </data>
+  <data name="PageSizeFieldMaxValue" xml:space="preserve">
+    <value>El tamaño de página debe ser cómo máximo 1000</value>
+  </data>
+  <data name="PageSizeFieldMinValue" xml:space="preserve">
+    <value>El tamaño de página debe ser mayor a 0</value>
+  </data>
+  <data name="SearchInformationRequired" xml:space="preserve">
+    <value>Los parámetros de búsqueda son requeridos</value>
+  </data>
+  <data name="SearchPageInformationRequired" xml:space="preserve">
+    <value>Los parámetros de paginado son requeridos</value>
+  </data>
+  <data name="SortDirectionNotValid" xml:space="preserve">
+    <value>Las direcciones de ordenamiento solo deben ser 'asc' o 'desc'</value>
+  </data>
+  <data name="UpdateRecordNotFound" xml:space="preserve">
+    <value>El registro a actualizar no fue encontrado</value>
+  </data>
+  <data name="UpdateSuccessMessage" xml:space="preserve">
+    <value>El registro fue actualizado correctamente</value>
   </data>
 </root>

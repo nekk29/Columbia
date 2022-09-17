@@ -1,10 +1,10 @@
-﻿using Company.Product.Module.Repository.Abstractions.Security;
+﻿using System.Text;
+using Company.Product.Module.Repository.Abstractions.Security;
 using Company.Product.Module.Repository.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace Company.Product.Module.Apis.Security
 {

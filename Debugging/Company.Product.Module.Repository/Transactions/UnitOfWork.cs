@@ -151,9 +151,17 @@ namespace Company.Product.Module.Repository.Transactions
                 state,
                 (context, stateIn) =>
                 {
-                    var result = operation.Invoke(stateIn);
-                    Commit();
-                    return result;
+                    try
+                    {
+                        var result = operation.Invoke(stateIn);
+                        Commit();
+                        return result;
+                    }
+                    catch (Exception)
+                    {
+                        ClearChangeTracker();
+                        throw;
+                    }
                 },
                 (context, stateIn) => verifySucceeded.Invoke(stateIn)
             );
@@ -167,9 +175,17 @@ namespace Company.Product.Module.Repository.Transactions
                 state,
                 async (context, stateIn, cancellationTokenIn) =>
                 {
-                    var result = await operation.Invoke(stateIn, cancellationTokenIn);
-                    await CommitAsync();
-                    return result;
+                    try
+                    {
+                        var result = await operation.Invoke(stateIn, cancellationTokenIn);
+                        await CommitAsync();
+                        return result;
+                    }
+                    catch (Exception)
+                    {
+                        ClearChangeTracker();
+                        throw;
+                    }
                 },
                 async (context, stateIn, cancellationTokenIn) => await verifySucceeded.Invoke(stateIn, cancellationTokenIn),
                 cancellationToken
@@ -189,18 +205,18 @@ namespace Company.Product.Module.Repository.Transactions
             {
                 var result = operation.Invoke(state);
                 transaction.Commit();
-
                 return result;
             }
             catch (ResultException<TResult> rex)
             {
                 transaction.Rollback();
+                ClearChangeTracker();
                 return rex.Result;
             }
-
             catch (Exception)
             {
                 transaction.Rollback();
+                ClearChangeTracker();
                 throw;
             }
         }
@@ -218,20 +234,25 @@ namespace Company.Product.Module.Repository.Transactions
             {
                 var result = await operation.Invoke(state, cancellationToken);
                 await transaction.CommitAsync(cancellationToken);
-
                 return result;
             }
             catch (ResultException<TResult> rex)
             {
                 transaction.Rollback();
+                ClearChangeTracker();
                 return rex.Result;
             }
-
             catch (Exception)
             {
                 await transaction.RollbackAsync(cancellationToken);
+                ClearChangeTracker();
                 throw;
             }
+        }
+
+        private void ClearChangeTracker()
+        {
+            Context.ChangeTracker.Clear();
         }
 
         public void Commit()

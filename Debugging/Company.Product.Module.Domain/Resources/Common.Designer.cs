@@ -69,7 +69,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro fue creado correctamente.
+        ///   Looks up a localized string similar to The record was created successfully.
         /// </summary>
         internal static string CreateSuccessMessage
         {
@@ -102,7 +102,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro a eliminar no fue encontrado.
+        ///   Looks up a localized string similar to The record to delete was not found.
         /// </summary>
         internal static string DeleteRecordNotFound
         {
@@ -113,7 +113,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro fue eliminado correctamente.
+        ///   Looks up a localized string similar to The record was deleted successfully.
         /// </summary>
         internal static string DeleteSuccessMessage
         {
@@ -124,7 +124,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro ya fue creado anteriormente.
+        ///   Looks up a localized string similar to A record with the same key already exists.
         /// </summary>
         internal static string DuplicateRecord
         {
@@ -135,7 +135,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El campo {0} debe tener como máximo {1} caracteres.
+        ///   Looks up a localized string similar to The field {0} must have at most {1} characters.
         /// </summary>
         internal static string FieldMaxLength
         {
@@ -146,7 +146,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El campo {0} debe tener como mínimo {1} caracteres.
+        ///   Looks up a localized string similar to The field {0} must have at least {1} characters.
         /// </summary>
         internal static string FieldMinLength
         {
@@ -157,7 +157,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El campo {0} es requerido.
+        ///   Looks up a localized string similar to The field {0} is required.
         /// </summary>
         internal static string FieldRequired
         {
@@ -168,7 +168,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro no fue encontrado.
+        ///   Looks up a localized string similar to The record was not found.
         /// </summary>
         internal static string GetRecordNotFound
         {
@@ -179,7 +179,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El identificador es requerido.
+        ///   Looks up a localized string similar to The identifier is required.
         /// </summary>
         internal static string IdentifierRequired
         {
@@ -190,7 +190,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to La información a procesar es requerida.
+        ///   Looks up a localized string similar to The information to process is required.
         /// </summary>
         internal static string InformationRequired
         {
@@ -201,7 +201,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Número de página.
+        ///   Looks up a localized string similar to Page Number.
         /// </summary>
         internal static string PageField
         {
@@ -212,7 +212,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El número de página debe ser mayor a 0.
+        ///   Looks up a localized string similar to Page number must be greater than zero.
         /// </summary>
         internal static string PageFieldMinValue
         {
@@ -223,7 +223,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Tamaño de Página.
+        ///   Looks up a localized string similar to Page Size.
         /// </summary>
         internal static string PageSizeField
         {
@@ -234,7 +234,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El tamaño de página debe ser cómo máximo 1000.
+        ///   Looks up a localized string similar to Page size must have at most 1000.
         /// </summary>
         internal static string PageSizeFieldMaxValue
         {
@@ -245,7 +245,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El tamaño de página debe ser mayor a 0.
+        ///   Looks up a localized string similar to Page size must be greater than zero.
         /// </summary>
         internal static string PageSizeFieldMinValue
         {
@@ -256,7 +256,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Los parámetros de la búsqueda son requeridos.
+        ///   Looks up a localized string similar to Search parameters are required.
         /// </summary>
         internal static string SearchInformationRequired
         {
@@ -267,7 +267,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Los parámetros de paginado de la búsqueda son requeridos.
+        ///   Looks up a localized string similar to Paging parameters are required.
         /// </summary>
         internal static string SearchPageInformationRequired
         {
@@ -289,7 +289,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro a actualizar no fue encontrado.
+        ///   Looks up a localized string similar to The record to update was not found.
         /// </summary>
         internal static string UpdateRecordNotFound
         {
@@ -300,7 +300,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El registro fue actualizado correctamente.
+        ///   Looks up a localized string similar to The record was updated successfully.
         /// </summary>
         internal static string UpdateSuccessMessage
         {

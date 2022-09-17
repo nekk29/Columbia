@@ -1,6 +1,6 @@
-﻿using Company.Product.Module.Common;
+﻿using System.Security.Claims;
+using Company.Product.Module.Common;
 using Company.Product.Module.Repository.Abstractions.Security;
-using System.Security.Claims;
 
 namespace Company.Product.Module.Apis.Security
 {
@@ -11,18 +11,21 @@ namespace Company.Product.Module.Apis.Security
         public UserIdentity(IHttpContextAccessor httpContextAccessor)
             => _httpContextAccessor = httpContextAccessor;
 
-        public IEnumerable<Claim> GetCurrentUserClaims()
+        public IEnumerable<Claim> GetClaims()
             => _httpContextAccessor.HttpContext?.User?.Claims ?? new List<Claim>();
+
+        public T? GetClaim<T>(string type)
+        {
+            var claimValue = default(T?);
+            var claim = GetClaims().FirstOrDefault(x => x.Type == type)?.Value;
+            if (claim != null) claimValue = (T?)Convert.ChangeType(claim, typeof(T?));
+            return claimValue;
+        }
 
         public string GetCurrentUser() =>
             _httpContextAccessor.HttpContext?.User?.Identity?.Name ?? Constants.Security.User.Admin;
 
-        public int? GetCurrentUserId()
-        {
-            var userId = default(int?);
-            var userIdClaim = GetCurrentUserClaims().FirstOrDefault(x => x.Type == "UserId")?.Value;
-            if (userIdClaim != null) userId = int.Parse(userIdClaim);
-            return userId;
-        }
+        public string? GetCurrentUserId()
+            => GetClaim<string?>("UserId");
     }
 }

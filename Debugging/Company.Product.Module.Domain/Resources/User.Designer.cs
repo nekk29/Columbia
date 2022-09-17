@@ -69,7 +69,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Repetir Contraseña.
+        ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         internal static string ConfirmPassword
         {
@@ -117,7 +117,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Registro de Usuario.
+        ///   Looks up a localized string similar to User Registration.
         /// </summary>
         internal static string CreateUserEmailSubject
         {
@@ -128,7 +128,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Correo Electrónico.
+        ///   Looks up a localized string similar to EMail.
         /// </summary>
         internal static string Email
         {
@@ -139,7 +139,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Nombres.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string FirstName
         {
@@ -150,7 +150,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Apellidos.
+        ///   Looks up a localized string similar to Last Name.
         /// </summary>
         internal static string LastName
         {
@@ -161,7 +161,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Se requiere autenticación en dos pasos.
+        ///   Looks up a localized string similar to Two factor authentication is required.
         /// </summary>
         internal static string Login2FARequired
         {
@@ -172,7 +172,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Ocurrió un error generando el token.
+        ///   Looks up a localized string similar to An error occurred generating user token.
         /// </summary>
         internal static string LoginAccessTokenError
         {
@@ -183,7 +183,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to El correo no ha sido confirmado.
+        ///   Looks up a localized string similar to Email has not been confirmed yet.
         /// </summary>
         internal static string LoginEmailNotConfirmed
         {
@@ -194,7 +194,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Inicio de sesión incorrecto.
+        ///   Looks up a localized string similar to Failed sign in.
         /// </summary>
         internal static string LoginFailed
         {
@@ -205,7 +205,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Inicio de sesión bloqueado despues de {0} intentos, por favor reintente en {1} minutos.
+        ///   Looks up a localized string similar to Login blocked after {0} attempts, please try again in {1} minutes.
         /// </summary>
         internal static string LoginLockout
         {
@@ -216,7 +216,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Inicio de sesión correcto.
+        ///   Looks up a localized string similar to Successful sign in.
         /// </summary>
         internal static string LoginSucceeded
         {
@@ -227,7 +227,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Contraseña.
+        ///   Looks up a localized string similar to Password.
         /// </summary>
         internal static string Password
         {
@@ -238,7 +238,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Número de Teléfono.
+        ///   Looks up a localized string similar to Phone number.
         /// </summary>
         internal static string PhoneNumber
         {
@@ -249,7 +249,7 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Nombre de Usuario.
+        ///   Looks up a localized string similar to Username.
         /// </summary>
         internal static string UserName
         {

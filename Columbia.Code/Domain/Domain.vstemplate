@@ -54,8 +54,10 @@
 			</Folder>
 			<Folder Name="Resources" TargetFolderName="Resources">
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.Designer.cs">Common.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Common.es.resx">Common.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.resx">Common.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.Designer.cs">User.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="User.es.resx">User.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.resx">User.resx</ProjectItem>
 			</Folder>
 		</Project>

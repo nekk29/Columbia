@@ -12,6 +12,17 @@ var configuration = builder.Configuration;
 
 #region Services
 
+// Cors
+builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+{
+    builder.WithOrigins(configuration.GetValue<string>("AllowedHosts"))
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+}));
+
+// HttpContextAccessor
+builder.Services.AddHttpContextAccessor();
+
 // Controllers
 builder.Services.AddControllers();
 
@@ -41,6 +52,9 @@ builder.Services.UseEmailClient(configuration);
 #region App
 
 var app = builder.Build();
+
+// Cors
+app.UseCors("CorsPolicy");
 
 // CustomExceptionHandler
 app.UseCustomExceptionHandler();

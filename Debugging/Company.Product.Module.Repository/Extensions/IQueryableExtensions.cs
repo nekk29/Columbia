@@ -1,8 +1,8 @@
-﻿using Company.Product.Module.Entity.Base;
-using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq.Expressions;
 using System.Reflection;
+using Company.Product.Module.Entity.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace Company.Product.Module.Repository.Extensions
 {

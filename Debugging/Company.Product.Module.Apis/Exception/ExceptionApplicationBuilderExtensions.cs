@@ -1,7 +1,8 @@
-﻿using Company.Product.Module.Dto.Base;
+﻿using System.Net;
+using Company.Product.Module.Dto.Base;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
-using System.Net;
+using Newtonsoft.Json.Serialization;
 
 namespace Company.Product.Module.Apis.Exception
 {
@@ -35,7 +36,10 @@ namespace Company.Product.Module.Apis.Exception
                         }
                     };
 
-                    await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse));
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse, new JsonSerializerSettings
+                    {
+                        ContractResolver = new CamelCasePropertyNamesContractResolver()
+                    }));
                 });
             });
         }
