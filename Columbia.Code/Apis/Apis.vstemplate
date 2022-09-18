@@ -56,6 +56,9 @@
 			<ProjectItem ReplaceParameters="true" TargetFileName="appsettings.Test.json">appsettings.Test.json</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Dockerfile">Dockerfile</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName=".gitattributes">../.gitattributes</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName=".gitignore">../.gitignore</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="README.md">../README.md</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>
