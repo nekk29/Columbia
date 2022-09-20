@@ -21,9 +21,12 @@ namespace $safesolutionname$.Apis.Security
             if (claim != null) claimValue = (T?)Convert.ChangeType(claim, typeof(T?));
             return claimValue;
         }
+    
+        public string GetCurrentUser()
+            => GetUserNameClaim() ?? Constants.Security.User.Admin;
 
-        public string GetCurrentUser() =>
-            _httpContextAccessor.HttpContext?.User?.Identity?.Name ?? Constants.Security.User.Admin;
+        private string GetUserNameClaim()
+            => GetClaims()?.FirstOrDefault(x => x.Type == "sub" || x.Type == "UserName")?.Value!;
 
         public string? GetCurrentUserId()
             => GetClaim<string?>("UserId");
