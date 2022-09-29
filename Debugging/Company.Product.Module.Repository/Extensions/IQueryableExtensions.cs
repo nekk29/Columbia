@@ -109,13 +109,51 @@ namespace Company.Product.Module.Repository.Extensions
 
         private static Expression<Func<TEntity, object>> GetSortExpression<TEntity>(string property)
         {
-            var prop = typeof(TEntity).GetProperties().FirstOrDefault(x => x.Name.ToLower() == property.ToLower());
-            if (prop == null) return null!;
+            if (string.IsNullOrEmpty(property)) return null!;
+
+            var parts = property.Split('.');
+            var propertyPath = new List<string>();
+
+            FillPropertyPath(typeof(TEntity), property, propertyPath);
+
+            if (parts.Length != propertyPath.Count) return null!;
 
             var parameterExpression = Expression.Parameter(typeof(TEntity), "entity");
-            var propertyExpression = Expression.Property(parameterExpression, prop);
+            var propertyExpression = GetPropertyPathExpression(parameterExpression, propertyPath.ToArray());
 
             return Expression.Lambda<Func<TEntity, object>>(Expression.Convert(propertyExpression, typeof(object)), parameterExpression);
+        }
+
+        private static void FillPropertyPath(Type baseType, string property, List<string> propertyPath)
+        {
+            var parts = property.Split('.');
+            var prop = default(PropertyInfo);
+
+            if ((parts.Length > 1))
+            {
+                prop = baseType.GetProperties().FirstOrDefault(x => x.Name.ToLower() == parts[0].ToLower());
+
+                if (prop != null)
+                {
+                    propertyPath.Add(prop.Name);
+                    FillPropertyPath(prop.PropertyType!, parts.Skip(1).Aggregate((a, i) => a + "." + i), propertyPath);
+                }
+            }
+            else
+            {
+                prop = baseType.GetProperties().FirstOrDefault(x => x.Name.ToLower() == property.ToLower());
+                if (prop != null) propertyPath.Add(prop.Name);
+            }
+        }
+
+        public static MemberExpression GetPropertyPathExpression(ParameterExpression propertyHolder, params string[] property)
+        {
+            var memberExpression = Expression.Property(propertyHolder, property[0]);
+
+            foreach (var member in property.Skip(1))
+                memberExpression = Expression.Property(memberExpression, member);
+
+            return memberExpression;
         }
     }
 
