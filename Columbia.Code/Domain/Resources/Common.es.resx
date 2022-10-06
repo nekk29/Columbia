@@ -135,6 +135,10 @@
   <data name="DuplicateRecord" xml:space="preserve">
     <value>Ya existe un registro con la misma clave</value>
   </data>
+  <data name="FieldLength" xml:space="preserve">
+    <value>El campo {0} debe tener {1} caracteres</value>
+    <comment>0: Field, 1: Caracteres</comment>
+  </data>
   <data name="FieldMaxLength" xml:space="preserve">
     <value>El campo {0} debe tener como máximo {1} caracteres</value>
     <comment>0: Field, 1: Caracteres</comment>

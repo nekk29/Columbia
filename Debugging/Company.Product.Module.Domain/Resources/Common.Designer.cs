@@ -133,6 +133,15 @@ namespace Company.Product.Module.Domain.Resources
                 return ResourceManager.GetString("DuplicateRecord", resourceCulture);
             }
         }
+		
+		/// <summary>
+        ///   Looks up a localized string similar to The field {0} must have {1} characters.
+        /// </summary>
+        internal static string FieldLength {
+            get {
+                return ResourceManager.GetString("FieldLength", resourceCulture);
+            }
+        }
 
         /// <summary>
         ///   Looks up a localized string similar to The field {0} must have at most {1} characters.

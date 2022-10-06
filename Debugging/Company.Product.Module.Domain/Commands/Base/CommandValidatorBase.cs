@@ -20,13 +20,16 @@ namespace Company.Product.Module.Domain.Commands.Base
         protected IRuleBuilderOptions<TRequest, string?> RequiredField(Expression<Func<TRequest, string?>> expression, string field)
             => RuleFor(expression).NotEmpty().WithMessage(string.Format(Resources.Common.FieldRequired, field));
 
+        protected IRuleBuilderOptions<TRequest, string?> Length(Expression<Func<TRequest, string?>> expression, string field, int length)
+            => RuleFor(expression).Length(length).WithMessage(string.Format(Resources.Common.FieldLength, field, length));
+
         protected IRuleBuilderOptions<TRequest, string?> MinimumLength(Expression<Func<TRequest, string?>> expression, string field, int minimumLength)
             => RuleFor(expression).MinimumLength(minimumLength).WithMessage(string.Format(Resources.Common.FieldMinLength, field, minimumLength));
 
         protected IRuleBuilderOptions<TRequest, string?> MaximumLength(Expression<Func<TRequest, string?>> expression, string field, int maximumLength)
             => RuleFor(expression).MaximumLength(maximumLength).WithMessage(string.Format(Resources.Common.FieldMaxLength, field, maximumLength));
 
-        protected IRuleBuilderOptions<TRequest, string?> RequiredString(Expression<Func<TRequest, string?>> expression, string field, int? minimumLength, int? maximumLength)
+        protected IRuleBuilderOptions<TRequest, string?> RequiredString(Expression<Func<TRequest, string?>> expression, string field, int? minimumLength = null, int? maximumLength = null)
         {
             var ruleBuilderOptions = RequiredField(expression, field);
 
@@ -39,6 +42,22 @@ namespace Company.Product.Module.Domain.Commands.Base
 
                     if (maximumLength.HasValue)
                         ruleBuilderOptions = MaximumLength(expression, field, maximumLength.Value);
+                });
+            }
+
+            return ruleBuilderOptions;
+        }
+
+        protected IRuleBuilderOptions<TRequest, string?> RequiredString(Expression<Func<TRequest, string?>> expression, string field, int? length = null)
+        {
+            var ruleBuilderOptions = RequiredField(expression, field);
+
+            if (length.HasValue)
+            {
+                ruleBuilderOptions = ruleBuilderOptions.DependentRules(() =>
+                {
+                    if (length.HasValue)
+                        ruleBuilderOptions = Length(expression, field, length.Value);
                 });
             }
 
