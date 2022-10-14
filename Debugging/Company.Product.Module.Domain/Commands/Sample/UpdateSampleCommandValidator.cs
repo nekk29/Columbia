@@ -1,7 +1,7 @@
-﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using Company.Product.Module.Domain.Commands.Base;
+﻿using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
+using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 
 namespace Company.Product.Module.Domain.Commands.Sample
 {
@@ -14,7 +14,8 @@ namespace Company.Product.Module.Domain.Commands.Sample
             _sampleRepository = sampleRepository;
 
             RequiredInformation(x => x.UpdateDto)
-                .DependentRules(() => {
+                .DependentRules(() =>
+                {
                     RuleFor(x => x.UpdateDto.Id)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();

@@ -1,6 +1,6 @@
-﻿using System.Net.Http.Json;
-using Company.Product.Module.Dto.Base;
+﻿using Company.Product.Module.Dto.Base;
 using Newtonsoft.Json;
+using System.Net.Http.Json;
 
 namespace Company.Product.Module.RestClient.Base
 {

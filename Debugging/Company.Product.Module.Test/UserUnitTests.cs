@@ -1,11 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using Company.Product.Module.Application.Abstractions;
+﻿using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Token;
 using Company.Product.Module.Dto.User;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
+using System.Threading.Tasks;
 
 namespace Company.Product.Module.Test
 {

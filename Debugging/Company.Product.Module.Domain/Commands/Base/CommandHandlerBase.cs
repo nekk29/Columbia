@@ -17,11 +17,10 @@ namespace Company.Product.Module.Domain.Commands.Base
         protected virtual int ConcurrencyAttempts => 3;
         protected virtual bool ConcurrencyThrowException => false;
 
-        private readonly CommandValidatorBase<TRequest>? _validator;
-
         protected readonly IMapper? _mapper;
         protected readonly IMediator? _mediator;
         protected readonly IUnitOfWork? _unitOfWork;
+        protected readonly CommandValidatorBase<TRequest>? _validator;
 
         public CommandHandlerBaseBase(IUnitOfWork unitOfWork)
             => _unitOfWork = unitOfWork;
@@ -38,7 +37,7 @@ namespace Company.Product.Module.Domain.Commands.Base
         public CommandHandlerBaseBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : this(unitOfWork, mapper, null, validator)
             => _validator = validator;
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
+        public virtual async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
         {
             var attempts = 0;
 
@@ -101,7 +100,7 @@ namespace Company.Product.Module.Domain.Commands.Base
 
         private async Task<TResponse> ValidateAndHandle(TRequest request, CancellationToken cancellationToken)
         {
-            if (_validator != null)
+            if (_validator != null && _validator.Enabled)
             {
                 var result = await _validator.ValidateAsync(request, cancellationToken);
 
@@ -164,6 +163,17 @@ namespace Company.Product.Module.Domain.Commands.Base
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, mediator, validator) { }
 
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, null, validator) { }
+
+        public override async Task<ResponseDto> Handle(TRequest request, CancellationToken cancellationToken)
+        {
+            if (_validator != null && !request.Validate) _validator.Disable();
+
+            var response = await base.Handle(request, cancellationToken);
+
+            if (_validator != null) _validator.Enable();
+
+            return response;
+        }
     }
 
     public abstract class CommandHandlerBase<TRequest, TResponse> : CommandHandlerBaseBase<TRequest, ResponseDto<TResponse>> where TRequest : CommandBase<TResponse>
@@ -177,6 +187,17 @@ namespace Company.Product.Module.Domain.Commands.Base
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, null, validator) { }
 
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, mediator, validator) { }
+
+        public override async Task<ResponseDto<TResponse>> Handle(TRequest request, CancellationToken cancellationToken)
+        {
+            if (_validator != null && !request.Validate) _validator.Disable();
+
+            var response = await base.Handle(request, cancellationToken);
+
+            if (_validator != null) _validator.Enable();
+
+            return response;
+        }
     }
 }
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.

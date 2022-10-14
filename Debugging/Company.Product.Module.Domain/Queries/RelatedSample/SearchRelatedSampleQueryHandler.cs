@@ -3,7 +3,6 @@ using Company.Product.Module.Domain.Queries.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.RelatedSample;
 using Company.Product.Module.Repository.Abstractions.Base;
-using Company.Product.Module.Repository.Extensions;
 using System.Linq.Expressions;
 
 namespace Company.Product.Module.Domain.Queries.RelatedSample

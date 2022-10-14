@@ -133,12 +133,25 @@ namespace Company.Product.Module.Domain.Resources
                 return ResourceManager.GetString("DuplicateRecord", resourceCulture);
             }
         }
-		
-		/// <summary>
+
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} have an invalid email format.
+        /// </summary>
+        internal static string EmailInvalid
+        {
+            get
+            {
+                return ResourceManager.GetString("EmailInvalid", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to The field {0} must have {1} characters.
         /// </summary>
-        internal static string FieldLength {
-            get {
+        internal static string FieldLength
+        {
+            get
+            {
                 return ResourceManager.GetString("FieldLength", resourceCulture);
             }
         }

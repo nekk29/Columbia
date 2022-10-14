@@ -1,6 +1,6 @@
-﻿using Company.Product.Module.RestClient.Base;
-using Company.Product.Module.Dto.Base;
+﻿using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.RelatedSample;
+using Company.Product.Module.RestClient.Base;
 
 namespace Company.Product.Module.RestClient
 {

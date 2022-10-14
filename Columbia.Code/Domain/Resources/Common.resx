@@ -135,6 +135,9 @@
   <data name="DuplicateRecord" xml:space="preserve">
     <value>A record with the same key already exists</value>
   </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>The {0} have an invalid email format</value>
+  </data>
   <data name="FieldLength" xml:space="preserve">
     <value>The field {0} must have {1} characters</value>
     <comment>0: Field, 1: Characteres</comment>

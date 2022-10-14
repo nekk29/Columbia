@@ -5,6 +5,10 @@ namespace $safesolutionname$.Domain.Commands.Base
 {
     public class CommandValidatorBase<TRequest> : AbstractValidator<TRequest>
     {
+        public bool Enabled { get; private set; } = true;
+        public void Enable() => Enabled = true;
+        public void Disable() => Enabled = false;
+
         public bool CustomValidationMessage(ValidationContext<TRequest> context, string message)
         {
             context.MessageFormatter.AppendArgument(Resources.Common.CustomValidationMessageArgument, message);
@@ -37,10 +41,10 @@ namespace $safesolutionname$.Domain.Commands.Base
             {
                 ruleBuilderOptions = ruleBuilderOptions.DependentRules(() =>
                 {
-                    if (minimumLength.HasValue)
+                    if (minimumLength.HasValue && minimumLength != default)
                         ruleBuilderOptions = MinimumLength(expression, field, minimumLength.Value);
 
-                    if (maximumLength.HasValue)
+                    if (maximumLength.HasValue && maximumLength != default)
                         ruleBuilderOptions = MaximumLength(expression, field, maximumLength.Value);
                 });
             }
@@ -56,12 +60,19 @@ namespace $safesolutionname$.Domain.Commands.Base
             {
                 ruleBuilderOptions = ruleBuilderOptions.DependentRules(() =>
                 {
-                    if (length.HasValue)
+                    if (length.HasValue && length != default)
                         ruleBuilderOptions = Length(expression, field, length.Value);
                 });
             }
 
             return ruleBuilderOptions;
+        }
+
+        protected IRuleBuilderOptions<TRequest, string?> ValidMail(Expression<Func<TRequest, string?>> expression, string field)
+        {
+            return RuleFor(expression)
+                .EmailAddress()
+                .WithMessage(string.Format(Resources.Common.EmailInvalid, field));
         }
     }
 

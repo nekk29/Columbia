@@ -1,6 +1,6 @@
-﻿using System.Security.Claims;
-using Company.Product.Module.Common;
+﻿using Company.Product.Module.Common;
 using Company.Product.Module.Repository.Abstractions.Security;
+using System.Security.Claims;
 
 namespace Company.Product.Module.Apis.Security
 {
@@ -22,8 +22,11 @@ namespace Company.Product.Module.Apis.Security
             return claimValue;
         }
 
-        public string GetCurrentUser() =>
-            _httpContextAccessor.HttpContext?.User?.Identity?.Name ?? Constants.Security.User.Admin;
+        public string GetCurrentUser()
+            => GetUserNameClaim() ?? Constants.Security.User.Admin;
+
+        private string GetUserNameClaim()
+            => GetClaims()?.FirstOrDefault(x => x.Type == "sub" || x.Type == "UserName")?.Value!;
 
         public string? GetCurrentUserId()
             => GetClaim<string?>("UserId");

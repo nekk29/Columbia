@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Company.Product.Module.Dto.Sample;
 
-namespace Company.Product.Module.Domain.Mapping.Sample
+namespace Company.Product.Module.Domain.Mapping
 {
     public class SampleProfile : Profile
     {

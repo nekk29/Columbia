@@ -1,5 +1,5 @@
-﻿using System.Linq.Expressions;
-using Company.Product.Module.Entity.Base;
+﻿using Company.Product.Module.Entity.Base;
+using System.Linq.Expressions;
 
 namespace Company.Product.Module.Repository.Abstractions.Base
 {

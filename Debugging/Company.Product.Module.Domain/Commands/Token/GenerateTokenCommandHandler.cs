@@ -1,7 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Token;
@@ -9,6 +6,9 @@ using Company.Product.Module.Repository.Abstractions.Transactions;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Company.Product.Module.Domain.Commands.Token
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Company.Product.Module.Entity.Base
+﻿namespace Company.Product.Module.Entity.Base
 {
     public class SystemEntity
     {
