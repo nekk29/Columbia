@@ -31,9 +31,15 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommand.cs">CreateUserCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommandHandler.cs">CreateUserCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommandValidator.cs">CreateUserCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteUserCommand.cs">DeleteUserCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteUserCommandHandler.cs">DeleteUserCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteUserCommandValidator.cs">DeleteUserCommandValidator.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommand.cs">LoginCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandHandler.cs">LoginCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandValidator.cs">LoginCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserCommand.cs">UpdateUserCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserCommandHandler.cs">UpdateUserCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserCommandValidator.cs">UpdateUserCommandValidator.cs</ProjectItem>
 				</Folder>
 			</Folder>
 			<Folder Name="Extensions" TargetFolderName="Extensions">
@@ -50,6 +56,14 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryBase.cs">SearchQueryBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryHandlerBase.cs">SearchQueryHandlerBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryValidatorBase.cs">SearchQueryValidatorBase.cs</ProjectItem>
+				</Folder>
+				<Folder Name="User" TargetFolderName="User">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetUserQuery.cs">GetUserQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetUserQueryHandler.cs">GetUserQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListUserQuery.cs">ListUserQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListUserQueryHandler.cs">ListUserQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchUserQuery.cs">SearchUserQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchUserQueryHandler.cs">SearchUserQueryHandler.cs</ProjectItem>
 				</Folder>
 			</Folder>
 			<Folder Name="Resources" TargetFolderName="Resources">

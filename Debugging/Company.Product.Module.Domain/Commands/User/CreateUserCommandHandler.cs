@@ -3,6 +3,7 @@ using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.User;
 using Company.Product.Module.EmailClient;
+using Company.Product.Module.Repository.Abstractions.Base;
 using Company.Product.Module.Repository.Abstractions.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +18,7 @@ namespace Company.Product.Module.Domain.Commands.User
         private readonly IEmailClient _emailClient;
         private readonly IConfiguration _configuration;
         private readonly UserManager<Entity.ApplicationUser> _userManager;
+        private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
 
         public CreateUserCommandHandler(
             IUnitOfWork unitOfWork,
@@ -25,12 +27,14 @@ namespace Company.Product.Module.Domain.Commands.User
             CreateUserCommandValidator validator,
             IEmailClient emailClient,
             IConfiguration configuration,
-            UserManager<Entity.ApplicationUser> userManager
+            UserManager<Entity.ApplicationUser> userManager,
+            IRepository<Entity.ApplicationUser> applicationUserRepository
         ) : base(unitOfWork, mapper, mediator, validator)
         {
             _emailClient = emailClient;
             _configuration = configuration;
             _userManager = userManager;
+            _applicationUserRepository = applicationUserRepository;
         }
 
         public override async Task<ResponseDto<GetUserDto>> HandleCommand(CreateUserCommand request, CancellationToken cancellationToken)
@@ -41,8 +45,9 @@ namespace Company.Product.Module.Domain.Commands.User
 
             if (applicationUser != null)
             {
-                applicationUser.Active = true;
                 applicationUser.EmailConfirmed = true;
+
+                _applicationUserRepository.UpdateAuditTrails(applicationUser);
 
                 var result = await _userManager.CreateAsync(applicationUser, request.CreateDto.Password);
 

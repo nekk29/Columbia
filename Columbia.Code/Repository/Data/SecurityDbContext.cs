@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace $safesolutionname$.Repository.Data
 {
-    public class SecurityDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, int>
+    public class SecurityDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public SecurityDbContext(DbContextOptions<SecurityDbContext> options) : base(options)
         {

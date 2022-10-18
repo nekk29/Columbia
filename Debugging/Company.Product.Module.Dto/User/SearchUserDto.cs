@@ -2,7 +2,7 @@
 {
     public class SearchUserDto : UserDto
     {
-        public int Id { get; set; }
-        public bool Active { get; set; }
+        public Guid Id { get; set; }
+        public bool IsActive { get; set; }
     }
 }

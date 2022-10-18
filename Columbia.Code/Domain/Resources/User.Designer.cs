@@ -95,7 +95,8 @@ namespace $safesolutionname$.Domain.Resources {
         ///            font-weight: 600;
         ///            font-size: 13px;
         ///        }
-        ///        /// [rest of string was truncated]&quot;;.
+        ///
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CreateUserEmailBody {
             get {
@@ -109,6 +110,24 @@ namespace $safesolutionname$.Domain.Resources {
         internal static string CreateUserEmailSubject {
             get {
                 return ResourceManager.GetString("CreateUserEmailSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An user with the same email already exists.
+        /// </summary>
+        internal static string DuplicateRecordByEmail {
+            get {
+                return ResourceManager.GetString("DuplicateRecordByEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An user with the same user name already exists.
+        /// </summary>
+        internal static string DuplicateRecordByUserName {
+            get {
+                return ResourceManager.GetString("DuplicateRecordByUserName", resourceCulture);
             }
         }
         
@@ -127,6 +146,15 @@ namespace $safesolutionname$.Domain.Resources {
         internal static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
             }
         }
         
@@ -208,6 +236,24 @@ namespace $safesolutionname$.Domain.Resources {
         internal static string PhoneNumber {
             get {
                 return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User has been disabled.
+        /// </summary>
+        internal static string UserDisabled {
+            get {
+                return ResourceManager.GetString("UserDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User is not registered.
+        /// </summary>
+        internal static string UserDoesNotExist {
+            get {
+                return ResourceManager.GetString("UserDoesNotExist", resourceCulture);
             }
         }
         

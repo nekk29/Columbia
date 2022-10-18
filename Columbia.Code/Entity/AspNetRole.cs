@@ -8,8 +8,12 @@
             Users = new HashSet<AspNetUser>();
         }
 
-        public int Id { get; set; }
-        public bool Active { get; set; }
+        public Guid Id { get; set; }
+        public string CreationUser { get; set; } = null!;
+        public DateTimeOffset CreationDate { get; set; }
+        public string UpdateUser { get; set; } = null!;
+        public DateTimeOffset UpdateDate { get; set; }
+        public bool IsActive { get; set; }
         public string? Name { get; set; }
         public string? NormalizedName { get; set; }
         public string? ConcurrencyStamp { get; set; }

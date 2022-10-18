@@ -35,9 +35,19 @@ namespace $safesolutionname$.Repository.Data
                     .IsUnique()
                     .HasFilter("([NormalizedName] IS NOT NULL)");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CreationUser)
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Name).HasMaxLength(256);
 
                 entity.Property(e => e.NormalizedName).HasMaxLength(256);
+
+                entity.Property(e => e.UpdateUser)
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<AspNetRoleClaim>(entity =>
@@ -57,15 +67,29 @@ namespace $safesolutionname$.Repository.Data
                     .IsUnique()
                     .HasFilter("([NormalizedUserName] IS NOT NULL)");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CreationUser)
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Email).HasMaxLength(256);
 
-                entity.Property(e => e.FirstName).HasMaxLength(100);
+                entity.Property(e => e.FirstName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.LastName).HasMaxLength(100);
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
 
                 entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+
+                entity.Property(e => e.UpdateUser)
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UserName).HasMaxLength(256);
 

@@ -185,11 +185,20 @@
   <data name="CreateUserEmailSubject" xml:space="preserve">
     <value>Registro de Usuario</value>
   </data>
+  <data name="DuplicateRecordByEmail" xml:space="preserve">
+    <value>Ya existe un usuario con el mismo correo</value>
+  </data>
+  <data name="DuplicateRecordByUserName" xml:space="preserve">
+    <value>Ya existe un usuario con el mismo nombre de usuario</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Correo Electrónico</value>
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>Nombres</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Identificador</value>
   </data>
   <data name="LastName" xml:space="preserve">
     <value>Apellidos</value>
@@ -217,6 +226,12 @@
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>Número de Teléfono</value>
+  </data>
+  <data name="UserDisabled" xml:space="preserve">
+    <value>El usuario se encuentra desactivado</value>
+  </data>
+  <data name="UserDoesNotExist" xml:space="preserve">
+    <value>El usuario no se encuentra registrado</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Nombre de Usuario</value>

@@ -3,6 +3,7 @@ using $safesolutionname$.Domain.Commands.Base;
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.User;
 using $safesolutionname$.EmailClient;
+using $safesolutionname$.Repository.Abstractions.Base;
 using $safesolutionname$.Repository.Abstractions.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -17,6 +18,7 @@ namespace $safesolutionname$.Domain.Commands.User
         private readonly IEmailClient _emailClient;
         private readonly IConfiguration _configuration;
         private readonly UserManager<Entity.ApplicationUser> _userManager;
+        private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
 
         public CreateUserCommandHandler(
             IUnitOfWork unitOfWork,
@@ -25,12 +27,14 @@ namespace $safesolutionname$.Domain.Commands.User
             CreateUserCommandValidator validator,
             IEmailClient emailClient,
             IConfiguration configuration,
-            UserManager<Entity.ApplicationUser> userManager
+            UserManager<Entity.ApplicationUser> userManager,
+            IRepository<Entity.ApplicationUser> applicationUserRepository
         ) : base(unitOfWork, mapper, mediator, validator)
         {
             _emailClient = emailClient;
             _configuration = configuration;
             _userManager = userManager;
+            _applicationUserRepository = applicationUserRepository;
         }
 
         public override async Task<ResponseDto<GetUserDto>> HandleCommand(CreateUserCommand request, CancellationToken cancellationToken)
@@ -41,8 +45,9 @@ namespace $safesolutionname$.Domain.Commands.User
 
             if (applicationUser != null)
             {
-                applicationUser.Active = true;
                 applicationUser.EmailConfirmed = true;
+
+                _applicationUserRepository.UpdateAuditTrails(applicationUser);
 
                 var result = await _userManager.CreateAsync(applicationUser, request.CreateDto.Password);
 

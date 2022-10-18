@@ -128,6 +128,28 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to An user with the same email already exists.
+        /// </summary>
+        internal static string DuplicateRecordByEmail
+        {
+            get
+            {
+                return ResourceManager.GetString("DuplicateRecordByEmail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to An user with the same user name already exists.
+        /// </summary>
+        internal static string DuplicateRecordByUserName
+        {
+            get
+            {
+                return ResourceManager.GetString("DuplicateRecordByUserName", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to EMail.
         /// </summary>
         internal static string Email
@@ -146,6 +168,17 @@ namespace Company.Product.Module.Domain.Resources
             get
             {
                 return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier.
+        /// </summary>
+        internal static string Id
+        {
+            get
+            {
+                return ResourceManager.GetString("Id", resourceCulture);
             }
         }
 
@@ -245,6 +278,28 @@ namespace Company.Product.Module.Domain.Resources
             get
             {
                 return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to User has been disabled.
+        /// </summary>
+        internal static string UserDisabled
+        {
+            get
+            {
+                return ResourceManager.GetString("UserDisabled", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to User is not registered.
+        /// </summary>
+        internal static string UserDoesNotExist
+        {
+            get
+            {
+                return ResourceManager.GetString("UserDoesNotExist", resourceCulture);
             }
         }
 

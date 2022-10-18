@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Apis\appsettings.Uat.json" />
     <None Include="Database\Database.csproj" />
     <None Include="Entity\Model\CoreModel.cdm" />
     <None Include="Entity\Model\CoreModel.cdm.diagram" />
@@ -149,6 +150,19 @@
     <None Include="Entity\Base\SortDirection.cs" />
     <None Include="Entity\Base\SortExpression.cs" />
     <None Include="Entity\Base\SystemEntity.cs" />
+    <None Include="Domain\Commands\User\DeleteUserCommand.cs" />
+    <None Include="Domain\Commands\User\DeleteUserCommandHandler.cs" />
+    <None Include="Domain\Commands\User\DeleteUserCommandValidator.cs" />
+    <None Include="Domain\Commands\User\UpdateUserCommand.cs" />
+    <None Include="Domain\Commands\User\UpdateUserCommandHandler.cs" />
+    <None Include="Domain\Commands\User\UpdateUserCommandValidator.cs" />
+    <None Include="Domain\Queries\User\GetUserQuery.cs" />
+    <None Include="Domain\Queries\User\GetUserQueryHandler.cs" />
+    <None Include="Domain\Queries\User\ListUserQuery.cs" />
+    <None Include="Domain\Queries\User\ListUserQueryHandler.cs" />
+    <None Include="Domain\Queries\User\SearchUserQuery.cs" />
+    <None Include="Domain\Queries\User\SearchUserQueryHandler.cs" />
+    <None Include="Dto\User\SearchUserFilterDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />
@@ -275,6 +289,7 @@
   <ItemGroup>
     <None Include="Domain\Resources\User.es.resx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

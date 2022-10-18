@@ -1,8 +1,7 @@
 ﻿namespace $safesolutionname$.Dto.User
 {
-    public class ListUserDto : UserDto
+    public class ListUserDto : GetUserDto
     {
-        public int Id { get; set; }
-        public bool Active { get; set; }
+
     }
 }

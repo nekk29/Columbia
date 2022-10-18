@@ -20,10 +20,11 @@ namespace $safesolutionname$.Domain.Commands.User
             IUnitOfWork unitOfWork,
             IMapper mapper,
             IMediator mediator,
+            LoginCommandValidator validator,
             IConfiguration configuration,
             UserManager<Entity.ApplicationUser> userManager,
             SignInManager<Entity.ApplicationUser> signInManager
-        ) : base(unitOfWork, mapper, mediator)
+        ) : base(unitOfWork, mapper, mediator, validator)
         {
             _configuration = configuration;
             _userManager = userManager;
