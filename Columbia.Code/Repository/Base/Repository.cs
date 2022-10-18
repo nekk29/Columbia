@@ -185,11 +185,12 @@ namespace $safesolutionname$.Repository.Base
                 {
                     foreach (var sortExpression in sortExpressions.Skip(1))
                     {
+                        if (sortExpression?.Property == null) continue;
                         if (findAll is IOrderedQueryable<TEntity> sortExp && firstSortExpression.Property != null)
                         {
-                            findAll = firstSortExpression.Direction == SortDirection.Asc ?
-                                (sortExp).ThenBy(firstSortExpression.Property) :
-                                (sortExp).ThenByDescending(firstSortExpression.Property);
+                            findAll = sortExpression.Direction == SortDirection.Asc ?
+                                (sortExp).ThenBy(sortExpression.Property) :
+                                (sortExp).ThenByDescending(sortExpression.Property);
                         }
                     }
                 }
