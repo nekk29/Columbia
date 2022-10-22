@@ -15,12 +15,15 @@ namespace Company.Product.Module.Repository.Data
 
         }
 
+        public virtual DbSet<Entity.Action> Actions { get; set; } = null!;
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
         public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
+        public virtual DbSet<MenuOption> MenuOptions { get; set; } = null!;
+        public virtual DbSet<Permission> Permissions { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,6 +32,21 @@ namespace Company.Product.Module.Repository.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Entity.Action>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Code).HasMaxLength(64);
+
+                entity.Property(e => e.CreationUser).HasMaxLength(64);
+
+                entity.Property(e => e.Description).HasMaxLength(1024);
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.UpdateUser).HasMaxLength(64);
+            });
+
             modelBuilder.Entity<AspNetRole>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
@@ -136,6 +154,58 @@ namespace Company.Product.Module.Repository.Data
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserTokens)
                     .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<MenuOption>(entity =>
+            {
+                entity.HasIndex(e => e.ActionId, "IX_MenuOptions_ActionId");
+
+                entity.HasIndex(e => e.ParentMenuOptionId, "IX_MenuOptions_ParentMenuOptionId");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Code).HasMaxLength(64);
+
+                entity.Property(e => e.CreationUser).HasMaxLength(64);
+
+                entity.Property(e => e.Description).HasMaxLength(1024);
+
+                entity.Property(e => e.MenuIcon).IsUnicode(false);
+
+                entity.Property(e => e.MenuUri).IsUnicode(false);
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.UpdateUser).HasMaxLength(64);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.MenuOptions)
+                    .HasForeignKey(d => d.ActionId);
+
+                entity.HasOne(d => d.ParentMenuOption)
+                    .WithMany(p => p.InverseParentMenuOption)
+                    .HasForeignKey(d => d.ParentMenuOptionId);
+            });
+
+            modelBuilder.Entity<Permission>(entity =>
+            {
+                entity.HasIndex(e => e.ActionId, "IX_Permissions_ActionId");
+
+                entity.HasIndex(e => e.AspNetRoleId, "IX_Permissions_AspNetRoleId");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CreationUser).HasMaxLength(64);
+
+                entity.Property(e => e.UpdateUser).HasMaxLength(64);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.Permissions)
+                    .HasForeignKey(d => d.ActionId);
+
+                entity.HasOne(d => d.AspNetRole)
+                    .WithMany(p => p.Permissions)
+                    .HasForeignKey(d => d.AspNetRoleId);
             });
 
             OnModelCreatingPartial(modelBuilder);

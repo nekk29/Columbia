@@ -1,0 +1,21 @@
+﻿using Company.Product.Module.Entity.Base;
+
+namespace Company.Product.Module.Entity
+{
+    public partial class Action : SystemEntity
+    {
+        public Action()
+        {
+            MenuOptions = new HashSet<MenuOption>();
+            Permissions = new HashSet<Permission>();
+        }
+
+        public Guid Id { get; set; }
+        public string Code { get; set; } = null!;
+        public string Name { get; set; } = null!;
+        public string? Description { get; set; }
+
+        public virtual ICollection<MenuOption> MenuOptions { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
+    }
+}

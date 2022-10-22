@@ -2,11 +2,13 @@
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.User;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace $safesolutionname$.Apis.Controllers
 {
     [ApiController]
     [Route("api/user")]
+    [Security.Authorize]
     public class UserController
     {
         private readonly IUserApplication _userApplication;
@@ -38,6 +40,7 @@ namespace $safesolutionname$.Apis.Controllers
         public async Task<ResponseDto<SearchResultDto<SearchUserDto>>> Search(SearchParamsDto<SearchUserFilterDto> searchParams)
             => await _userApplication.Search(searchParams);
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _userApplication.Login(loginDto);

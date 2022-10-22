@@ -1,12 +1,14 @@
 ﻿using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Company.Product.Module.Apis.Controllers
 {
     [ApiController]
     [Route("api/user")]
+    [Security.Authorize]
     public class UserController
     {
         private readonly IUserApplication _userApplication;
@@ -38,6 +40,7 @@ namespace Company.Product.Module.Apis.Controllers
         public async Task<ResponseDto<SearchResultDto<SearchUserDto>>> Search(SearchParamsDto<SearchUserFilterDto> searchParams)
             => await _userApplication.Search(searchParams);
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _userApplication.Login(loginDto);

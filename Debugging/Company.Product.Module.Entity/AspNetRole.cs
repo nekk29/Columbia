@@ -5,6 +5,7 @@
         public AspNetRole()
         {
             AspNetRoleClaims = new HashSet<AspNetRoleClaim>();
+            Permissions = new HashSet<Permission>();
             Users = new HashSet<AspNetUser>();
         }
 
@@ -19,6 +20,8 @@
         public string? ConcurrencyStamp { get; set; }
 
         public virtual ICollection<AspNetRoleClaim> AspNetRoleClaims { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
+
         public virtual ICollection<AspNetUser> Users { get; set; }
     }
 }

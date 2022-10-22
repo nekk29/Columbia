@@ -163,6 +163,9 @@
     <None Include="Domain\Queries\User\SearchUserQuery.cs" />
     <None Include="Domain\Queries\User\SearchUserQueryHandler.cs" />
     <None Include="Dto\User\SearchUserFilterDto.cs" />
+    <None Include="Entity\Action.cs" />
+    <None Include="Entity\MenuOption.cs" />
+    <None Include="Entity\Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />
