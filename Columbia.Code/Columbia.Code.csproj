@@ -166,6 +166,7 @@
     <None Include="Entity\Action.cs" />
     <None Include="Entity\MenuOption.cs" />
     <None Include="Entity\Permission.cs" />
+    <None Include="Entity\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />
@@ -230,6 +231,13 @@
     <None Include="Domain\Domain.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\Data\Fixes\00001.AspNetUsers.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00002.AspNetRoles.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00003.AspNetUserRoles.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00004.Module.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00005.Action.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00006.Permission.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00007.MenuOption.Insert.sql" />
     <Content Include="Domain\Domain.vstemplate" />
   </ItemGroup>
   <ItemGroup>

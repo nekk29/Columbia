@@ -6,7 +6,12 @@
         {
             public struct User
             {
-                public const string Admin = "admin";
+                public const string Administrator = "administrator";
+            }
+
+            public struct ClaimTypes
+            {
+                public const string Role = "role";
             }
         }
     }

@@ -21,7 +21,15 @@
 			</Folder>
 			<Folder Name="Data" TargetFolderName="Data">
 				<Folder Name="Environments" TargetFolderName="Environments" />
-				<Folder Name="Fixes" TargetFolderName="Fixes" />
+				<Folder Name="Fixes" TargetFolderName="Fixes">
+					<ProjectItem ReplaceParameters="true" TargetFileName="00001.AspNetUsers.Insert.sql">00001.AspNetUsers.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00002.AspNetRoles.Insert.sql">00002.AspNetRoles.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00003.AspNetUserRoles.Insert.sql">00003.AspNetUserRoles.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00004.Module.Insert.sql">00004.Module.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00005.Action.Insert.sql">00005.Action.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00006.Permission.Insert.sql">00006.Permission.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00007.MenuOption.Insert.sql">00007.MenuOption.Insert.sql</ProjectItem>
+				</Folder>
 				<Folder Name="Settings" TargetFolderName="Settings" />
 			</Folder>
 			<Folder Name="Schema" TargetFolderName="Schema">

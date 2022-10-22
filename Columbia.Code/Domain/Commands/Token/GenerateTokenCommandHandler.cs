@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using $safesolutionname$.Common;
 using $safesolutionname$.Domain.Commands.Base;
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.Token;
 using $safesolutionname$.Repository.Abstractions.Transactions;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,15 +17,18 @@ namespace $safesolutionname$.Domain.Commands.Token
     public class GenerateTokenCommandHandler : CommandHandlerBase<GenerateTokenCommand, AccessTokenDto>
     {
         private readonly IConfiguration _configuration;
+        private readonly UserManager<Entity.ApplicationUser> _userManager;
 
         public GenerateTokenCommandHandler(
             IUnitOfWork unitOfWork,
             IMapper mapper,
             IMediator mediator,
-            IConfiguration configuration
+            IConfiguration configuration,
+            UserManager<Entity.ApplicationUser> userManager
         ) : base(unitOfWork, mapper, mediator)
         {
             _configuration = configuration;
+            _userManager = userManager;
         }
 
         public override async Task<ResponseDto<AccessTokenDto>> HandleCommand(GenerateTokenCommand request, CancellationToken cancellationToken)
@@ -37,7 +42,10 @@ namespace $safesolutionname$.Domain.Commands.Token
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
             var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var claims = new[]
+            var user = await _userManager.FindByNameAsync(request.User.UserName);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, request.User.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
@@ -48,6 +56,9 @@ namespace $safesolutionname$.Domain.Commands.Token
                 new Claim("UserName", request.User.UserName),
                 new Claim("Email", request.User.Email)
             };
+
+            foreach (var role in roles)
+                claims.Add(new Claim(Constants.Security.ClaimTypes.Role, role));
 
             var jwt = new JwtSecurityToken(
                 issuer: issuer,

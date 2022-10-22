@@ -23,7 +23,7 @@ namespace $safesolutionname$.Apis.Security
         }
     
         public string GetCurrentUser()
-            => GetUserNameClaim() ?? Constants.Security.User.Admin;
+            => GetUserNameClaim() ?? Constants.Security.User.Administrator;
 
         private string GetUserNameClaim()
             => GetClaims()?.FirstOrDefault(x => x.Type == "sub" || x.Type == "UserName")?.Value!;
