@@ -57,6 +57,10 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryHandlerBase.cs">SearchQueryHandlerBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryValidatorBase.cs">SearchQueryValidatorBase.cs</ProjectItem>
 				</Folder>
+				<Folder Name="Permission" TargetFolderName="Permission">
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQuery.cs">ListPermissionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQueryHandler.cs">ListPermissionQueryHandler.cs</ProjectItem>
+				</Folder>
 				<Folder Name="User" TargetFolderName="User">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetUserQuery.cs">GetUserQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetUserQueryHandler.cs">GetUserQueryHandler.cs</ProjectItem>

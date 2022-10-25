@@ -1,6 +1,8 @@
-﻿namespace $safesolutionname$.Entity
+﻿using $safesolutionname$.Entity.Base;
+
+namespace $safesolutionname$.Entity
 {
-    public partial class AspNetUser
+    public partial class AspNetUser: SystemEntity
     {
         public AspNetUser()
         {
@@ -13,11 +15,6 @@
         public Guid Id { get; set; }
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
-        public string CreationUser { get; set; } = null!;
-        public DateTimeOffset CreationDate { get; set; }
-        public string UpdateUser { get; set; } = null!;
-        public DateTimeOffset UpdateDate { get; set; }
-        public bool IsActive { get; set; }
         public string? UserName { get; set; }
         public string? NormalizedUserName { get; set; }
         public string? Email { get; set; }
@@ -36,7 +33,6 @@
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetUserToken> AspNetUserTokens { get; set; }
-
         public virtual ICollection<AspNetRole> Roles { get; set; }
     }
 }

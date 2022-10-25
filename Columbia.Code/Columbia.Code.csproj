@@ -167,6 +167,12 @@
     <None Include="Entity\MenuOption.cs" />
     <None Include="Entity\Permission.cs" />
     <None Include="Entity\Module.cs" />
+    <None Include="Application.Abstractions\IPermissionApplication.cs" />
+    <None Include="Application\PermissionApplication.cs" />
+    <None Include="Domain\Queries\Permission\ListPermissionQuery.cs" />
+    <None Include="Domain\Queries\Permission\ListPermissionQueryHandler.cs" />
+    <None Include="Apis\Controllers\PermissionController.cs" />
+    <None Include="Dto\Permission\ListPermissionDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />

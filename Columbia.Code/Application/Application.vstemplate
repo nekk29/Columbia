@@ -21,6 +21,7 @@
 			<Folder Name="Extensions" TargetFolderName="Extensions">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationServiceCollectionExtensions.cs">ApplicationExtensions.cs</ProjectItem>
 			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="PermissionApplication.cs">PermissionApplication.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="UserApplication.cs">UserApplication.cs</ProjectItem>
 		</Project>
 	</TemplateContent>

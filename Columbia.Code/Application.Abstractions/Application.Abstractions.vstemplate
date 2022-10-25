@@ -15,6 +15,7 @@
 	</TemplateData>
 	<TemplateContent>
 		<Project TargetFileName="Application.Abstractions.csproj" File="Application.Abstractions.csproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="true" TargetFileName="IPermissionApplication.cs">IPermissionApplication.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="IUserApplication.cs">IUserApplication.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
