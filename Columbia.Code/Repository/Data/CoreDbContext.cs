@@ -23,7 +23,7 @@ namespace $safesolutionname$.Repository.Data
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
         public virtual DbSet<MenuOption> MenuOptions { get; set; } = null!;
-        public virtual DbSet<Module> Modules { get; set; } = null!;
+        public virtual DbSet<Entity.Module> Modules { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -194,7 +194,7 @@ namespace $safesolutionname$.Repository.Data
                     .HasForeignKey(d => d.ParentMenuOptionId);
             });
 
-            modelBuilder.Entity<Module>(entity =>
+            modelBuilder.Entity<Entity.Module>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
