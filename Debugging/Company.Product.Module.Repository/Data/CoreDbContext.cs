@@ -37,6 +37,8 @@ namespace Company.Product.Module.Repository.Data
             {
                 entity.HasIndex(e => e.ModuleId, "IX_Actions_ModuleId");
 
+                entity.HasIndex(e => e.ParentActionId, "IX_Actions_ParentActionId");
+
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Code).HasMaxLength(64);
@@ -52,6 +54,10 @@ namespace Company.Product.Module.Repository.Data
                 entity.HasOne(d => d.Module)
                     .WithMany(p => p.Actions)
                     .HasForeignKey(d => d.ModuleId);
+
+                entity.HasOne(d => d.ParentAction)
+                    .WithMany(p => p.InverseParentAction)
+                    .HasForeignKey(d => d.ParentActionId);
             });
 
             modelBuilder.Entity<AspNetRole>(entity =>

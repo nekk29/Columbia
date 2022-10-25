@@ -2,7 +2,7 @@
 
 namespace $safesolutionname$.Entity
 {
-    public partial class Module : SystemEntity
+    public partial class Module: SystemEntity
     {
         public Module()
         {
