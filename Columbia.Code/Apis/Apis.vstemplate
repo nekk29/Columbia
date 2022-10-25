@@ -25,6 +25,7 @@
 				<Folder Name="Base" TargetFolderName="Base">
 					<ProjectItem ReplaceParameters="true" TargetFileName="ApiControllerBase.cs">ApiControllerBase.cs</ProjectItem>
 				</Folder>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionController.cs">MenuOptionController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionController.cs">PermissionController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserController.cs">UserController.cs</ProjectItem>
 			</Folder>

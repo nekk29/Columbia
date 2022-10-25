@@ -25,6 +25,11 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchResultDto.cs">SearchResultDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortParamsDto.cs">SortParamsDto.cs</ProjectItem>
 			</Folder>
+			<Folder Name="MenuOption" TargetFolderName="MenuOption">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionDto.cs">ListMenuOptionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionDto.cs">MenuOptionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionDto.cs">TreeMenuOptionDto.cs</ProjectItem>
+			</Folder>
 			<Folder Name="Permission" TargetFolderName="Permission">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionDto.cs">ListPermissionDto.cs</ProjectItem>
 			</Folder>

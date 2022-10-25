@@ -39,7 +39,7 @@ namespace $safesolutionname$.Domain.Queries.Permission
 
             var roles = await _userManager.GetRolesAsync(user);
             var permissions = await _permissionRepository.FindByAsNoTrackingAsync(
-                x => roles.Contains(x.Role.Name),
+                x => x.IsActive && x.Action.IsActive && x.Role.IsActive && roles.Contains(x.Role.Name),
                 x => x.Action,
                 x => x.Role
             );

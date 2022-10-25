@@ -46,6 +46,8 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="DomainServiceCollectionExtensions.cs">DomainExtensions.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Mapping" TargetFolderName="Mapping">
+				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionProfile.cs">MenuOptionProfile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionProfile.cs">PermissionProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserProfile.cs">UserProfile.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Queries" TargetFolderName="Queries">
@@ -56,6 +58,12 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryBase.cs">SearchQueryBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryHandlerBase.cs">SearchQueryHandlerBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryValidatorBase.cs">SearchQueryValidatorBase.cs</ProjectItem>
+				</Folder>
+				<Folder Name="MenuOption" TargetFolderName="MenuOption">
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionsQuery.cs">ListMenuOptionsQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionsQueryHandler.cs">ListMenuOptionsQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionsQuery.cs">TreeMenuOptionsQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionsQueryHandler.cs">TreeMenuOptionsQueryHandler.cs</ProjectItem>
 				</Folder>
 				<Folder Name="Permission" TargetFolderName="Permission">
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQuery.cs">ListPermissionQuery.cs</ProjectItem>
