@@ -1,5 +1,5 @@
-﻿DECLARE @DateTime DATETIME = GETDATE();
-DECLARE @UserName NVARCHAR(256) = 'administrator';
+﻿DECLARE @User NVARCHAR(256) = 'administrator';
+DECLARE @Date DATETIME = GETDATE();
 
 DECLARE @DataTable TABLE (
 	[Id] INT IDENTITY(1, 1),
@@ -29,10 +29,10 @@ SELECT
 	NEWID(),
 	[r].[Id],
 	[a].[Id],
-    @UserName,
-    @DateTime,
-    @UserName,
-    @DateTime,
+    @User,
+    @Date,
+    @User,
+    @Date,
     1
 FROM @DataTable [dt]
 INNER JOIN [dbo].[AspNetRoles] [r] ON [dt].[RoleName] = [r].[Name]

@@ -1,5 +1,5 @@
-﻿DECLARE @DateTime DATETIME = GETDATE();
-DECLARE @UserName NVARCHAR(256) = 'administrator';
+﻿DECLARE @User NVARCHAR(256) = 'administrator';
+DECLARE @Date DATETIME = GETDATE();
 
 DECLARE @ParentId UNIQUEIDENTIFIER
 DECLARE @ParentCode VARCHAR(64)
@@ -58,10 +58,10 @@ BEGIN
 		[dt].[Code],
 		[dt].[Name],
 		[dt].[Description],
-		@UserName,
-		@DateTime,
-		@UserName,
-		@DateTime,
+		@User,
+		@Date,
+		@User,
+		@Date,
 		1
 	FROM @DataTable [dt]
 	INNER JOIN [dbo].[Modules] [m] ON [dt].[ModuleCode] = [m].[Code]

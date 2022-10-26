@@ -1,57 +1,75 @@
-﻿DECLARE @DateTime DATETIME = GETDATE();
-DECLARE @UserName NVARCHAR(256) = 'administrator';
-DECLARE @Email NVARCHAR(256) = 'njose29@outlook.com';
-DECLARE @PasswordHash NVARCHAR(MAX) = '';
-DECLARE @SecurityStamp NVARCHAR(MAX) = '';
-DECLARE @ConcurrencyStamp NVARCHAR(MAX) = NEWID();
+﻿DECLARE @User NVARCHAR(256) = 'administrator';
+DECLARE @Date DATETIME = GETDATE();
 
-IF NOT EXISTS (SELECT TOP 1 1 FROM [dbo].[AspNetUsers] WHERE [UserName] = @UserName AND [Email] = @Email)
-BEGIN
-    INSERT INTO [dbo].[AspNetUsers] (
-        [Id],
-        [FirstName],
-        [LastName],
-        [UserName],
-        [NormalizedUserName],
-        [Email],
-        [NormalizedEmail],
-        [EmailConfirmed],
-        [PasswordHash],
-        [SecurityStamp],
-        [ConcurrencyStamp],
-        [PhoneNumber],
-        [PhoneNumberConfirmed],
-        [TwoFactorEnabled],
-        [LockoutEnd],
-        [LockoutEnabled],
-        [AccessFailedCount],
-        [CreationUser],
-        [CreationDate],
-        [UpdateUser],
-        [UpdateDate],
-        [IsActive]
-    ) VALUES (
-        NEWID(),
-        'Administrator',
-        '',
-        @UserName,
-        UPPER(@UserName),
-        @Email,
-        UPPER(@Email),
-        1,
-        @PasswordHash,
-        @SecurityStamp,
-        @ConcurrencyStamp,
-        NULL,
-        0,
-        0,
-        NULL,
-        1,
-        0,
-        @UserName,
-        @DateTime,
-        @UserName,
-        @DateTime,
-        1
-    );
-END
+DECLARE @DataTable TABLE (
+	[Id] INT IDENTITY(1, 1),
+    [FirstName] VARCHAR(100),
+    [LastName] VARCHAR(100),
+	[UserName] VARCHAR(256),
+	[Email] VARCHAR(256),
+    [PasswordHash] NVARCHAR(MAX),
+    [SecurityStamp] NVARCHAR(MAX)
+);
+
+INSERT INTO @DataTable([FirstName], [LastName], [UserName], [Email], [PasswordHash], [SecurityStamp])
+VALUES (
+    'Administrator',
+    '',
+    'administrator',
+    'njose29@outlook.com',
+    '',
+    ''
+);
+
+INSERT INTO [dbo].[AspNetUsers] (
+    [Id],
+    [FirstName],
+    [LastName],
+    [UserName],
+    [NormalizedUserName],
+    [Email],
+    [NormalizedEmail],
+    [EmailConfirmed],
+    [PasswordHash],
+    [SecurityStamp],
+    [ConcurrencyStamp],
+    [PhoneNumber],
+    [PhoneNumberConfirmed],
+    [TwoFactorEnabled],
+    [LockoutEnd],
+    [LockoutEnabled],
+    [AccessFailedCount],
+    [CreationUser],
+    [CreationDate],
+    [UpdateUser],
+    [UpdateDate],
+    [IsActive]
+)
+SELECT
+    NEWID(),
+    [dt].[FirstName],
+    [dt].[LastName],
+    [dt].[UserName],
+    UPPER([dt].[UserName]),
+    [dt].[Email],
+    UPPER([dt].[Email]),
+    1,
+    [dt].[PasswordHash],
+    [dt].[SecurityStamp],
+    NEWID(),
+    NULL,
+    0,
+    0,
+    NULL,
+    1,
+    0,
+    @User,
+    @Date,
+    @User,
+    @Date,
+    1
+FROM @DataTable [dt]
+WHERE  NOT EXISTS (
+    SELECT TOP 1 1 FROM [dbo].[AspNetUsers]
+    WHERE [UserName] = [dt].[UserName] AND [Email] = [dt].[Email]
+);
