@@ -1,5 +1,5 @@
-﻿DECLARE @DateTime DATETIME = GETDATE();
-DECLARE @UserName NVARCHAR(256) = 'administrator';
+﻿DECLARE @User NVARCHAR(256) = 'administrator';
+DECLARE @Date DATETIME = GETDATE();
 
 DECLARE @ActionId UNIQUEIDENTIFIER
 DECLARE @ActionCode VARCHAR(64)
@@ -77,10 +77,10 @@ BEGIN
 			@MenuUri,
 			@MenuIcon,
 			@SortOrder,
-			@UserName,
-			@DateTime,
-			@UserName,
-			@DateTime,
+			@User,
+			@Date,
+			@User,
+			@Date,
 			1
 		)
 	END

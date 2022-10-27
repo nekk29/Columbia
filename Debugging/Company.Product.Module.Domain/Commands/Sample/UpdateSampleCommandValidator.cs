@@ -16,15 +16,18 @@ namespace Company.Product.Module.Domain.Commands.Sample
             RequiredInformation(x => x.UpdateDto)
                 .DependentRules(() =>
                 {
+                    //RequiredField(x => x.UpdateDto.Id, Resources.Common.IdentifierRequired);
+                    //RequiredField(x => x.UpdateDto.RelatedId, Resources.Sample.RelatedId);
+                    //RequiredString(x => x.UpdateDto.Code, Resources.Sample.Code, {Min}, {Max});
+                    //RequiredString(x => x.UpdateDto.Description, Resources.Sample.Description, {Min}, {Max});
+                }).DependentRules(() =>
+                {
                     RuleFor(x => x.UpdateDto.Id)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();
-
-                    //RequiredField(x => x.CreateDto.RelatedId, Resources.Sample.RelatedId);
-                    //RequiredString(x => x.CreateDto.Code, Resources.Sample.Code, {Min}, {Max});
-                    //RequiredString(x => x.CreateDto.Description, Resources.Sample.Description, {Min}, {Max});
                 });
         }
+
 
         protected async Task<bool> ValidateExistenceAsync(UpdateSampleCommand command, Guid id, ValidationContext<UpdateSampleCommand> context, CancellationToken cancellationToken)
         {

@@ -1,5 +1,5 @@
-﻿DECLARE @DateTime DATETIME = GETDATE();
-DECLARE @UserName NVARCHAR(256) = 'administrator';
+﻿DECLARE @User NVARCHAR(256) = 'administrator';
+DECLARE @Date DATETIME = GETDATE();
 
 DECLARE @DataTable TABLE (
 	[Id] INT IDENTITY(1, 1),
@@ -29,10 +29,10 @@ SELECT
 	[Code],
 	[Name],
 	[Description],
-    @UserName,
-    @DateTime,
-    @UserName,
-    @DateTime,
+    @User,
+    @Date,
+    @User,
+    @Date,
     1
 FROM @DataTable [dt]
 WHERE NOT EXISTS (

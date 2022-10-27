@@ -25,21 +25,18 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
             RequiredInformation(x => x.UpdateDto)
                 .DependentRules(() => {
 <#
-    if (keyProperty != null)
-    {
-#>
-                    RuleFor(x => x.UpdateDto.<#= keyProperty.Name #>)
-                        .MustAsync(ValidateExistenceAsync)
-                        .WithCustomValidationMessage();
-
-<#
-    }
-#>
-<#
     if(!Entity.EntityProperties.Any() && !Entity.PrimitiveProperties.Where(x => !x.IsPrimaryKey).Any())
     {
 #>
                     /* Place your validations here... */
+<#
+    }
+#>
+<#
+    if (keyProperty != null)
+    {
+#>
+                    //RequiredField(x => x.UpdateDto.<#= keyProperty.Name #>, Resources.Common.IdentifierRequired);
 <#
     }
 #>
@@ -57,11 +54,11 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 
             if (relatedEntityKey.Type == "string") {
 #>
-                    //RequiredString(x => x.CreateDto.<#= foreignKey #>, Resources.<#= Entity.Name #>.<#= foreignKey #>, {Min}, {Max});
+                    //RequiredString(x => x.UpdateDto.<#= foreignKey #>, Resources.<#= Entity.Name #>.<#= foreignKey #>, {Min}, {Max});
 <#
             } else {
 #>
-                    //RequiredField(x => x.CreateDto.<#= foreignKey #>, Resources.<#= Entity.Name #>.<#= foreignKey #>);
+                    //RequiredField(x => x.UpdateDto.<#= foreignKey #>, Resources.<#= Entity.Name #>.<#= foreignKey #>);
 <#
             }
         }
@@ -73,17 +70,38 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
         if (!primitiveProperty.Required) continue;
         if (primitiveProperty.Type == "string") {
 #>
-                    //RequiredString(x => x.CreateDto.<#= primitiveProperty.Name #>, Resources.<#= Entity.Name #>.<#= primitiveProperty.Name #>, {Min}, {Max});
+                    //RequiredString(x => x.UpdateDto.<#= primitiveProperty.Name #>, Resources.<#= Entity.Name #>.<#= primitiveProperty.Name #>, {Min}, {Max});
 <#
         } else {
 #>
-                    //RequiredField(x => x.CreateDto.<#= primitiveProperty.Name #>, Resources.<#= Entity.Name #>.<#= primitiveProperty.Name #>);
+                    //RequiredField(x => x.UpdateDto.<#= primitiveProperty.Name #>, Resources.<#= Entity.Name #>.<#= primitiveProperty.Name #>);
 <#
         }
 	}
 #>
+<#
+    if (keyProperty != null)
+    {
+#>
+                }).DependentRules(() =>
+                {
+                    RuleFor(x => x.UpdateDto.<#= keyProperty.Name #>)
+                        .MustAsync(ValidateExistenceAsync)
+                        .WithCustomValidationMessage();
                 });
         }
+
+<#
+    }
+    else
+    {
+#>
+
+                });
+        }
+<#
+    }
+#>
 <#
     if (keyProperty != null)
     {
