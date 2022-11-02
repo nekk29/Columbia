@@ -55,6 +55,10 @@ namespace Company.Product.Module.Domain.Commands.User
             }
 
             var applicationUser = await _userManager.FindByNameAsync(request.LoginDto.UserName);
+
+            if (applicationUser == null)
+                applicationUser = await _userManager.FindByEmailAsync(request.LoginDto.UserName);
+
             var isEmailConfirmed = await _userManager.IsEmailConfirmedAsync(applicationUser);
 
             if (_userManager.Options.SignIn.RequireConfirmedAccount && !isEmailConfirmed)
