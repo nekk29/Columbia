@@ -35,5 +35,11 @@ namespace Company.Product.Module.Application
 
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _mediator.Send(new LoginCommand(loginDto));
+
+        public async Task<ResponseDto> ForgotPassword(string email)
+            => await _mediator.Send(new ForgotPasswordCommand(email));
+
+        public async Task<ResponseDto> ResetPassword(ResetPasswordDto resetPasswordDto)
+            => await _mediator.Send(new ResetPasswordCommand(resetPasswordDto));
     }
 }

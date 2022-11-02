@@ -172,6 +172,28 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to An error has ocurred sending email to reset your password.
+        /// </summary>
+        internal static string ForgotPasswordError
+        {
+            get
+            {
+                return ResourceManager.GetString("ForgotPasswordError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to A message to reset your password has been sent to your email, please check your inbox.
+        /// </summary>
+        internal static string ForgotPasswordSuccess
+        {
+            get
+            {
+                return ResourceManager.GetString("ForgotPasswordSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
         internal static string Id
@@ -278,6 +300,98 @@ namespace Company.Product.Module.Domain.Resources
             get
             {
                 return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Reset password code.
+        /// </summary>
+        internal static string ResetPasswordCode
+        {
+            get
+            {
+                return ResourceManager.GetString("ResetPasswordCode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            text-align: center;
+        ///            font-family: monospace;
+        ///        }
+        ///
+        ///        .app-logo {
+        ///            margin: 15px;
+        ///        }
+        ///
+        ///        .app-text {
+        ///            margin: 12px;
+        ///            color: rgb(15, 20, 25);
+        ///            font-weight: 600;
+        ///            font-size: 14px;
+        ///        }
+        ///
+        ///        .app-text-small {
+        ///            margin: 10px;
+        ///            color: rgb(15, 20, 25);
+        ///            font-weight: 600;
+        ///            font-size: 13px;
+        ///        }
+        ///
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ResetPasswordEmail
+        {
+            get
+            {
+                return ResourceManager.GetString("ResetPasswordEmail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred reseting your password.
+        /// </summary>
+        internal static string ResetPasswordError
+        {
+            get
+            {
+                return ResourceManager.GetString("ResetPasswordError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The password and password confirmation don&apos;t match.
+        /// </summary>
+        internal static string ResetPasswordNoMatch
+        {
+            get
+            {
+                return ResourceManager.GetString("ResetPasswordNoMatch", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Password Reset.
+        /// </summary>
+        internal static string ResetPasswordSubject
+        {
+            get
+            {
+                return ResourceManager.GetString("ResetPasswordSubject", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Your password has been reset successfully.
+        /// </summary>
+        internal static string ResetPasswordSuccess
+        {
+            get
+            {
+                return ResourceManager.GetString("ResetPasswordSuccess", resourceCulture);
             }
         }
 
