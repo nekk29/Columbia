@@ -28,7 +28,11 @@ namespace Company.Product.Module.Apis.Security
         private string GetUserNameClaim()
             => GetClaims()?.FirstOrDefault(x => x.Type == "sub" || x.Type == "UserName")?.Value!;
 
-        public string? GetCurrentUserId()
-            => GetClaim<string?>("UserId");
+        public Guid? GetCurrentUserId()
+        {
+            var userId = GetClaim<string>("UserId");
+            var parsed = Guid.TryParse(userId, out Guid userGuid);
+            return parsed ? userGuid : null;
+        }
     }
 }

@@ -7,6 +7,6 @@ namespace Company.Product.Module.Repository.Abstractions.Security
         IEnumerable<Claim> GetClaims();
         T? GetClaim<T>(string type);
         string GetCurrentUser();
-        string? GetCurrentUserId();
+        Guid? GetCurrentUserId();
     }
 }
