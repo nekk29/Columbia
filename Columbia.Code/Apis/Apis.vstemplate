@@ -40,6 +40,9 @@
 			<Folder Name="Exception" TargetFolderName="Exception">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ExceptionApplicationBuilderExtensions.cs">ExceptionExtensions.cs</ProjectItem>
 			</Folder>
+			<Folder Name="Localization" TargetFolderName="Localization">
+				<ProjectItem ReplaceParameters="true" TargetFileName="LocalizationApplicationBuilderExtensions.cs">LocalizationExtensions.cs</ProjectItem>
+			</Folder>
 			<Folder Name="Migrations" TargetFolderName="Migrations">
 				<ProjectItem ReplaceParameters="true" TargetFileName="_GenerateMigrations.ps1">_GenerateMigrations.ps1</ProjectItem>
 			</Folder>

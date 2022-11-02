@@ -1,8 +1,10 @@
 ﻿using Company.Product.Module.Apis.Documentation;
 using Company.Product.Module.Apis.Endpoints;
 using Company.Product.Module.Apis.Exception;
+using Company.Product.Module.Apis.Localization;
 using Company.Product.Module.Apis.Security;
 using Company.Product.Module.Application.Extensions;
+using Company.Product.Module.Common;
 using Company.Product.Module.Domain.Extensions;
 using Company.Product.Module.EmailClient;
 using Company.Product.Module.Repository.Extensions;
@@ -55,6 +57,15 @@ var app = builder.Build();
 
 // Cors
 app.UseCors("CorsPolicy");
+
+// Localization
+app.UseLocalization(
+    configuration,
+    new string[] {
+        Constants.Culture.esESCulture,
+        Constants.Culture.enUSCulture
+    }
+);
 
 // CustomExceptionHandler
 app.UseCustomExceptionHandler();

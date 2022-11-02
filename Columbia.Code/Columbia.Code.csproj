@@ -192,6 +192,7 @@
     <None Include="Domain\Commands\User\ResetPasswordCommand.cs" />
     <None Include="Domain\Commands\User\ResetPasswordCommandHandler.cs" />
     <None Include="Domain\Commands\User\ResetPasswordCommandValidator.cs" />
+    <None Include="Apis\Localization\LocalizationExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />

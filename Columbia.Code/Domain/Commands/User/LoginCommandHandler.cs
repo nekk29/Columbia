@@ -35,7 +35,13 @@ namespace $safesolutionname$.Domain.Commands.User
         {
             var response = new ResponseDto<LoginResultDto>();
             var lockoutOnFailure = _configuration.GetValue<bool>("SignInOptions:LockoutEnabled");
-            var result = await _signInManager.PasswordSignInAsync(request.LoginDto.UserName, request.LoginDto.Password, request.LoginDto.RememberMe, lockoutOnFailure: lockoutOnFailure);
+
+            var applicationUser = await _userManager.FindByNameAsync(request.LoginDto.UserName);
+
+            if (applicationUser == null)
+                applicationUser = await _userManager.FindByEmailAsync(request.LoginDto.UserName);
+
+            var result = await _signInManager.PasswordSignInAsync(applicationUser.UserName, request.LoginDto.Password, request.LoginDto.RememberMe, lockoutOnFailure: lockoutOnFailure);
 
             if (result.Succeeded)
             {
@@ -53,11 +59,6 @@ namespace $safesolutionname$.Domain.Commands.User
 
                 return response;
             }
-
-            var applicationUser = await _userManager.FindByNameAsync(request.LoginDto.UserName);
-
-            if (applicationUser == null)
-                applicationUser = await _userManager.FindByEmailAsync(request.LoginDto.UserName);
 
             var isEmailConfirmed = await _userManager.IsEmailConfirmedAsync(applicationUser);
 
