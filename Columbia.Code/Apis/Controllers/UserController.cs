@@ -44,5 +44,15 @@ namespace $safesolutionname$.Apis.Controllers
         [HttpPost("login")]
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _userApplication.Login(loginDto);
+
+        [AllowAnonymous]
+        [HttpGet("forgot-password/{email}")]
+        public async Task<ResponseDto> ForgotPassword(string email)
+            => await _userApplication.ForgotPassword(email);
+
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<ResponseDto> ResetPassword(ResetPasswordDto resetPasswordDto)
+            => await _userApplication.ResetPassword(resetPasswordDto);
     }
 }

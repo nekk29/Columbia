@@ -42,6 +42,7 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListUserDto.cs">ListUserDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="LoginDto.cs">LoginDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="LoginResultDto.cs">LoginResultDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordDto.cs">ResetPasswordDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchUserDto.cs">SearchUserDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchUserFilterDto.cs">SearchUserFilterDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserDto.cs">UpdateUserDto.cs</ProjectItem>

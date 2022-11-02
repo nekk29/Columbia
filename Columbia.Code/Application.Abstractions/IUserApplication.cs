@@ -12,5 +12,7 @@ namespace $safesolutionname$.Application.Abstractions
         Task<ResponseDto<IEnumerable<ListUserDto>>> List();
         Task<ResponseDto<SearchResultDto<SearchUserDto>>> Search(SearchParamsDto<SearchUserFilterDto> searchParams);
         Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto);
+        Task<ResponseDto> ForgotPassword(string email);
+        Task<ResponseDto> ResetPassword(ResetPasswordDto resetPasswordDto);
     }
 }

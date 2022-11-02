@@ -75,12 +75,14 @@ namespace $safesolutionname$.Domain.Commands.User
         public async Task SendCreationEmail(CreateUserCommand request)
         {
             var sendMail = _configuration.GetValue<bool>("SignInOptions:SendMailOnSignUp");
+            var frontUrlLogo = _configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
 
             if (sendMail)
             {
                 var emailBody = Resources.User.CreateUserEmailBody;
 
                 emailBody = emailBody.Replace("{APLICACION}", _configuration.GetValue<string>("ApiOptions:Name"));
+                emailBody = emailBody.Replace("{LOGO}", frontUrlLogo);
                 emailBody = emailBody.Replace("{USER}", request.CreateDto.UserName);
                 emailBody = emailBody.Replace("{PASSWORD}", request.CreateDto.Password);
 

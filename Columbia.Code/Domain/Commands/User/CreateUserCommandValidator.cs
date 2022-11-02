@@ -23,6 +23,9 @@ namespace $safesolutionname$.Domain.Commands.User
                     RequiredString(x => x.CreateDto.LastName, Resources.User.LastName, 2, 100);
                     RequiredString(x => x.CreateDto.Password, Resources.User.Password, 2, 256);
                     RequiredString(x => x.CreateDto.ConfirmPassword, Resources.User.ConfirmPassword, 2, 256);
+                    RuleFor(x => x.CreateDto)
+                        .Must(ValidatePasswordAsync)
+                        .WithCustomValidationMessage();
                 })
                 .DependentRules(() =>
                 {
@@ -41,6 +44,17 @@ namespace $safesolutionname$.Domain.Commands.User
 
             if (applicationUser != null)
                 return CustomValidationMessage(context, Resources.Common.DuplicateRecord);
+
+            return true;
+        }
+
+        protected bool ValidatePasswordAsync(CreateUserCommand command, CreateUserDto dto, ValidationContext<CreateUserCommand> context)
+        {
+            if (string.IsNullOrEmpty(dto.Password)) return true;
+            if (string.IsNullOrEmpty(dto.ConfirmPassword)) return true;
+
+            if (string.Compare(dto.Password, dto.ConfirmPassword) != 0)
+                return CustomValidationMessage(context, Resources.User.ResetPasswordNoMatch);
 
             return true;
         }

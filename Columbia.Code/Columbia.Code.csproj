@@ -185,6 +185,13 @@
     <None Include="Application.Abstractions\IMenuOptionApplication.cs" />
     <None Include="Application\MenuOptionApplication.cs" />
     <None Include="Apis\Controllers\MenuOptionController.cs" />
+    <None Include="Dto\User\ResetPasswordDto.cs" />
+    <None Include="Domain\Commands\User\ForgotPasswordCommand.cs" />
+    <None Include="Domain\Commands\User\ForgotPasswordCommandHandler.cs" />
+    <None Include="Domain\Commands\User\ForgotPasswordCommandValidator.cs" />
+    <None Include="Domain\Commands\User\ResetPasswordCommand.cs" />
+    <None Include="Domain\Commands\User\ResetPasswordCommandHandler.cs" />
+    <None Include="Domain\Commands\User\ResetPasswordCommandValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />

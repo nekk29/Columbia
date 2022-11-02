@@ -34,9 +34,15 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteUserCommand.cs">DeleteUserCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteUserCommandHandler.cs">DeleteUserCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteUserCommandValidator.cs">DeleteUserCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ForgotPasswordCommand.cs">ForgotPasswordCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ForgotPasswordCommandHandler.cs">ForgotPasswordCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ForgotPasswordCommandValidator.cs">ForgotPasswordCommandValidator.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommand.cs">LoginCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandHandler.cs">LoginCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandValidator.cs">LoginCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommand.cs">ResetPasswordCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommandHandler.cs">ResetPasswordCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommandValidator.cs">ResetPasswordCommandValidator.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserCommand.cs">UpdateUserCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserCommandHandler.cs">UpdateUserCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateUserCommandValidator.cs">UpdateUserCommandValidator.cs</ProjectItem>
