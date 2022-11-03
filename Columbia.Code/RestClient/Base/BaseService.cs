@@ -16,11 +16,63 @@ namespace $safesolutionname$.RestClient.Base
             Headers = options?.Headers ?? new Dictionary<string, string>();
         }
 
-        protected async Task<ResponseDto>? Get(string resource = "")
+        protected async Task<ResponseDto> Get(string resource = "")
+            => await Request((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
+
+        protected async Task<ResponseDto<TResponse>> Get<TResponse>(string resource = "")
+            => await Request<TResponse>((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
+
+        protected async Task<HttpResponseMessage> GetResponse(string resource = "")
+            => await RequestResponse((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
+
+
+        protected async Task<ResponseDto> Post<TRequest>(string resource = "", TRequest body = default!)
+            => await Request((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+        protected async Task<ResponseDto<TResponse>> Post<TRequest, TResponse>(string resource = "", TRequest body = default!)
+            => await Request<TRequest, TResponse>((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+        protected async Task<HttpResponseMessage> PostResponse<TRequest>(string resource = "", TRequest body = default!)
+            => await RequestResponse((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+
+        protected async Task<ResponseDto> Put<TRequest>(string resource = "", TRequest? body = default)
+            => await Request((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+        protected async Task<ResponseDto<TResponse>> Put<TRequest, TResponse>(string resource = "", TRequest? body = default)
+            => await Request<TRequest, TResponse>((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+        protected async Task<HttpResponseMessage> PutResponse<TRequest>(string resource = "", TRequest? body = default)
+            => await RequestResponse((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+
+        protected async Task<ResponseDto> Patch(string resource = "", HttpContent? body = default)
+            => await Request((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+        protected async Task<ResponseDto<TResponse>> Patch<TResponse>(string resource = "", HttpContent? body = default)
+            => await Request<HttpContent, TResponse>((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+        protected async Task<HttpResponseMessage> PatchResponse(string resource = "", HttpContent? body = default)
+            => await RequestResponse((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+
+
+        protected async Task<ResponseDto> Delete(string resource = "")
+            => await Request((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
+
+        protected async Task<ResponseDto<TResponse>> Delete<TResponse>(string resource = "")
+            => await Request<TResponse>((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
+
+        protected async Task<HttpResponseMessage> DeleteResponse(string resource = "")
+            => await RequestResponse((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
+
+
+        private async Task<ResponseDto> Request(Func<HttpClient, Task<HttpResponseMessage>> func)
         {
             try
             {
-                return await GetEntity<ResponseDto>(resource)!;
+                var http = GetHttpClient();
+                var response = await func.Invoke(http);
+                return await Deserialize<ResponseDto>(response);
             }
             catch (Exception ex)
             {
@@ -29,11 +81,13 @@ namespace $safesolutionname$.RestClient.Base
             }
         }
 
-        protected async Task<ResponseDto<TResponse>>? Get<TResponse>(string resource = "")
+        private async Task<ResponseDto<TResponse>> Request<TResponse>(Func<HttpClient, Task<HttpResponseMessage>> func)
         {
             try
             {
-                return await GetEntity<ResponseDto<TResponse>>(resource)!;
+                var http = GetHttpClient();
+                var response = await func.Invoke(http);
+                return await Deserialize<ResponseDto<TResponse>>(response);
             }
             catch (Exception ex)
             {
@@ -42,21 +96,13 @@ namespace $safesolutionname$.RestClient.Base
             }
         }
 
-        protected async Task<TResponse>? GetEntity<TResponse>(string resource = "")
-        {
-            var http = GetHttpClient();
-            var response = await http.GetAsync($"{BaseUrl}{ApiController}{resource}");
-            var responseString = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode != System.Net.HttpStatusCode.OK) throw new Exception(responseString);
-            var resultado = JsonConvert.DeserializeObject<TResponse>(responseString!);
-            return resultado!;
-        }
-
-        protected async Task<ResponseDto>? Post<TRequest>(string resource = "", TRequest? body = default)
+        private async Task<ResponseDto> Request<TRequest>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
         {
             try
             {
-                return await PostEntity<TRequest, ResponseDto>(resource, body)!;
+                var http = GetHttpClient();
+                var response = await func.Invoke(http, body!);
+                return await Deserialize<ResponseDto>(response);
             }
             catch (Exception ex)
             {
@@ -65,11 +111,13 @@ namespace $safesolutionname$.RestClient.Base
             }
         }
 
-        protected async Task<ResponseDto<TResponse>>? Post<TRequest, TResponse>(string resource = "", TRequest? body = default)
+        private async Task<ResponseDto<TResponse>> Request<TRequest, TResponse>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
         {
             try
             {
-                return await PostEntity<TRequest, ResponseDto<TResponse>>(resource, body)!;
+                var http = GetHttpClient();
+                var response = await func.Invoke(http, body!);
+                return await Deserialize<ResponseDto<TResponse>>(response);
             }
             catch (Exception ex)
             {
@@ -78,122 +126,26 @@ namespace $safesolutionname$.RestClient.Base
             }
         }
 
-        protected async Task<TResponse>? PostEntity<TRequest, TResponse>(string resource = "", TRequest? body = default)
+        private async Task<HttpResponseMessage> RequestResponse(Func<HttpClient, Task<HttpResponseMessage>> func)
         {
             var http = GetHttpClient();
-            var response = await http.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body);
-            var responseString = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode != System.Net.HttpStatusCode.OK) throw new Exception(responseString);
-            var resultado = JsonConvert.DeserializeObject<TResponse>(responseString!);
-            return resultado!;
+            return await func.Invoke(http);
         }
 
-        protected async Task<ResponseDto>? Put<TRequest>(string resource = "", TRequest? body = default)
-        {
-            try
-            {
-                return await PutEntity<TRequest, ResponseDto>(resource, body)!;
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult(ex);
-                return response;
-            }
-        }
-
-        protected async Task<ResponseDto<TResponse>>? Put<TRequest, TResponse>(string resource = "", TRequest? body = default)
-        {
-            try
-            {
-                return await PutEntity<TRequest, ResponseDto<TResponse>>(resource, body)!;
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult<TResponse>(ex);
-                return response;
-            }
-        }
-
-        protected async Task<TResponse>? PutEntity<TRequest, TResponse>(string resource = "", TRequest? body = default)
+        private async Task<HttpResponseMessage> RequestResponse<TRequest>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
         {
             var http = GetHttpClient();
-            var response = await http.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body);
-            var responseString = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode != System.Net.HttpStatusCode.OK) throw new Exception(responseString);
-            var resultado = JsonConvert.DeserializeObject<TResponse>(responseString!);
-            return resultado!;
+            return await func.Invoke(http, body!);
         }
 
-        protected async Task<ResponseDto>? Patch<TRequest>(string resource = "", HttpContent? body = default)
+        protected static async Task<TResponse> Deserialize<TResponse>(HttpResponseMessage response)
         {
-            try
-            {
-                return await PatchEntity<TRequest, ResponseDto>(resource, body)!;
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult(ex);
-                return response;
-            }
-        }
+            var responseContent = await response.Content.ReadAsStringAsync();
 
-        protected async Task<ResponseDto<TResponse>>? Patch<TRequest, TResponse>(string resource = "", HttpContent? body = default)
-        {
-            try
-            {
-                return await PatchEntity<TRequest, ResponseDto<TResponse>>(resource, body)!;
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult<TResponse>(ex);
-                return response;
-            }
-        }
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                throw new Exception(responseContent);
 
-        protected async Task<TResponse>? PatchEntity<TRequest, TResponse>(string resource = "", HttpContent? body = default)
-        {
-            var http = GetHttpClient();
-            var response = await http.PatchAsync($"{BaseUrl}{ApiController}{resource}", body);
-            var responseString = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode != System.Net.HttpStatusCode.OK) throw new Exception(responseString);
-            var resultado = JsonConvert.DeserializeObject<TResponse>(responseString!);
-            return resultado!;
-        }
-
-        protected async Task<ResponseDto>? Delete(string resource = "")
-        {
-            try
-            {
-                return await DeleteEntity<ResponseDto>()!;
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult(ex);
-                return response;
-            }
-        }
-
-        protected async Task<ResponseDto<TResponse>>? Delete<TResponse>(string resource = "")
-        {
-            try
-            {
-                return await DeleteEntity<ResponseDto<TResponse>>()!;
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult<TResponse>(ex);
-                return response;
-            }
-        }
-
-        protected async Task<TResponse>? DeleteEntity<TResponse>(string resource = "")
-        {
-            var http = GetHttpClient();
-            var response = await http.DeleteAsync($"{BaseUrl}{ApiController}{resource}");
-            var responseString = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode != System.Net.HttpStatusCode.OK) throw new Exception(responseString);
-            var resultado = JsonConvert.DeserializeObject<TResponse>(responseString!);
-            return resultado!;
+            return JsonConvert.DeserializeObject<TResponse>(responseContent!)!;
         }
 
         private HttpClient GetHttpClient()
@@ -211,11 +163,11 @@ namespace $safesolutionname$.RestClient.Base
             return httpClient;
         }
 
-        private ResponseDto GetErrorResult(Exception ex)
-            => new ResponseDto { Messages = GetMessages(ex) };
+        private static ResponseDto GetErrorResult(Exception ex)
+            => new() { Messages = GetMessages(ex) };
 
-        private ResponseDto<T> GetErrorResult<T>(Exception ex)
-            => new ResponseDto<T> { Messages = GetMessages(ex) };
+        private static ResponseDto<TResponse> GetErrorResult<TResponse>(Exception ex)
+            => new() { Messages = GetMessages(ex) };
 
         private static List<ApplicationMessageDto> GetMessages(Exception ex)
         {
