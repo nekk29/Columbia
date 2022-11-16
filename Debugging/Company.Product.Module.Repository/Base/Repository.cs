@@ -80,6 +80,7 @@ namespace Company.Product.Module.Repository.Base
 
             _dbContext.Set<TEntity>().Attach(entity);
             _dbContext.Set<TEntity>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
 
             return await Task.FromResult(default(int));
         }
@@ -92,6 +93,7 @@ namespace Company.Product.Module.Repository.Base
             entities.ToList().ForEach(entity => _dbContext.Set<TEntity>().Attach(entity));
 
             _dbContext.Set<TEntity>().RemoveRange(entities);
+            await _dbContext.SaveChangesAsync();
 
             return await Task.FromResult(default(int));
         }
