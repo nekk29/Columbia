@@ -80,54 +80,6 @@ namespace Company.Product.Module.Domain.Resources
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to &lt;html&gt;
-        ///&lt;head&gt;
-        ///    &lt;style&gt;
-        ///        body {
-        ///            text-align: center;
-        ///            font-family: monospace;
-        ///        }
-        ///
-        ///        .app-logo {
-        ///            margin: 15px;
-        ///        }
-        ///
-        ///        .app-text {
-        ///            margin: 12px;
-        ///            color: rgb(15, 20, 25);
-        ///            font-weight: 600;
-        ///            font-size: 14px;
-        ///        }
-        ///
-        ///        .app-text-small {
-        ///            margin: 10px;
-        ///            color: rgb(15, 20, 25);
-        ///            font-weight: 600;
-        ///            font-size: 13px;
-        ///        }
-        ///
-        /// [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string CreateUserEmailBody
-        {
-            get
-            {
-                return ResourceManager.GetString("CreateUserEmailBody", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to User Registration.
-        /// </summary>
-        internal static string CreateUserEmailSubject
-        {
-            get
-            {
-                return ResourceManager.GetString("CreateUserEmailSubject", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Looks up a localized string similar to An user with the same email already exists.
         /// </summary>
         internal static string DuplicateRecordByEmail
@@ -370,17 +322,6 @@ namespace Company.Product.Module.Domain.Resources
             get
             {
                 return ResourceManager.GetString("ResetPasswordNoMatch", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Password Reset.
-        /// </summary>
-        internal static string ResetPasswordSubject
-        {
-            get
-            {
-                return ResourceManager.GetString("ResetPasswordSubject", resourceCulture);
             }
         }
 

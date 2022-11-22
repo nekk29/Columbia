@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Company.Product.Module.Common;
 using Company.Product.Module.Domain.Commands.Base;
+using Company.Product.Module.Domain.Commands.Email;
 using Company.Product.Module.Dto.Base;
+using Company.Product.Module.Dto.Email;
 using Company.Product.Module.Dto.User;
-using Company.Product.Module.EmailClient;
 using Company.Product.Module.Entity;
 using Company.Product.Module.Repository.Abstractions.Transactions;
 using MediatR;
@@ -16,7 +18,6 @@ namespace Company.Product.Module.Domain.Commands.User
 {
     public class ForgotPasswordCommandHandler : CommandHandlerBase<ForgotPasswordCommand>
     {
-        private readonly IEmailClient _emailClient;
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -25,12 +26,10 @@ namespace Company.Product.Module.Domain.Commands.User
             IMapper mapper,
             IMediator mediator,
             ForgotPasswordCommandValidator validator,
-            IEmailClient emailClient,
             IConfiguration configuration,
             UserManager<ApplicationUser> userManager
         ) : base(unitOfWork, mapper, mediator, validator)
         {
-            _emailClient = emailClient;
             _configuration = configuration;
             _userManager = userManager;
         }
@@ -62,20 +61,21 @@ namespace Company.Product.Module.Domain.Commands.User
 
             var frontUrl = _configuration.GetValue<string>("SecurityOptions:FrontUrl");
             var frontUrlLogo = _configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
-
             var callbackUrl = $"{frontUrl}/user/reset-password?email={email}&code={encoded}";
-            var emailBody = Resources.User.ResetPasswordEmail;
 
-            emailBody = emailBody.Replace("{LOGO}", frontUrlLogo);
-            emailBody = emailBody.Replace("{USER}", user.FirstName);
-            emailBody = emailBody.Replace("{LINK}", callbackUrl);
+            var emailDto = new SendEmailDto
+            {
+                EmailCode = Constants.Email.User.ResetPassword,
+                ToEmails = new List<string> { user.Email ?? string.Empty },
+                BodyParams = new Dictionary<string, string>
+                {
+                    { "{LOGO}", frontUrlLogo },
+                    { "{USER}", user.FirstName! },
+                    { "{LINK}", callbackUrl }
+                }
+            };
 
-            await _emailClient.SendEmailAsync(
-                user.Email ?? string.Empty,
-                Resources.User.ResetPasswordSubject,
-                emailBody,
-                true
-            );
+            await _mediator!.Send(new SendEmailCommand(emailDto));
         }
     }
 }

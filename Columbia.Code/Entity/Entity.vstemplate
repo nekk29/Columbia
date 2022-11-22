@@ -38,6 +38,7 @@
 			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUserClaim.cs">AspNetUserClaim.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUserLogin.cs">AspNetUserLogin.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetUserToken.cs">AspNetUserToken.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Email.cs">Email.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="MenuOption.cs">MenuOption.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Module.cs">Module.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Permission.cs">Permission.cs</ProjectItem>

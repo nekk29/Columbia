@@ -25,6 +25,9 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchResultDto.cs">SearchResultDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortParamsDto.cs">SortParamsDto.cs</ProjectItem>
 			</Folder>
+			<Folder Name="Email" TargetFolderName="Email">
+				<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailDto.cs">SendEmailDto.cs</ProjectItem>
+			</Folder>
 			<Folder Name="MenuOption" TargetFolderName="MenuOption">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionDto.cs">ListMenuOptionDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionDto.cs">MenuOptionDto.cs</ProjectItem>

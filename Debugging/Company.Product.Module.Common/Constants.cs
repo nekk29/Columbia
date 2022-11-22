@@ -20,5 +20,14 @@
                 public const string Role = "role";
             }
         }
+
+        public struct Email
+        {
+            public struct User
+            {
+                public const string Registration = "User.Registration";
+                public const string ResetPassword = "User.ResetPassword";
+            }
+        }
     }
 }

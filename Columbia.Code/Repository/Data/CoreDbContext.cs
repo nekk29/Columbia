@@ -22,6 +22,7 @@ namespace $safesolutionname$.Repository.Data
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
         public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
+        public virtual DbSet<Email> Emails { get; set; } = null!;
         public virtual DbSet<MenuOption> MenuOptions { get; set; } = null!;
         public virtual DbSet<Entity.Module> Modules { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
@@ -167,6 +168,34 @@ namespace $safesolutionname$.Repository.Data
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserTokens)
                     .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<Email>(entity =>
+            {
+                entity.HasIndex(e => new { e.Code, e.Language }, "AK_Emails_Code")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CcEmails).HasMaxLength(1024);
+
+                entity.Property(e => e.Code).HasMaxLength(32);
+
+                entity.Property(e => e.CreationUser)
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Description).HasMaxLength(256);
+
+                entity.Property(e => e.Language).HasMaxLength(6);
+
+                entity.Property(e => e.Subject).HasMaxLength(256);
+
+                entity.Property(e => e.ToEmails).HasMaxLength(1024);
+
+                entity.Property(e => e.UpdateUser)
+                    .HasMaxLength(64)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<MenuOption>(entity =>

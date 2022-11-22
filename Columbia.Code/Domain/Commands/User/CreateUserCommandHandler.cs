@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using $safesolutionname$.Common;
 using $safesolutionname$.Domain.Commands.Base;
+using $safesolutionname$.Domain.Commands.Email;
 using $safesolutionname$.Dto.Base;
+using $safesolutionname$.Dto.Email;
 using $safesolutionname$.Dto.User;
-using $safesolutionname$.EmailClient;
 using $safesolutionname$.Repository.Abstractions.Base;
 using $safesolutionname$.Repository.Abstractions.Transactions;
 using MediatR;
@@ -15,7 +17,6 @@ namespace $safesolutionname$.Domain.Commands.User
     {
         protected override bool UseTransaction => false;
 
-        private readonly IEmailClient _emailClient;
         private readonly IConfiguration _configuration;
         private readonly UserManager<Entity.ApplicationUser> _userManager;
         private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
@@ -25,13 +26,11 @@ namespace $safesolutionname$.Domain.Commands.User
             IMapper mapper,
             IMediator mediator,
             CreateUserCommandValidator validator,
-            IEmailClient emailClient,
             IConfiguration configuration,
             UserManager<Entity.ApplicationUser> userManager,
             IRepository<Entity.ApplicationUser> applicationUserRepository
         ) : base(unitOfWork, mapper, mediator, validator)
         {
-            _emailClient = emailClient;
             _configuration = configuration;
             _userManager = userManager;
             _applicationUserRepository = applicationUserRepository;
@@ -75,23 +74,25 @@ namespace $safesolutionname$.Domain.Commands.User
         public async Task SendCreationEmail(CreateUserCommand request)
         {
             var sendMail = _configuration.GetValue<bool>("SignInOptions:SendMailOnSignUp");
-            var frontUrlLogo = _configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
-
             if (sendMail)
             {
-                var emailBody = Resources.User.CreateUserEmailBody;
+                var application = _configuration.GetValue<string>("ApiOptions:Name");
+                var frontUrlLogo = _configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
 
-                emailBody = emailBody.Replace("{APLICACION}", _configuration.GetValue<string>("ApiOptions:Name"));
-                emailBody = emailBody.Replace("{LOGO}", frontUrlLogo);
-                emailBody = emailBody.Replace("{USER}", request.CreateDto.UserName);
-                emailBody = emailBody.Replace("{PASSWORD}", request.CreateDto.Password);
+                var emailDto = new SendEmailDto
+                {
+                    EmailCode = Constants.Email.User.Registration,
+                    ToEmails = new List<string> { request.CreateDto?.Email ?? string.Empty },
+                    BodyParams = new Dictionary<string, string>
+                    {
+                        { "{APPLICATION}", application },
+                        { "{LOGO}", frontUrlLogo },
+                        { "{USER}", request.CreateDto?.UserName! },
+                        { "{PASSWORD}", request.CreateDto?.Password! }
+                    }
+                };
 
-                await _emailClient.SendEmailAsync(
-                    request.CreateDto?.Email ?? string.Empty,
-                    Resources.User.CreateUserEmailSubject,
-                    emailBody,
-                    true
-                );
+                await _mediator!.Send(new SendEmailCommand(emailDto));
             }
         }
     }

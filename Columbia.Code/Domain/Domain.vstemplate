@@ -23,6 +23,11 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="NotificationBase.cs">NotificationBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="NotificationBaseHandler.cs">NotificationBaseHandler.cs</ProjectItem>
 				</Folder>
+				<Folder Name="Email" TargetFolderName="Email">
+					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommand.cs">SendEmailCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandHandler.cs">SendEmailCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandValidator.cs">SendEmailCommandValidator.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Token" TargetFolderName="Token">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommand.cs">GenerateTokenCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommandHandler.cs">GenerateTokenCommandHandler.cs</ProjectItem>
@@ -88,6 +93,9 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.Designer.cs">Common.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.es.resx">Common.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.resx">Common.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Email.Designer.cs">Email.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Email.es.resx">Email.es.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Email.resx">Email.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.Designer.cs">User.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.es.resx">User.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.resx">User.resx</ProjectItem>

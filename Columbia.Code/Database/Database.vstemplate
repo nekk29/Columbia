@@ -29,6 +29,10 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="00005.Action.Insert.sql">00005.Action.Insert.sql</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="00006.Permission.Insert.sql">00006.Permission.Insert.sql</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="00007.MenuOption.Insert.sql">00007.MenuOption.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00008.Emails.Insert.UserRegistration.es-ES.sql">00008.Emails.Insert.UserRegistration.es-ES.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00009.Emails.Insert.UserRegistration.en-US.sql">00009.Emails.Insert.UserRegistration.en-US.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00010.Emails.Insert.UserResetPassword.es-ES.sql">00010.Emails.Insert.UserResetPassword.es-ES.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00011.Emails.Insert.UserResetPassword.en-US.sql">00011.Emails.Insert.UserResetPassword.en-US.sql</ProjectItem>
 				</Folder>
 				<Folder Name="Settings" TargetFolderName="Settings" />
 			</Folder>

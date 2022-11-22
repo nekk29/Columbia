@@ -120,71 +120,6 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
-  <data name="CreateUserEmailBody" xml:space="preserve">
-    <value>&lt;html&gt;
-&lt;head&gt;
-    &lt;style&gt;
-        body {
-            text-align: center;
-            font-family: monospace;
-        }
-
-        .app-logo {
-            margin: 15px;
-        }
-
-        .app-text {
-            margin: 12px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .app-text-small {
-            margin: 10px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .app-credentials &gt; p {
-            margin: 8px;
-            color: rgb(15, 20, 25);
-            font-weight: 500;
-            display: inline;
-            font-size: 12px;
-        }
-
-        .app-credentials label {
-            margin: 8px;
-            color: rgb(29, 155, 240);
-            font-weight: 100;
-            font-size: 12px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="app-logo"&gt;
-        &lt;img width="180" src="{LOGO}" /&gt;
-    &lt;/div&gt;
-    &lt;div class="app-text"&gt;
-        You have been registered as user in the application {APLICACION}
-    &lt;/div&gt;
-    &lt;div class="app-text-small"&gt;
-        Your credentials are:
-    &lt;/div&gt;
-    &lt;div class="app-credentials"&gt;
-        &lt;p&gt;User:&lt;/p&gt;&lt;label&gt;{USER}&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="app-credentials"&gt;
-        &lt;p&gt;Password:&lt;/p&gt;&lt;label&gt;{PASSWORD}&lt;/label&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
-  </data>
-  <data name="CreateUserEmailSubject" xml:space="preserve">
-    <value>User Registration</value>
-  </data>
   <data name="DuplicateRecordByEmail" xml:space="preserve">
     <value>An user with the same email already exists</value>
   </data>
@@ -236,73 +171,11 @@
   <data name="ResetPasswordCode" xml:space="preserve">
     <value>Reset password code</value>
   </data>
-  <data name="ResetPasswordEmail" xml:space="preserve">
-    <value>&lt;html&gt;
-&lt;head&gt;
-    &lt;style&gt;
-        body {
-            text-align: center;
-            font-family: monospace;
-        }
-
-        .app-logo {
-            margin: 15px;
-        }
-
-        .app-text {
-            margin: 12px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .app-text-small {
-            margin: 10px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .app-link &gt; p {
-            margin: 8px;
-            color: rgb(15, 20, 25);
-            font-weight: 500;
-            display: inline;
-            font-size: 12px;
-        }
-
-        .app-link label {
-            margin: 8px;
-            color: rgb(29, 155, 240);
-            font-weight: 100;
-            font-size: 12px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="app-logo"&gt;
-        &lt;img width="180" src="{LOGO}" /&gt;
-    &lt;/div&gt;
-    &lt;div class="app-text"&gt;
-        Hi {USER},
-    &lt;/div&gt;
-    &lt;div class="app-text-small"&gt;
-        You have requested to reset your password
-    &lt;/div&gt;
-    &lt;div class="app-link"&gt;
-        To reset your password you should access to the following &lt;a href="{LINK}"&gt;link&lt;/a&gt;.
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
-  </data>
   <data name="ResetPasswordError" xml:space="preserve">
     <value>An error occurred reseting your password</value>
   </data>
   <data name="ResetPasswordNoMatch" xml:space="preserve">
     <value>The password and password confirmation don't match</value>
-  </data>
-  <data name="ResetPasswordSubject" xml:space="preserve">
-    <value>Password Reset</value>
   </data>
   <data name="ResetPasswordSuccess" xml:space="preserve">
     <value>Your password has been reset successfully</value>

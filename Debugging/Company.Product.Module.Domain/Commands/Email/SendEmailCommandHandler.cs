@@ -1,0 +1,101 @@
+﻿using AutoMapper;
+using Company.Product.Module.Domain.Commands.Base;
+using Company.Product.Module.Dto.Base;
+using Company.Product.Module.EmailClient;
+using Company.Product.Module.Repository.Abstractions.Base;
+using Company.Product.Module.Repository.Abstractions.Transactions;
+using MediatR;
+using Microsoft.Extensions.Configuration;
+
+namespace Company.Product.Module.Domain.Commands.Email
+{
+    public class SendEmailCommandHandler : CommandHandlerBase<SendEmailCommand>
+    {
+        private readonly IEmailClient _emailClient;
+        private readonly IConfiguration _configuration;
+        private readonly IRepository<Entity.Email> _emailRepository;
+
+        public SendEmailCommandHandler(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            IMediator mediator,
+            SendEmailCommandValidator validator,
+            IEmailClient emailClient,
+            IConfiguration configuration,
+            IRepository<Entity.Email> emailRepository
+        ) : base(unitOfWork, mapper, mediator, validator)
+        {
+            _emailClient = emailClient;
+            _configuration = configuration;
+            _emailRepository = emailRepository;
+        }
+
+        public override async Task<ResponseDto> HandleCommand(SendEmailCommand request, CancellationToken cancellationToken)
+        {
+            var response = new ResponseDto();
+
+            var language =
+                _configuration.GetValue<string>("AppSettings:DefaultCulture") ??
+                System.Globalization.CultureInfo.CurrentCulture.Name;
+
+            var email = await _emailRepository.GetByAsNoTrackingAsync(
+                x => x.Code == request.EmailDto.EmailCode && x.Language == language
+            );
+
+            email ??= await _emailRepository.GetByAsNoTrackingAsync(
+                x => x.Code == request.EmailDto.EmailCode
+            );
+
+            if (email != null)
+            {
+                var toEmails = new List<string>();
+                var ccEmails = new List<string>();
+
+                if (request.EmailDto.ToEmails != null)
+                    toEmails.AddRange(request.EmailDto.ToEmails);
+
+                if (!string.IsNullOrEmpty(email.ToEmails))
+                    toEmails.AddRange(email.ToEmails.Split(";"));
+
+                if (request.EmailDto.CcEmails != null)
+                    toEmails.AddRange(request.EmailDto.CcEmails);
+
+                if (!string.IsNullOrEmpty(email.CcEmails))
+                    ccEmails.AddRange(email.CcEmails.Split(";"));
+
+                var subject = ReplaceParams(email.Subject ?? "", request.EmailDto.SubjectParams);
+                var emailBody = ReplaceParams(email.Body ?? "", request.EmailDto.BodyParams);
+
+                await _emailClient.SendEmailAsync(
+                    toEmails,
+                    ccEmails,
+                    null!,
+                    null!,
+                    subject,
+                    emailBody,
+                    true
+                );
+            }
+
+            var successMessage = request.EmailDto.SuccesMessage;
+            if (string.IsNullOrEmpty(successMessage))
+                successMessage = Resources.Email.SendMailSuccess;
+
+            response.AddOkResult(successMessage);
+
+            return response;
+        }
+
+        private static string ReplaceParams(string text, Dictionary<string, string>? textParams)
+        {
+            string replaced = text;
+
+            if (textParams == null) return replaced;
+
+            foreach (var textParam in textParams)
+                replaced = replaced.Replace(textParam.Key, textParam.Value);
+
+            return replaced;
+        }
+    }
+}

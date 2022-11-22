@@ -120,71 +120,6 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirmar Contraseña</value>
   </data>
-  <data name="CreateUserEmailBody" xml:space="preserve">
-    <value>&lt;html&gt;
-&lt;head&gt;
-    &lt;style&gt;
-        body {
-            text-align: center;
-            font-family: monospace;
-        }
-
-        .app-logo {
-            margin: 15px;
-        }
-
-        .app-text {
-            margin: 12px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .app-text-small {
-            margin: 10px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .app-credentials &gt; p {
-            margin: 8px;
-            color: rgb(15, 20, 25);
-            font-weight: 500;
-            display: inline;
-            font-size: 12px;
-        }
-
-        .app-credentials label {
-            margin: 8px;
-            color: rgb(29, 155, 240);
-            font-weight: 100;
-            font-size: 12px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="app-logo"&gt;
-        &lt;img width="180" src="{LOGO}" /&gt;
-    &lt;/div&gt;
-    &lt;div class="app-text"&gt;
-        Has sido registrado como usuario en al aplicación {APLICACION}
-    &lt;/div&gt;
-    &lt;div class="app-text-small"&gt;
-        Tus credenciales son:
-    &lt;/div&gt;
-    &lt;div class="app-credentials"&gt;
-        &lt;p&gt;Usuario:&lt;/p&gt;&lt;label&gt;{USER}&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="app-credentials"&gt;
-        &lt;p&gt;Contraseña:&lt;/p&gt;&lt;label&gt;{PASSWORD}&lt;/label&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
-  </data>
-  <data name="CreateUserEmailSubject" xml:space="preserve">
-    <value>Registro de Usuario</value>
-  </data>
   <data name="DuplicateRecordByEmail" xml:space="preserve">
     <value>Ya existe un usuario con el mismo correo</value>
   </data>
@@ -236,73 +171,11 @@
   <data name="ResetPasswordCode" xml:space="preserve">
     <value>Código de restablecimiento</value>
   </data>
-  <data name="ResetPasswordEmail" xml:space="preserve">
-    <value>&lt;html&gt;
-&lt;head&gt;
-    &lt;style&gt;
-        body {
-            text-align: center;
-            font-family: monospace;
-        }
-
-        .app-logo {
-            margin: 15px;
-        }
-
-        .app-text {
-            margin: 12px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .app-text-small {
-            margin: 10px;
-            color: rgb(15, 20, 25);
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .app-link &gt; p {
-            margin: 8px;
-            color: rgb(15, 20, 25);
-            font-weight: 500;
-            display: inline;
-            font-size: 12px;
-        }
-
-        .app-link label {
-            margin: 8px;
-            color: rgb(29, 155, 240);
-            font-weight: 100;
-            font-size: 12px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="app-logo"&gt;
-        &lt;img width="180" src="{LOGO}" /&gt;
-    &lt;/div&gt;
-    &lt;div class="app-text"&gt;
-        Hola {USER},
-    &lt;/div&gt;
-    &lt;div class="app-text-small"&gt;
-        Has solicitado el reestablecimiento de contraseña
-    &lt;/div&gt;
-    &lt;div class="app-link"&gt;
-        Para reestablecer tu contraseña debes acceder al siguiente &lt;a href="{LINK}"&gt;link&lt;/a&gt;.
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
-  </data>
   <data name="ResetPasswordError" xml:space="preserve">
     <value>Ocurrió un error restableciendo su contraseña</value>
   </data>
   <data name="ResetPasswordNoMatch" xml:space="preserve">
     <value>El password y la confirmación del password no coinciden</value>
-  </data>
-  <data name="ResetPasswordSubject" xml:space="preserve">
-    <value>Restablecimiento de contraseña</value>
   </data>
   <data name="ResetPasswordSuccess" xml:space="preserve">
     <value>Se ha restablecido correctamente su contraseña</value>

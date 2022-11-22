@@ -193,6 +193,12 @@
     <None Include="Domain\Commands\User\ResetPasswordCommandHandler.cs" />
     <None Include="Domain\Commands\User\ResetPasswordCommandValidator.cs" />
     <None Include="Apis\Localization\LocalizationExtensions.cs" />
+    <None Include="Entity\Email.cs" />
+    <None Include="Domain\Resources\Email.Designer.cs" />
+    <None Include="Domain\Commands\Email\SendEmailCommand.cs" />
+    <None Include="Domain\Commands\Email\SendEmailCommandHandler.cs" />
+    <None Include="Domain\Commands\Email\SendEmailCommandValidator.cs" />
+    <None Include="Dto\Email\SendEmailDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />
@@ -264,6 +270,10 @@
     <Content Include="Database\Data\Fixes\00005.Action.Insert.sql" />
     <Content Include="Database\Data\Fixes\00006.Permission.Insert.sql" />
     <Content Include="Database\Data\Fixes\00007.MenuOption.Insert.sql" />
+    <Content Include="Database\Data\Fixes\00008.Emails.Insert.UserRegistration.es-ES.sql" />
+    <Content Include="Database\Data\Fixes\00009.Emails.Insert.UserRegistration.en-US.sql" />
+    <Content Include="Database\Data\Fixes\00010.Emails.Insert.UserResetPassword.es-ES.sql" />
+    <Content Include="Database\Data\Fixes\00011.Emails.Insert.UserResetPassword.en-US.sql" />
     <Content Include="Domain\Domain.vstemplate" />
   </ItemGroup>
   <ItemGroup>
@@ -326,7 +336,10 @@
   <ItemGroup>
     <None Include="Domain\Resources\User.es.resx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Domain\Resources\Email.es.resx" />
+    <None Include="Domain\Resources\Email.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
