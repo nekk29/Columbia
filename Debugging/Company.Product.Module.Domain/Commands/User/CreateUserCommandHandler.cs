@@ -64,6 +64,8 @@ namespace Company.Product.Module.Domain.Commands.User
                     return response;
                 }
 
+                response.AddOkResult(Resources.Common.CreateSuccessMessage);
+
                 try
                 {
                     await SendCreationEmail(request);
@@ -76,8 +78,6 @@ namespace Company.Product.Module.Domain.Commands.User
 
                 var getUserDto = _mapper?.Map<GetUserDto>(applicationUser);
                 if (getUserDto != null) response.UpdateData(getUserDto);
-
-                response.AddOkResult(Resources.Common.CreateSuccessMessage);
             }
 
             return response;
