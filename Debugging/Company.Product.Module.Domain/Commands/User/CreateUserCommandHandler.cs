@@ -10,6 +10,7 @@ using Company.Product.Module.Repository.Abstractions.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
@@ -18,6 +19,7 @@ namespace Company.Product.Module.Domain.Commands.User
         protected override bool UseTransaction => false;
 
         private readonly IConfiguration _configuration;
+        private readonly ILogger<CreateUserCommandHandler> _logger;
         private readonly UserManager<Entity.ApplicationUser> _userManager;
         private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
 
@@ -27,12 +29,14 @@ namespace Company.Product.Module.Domain.Commands.User
             IMediator mediator,
             CreateUserCommandValidator validator,
             IConfiguration configuration,
+            ILogger<CreateUserCommandHandler> logger,
             UserManager<Entity.ApplicationUser> userManager,
             IRepository<Entity.ApplicationUser> applicationUserRepository
         ) : base(unitOfWork, mapper, mediator, validator)
         {
-            _configuration = configuration;
+            _logger = logger;
             _userManager = userManager;
+            _configuration = configuration;
             _applicationUserRepository = applicationUserRepository;
         }
 
@@ -60,7 +64,15 @@ namespace Company.Product.Module.Domain.Commands.User
                     return response;
                 }
 
-                await SendCreationEmail(request);
+                try
+                {
+                    await SendCreationEmail(request);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, ex.Message);
+                    response.AddErrorResult(Resources.User.CreateUserMailError);
+                }
 
                 var getUserDto = _mapper?.Map<GetUserDto>(applicationUser);
                 if (getUserDto != null) response.UpdateData(getUserDto);

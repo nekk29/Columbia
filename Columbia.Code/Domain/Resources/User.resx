@@ -120,6 +120,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="CreateUserMailError" xml:space="preserve">
+    <value>An error has ocurred sending the registration email</value>
+  </data>
   <data name="DuplicateRecordByEmail" xml:space="preserve">
     <value>An user with the same email already exists</value>
   </data>

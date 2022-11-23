@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using $safesolutionname$.Common;
 using $safesolutionname$.Domain.Commands.Base;
 using $safesolutionname$.Domain.Commands.Email;
@@ -20,6 +21,7 @@ namespace $safesolutionname$.Domain.Commands.User
     {
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<ForgotPasswordCommandHandler> _logger;
 
         public ForgotPasswordCommandHandler(
             IUnitOfWork unitOfWork,
@@ -27,11 +29,13 @@ namespace $safesolutionname$.Domain.Commands.User
             IMediator mediator,
             ForgotPasswordCommandValidator validator,
             IConfiguration configuration,
-            UserManager<ApplicationUser> userManager
+            UserManager<ApplicationUser> userManager,
+            ILogger<ForgotPasswordCommandHandler> logger
         ) : base(unitOfWork, mapper, mediator, validator)
         {
-            _configuration = configuration;
+            _logger = logger;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         public override async Task<ResponseDto> HandleCommand(ForgotPasswordCommand request, CancellationToken cancellationToken)
@@ -48,7 +52,8 @@ namespace $safesolutionname$.Domain.Commands.User
             }
             catch (Exception ex)
             {
-                response.AddErrorResult($"{Resources.User.ForgotPasswordError}: {ex.Message}");
+                _logger.LogError(ex, ex.Message);
+                response.AddErrorResult(Resources.User.ForgotPasswordError);
             }
 
             return response;
