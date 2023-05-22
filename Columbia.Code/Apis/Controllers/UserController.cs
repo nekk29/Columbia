@@ -1,8 +1,8 @@
-﻿using $safesolutionname$.Application.Abstractions;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using $safesolutionname$.Application.Abstractions;
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.User;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 
 namespace $safesolutionname$.Apis.Controllers
 {

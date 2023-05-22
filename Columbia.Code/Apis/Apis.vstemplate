@@ -27,6 +27,7 @@
 				</Folder>
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionController.cs">MenuOptionController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionController.cs">PermissionController.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SettingController.cs">SettingController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserController.cs">UserController.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Documentation" TargetFolderName="Documentation">

@@ -42,6 +42,7 @@
 			<ProjectItem ReplaceParameters="true" TargetFileName="MenuOption.cs">MenuOption.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Module.cs">Module.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Permission.cs">Permission.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Setting.cs">Setting.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

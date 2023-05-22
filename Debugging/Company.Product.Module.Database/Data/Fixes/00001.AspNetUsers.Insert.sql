@@ -15,8 +15,8 @@ INSERT INTO @DataTable([FirstName], [LastName], [UserName], [Email], [PasswordHa
 VALUES (
     'Administrator',
     '',
-    'administrator',
-    'njose29@outlook.com',
+    'system@administrator',
+    'system@administrator',
     '',
     ''
 );

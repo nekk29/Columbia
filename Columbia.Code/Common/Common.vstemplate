@@ -17,6 +17,7 @@
 		<Project TargetFileName="Common.csproj" File="Common.csproj" ReplaceParameters="true">
 			<ProjectItem ReplaceParameters="true" TargetFileName="Constants.cs">Constants.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="DateUtils.cs">DateUtils.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Encrypter.cs">Encrypter.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

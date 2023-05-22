@@ -36,6 +36,13 @@
 			<Folder Name="Permission" TargetFolderName="Permission">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionDto.cs">ListPermissionDto.cs</ProjectItem>
 			</Folder>
+			<Folder Name="Setting" TargetFolderName="Setting">
+				<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingDto.cs">GetSettingDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingDto.cs">SearchSettingDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingFilterDto.cs">SearchSettingFilterDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SettingDto.cs">SettingDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingDto.cs">UpdateSettingDto.cs</ProjectItem>
+			</Folder>
 			<Folder Name="Token" TargetFolderName="Token">
 				<ProjectItem ReplaceParameters="true" TargetFileName="AccessTokenDto.cs">AccessTokenDto.cs</ProjectItem>
 			</Folder>

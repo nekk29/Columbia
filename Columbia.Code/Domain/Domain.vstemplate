@@ -28,6 +28,11 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandHandler.cs">SendEmailCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandValidator.cs">SendEmailCommandValidator.cs</ProjectItem>
 				</Folder>
+				<Folder Name="Setting" TargetFolderName="Setting">
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommand.cs">UpdateSettingCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommandHandler.cs">UpdateSettingCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommandValidator.cs">UpdateSettingCommandValidator.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Token" TargetFolderName="Token">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommand.cs">GenerateTokenCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommandHandler.cs">GenerateTokenCommandHandler.cs</ProjectItem>
@@ -80,6 +85,12 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQuery.cs">ListPermissionQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQueryHandler.cs">ListPermissionQueryHandler.cs</ProjectItem>
 				</Folder>
+				<Folder Name="Setting" TargetFolderName="Setting">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingQuery.cs">GetSettingQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingQueryHandler.cs">GetSettingQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingQuery.cs">SearchSettingQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingQueryHandler.cs">SearchSettingQueryHandler.cs</ProjectItem>
+				</Folder>
 				<Folder Name="User" TargetFolderName="User">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetUserQuery.cs">GetUserQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetUserQueryHandler.cs">GetUserQueryHandler.cs</ProjectItem>
@@ -99,6 +110,11 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.Designer.cs">User.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.es.resx">User.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.resx">User.resx</ProjectItem>
+			</Folder>
+			<Folder Name="Services" TargetFolderName="Services">
+				<Folder Name="Setting" TargetFolderName="Setting">
+					<ProjectItem ReplaceParameters="true" TargetFileName="SettingService.cs">SettingService.cs</ProjectItem>
+				</Folder>
 			</Folder>
 		</Project>
 	</TemplateContent>

@@ -29,5 +29,29 @@
                 public const string ResetPassword = "User.ResetPassword";
             }
         }
+
+        public struct Settings
+        {
+            public struct Group
+            {
+
+            }
+
+            public static IEnumerable<Encrypted> EncryptedSettings = new List<Encrypted>
+            {
+
+            };
+
+            public class Encrypted
+            {
+                public string Group { get; set; } = null!;
+                public string Code { get; set; } = null!;
+            }
+        }
+
+        public struct Cache
+        {
+
+        }
     }
 }

@@ -18,6 +18,7 @@
 			<ProjectItem ReplaceParameters="true" TargetFileName="IMenuOptionApplication.cs">IMenuOptionApplication.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="IPermissionApplication.cs">IPermissionApplication.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="IUserApplication.cs">IUserApplication.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ISettingApplication.cs">ISettingApplication.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

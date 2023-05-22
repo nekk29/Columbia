@@ -82,8 +82,10 @@ namespace Company.Product.Module.Domain.Resources
         /// <summary>
         ///   Looks up a localized string similar to An error has ocurred sending the registration email.
         /// </summary>
-        internal static string CreateUserMailError {
-            get {
+        internal static string CreateUserMailError
+        {
+            get
+            {
                 return ResourceManager.GetString("CreateUserMailError", resourceCulture);
             }
         }

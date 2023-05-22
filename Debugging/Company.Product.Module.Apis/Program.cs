@@ -49,6 +49,9 @@ builder.Services.UseSecurity(configuration);
 // EmailClient
 builder.Services.UseEmailClient(configuration);
 
+// Cache
+builder.Services.AddMemoryCache();
+
 #endregion
 
 #region App
