@@ -32,6 +32,7 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="Transaction.cs">Transaction.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UnitOfWork.cs">UnitOfWork.cs</ProjectItem>
 			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="SettingRepository.cs">SettingRepository.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

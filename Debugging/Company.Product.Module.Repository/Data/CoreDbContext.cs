@@ -26,6 +26,7 @@ namespace Company.Product.Module.Repository.Data
         public virtual DbSet<MenuOption> MenuOptions { get; set; } = null!;
         public virtual DbSet<Entity.Module> Modules { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
+        public virtual DbSet<Setting> Settings { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -263,6 +264,19 @@ namespace Company.Product.Module.Repository.Data
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Permissions)
                     .HasForeignKey(d => d.RoleId);
+            });
+
+            modelBuilder.Entity<Setting>(entity =>
+            {
+                entity.HasKey(e => new { e.Group, e.Code });
+
+                entity.Property(e => e.Group).HasMaxLength(16);
+
+                entity.Property(e => e.Code).HasMaxLength(64);
+
+                entity.Property(e => e.Description).HasMaxLength(255);
+
+                entity.Property(e => e.Value).HasMaxLength(1024);
             });
 
             OnModelCreatingPartial(modelBuilder);

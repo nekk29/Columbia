@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Repository\SettingRepository.cs" />
+    <None Include="Repository.Abstractions\ISettingRepository.cs" />
     <None Include="Apis\appsettings.Uat.json" />
     <None Include="Database\Database.csproj" />
     <None Include="Entity\Model\CoreModel.cdm" />

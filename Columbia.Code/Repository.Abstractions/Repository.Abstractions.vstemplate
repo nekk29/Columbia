@@ -27,6 +27,7 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="IUnitOfWork.cs">IUnitOfWork.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ResultException.cs">ResultException.cs</ProjectItem>
 			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="ISettingRepository.cs">ISettingRepository.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>
