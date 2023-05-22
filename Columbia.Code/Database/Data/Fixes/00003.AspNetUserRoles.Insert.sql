@@ -13,7 +13,7 @@ DECLARE @DataTable TABLE (
 );
 
 INSERT INTO @DataTable([RoleName], [UserName])
-		  SELECT 'Administrator', 'administrator'
+		  SELECT 'Administrator', 'system@administrator'
 
 
 DECLARE @Index INT = 1
