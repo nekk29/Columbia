@@ -1,155 +1,106 @@
-﻿using $safesolutionname$.Dto.Base;
+﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System.Net.Http.Json;
 
 namespace $safesolutionname$.RestClient.Base
 {
     public class BaseService
     {
+        protected IMemoryCache Cache;
+        protected ServiceOptions Options { get; }
         protected string BaseUrl { get; }
         protected Dictionary<string, string> Headers { get; }
-        protected virtual string ApiController { get; } = null!;
 
-        public BaseService(ServiceOptions options)
+        protected JsonSerializerSettings SerializerSettings = new();
+
+        protected virtual string ApiController { get; } = null!;
+        protected virtual bool RequiresAuthorization { get; set; } = true;
+
+        public BaseService(IServiceProvider serviceProvider)
         {
-            BaseUrl = options?.BaseUrl ?? string.Empty;
-            Headers = options?.Headers ?? new Dictionary<string, string>();
+            var resolver = serviceProvider.GetRequiredService<ServiceOptionsResolver>();
+            var options = resolver?.GetOptions(serviceProvider).Result ?? new ServiceOptions();
+
+            Options = options;
+            BaseUrl = options.BaseUrl.EndsWith("/") ? options.BaseUrl : $"{options.BaseUrl}/";
+            Headers = new Dictionary<string, string>();
+            Cache = new MemoryCache(new MemoryCacheOptions());
+            SerializerSettings.Converters.Add(new IsoDateTimeConverter());
         }
 
-        protected async Task<ResponseDto> Get(string resource = "")
-            => await Request((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
-
-        protected async Task<ResponseDto<TResponse>> Get<TResponse>(string resource = "")
+        protected async Task<TResponse>? Get<TResponse>(string resource = "")
             => await Request<TResponse>((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
 
-        protected async Task<HttpResponseMessage> GetResponse(string resource = "")
-            => await RequestResponse((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
+        protected async Task<HttpResponseMessage> Get(string resource = "")
+            => await Request((client) => client.GetAsync($"{BaseUrl}{ApiController}{resource}"));
 
-
-        protected async Task<ResponseDto> Post<TRequest>(string resource = "", TRequest body = default!)
-            => await Request((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
-
-        protected async Task<ResponseDto<TResponse>> Post<TRequest, TResponse>(string resource = "", TRequest body = default!)
+        protected async Task<TResponse>? Post<TRequest, TResponse>(string resource = "", TRequest body = default!)
             => await Request<TRequest, TResponse>((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
 
-        protected async Task<HttpResponseMessage> PostResponse<TRequest>(string resource = "", TRequest body = default!)
-            => await RequestResponse((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+        protected async Task<HttpResponseMessage> Post<TRequest>(string resource = "", TRequest body = default!)
+            => await Request((client, body) => client.PostAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
 
-
-        protected async Task<ResponseDto> Put<TRequest>(string resource = "", TRequest? body = default)
-            => await Request((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
-
-        protected async Task<ResponseDto<TResponse>> Put<TRequest, TResponse>(string resource = "", TRequest? body = default)
+        protected async Task<TResponse>? Put<TRequest, TResponse>(string resource = "", TRequest? body = default)
             => await Request<TRequest, TResponse>((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
 
-        protected async Task<HttpResponseMessage> PutResponse<TRequest>(string resource = "", TRequest? body = default)
-            => await RequestResponse((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+        protected async Task<HttpResponseMessage> Put<TRequest>(string resource = "", TRequest? body = default)
+            => await Request((client, body) => client.PutAsJsonAsync($"{BaseUrl}{ApiController}{resource}", body), body);
 
-
-        protected async Task<ResponseDto> Patch(string resource = "", HttpContent? body = default)
-            => await Request((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
-
-        protected async Task<ResponseDto<TResponse>> Patch<TResponse>(string resource = "", HttpContent? body = default)
+        protected async Task<TResponse>? Patch<TResponse>(string resource = "", HttpContent? body = default)
             => await Request<HttpContent, TResponse>((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
 
-        protected async Task<HttpResponseMessage> PatchResponse(string resource = "", HttpContent? body = default)
-            => await RequestResponse((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
+        protected async Task<HttpResponseMessage> Patch(string resource = "", HttpContent? body = default)
+            => await Request((client, body) => client.PatchAsync($"{BaseUrl}{ApiController}{resource}", body), body);
 
-
-        protected async Task<ResponseDto> Delete(string resource = "")
-            => await Request((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
-
-        protected async Task<ResponseDto<TResponse>> Delete<TResponse>(string resource = "")
+        protected async Task<TResponse>? Delete<TResponse>(string resource = "")
             => await Request<TResponse>((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
 
-        protected async Task<HttpResponseMessage> DeleteResponse(string resource = "")
-            => await RequestResponse((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
+        protected async Task<HttpResponseMessage> Delete(string resource = "")
+            => await Request((client) => client.DeleteAsync($"{BaseUrl}{ApiController}{resource}"));
 
-
-        private async Task<ResponseDto> Request(Func<HttpClient, Task<HttpResponseMessage>> func)
+        private async Task<HttpResponseMessage> Request(Func<HttpClient, Task<HttpResponseMessage>> func)
         {
-            try
-            {
-                var http = GetHttpClient();
-                var response = await func.Invoke(http);
-                return await Deserialize<ResponseDto>(response);
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult(ex);
-                return response;
-            }
+            var httpClient = await GetHttpClient(RequiresAuthorization);
+            return await func.Invoke(httpClient);
         }
 
-        private async Task<ResponseDto<TResponse>> Request<TResponse>(Func<HttpClient, Task<HttpResponseMessage>> func)
+        private async Task<TResponse> Request<TResponse>(Func<HttpClient, Task<HttpResponseMessage>> func)
         {
-            try
-            {
-                var http = GetHttpClient();
-                var response = await func.Invoke(http);
-                return await Deserialize<ResponseDto<TResponse>>(response);
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult<TResponse>(ex);
-                return response;
-            }
+            var httpClient = await GetHttpClient(RequiresAuthorization);
+            var response = await func.Invoke(httpClient);
+            return await Deserialize<TResponse>(response);
         }
 
-        private async Task<ResponseDto> Request<TRequest>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
+        private async Task<HttpResponseMessage> Request<TRequest>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
         {
-            try
-            {
-                var http = GetHttpClient();
-                var response = await func.Invoke(http, body!);
-                return await Deserialize<ResponseDto>(response);
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult(ex);
-                return response;
-            }
+            var httpClient = await GetHttpClient(RequiresAuthorization);
+            return await func.Invoke(httpClient, body!);
         }
 
-        private async Task<ResponseDto<TResponse>> Request<TRequest, TResponse>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
+        private async Task<TResponse> Request<TRequest, TResponse>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
         {
-            try
-            {
-                var http = GetHttpClient();
-                var response = await func.Invoke(http, body!);
-                return await Deserialize<ResponseDto<TResponse>>(response);
-            }
-            catch (Exception ex)
-            {
-                var response = GetErrorResult<TResponse>(ex);
-                return response;
-            }
+            var httpClient = await GetHttpClient(RequiresAuthorization);
+            var response = await func.Invoke(httpClient, body!);
+            return await Deserialize<TResponse>(response);
         }
 
-        private async Task<HttpResponseMessage> RequestResponse(Func<HttpClient, Task<HttpResponseMessage>> func)
-        {
-            var http = GetHttpClient();
-            return await func.Invoke(http);
-        }
-
-        private async Task<HttpResponseMessage> RequestResponse<TRequest>(Func<HttpClient, TRequest, Task<HttpResponseMessage>> func, TRequest? body)
-        {
-            var http = GetHttpClient();
-            return await func.Invoke(http, body!);
-        }
-
-        protected static async Task<TResponse> Deserialize<TResponse>(HttpResponseMessage response)
+        private async Task<TResponse> Deserialize<TResponse>(HttpResponseMessage response)
         {
             var responseContent = await response.Content.ReadAsStringAsync();
 
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new Exception(responseContent);
 
-            return JsonConvert.DeserializeObject<TResponse>(responseContent!)!;
+            return JsonConvert.DeserializeObject<TResponse>(responseContent!, SerializerSettings)!;
         }
 
-        private HttpClient GetHttpClient()
+
+        private async Task<HttpClient> GetHttpClient(bool requiresAuthorization = true)
         {
+            if (requiresAuthorization) await Authenticate();
+
             var httpClient = new HttpClient();
 
             if (httpClient.DefaultRequestHeaders != null && Headers != null)
@@ -163,22 +114,19 @@ namespace $safesolutionname$.RestClient.Base
             return httpClient;
         }
 
-        private static ResponseDto GetErrorResult(Exception ex)
-            => new() { Messages = GetMessages(ex) };
-
-        private static ResponseDto<TResponse> GetErrorResult<TResponse>(Exception ex)
-            => new() { Messages = GetMessages(ex) };
-
-        private static List<ApplicationMessageDto> GetMessages(Exception ex)
+        private async Task Authenticate()
         {
-            return new List<ApplicationMessageDto>
-            {
-                new ApplicationMessageDto
-                {
-                    Message = ex.Message.Contains("connection attempt failed") ? "Error de conexión" : $"{ex.Message}{Environment.NewLine}{ex.StackTrace}",
-                    MessageType = ApplicationMessageType.Error
-                }
-            };
+            AddTokenHeader(string.Empty);
+
+            await Task.CompletedTask;
+        }
+
+        private void AddTokenHeader(string token)
+        {
+            if (Headers.Any(x => x.Key == "Authorization"))
+                Headers.Remove("Authorization");
+
+            Headers.Add("Authorization", $"Bearer {token}");
         }
     }
 }

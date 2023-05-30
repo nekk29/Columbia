@@ -15,11 +15,18 @@
 	</TemplateData>
 	<TemplateContent>
 		<Project TargetFileName="RestClient.csproj" File="RestClient.csproj" ReplaceParameters="true">
+			<Folder Name="Abstractions" TargetFolderName="Abstractions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="IUserRestService.cs">IUserRestService.cs</ProjectItem>
+			</Folder>
 			<Folder Name="Base" TargetFolderName="Base">
 				<ProjectItem ReplaceParameters="true" TargetFileName="BaseService.cs">BaseService.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ServiceOptions.cs">ServiceOptions.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ServiceOptionsResolver.cs">ServiceOptionsResolver.cs</ProjectItem>
 			</Folder>
-			<ProjectItem ReplaceParameters="true" TargetFileName="UserRestService.cs">UserRestService.cs</ProjectItem>
+			<Folder Name="Implementation" TargetFolderName="Implementation">
+				<ProjectItem ReplaceParameters="true" TargetFileName="UserRestService.cs">UserRestService.cs</ProjectItem>
+			</Folder>
+			<ProjectItem ReplaceParameters="true" TargetFileName="RestClientServiceCollectionExensions.cs">RestClientServiceCollectionExensions.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

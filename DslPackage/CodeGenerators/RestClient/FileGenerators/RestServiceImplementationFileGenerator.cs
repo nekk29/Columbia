@@ -5,7 +5,7 @@ using VSLangProj;
 
 namespace Columbia.DslPackage.CodeGenerators.RestClient.FileGenerators
 {
-    internal class RestServiceFileGenerator : FileGeneratorBase<RestServiceCodeGenerator>
+    internal class RestServiceImplementationFileGenerator : FileGeneratorBase<RestServiceImplementationCodeGenerator>
     {
         protected override bool OverwriteFile => false;
         protected override prjBuildAction BuildAction => prjBuildAction.prjBuildActionCompile;
@@ -19,7 +19,7 @@ namespace Columbia.DslPackage.CodeGenerators.RestClient.FileGenerators
         {
             if (entity == null) return null;
             var module = !string.IsNullOrEmpty(entity.Module) ? entity.Module : entity.Name;
-            return $"{module}RestService.cs";
+            return $"Implementation\\{module}RestService.cs";
         }
     }
 }

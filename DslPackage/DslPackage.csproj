@@ -248,11 +248,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityCodeGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="CodeGenerators\RestClient\FileGenerators\RestServiceFileGenerator.cs" />
-    <Compile Include="CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.cs">
+    <Compile Include="CodeGenerators\RestClient\FileGenerators\RestServiceAbstractionsFileGenerator.cs" />
+    <Compile Include="CodeGenerators\RestClient\FileGenerators\RestServiceImplementationFileGenerator.cs" />
+    <Compile Include="CodeGenerators\RestClient\Templates\RestServiceAbstractionsCodeGenerator.cs">
+      <DependentUpon>RestServiceAbstractionsCodeGenerator.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RestServiceCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeGenerators\RestClient\Templates\RestServiceImplementationCodeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestServiceImplementationCodeGenerator.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomCode\CommandSet.cs" />
     <Compile Include="CustomCode\Commands\Base\CommandBase.cs" />
@@ -573,9 +579,14 @@
       <LastGenOutput>EntityCodeGenerator.cs</LastGenOutput>
       <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
-    <Content Include="CodeGenerators\RestClient\Templates\RestServiceCodeGenerator.tt">
+    <Content Include="CodeGenerators\RestClient\Templates\RestServiceAbstractionsCodeGenerator.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>RestServiceCodeGenerator.cs</LastGenOutput>
+      <LastGenOutput>RestServiceAbstractionsCodeGenerator.cs</LastGenOutput>
+      <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
+    </Content>
+    <Content Include="CodeGenerators\RestClient\Templates\RestServiceImplementationCodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RestServiceImplementationCodeGenerator.cs</LastGenOutput>
       <CustomToolNamespace>Columbia.DslPackage.CodeGenerators</CustomToolNamespace>
     </Content>
     <Content Include="Columbia.png" />

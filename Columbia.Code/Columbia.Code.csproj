@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RestClient\RestClientServiceCollectionExensions.cs" />
+    <None Include="RestClient\Abstractions\IUserRestService.cs" />
+    <None Include="RestClient\Implementation\UserRestService.cs" />
+    <None Include="RestClient\Base\ServiceOptionsResolver.cs" />
     <None Include="Repository\SettingRepository.cs" />
     <None Include="Repository.Abstractions\ISettingRepository.cs" />
     <None Include="Apis\appsettings.Uat.json" />
@@ -58,7 +62,6 @@
     <None Include="Entity\Model\CoreModel.cdm" />
     <None Include="Entity\Model\CoreModel.cdm.diagram" />
     <None Include="Test\UserUnitTests.cs" />
-    <None Include="RestClient\UserRestService.cs" />
     <None Include="RestClient\Base\ServiceOptions.cs" />
     <None Include="RestClient\Base\BaseService.cs" />
     <None Include="Repository.Abstractions\Transactions\ResultException.cs" />

@@ -28,37 +28,18 @@
     var listRoute = string.IsNullOrEmpty(entitySuffixLower) ? $"\"/list\"" : $"\"/{entitySuffixLower}/list\"";
     var searchRoute = string.IsNullOrEmpty(entitySuffixLower) ? $"\"/search\"" : $"\"/{entitySuffixLower}/search\"";
 #>
-using <#= DomainModel.RestClient #>.Base;
 using <#= DomainModel.Dto #>.Base;
 using <#= DomainModel.Dto #>.<#= module #>;
 
-namespace <#= DomainModel.RestClient #>
+namespace <#= DomainModel.RestClient #>.Abstractions
 {
-    public class <#= module #>RestService : BaseService
+    public interface I<#= module #>RestService
     {
-        protected override string ApiController => "api/<#= moduleLower #>";
-
-        public <#= module #>RestService(ServiceOptions options) : base(options)
-        {
-
-        }
-
-        public async Task<ResponseDto<Get<#= entity #>Dto>> Create<#= entitySuffix #>(Create<#= entity #>Dto createDto)
-            => await Post<Create<#= entity #>Dto, Get<#= entity #>Dto>(<#= createRoute #>, createDto)!;
-
-        public async Task<ResponseDto<Get<#= entity #>Dto>> Update<#= entitySuffix #>(Update<#= entity #>Dto updateDto)
-            => await Put<Update<#= entity #>Dto, Get<#= entity #>Dto>(<#= updateRoute #>, updateDto)!;
-
-        public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyPropertyParamIn #>)
-            => await Delete(<#= deleteRoute #>)!;
-
-        public async Task<ResponseDto<Get<#= entity #>Dto>> Get<#= entitySuffix #>(<#= keyPropertyParamIn #>)
-            => await Get<Get<#= entity #>Dto>(<#= getRoute #>)!;
-
-        public async Task<ResponseDto<IEnumerable<List<#= entity #>Dto>>> List<#= entitySuffix #>()
-            => await Get<IEnumerable<List<#= entity #>Dto>>(<#= listRoute #>)!;
-
-        public async Task<ResponseDto<SearchResultDto<Search<#= entity #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= entity #>FilterDto> filter)
-            => await Post<SearchParamsDto<Search<#= entity #>FilterDto>, SearchResultDto<Search<#= entity #>Dto>>(<#= searchRoute #>, filter)!;
+        Task<ResponseDto<Get<#= entity #>Dto>> Create<#= entitySuffix #>(Create<#= entity #>Dto createDto);
+        Task<ResponseDto<Get<#= entity #>Dto>> Update<#= entitySuffix #>(Update<#= entity #>Dto updateDto);
+        Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyPropertyParamIn #>);
+        Task<ResponseDto<Get<#= entity #>Dto>> Get<#= entitySuffix #>(<#= keyPropertyParamIn #>);
+        Task<ResponseDto<IEnumerable<List<#= entity #>Dto>>> List<#= entitySuffix #>();
+        Task<ResponseDto<SearchResultDto<Search<#= entity #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= entity #>FilterDto> filter);
     }
 }

@@ -71,7 +71,8 @@ namespace Columbia.DslPackage.CustomCode.Commands
             #endregion
 
             #region RestClient
-            new RestServiceFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
+            new RestServiceAbstractionsFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
+            new RestServiceImplementationFileGenerator().GenerateFile(serviceProvider, CurrentEntity);
             #endregion
         }
     }
