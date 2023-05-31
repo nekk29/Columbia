@@ -64,6 +64,7 @@
 			<Folder Name="Mapping" TargetFolderName="Mapping">
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionProfile.cs">MenuOptionProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionProfile.cs">PermissionProfile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SettingProfile.cs">SettingProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserProfile.cs">UserProfile.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Queries" TargetFolderName="Queries">
