@@ -29,6 +29,8 @@ DECLARE @DataTable TABLE (
 INSERT INTO @DataTable([ActionCode], [ParentCode], [Code], [Name], [Description], [MenuUri], [MenuIcon], [SortOrder])
 -- Users
 		  SELECT 'users.search', NULL, 'users.search', 'Users', 'Users Search', '/users', 'flaticon2-user', 0
+UNION ALL SELECT 'roles.search', NULL, 'roles.search', 'Roles', 'Roles Search', '/roles', 'flaticon2-group', 1
+UNION ALL SELECT 'settings.search', NULL, 'settings.search', 'Settings', 'Settings Search', '/settings', 'flaticon2-console', 2
 
 
 DECLARE @Index INT = 1

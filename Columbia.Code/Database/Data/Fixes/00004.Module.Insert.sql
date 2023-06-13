@@ -11,6 +11,8 @@ DECLARE @DataTable TABLE (
 INSERT INTO @DataTable([Code], [Name], [Description])
 -- Users
 		  SELECT 'users', 'Users', 'Users management module'
+UNION ALL SELECT 'roles', 'Roles', 'Roles management module'
+UNION ALL SELECT 'settings', 'Settings', 'Settings management module'
 
 
 INSERT INTO [dbo].[Modules] (
