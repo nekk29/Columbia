@@ -28,6 +28,17 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandHandler.cs">SendEmailCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandValidator.cs">SendEmailCommandValidator.cs</ProjectItem>
 				</Folder>
+				<Folder Name="Role" TargetFolderName="Role">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateRoleCommand.cs">CreateRoleCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateRoleCommandHandler.cs">CreateRoleCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateRoleCommandValidator.cs">CreateRoleCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteRoleCommand.cs">DeleteRoleCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteRoleCommandHandler.cs">DeleteRoleCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteRoleCommandValidator.cs">DeleteRoleCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateRoleCommand.cs">UpdateRoleCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateRoleCommandHandler.cs">UpdateRoleCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateRoleCommandValidator.cs">UpdateRoleCommandValidator.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Setting" TargetFolderName="Setting">
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommand.cs">UpdateSettingCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommandHandler.cs">UpdateSettingCommandHandler.cs</ProjectItem>
@@ -64,6 +75,7 @@
 			<Folder Name="Mapping" TargetFolderName="Mapping">
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionProfile.cs">MenuOptionProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionProfile.cs">PermissionProfile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="RoleProfile.cs">RoleProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SettingProfile.cs">SettingProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserProfile.cs">UserProfile.cs</ProjectItem>
 			</Folder>
@@ -85,6 +97,14 @@
 				<Folder Name="Permission" TargetFolderName="Permission">
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQuery.cs">ListPermissionQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQueryHandler.cs">ListPermissionQueryHandler.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Role" TargetFolderName="Role">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetRoleQuery.cs">GetRoleQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetRoleQueryHandler.cs">GetRoleQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListRoleQuery.cs">ListRoleQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListRoleQueryHandler.cs">ListRoleQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchRoleQuery.cs">SearchRoleQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchRoleQueryHandler.cs">SearchRoleQueryHandler.cs</ProjectItem>
 				</Folder>
 				<Folder Name="Setting" TargetFolderName="Setting">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingQuery.cs">GetSettingQuery.cs</ProjectItem>
@@ -108,6 +128,9 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="Email.Designer.cs">Email.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Email.es.resx">Email.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Email.resx">Email.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Role.Designer.cs">Role.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Role.es.resx">Role.es.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Role.resx">Role.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.Designer.cs">User.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.es.resx">User.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.resx">User.resx</ProjectItem>

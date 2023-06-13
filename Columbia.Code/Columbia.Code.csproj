@@ -223,6 +223,33 @@
     <None Include="Application\SettingApplication.cs" />
     <None Include="Apis\Controllers\SettingController.cs" />
     <None Include="Domain\Mapping\SettingProfile.cs" />
+    <None Include="Apis\Controllers\RoleController.cs" />
+    <None Include="Application.Abstractions\IRoleApplication.cs" />
+    <None Include="Application\RoleApplication.cs" />
+    <None Include="Domain\Mapping\RoleProfile.cs" />
+    <None Include="Dto\Role\CreateRoleDto.cs" />
+    <None Include="Dto\Role\GetRoleDto.cs" />
+    <None Include="Dto\Role\ListRoleDto.cs" />
+    <None Include="Dto\Role\RoleDto.cs" />
+    <None Include="Dto\Role\SearchRoleDto.cs" />
+    <None Include="Dto\Role\SearchRoleFilterDto.cs" />
+    <None Include="Dto\Role\UpdateRoleDto.cs" />
+    <None Include="Domain\Commands\Role\CreateRoleCommand.cs" />
+    <None Include="Domain\Commands\Role\CreateRoleCommandHandler.cs" />
+    <None Include="Domain\Commands\Role\CreateRoleCommandValidator.cs" />
+    <None Include="Domain\Commands\Role\DeleteRoleCommand.cs" />
+    <None Include="Domain\Commands\Role\DeleteRoleCommandHandler.cs" />
+    <None Include="Domain\Commands\Role\DeleteRoleCommandValidator.cs" />
+    <None Include="Domain\Commands\Role\UpdateRoleCommand.cs" />
+    <None Include="Domain\Commands\Role\UpdateRoleCommandHandler.cs" />
+    <None Include="Domain\Commands\Role\UpdateRoleCommandValidator.cs" />
+    <None Include="Domain\Queries\Role\GetRoleQuery.cs" />
+    <None Include="Domain\Queries\Role\GetRoleQueryHandler.cs" />
+    <None Include="Domain\Queries\Role\ListRoleQuery.cs" />
+    <None Include="Domain\Queries\Role\ListRoleQueryHandler.cs" />
+    <None Include="Domain\Queries\Role\SearchRoleQuery.cs" />
+    <None Include="Domain\Queries\Role\SearchRoleQueryHandler.cs" />
+    <None Include="Domain\Resources\Role.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />
@@ -363,6 +390,10 @@
   <ItemGroup>
     <None Include="Domain\Resources\Email.es.resx" />
     <None Include="Domain\Resources\Email.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Domain\Resources\Role.es.resx" />
+    <EmbeddedResource Include="Domain\Resources\Role.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

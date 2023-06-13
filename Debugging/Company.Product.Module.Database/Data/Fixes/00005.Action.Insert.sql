@@ -19,6 +19,14 @@ INSERT INTO @DataTable([ParentCode], [ModuleCode], [Code], [Name], [Description]
 UNION ALL SELECT NULL, 'users', 'users.edit', 'Edit User', 'Allows you to edit existing users'
 UNION ALL SELECT NULL, 'users', 'users.delete', 'Delete User', 'Allows you to delete existing users'
 UNION ALL SELECT NULL, 'users', 'users.search', 'Search Users', 'Allows you to search users by criteria'
+-- Roles
+UNION ALL SELECT NULL, 'roles', 'roles.create', 'Create Roles', 'Allows you to create new roles'
+UNION ALL SELECT NULL, 'roles', 'roles.edit', 'Edit Roles', 'Allows you to edit existing roles'
+UNION ALL SELECT NULL, 'roles', 'roles.delete', 'Delete Roles', 'Allows you to delete existing roles'
+UNION ALL SELECT NULL, 'roles', 'roles.search', 'Search Roles', 'Allows you to search roles by criteria'
+-- Settings
+UNION ALL SELECT NULL, 'settings', 'settings.edit', 'Edit Settings', 'Allows you to edit existing settings'
+UNION ALL SELECT NULL, 'settings', 'settings.search', 'Search Settings', 'Allows you to search settings by criteria'
 
 DECLARE @Index INT = 1
 DECLARE @Count INT = (SELECT COUNT(1) FROM @DataTable)

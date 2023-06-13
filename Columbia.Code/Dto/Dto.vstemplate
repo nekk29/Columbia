@@ -36,6 +36,15 @@
 			<Folder Name="Permission" TargetFolderName="Permission">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionDto.cs">ListPermissionDto.cs</ProjectItem>
 			</Folder>
+			<Folder Name="Role" TargetFolderName="Role">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateRoleDto.cs">CreateRoleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GetRoleDto.cs">GetRoleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListRoleDto.cs">ListRoleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="RoleDto.cs">RoleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchRoleDto.cs">SearchRoleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchRoleFilterDto.cs">SearchRoleFilterDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateRoleDto.cs">UpdateRoleDto.cs</ProjectItem>
+			</Folder>
 			<Folder Name="Setting" TargetFolderName="Setting">
 				<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingDto.cs">GetSettingDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingDto.cs">SearchSettingDto.cs</ProjectItem>

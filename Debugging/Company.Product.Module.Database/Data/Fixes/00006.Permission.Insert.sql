@@ -9,10 +9,10 @@ DECLARE @DataTable TABLE (
 
 INSERT INTO @DataTable([RoleName], [ActionCode])
 -- Administrator
-		  SELECT 'Administrator', 'users.create'
-UNION ALL SELECT 'Administrator', 'users.edit'
-UNION ALL SELECT 'Administrator', 'users.delete'
-UNION ALL SELECT 'Administrator', 'users.search'
+SELECT
+	'Administrator',
+	[Code]
+FROM [dbo].[Actions]
 
 
 INSERT INTO [dbo].[Permissions] (
@@ -45,4 +45,7 @@ WHERE 1 = 1
 		WHERE 1 = 1
 			AND [p].[RoleId] = [r].[Id]
 			AND [p].[ActionId] = [a].[Id]
-	);
+	)
+ORDER BY
+	[dt].[RoleName],
+	[dt].[ActionCode];
