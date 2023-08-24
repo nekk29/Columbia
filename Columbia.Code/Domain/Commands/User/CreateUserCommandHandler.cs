@@ -20,6 +20,7 @@ namespace $safesolutionname$.Domain.Commands.User
 
         private readonly IConfiguration _configuration;
         private readonly ILogger<CreateUserCommandHandler> _logger;
+        private readonly IRepository<Entity.AspNetRole> _roleRepository;
         private readonly UserManager<Entity.ApplicationUser> _userManager;
         private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
 
@@ -37,6 +38,7 @@ namespace $safesolutionname$.Domain.Commands.User
             _logger = logger;
             _userManager = userManager;
             _configuration = configuration;
+            _roleRepository = roleRepository;
             _applicationUserRepository = applicationUserRepository;
         }
 
@@ -63,8 +65,19 @@ namespace $safesolutionname$.Domain.Commands.User
 
                     return response;
                 }
+                
+                if (response.IsValid)
+                    response.AddOkResult(Resources.Common.CreateSuccessMessage);
 
-                response.AddOkResult(Resources.Common.CreateSuccessMessage);
+                var roleIds = request.CreateDto.RoleIds ?? new List<Guid>();
+                var roles = await _roleRepository.FindByAsNoTrackingAsync(x => roleIds.Contains(x.Id));
+
+                if (roles.Any())
+                {
+                    var addRolesResult = await _userManager.AddToRolesAsync(applicationUser, roles.Select(x => x.NormalizedName));
+                    if (!addRolesResult.Succeeded)
+                        addRolesResult.Errors.ToList().ForEach(e => { response.AddErrorResult($"{e.Code}: {e.Description}"); });
+                }
 
                 try
                 {
