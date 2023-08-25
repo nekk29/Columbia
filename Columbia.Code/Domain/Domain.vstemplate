@@ -61,6 +61,8 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommand.cs">LoginCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandHandler.cs">LoginCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandValidator.cs">LoginCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="RenewSessionCommand.cs">RenewSessionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="RenewSessionCommandHandler.cs">RenewSessionCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommand.cs">ResetPasswordCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommandHandler.cs">ResetPasswordCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommandValidator.cs">ResetPasswordCommandValidator.cs</ProjectItem>

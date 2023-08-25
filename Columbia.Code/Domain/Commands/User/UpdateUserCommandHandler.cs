@@ -4,6 +4,7 @@ using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.User;
 using $safesolutionname$.Repository.Abstractions.Base;
 using $safesolutionname$.Repository.Abstractions.Transactions;
+using Microsoft.AspNetCore.Identity;
 
 namespace $safesolutionname$.Domain.Commands.User
 {

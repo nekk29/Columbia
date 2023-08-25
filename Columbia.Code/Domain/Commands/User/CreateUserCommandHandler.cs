@@ -31,6 +31,7 @@ namespace $safesolutionname$.Domain.Commands.User
             CreateUserCommandValidator validator,
             IConfiguration configuration,
             ILogger<CreateUserCommandHandler> logger,
+            IRepository<Entity.AspNetRole> roleRepository,
             UserManager<Entity.ApplicationUser> userManager,
             IRepository<Entity.ApplicationUser> applicationUserRepository
         ) : base(unitOfWork, mapper, mediator, validator)

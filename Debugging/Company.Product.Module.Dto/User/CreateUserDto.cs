@@ -9,5 +9,6 @@
         public string? LastName { get; set; } = null!;
         public string? Password { get; set; }
         public string? ConfirmPassword { get; set; }
+        public IEnumerable<Guid> RoleIds { get; set; } = null!;
     }
 }

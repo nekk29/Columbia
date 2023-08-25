@@ -20,6 +20,7 @@ namespace Company.Product.Module.Domain.Commands.User
 
         private readonly IConfiguration _configuration;
         private readonly ILogger<CreateUserCommandHandler> _logger;
+        private readonly IRepository<Entity.AspNetRole> _roleRepository;
         private readonly UserManager<Entity.ApplicationUser> _userManager;
         private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
 
@@ -30,6 +31,7 @@ namespace Company.Product.Module.Domain.Commands.User
             CreateUserCommandValidator validator,
             IConfiguration configuration,
             ILogger<CreateUserCommandHandler> logger,
+            IRepository<Entity.AspNetRole> roleRepository,
             UserManager<Entity.ApplicationUser> userManager,
             IRepository<Entity.ApplicationUser> applicationUserRepository
         ) : base(unitOfWork, mapper, mediator, validator)
@@ -37,6 +39,7 @@ namespace Company.Product.Module.Domain.Commands.User
             _logger = logger;
             _userManager = userManager;
             _configuration = configuration;
+            _roleRepository = roleRepository;
             _applicationUserRepository = applicationUserRepository;
         }
 
@@ -64,7 +67,18 @@ namespace Company.Product.Module.Domain.Commands.User
                     return response;
                 }
 
-                response.AddOkResult(Resources.Common.CreateSuccessMessage);
+                if (response.IsValid)
+                    response.AddOkResult(Resources.Common.CreateSuccessMessage);
+
+                var roleIds = request.CreateDto.RoleIds ?? new List<Guid>();
+                var roles = await _roleRepository.FindByAsNoTrackingAsync(x => roleIds.Contains(x.Id));
+
+                if (roles.Any())
+                {
+                    var addRolesResult = await _userManager.AddToRolesAsync(applicationUser, roles.Select(x => x.NormalizedName));
+                    if (!addRolesResult.Succeeded)
+                        addRolesResult.Errors.ToList().ForEach(e => { response.AddErrorResult($"{e.Code}: {e.Description}"); });
+                }
 
                 try
                 {

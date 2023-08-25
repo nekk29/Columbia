@@ -250,6 +250,8 @@
     <None Include="Domain\Queries\Role\SearchRoleQuery.cs" />
     <None Include="Domain\Queries\Role\SearchRoleQueryHandler.cs" />
     <None Include="Domain\Resources\Role.Designer.cs" />
+    <None Include="Domain\Commands\User\RenewSessionCommand.cs" />
+    <None Include="Domain\Commands\User\RenewSessionCommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Repository\Repository.csproj" />
     <None Include="RestClient\RestClient.csproj" />

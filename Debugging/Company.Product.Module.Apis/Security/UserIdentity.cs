@@ -23,9 +23,9 @@ namespace Company.Product.Module.Apis.Security
         }
 
         public string GetCurrentUser()
-            => GetUserNameClaim() ?? Constants.Security.User.Administrator;
+            => GetUserName() ?? Constants.Security.User.Administrator;
 
-        private string GetUserNameClaim()
+        public string GetUserName()
             => GetClaims()?.FirstOrDefault(x => x.Type == "sub" || x.Type == "UserName")?.Value!;
 
         public Guid? GetCurrentUserId()

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using $safesolutionname$.Application.Abstractions;
 using $safesolutionname$.Dto.Base;
+using $safesolutionname$.Dto.Token;
 using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Apis.Controllers
@@ -44,6 +45,10 @@ namespace $safesolutionname$.Apis.Controllers
         [HttpPost("login")]
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _userApplication.Login(loginDto);
+
+        [HttpGet("renew-session")]
+        public async Task<ResponseDto<AccessTokenDto>> RenewSession()
+            => await _userApplication.RenewSession();
 
         [AllowAnonymous]
         [HttpGet("forgot-password/{email}")]

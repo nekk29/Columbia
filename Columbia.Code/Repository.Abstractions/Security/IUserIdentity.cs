@@ -6,6 +6,7 @@ namespace $safesolutionname$.Repository.Abstractions.Security
     {
         IEnumerable<Claim> GetClaims();
         T? GetClaim<T>(string type);
+        string GetUserName();
         string GetCurrentUser();
         Guid? GetCurrentUserId();
     }

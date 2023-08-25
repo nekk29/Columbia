@@ -3,6 +3,7 @@ using $safesolutionname$.Application.Base;
 using $safesolutionname$.Domain.Commands.User;
 using $safesolutionname$.Domain.Queries.User;
 using $safesolutionname$.Dto.Base;
+using $safesolutionname$.Dto.Token;
 using $safesolutionname$.Dto.User;
 using MediatR;
 
@@ -35,6 +36,9 @@ namespace $safesolutionname$.Application
 
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _mediator.Send(new LoginCommand(loginDto));
+
+        public async Task<ResponseDto<AccessTokenDto>> RenewSession()
+            => await _mediator.Send(new RenewSessionCommand());
 
         public async Task<ResponseDto> ForgotPassword(string email)
             => await _mediator.Send(new ForgotPasswordCommand(email));

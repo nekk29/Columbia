@@ -1,5 +1,6 @@
 ﻿using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Dto.Base;
+using Company.Product.Module.Dto.Token;
 using Company.Product.Module.Dto.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,10 @@ namespace Company.Product.Module.Apis.Controllers
         [HttpPost("login")]
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _userApplication.Login(loginDto);
+
+        [HttpGet("renew-session")]
+        public async Task<ResponseDto<AccessTokenDto>> RenewSession()
+            => await _userApplication.RenewSession();
 
         [AllowAnonymous]
         [HttpGet("forgot-password/{email}")]
