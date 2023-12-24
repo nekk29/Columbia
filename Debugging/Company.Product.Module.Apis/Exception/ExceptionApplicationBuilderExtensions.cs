@@ -1,8 +1,8 @@
-﻿using Company.Product.Module.Dto.Base;
+﻿using System.Net;
+using Company.Product.Module.Dto.Base;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System.Net;
 
 namespace Company.Product.Module.Apis.Exception
 {

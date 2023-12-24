@@ -1,9 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+using AutoMapper;
 using Company.Product.Module.Domain.Queries.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.User;
 using Company.Product.Module.Repository.Abstractions.Base;
-using System.Linq.Expressions;
+using Company.Product.Module.Repository.Extensions;
 
 namespace Company.Product.Module.Domain.Queries.User
 {
@@ -27,15 +28,22 @@ namespace Company.Product.Module.Domain.Queries.User
 
             var filters = request.SearchParams?.Filter;
 
-            /*
-                Place your filters here...
-            */
+            if (!string.IsNullOrEmpty(filters?.Query))
+            {
+                filter = filter.And(x =>
+                    x.UserName!.Contains(filters.Query!) ||
+                    x.FirstName!.Contains(filters.Query!) ||
+                    x.LastName!.Contains(filters.Query!) ||
+                    x.Email!.Contains(filters.Query!) ||
+                    x.PhoneNumber!.Contains(filters.Query!)
+                );
+            }
 
             var users = await _userRepository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
-                null, //Include sort expressions...
-                filter //Include navigation properties...
+                null,
+                filter
             );
 
             var userDtos = _mapper?.Map<IEnumerable<SearchUserDto>>(users.Items);

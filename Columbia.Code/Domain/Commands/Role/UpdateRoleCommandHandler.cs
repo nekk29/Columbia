@@ -30,7 +30,7 @@ namespace $safesolutionname$.Domain.Commands.Role
             if (role != null)
             {
                 _mapper?.Map(request.UpdateDto, role);
-                role.IsActive = request.UpdateDto.Status;
+                role.NormalizedName = role.Name?.ToUpper();
                 await _roleRepository.UpdateAsync(role);
             }
 

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+using AutoMapper;
 using Company.Product.Module.Common;
 using Company.Product.Module.Domain.Queries.Base;
 using Company.Product.Module.Domain.Services.Setting;
@@ -8,7 +9,6 @@ using Company.Product.Module.Entity.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
 using Company.Product.Module.Repository.Extensions;
 using Microsoft.Extensions.Configuration;
-using System.Linq.Expressions;
 
 namespace Company.Product.Module.Domain.Queries.Setting
 {

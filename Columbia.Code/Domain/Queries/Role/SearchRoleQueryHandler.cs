@@ -3,6 +3,7 @@ using $safesolutionname$.Domain.Queries.Base;
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.Role;
 using $safesolutionname$.Repository.Abstractions.Base;
+using $safesolutionname$.Repository.Extensions;
 using System.Linq.Expressions;
 
 namespace $safesolutionname$.Domain.Queries.Role
@@ -24,29 +25,25 @@ namespace $safesolutionname$.Domain.Queries.Role
             var response = new ResponseDto<SearchResultDto<SearchRoleDto>>();
 
             Expression<Func<Entity.AspNetRole, bool>> filter = x => true;
-
+        
             var filters = request.SearchParams?.Filter;
 
-            /*
-                Place your filters here...
-            */
+            if (!string.IsNullOrEmpty(filters?.Query))
+            {
+                filter = filter.And(x =>
+                    x.Name!.Contains(filters.Query!) ||
+                    x.NormalizedName!.Contains(filters.Query!)
+                );
+            }
 
             var roles = await _roleRepository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
-                null, //Include sort expressions...
-                filter //Include navigation properties...
+                null,
+                filter
             );
 
             var roleDtos = _mapper?.Map<IEnumerable<SearchRoleDto>>(roles.Items);
-
-            /*if (users.Items != null && users.Items.Count() > 0)
-            {
-                foreach (var user in users.Items)
-                {
-                    var role = user.Roles.FirstOrDefault();
-                    var 
-            }*/
 
             var searchResult = new SearchResultDto<SearchRoleDto>(
                 roleDtos ?? new List<SearchRoleDto>(),

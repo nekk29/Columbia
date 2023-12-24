@@ -1,11 +1,11 @@
-﻿using Company.Product.Module.Entity.Base;
+﻿using System.Collections;
+using System.Linq.Expressions;
+using System.Reflection;
+using Company.Product.Module.Entity.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
 using Company.Product.Module.Repository.Abstractions.Security;
 using Company.Product.Module.Repository.Extensions;
 using Microsoft.EntityFrameworkCore;
-using System.Collections;
-using System.Linq.Expressions;
-using System.Reflection;
 
 namespace Company.Product.Module.Repository.Base
 {

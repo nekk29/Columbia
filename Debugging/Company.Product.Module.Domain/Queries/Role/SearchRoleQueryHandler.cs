@@ -1,9 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+using AutoMapper;
 using Company.Product.Module.Domain.Queries.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Role;
 using Company.Product.Module.Repository.Abstractions.Base;
-using System.Linq.Expressions;
+using Company.Product.Module.Repository.Extensions;
 
 namespace Company.Product.Module.Domain.Queries.Role
 {
@@ -27,26 +28,22 @@ namespace Company.Product.Module.Domain.Queries.Role
 
             var filters = request.SearchParams?.Filter;
 
-            /*
-                Place your filters here...
-            */
+            if (!string.IsNullOrEmpty(filters?.Query))
+            {
+                filter = filter.And(x =>
+                    x.Name!.Contains(filters.Query!) ||
+                    x.NormalizedName!.Contains(filters.Query!)
+                );
+            }
 
             var roles = await _roleRepository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
-                null, //Include sort expressions...
-                filter //Include navigation properties...
+                null,
+                filter
             );
 
             var roleDtos = _mapper?.Map<IEnumerable<SearchRoleDto>>(roles.Items);
-
-            /*if (users.Items != null && users.Items.Count() > 0)
-            {
-                foreach (var user in users.Items)
-                {
-                    var role = user.Roles.FirstOrDefault();
-                    var 
-            }*/
 
             var searchResult = new SearchResultDto<SearchRoleDto>(
                 roleDtos ?? new List<SearchRoleDto>(),

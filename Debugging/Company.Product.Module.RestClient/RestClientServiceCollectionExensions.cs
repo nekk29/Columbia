@@ -1,6 +1,6 @@
-﻿using Company.Product.Module.RestClient.Base;
+﻿using System.Reflection;
+using Company.Product.Module.RestClient.Base;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace Company.Product.Module.RestClient
 {

@@ -1,7 +1,7 @@
-﻿using Company.Product.Module.Dto.Base;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
+﻿using System.Net.Mime;
 using System.Text;
+using Company.Product.Module.Dto.Base;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Company.Product.Module.Apis.Controllers.Base
 {

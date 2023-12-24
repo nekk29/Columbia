@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Localization;
-using System.Globalization;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace Company.Product.Module.Apis.Localization
 {

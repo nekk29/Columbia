@@ -17,8 +17,7 @@ namespace Company.Product.Module.Domain.Commands.Role
             RequiredInformation(x => x.CreateDto)
                 .DependentRules(() =>
                 {
-                    RequiredString(x => x.CreateDto.Name, Resources.User.FirstName, 2, 100);
-                    RequiredString(x => x.CreateDto.NormalizedName, Resources.User.LastName, 2, 100);
+                    RequiredString(x => x.CreateDto.Name, Resources.Role.Name, 2, 256);
                 })
                 .DependentRules(() =>
                 {

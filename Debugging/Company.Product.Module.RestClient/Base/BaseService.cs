@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using System.Net.Http.Json;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.Net.Http.Json;
 
 namespace Company.Product.Module.RestClient.Base
 {

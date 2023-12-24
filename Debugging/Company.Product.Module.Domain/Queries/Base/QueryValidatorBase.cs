@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using FluentValidation;
 
 namespace Company.Product.Module.Domain.Queries.Base
 {

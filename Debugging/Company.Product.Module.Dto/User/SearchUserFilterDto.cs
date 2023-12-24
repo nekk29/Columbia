@@ -3,6 +3,7 @@
     public class SearchUserFilterDto
     {
         public Guid? Id { get; set; } = null!;
+        public string? Query { get; set; } = null!;
         public string? FirstName { get; set; } = null!;
         public string? LastName { get; set; } = null!;
         public string? UserName { get; set; } = null!;

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text;
+using AutoMapper;
 using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.User;
@@ -7,7 +8,6 @@ using Company.Product.Module.Repository.Abstractions.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
-using System.Text;
 
 namespace Company.Product.Module.Domain.Commands.User
 {

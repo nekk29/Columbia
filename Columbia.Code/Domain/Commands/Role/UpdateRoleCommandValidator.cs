@@ -18,8 +18,7 @@ namespace $safesolutionname$.Domain.Commands.Role
                 .DependentRules(() =>
                 {
                     RequiredField(x => x.UpdateDto.Id, Resources.Role.Id);
-                    RequiredString(x => x.UpdateDto.Name, Resources.Role.Name, 2, 100);
-                    RequiredString(x => x.UpdateDto.NormalizedName, Resources.Role.NormalizedName, 2, 100);
+                    RequiredString(x => x.UpdateDto.Name, Resources.Role.Name, 2, 256);
                 })
                 .DependentRules(() =>
                 {

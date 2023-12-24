@@ -1,6 +1,6 @@
-﻿using Company.Product.Module.Entity.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Company.Product.Module.Entity.Base;
 
 namespace Company.Product.Module.Entity
 {

@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using System.Text;
+using AutoMapper;
 using Company.Product.Module.Common;
 using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Domain.Commands.Email;
@@ -12,8 +14,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System.Net;
-using System.Text;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
