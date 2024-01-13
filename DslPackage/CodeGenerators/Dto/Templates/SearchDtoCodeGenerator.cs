@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -68,61 +68,18 @@ if (Entity != null)
             
             #line default
             #line hidden
-            this.Write("Dto : ");
+            this.Write("Dto : Get");
             
             #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto\r\n{\r\n");
+            this.Write("Dto\r\n{\r\n\r\n}\r\n");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
-
-	PushIndent(DefautIndent);
-
-	foreach (var primitiveProperty in Entity.PrimitiveProperties.Where(x => x.IsPrimaryKey))
-	{
-
-            
-            #line default
-            #line hidden
-            this.Write("public ");
-            
-            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type));
-            
-            #line default
-            #line hidden
-            this.Write(" ");
-            
-            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Name));
-            
-            #line default
-            #line hidden
-            this.Write(" { get; set; }");
-            
-            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(primitiveProperty.Type == "string" ? " = null!;" : string.Empty));
-            
-            #line default
-            #line hidden
-            this.Write("\r\n");
-            
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
-
-	}
+            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
 
 	PopIndent();
-
-            
-            #line default
-            #line hidden
-            this.Write("}\r\n");
-            
-            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\SearchDtoCodeGenerator.tt"
-
 }
 
 ClearIndent();

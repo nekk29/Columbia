@@ -1,7 +1,7 @@
 ﻿namespace Company.Product.Module.Dto.RelatedSample
 {
-    public class SearchRelatedSampleDto : RelatedSampleDto
+    public class SearchRelatedSampleDto : GetRelatedSampleDto
     {
-        public Guid Id { get; set; }
+
     }
 }

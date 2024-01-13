@@ -1,7 +1,7 @@
 ﻿namespace Company.Product.Module.Dto.Sample
 {
-    public class SearchSampleDto : SampleDto
+    public class SearchSampleDto : GetSampleDto
     {
-        public Guid Id { get; set; }
+
     }
 }
