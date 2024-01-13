@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -114,6 +114,18 @@ if (Entity != null)
 
 	}
 
+	if(Entity.IsAuditable)
+	{
+
+            
+            #line default
+            #line hidden
+            this.Write("public bool IsActive { get; set; }\r\n");
+            
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
+
+	}
+
 	PopIndent();
 
             
@@ -121,7 +133,7 @@ if (Entity != null)
             #line hidden
             this.Write("}\r\n");
             
-            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
+            #line 40 "D:\Projects\Columbia\DslPackage\CodeGenerators\Dto\Templates\GetDtoCodeGenerator.tt"
 
 }
 

@@ -27,6 +27,13 @@ public <#= primitiveProperty.Type #> <#= primitiveProperty.Name #> { get; set; }
 <#
 	}
 
+	if(Entity.IsAuditable)
+	{
+#>
+public bool IsActive { get; set; }
+<#
+	}
+
 	PopIndent();
 #>
 }
