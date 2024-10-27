@@ -22,17 +22,28 @@
 			<Folder Name="Data" TargetFolderName="Data">
 				<Folder Name="Environments" TargetFolderName="Environments" />
 				<Folder Name="Fixes" TargetFolderName="Fixes">
-					<ProjectItem ReplaceParameters="true" TargetFileName="00001.AspNetUsers.Insert.sql">00001.AspNetUsers.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00002.AspNetRoles.Insert.sql">00002.AspNetRoles.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00003.AspNetUserRoles.Insert.sql">00003.AspNetUserRoles.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00004.Module.Insert.sql">00004.Module.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00005.Action.Insert.sql">00005.Action.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00006.Permission.Insert.sql">00006.Permission.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00007.MenuOption.Insert.sql">00007.MenuOption.Insert.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00008.Emails.Insert.UserRegistration.es-ES.sql">00008.Emails.Insert.UserRegistration.es-ES.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00009.Emails.Insert.UserRegistration.en-US.sql">00009.Emails.Insert.UserRegistration.en-US.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00010.Emails.Insert.UserResetPassword.es-ES.sql">00010.Emails.Insert.UserResetPassword.es-ES.sql</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="00011.Emails.Insert.UserResetPassword.en-US.sql">00011.Emails.Insert.UserResetPassword.en-US.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00001.Application.Insert.sql">00001.Application.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00002.AspNetUsers.Insert.sql">00002.AspNetUsers.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00003.AspNetRoles.Insert.sql">00003.AspNetRoles.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00004.AspNetUserRoles.Insert.sql">00004.AspNetUserRoles.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00005.Module.Insert.sql">00005.Module.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00006.Action.Insert.sql">00006.Action.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00007.Permission.Insert.sql">00007.Permission.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00008.MenuOption.Insert.sql">00008.MenuOption.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00009.Client.Insert.sql">00009.Client.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00010.ClientGrantType.Insert.sql">00010.ClientGrantType.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00011.ClientScope.Insert.sql">00011.ClientScope.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00012.ClientSecret.Insert.sql">00012.ClientSecret.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00013.ClientCorsOrigin.Insert.sql">00013.ClientCorsOrigin.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00014.ClientRedirectUri.Insert.sql">00014.ClientRedirectUri.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00015.ClientPostLogoutRedirectUri.Insert.sql">00015.ClientPostLogoutRedirectUri.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00016.ApiScope.Insert.sql">00016.ApiScope.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00017.ApiResource.Insert.sql">00017.ApiResource.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00018.IdentityResource.Insert.sql">00018.IdentityResource.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00019.Emails.UserRegistration.es-ES.Insert.sql">00019.Emails.UserRegistration.es-ES.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00020.Emails.UserRegistration.en-US.Insert.sql">00020.Emails.UserRegistration.en-US.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00021.Emails.UserResetPassword.es-ES.Insert.sql">00021.Emails.UserResetPassword.es-ES.Insert.sql</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="00022.Emails.UserResetPassword.en-US.Insert.sql">00022.Emails.UserResetPassword.en-US.Insert.sql</ProjectItem>
 				</Folder>
 				<Folder Name="Settings" TargetFolderName="Settings" />
 			</Folder>

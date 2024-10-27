@@ -1,5 +1,5 @@
-﻿using $safesolutionname$.Entity.Base;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using $safesolutionname$.Entity.Base;
 
 namespace $safesolutionname$.Repository.Abstractions.Base
 {

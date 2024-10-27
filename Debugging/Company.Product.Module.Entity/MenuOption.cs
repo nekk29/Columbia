@@ -10,6 +10,7 @@ namespace Company.Product.Module.Entity
         }
 
         public Guid Id { get; set; }
+        public Guid ApplicationId { get; set; }
         public Guid? ParentMenuOptionId { get; set; }
         public Guid ActionId { get; set; }
         public string Code { get; set; } = null!;
@@ -19,8 +20,9 @@ namespace Company.Product.Module.Entity
         public string? MenuIcon { get; set; }
         public int SortOrder { get; set; }
 
-        public virtual Action Action { get; set; } = null!;
+        public virtual Application Application { get; set; } = null!;
         public virtual MenuOption? ParentMenuOption { get; set; }
+        public virtual Action Action { get; set; } = null!;
         public virtual ICollection<MenuOption> InverseParentMenuOption { get; set; }
     }
 }

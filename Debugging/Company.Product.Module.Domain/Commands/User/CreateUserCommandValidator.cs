@@ -37,10 +37,9 @@ namespace Company.Product.Module.Domain.Commands.User
 
         protected async Task<bool> ValidateExistenceAsync(CreateUserCommand command, CreateUserDto createDto, ValidationContext<CreateUserCommand> context, CancellationToken cancellationToken)
         {
-            var applicationUser = await _userManager.FindByNameAsync(createDto.UserName);
+            var applicationUser = await _userManager.FindByNameAsync(createDto.UserName!);
 
-            if (applicationUser == null)
-                applicationUser = await _userManager.FindByEmailAsync(createDto.Email);
+            applicationUser ??= await _userManager.FindByEmailAsync(createDto.Email!);
 
             if (applicationUser != null)
                 return CustomValidationMessage(context, Resources.Common.DuplicateRecord);

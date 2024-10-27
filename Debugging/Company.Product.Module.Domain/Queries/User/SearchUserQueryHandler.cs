@@ -8,18 +8,11 @@ using Company.Product.Module.Repository.Extensions;
 
 namespace Company.Product.Module.Domain.Queries.User
 {
-    public class SearchUserQueryHandler : SearchQueryHandlerBase<SearchUserQuery, SearchUserFilterDto, SearchUserDto>
+    public class SearchUserQueryHandler(
+        IMapper mapper,
+        IRepository<Entity.AspNetUser> userRepository
+    ) : SearchQueryHandlerBase<SearchUserQuery, SearchUserFilterDto, SearchUserDto>(mapper)
     {
-        private readonly IRepository<Entity.AspNetUser> _userRepository;
-
-        public SearchUserQueryHandler(
-            IMapper mapper,
-            IRepository<Entity.AspNetUser> userRepository
-        ) : base(mapper)
-        {
-            _userRepository = userRepository;
-        }
-
         protected override async Task<ResponseDto<SearchResultDto<SearchUserDto>>> HandleQuery(SearchUserQuery request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<SearchResultDto<SearchUserDto>>();
@@ -39,7 +32,7 @@ namespace Company.Product.Module.Domain.Queries.User
                 );
             }
 
-            var users = await _userRepository.SearchByAsNoTrackingAsync(
+            var users = await userRepository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
                 null,

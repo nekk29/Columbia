@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using $safesolutionname$.Dto.Base;
 using MediatR;
+using $safesolutionname$.Dto.Base;
 
 namespace $safesolutionname$.Domain.Queries.Base
 {
@@ -22,8 +22,7 @@ namespace $safesolutionname$.Domain.Queries.Base
 
         protected override async Task<ResponseDto<SearchResultDto<TResponse>>> ValidateAndHandle(TRequest request, CancellationToken cancellationToken)
         {
-            if (_validator == null)
-                _validator = new SearchQueryValidatorBase<TRequest, TFilter, TResponse>();
+            _validator ??= new SearchQueryValidatorBase<TRequest, TFilter, TResponse>();
 
             return await base.ValidateAndHandle(request, cancellationToken);
         }

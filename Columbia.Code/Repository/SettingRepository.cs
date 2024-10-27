@@ -8,19 +8,12 @@ using $safesolutionname$.Repository.Base;
 
 namespace $safesolutionname$.Repository
 {
-    public class SettingRepository : Repository<Setting>, ISettingRepository
+    public class SettingRepository(
+        DbContext dbContext,
+        IUserIdentity userIdentity,
+        IConfiguration configuration
+    ) : Repository<Setting>(dbContext, userIdentity), ISettingRepository
     {
-        private readonly IConfiguration _configuration;
-
-        public SettingRepository(
-            DbContext dbContext,
-            IUserIdentity userIdentity,
-            IConfiguration configuration
-        ) : base(dbContext, userIdentity)
-        {
-            _configuration = configuration;
-        }
-
         public async Task<T> GetValue<T>(string group, string code)
         {
             var setting = await GetByAsNoTrackingAsync(x => x.Group == group && x.Code == code);
@@ -33,8 +26,8 @@ namespace $safesolutionname$.Repository
                     if (value != null && value.GetType() == typeof(string) &&
                         Constants.Settings.EncryptedSettings.Any(x => x.Group == group && x.Code == code))
                     {
-                        var securityKey = _configuration.GetValue<string>("SecurityOptions:SecurityKey");
-                        try { return (T)Convert.ChangeType(Encrypter.Decrypt(value as string, securityKey), typeof(T)); }
+                        var securityKey = configuration.GetValue<string>("SecurityOptions:SecurityKey");
+                        try { return (T)Convert.ChangeType(Encrypter.Decrypt((value as string)!, securityKey!), typeof(T)); }
                         catch (Exception) { value = default!; }
                     }
 

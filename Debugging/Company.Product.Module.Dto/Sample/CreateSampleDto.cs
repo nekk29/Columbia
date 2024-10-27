@@ -1,7 +1,9 @@
-﻿namespace Company.Product.Module.Dto.Sample
-{
-    public class CreateSampleDto : SampleDto
-    {
+﻿using System;
 
-    }
+namespace Company.Product.Module.Dto.Sample
+{
+   public class CreateSampleDto : SampleDto
+   {
+   
+   }
 }

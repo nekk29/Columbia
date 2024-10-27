@@ -16,6 +16,7 @@ namespace Company.Product.Module.Repository.Data
         }
 
         public virtual DbSet<Entity.Action> Actions { get; set; } = null!;
+        public virtual DbSet<Application> Applications { get; set; } = null!;
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
         public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
@@ -37,11 +38,11 @@ namespace Company.Product.Module.Repository.Data
         {
             modelBuilder.Entity<Entity.Action>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
                 entity.HasIndex(e => e.ModuleId, "IX_Actions_ModuleId");
 
                 entity.HasIndex(e => e.ParentActionId, "IX_Actions_ParentActionId");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Code).HasMaxLength(64);
 
@@ -55,20 +56,43 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.HasOne(d => d.Module)
                     .WithMany(p => p.Actions)
-                    .HasForeignKey(d => d.ModuleId);
+                    .HasForeignKey(d => d.ModuleId)
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.ParentAction)
                     .WithMany(p => p.InverseParentAction)
-                    .HasForeignKey(d => d.ParentActionId);
+                    .HasForeignKey(d => d.ParentActionId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<Application>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.ClientId).HasMaxLength(200);
+
+                entity.Property(e => e.Code).HasMaxLength(32);
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.LogoUri).HasMaxLength(2048);
+
+                entity.Property(e => e.ApplicationUri).HasMaxLength(256);
+
+                entity.Property(e => e.CreationUser).HasMaxLength(64);
+
+                entity.Property(e => e.UpdateUser).HasMaxLength(64);
             });
 
             modelBuilder.Entity<AspNetRole>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
+                entity.HasIndex(e => e.ApplicationId, "IX_AspNetRoles_ApplicationId");
+
                 entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
                     .IsUnique()
                     .HasFilter("([NormalizedName] IS NOT NULL)");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreationUser)
                     .HasMaxLength(64)
@@ -81,6 +105,11 @@ namespace Company.Product.Module.Repository.Data
                 entity.Property(e => e.UpdateUser)
                     .HasMaxLength(64)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.Application)
+                    .WithMany(p => p.Roles)
+                    .HasForeignKey(d => d.ApplicationId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<AspNetRoleClaim>(entity =>
@@ -89,18 +118,19 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.AspNetRoleClaims)
-                    .HasForeignKey(d => d.RoleId);
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<AspNetUser>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
                 entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
 
                 entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex")
                     .IsUnique()
                     .HasFilter("([NormalizedUserName] IS NOT NULL)");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreationUser)
                     .HasMaxLength(64)
@@ -138,7 +168,7 @@ namespace Company.Product.Module.Repository.Data
 
                             j.ToTable("AspNetUserRoles");
 
-                            j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                            j.HasIndex(["RoleId"], "IX_AspNetUserRoles_RoleId");
                         });
             });
 
@@ -148,7 +178,8 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserClaims)
-                    .HasForeignKey(d => d.UserId);
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<AspNetUserLogin>(entity =>
@@ -159,7 +190,8 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserLogins)
-                    .HasForeignKey(d => d.UserId);
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<AspNetUserToken>(entity =>
@@ -168,15 +200,16 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserTokens)
-                    .HasForeignKey(d => d.UserId);
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<Email>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
                 entity.HasIndex(e => new { e.Code, e.Language }, "AK_Emails_Code")
                     .IsUnique();
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CcEmails).HasMaxLength(1024);
 
@@ -201,11 +234,13 @@ namespace Company.Product.Module.Repository.Data
 
             modelBuilder.Entity<MenuOption>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
+                entity.HasIndex(e => e.ApplicationId, "IX_MenuOptions_ApplicationId");
+
                 entity.HasIndex(e => e.ActionId, "IX_MenuOptions_ActionId");
 
                 entity.HasIndex(e => e.ParentMenuOptionId, "IX_MenuOptions_ParentMenuOptionId");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Code).HasMaxLength(64);
 
@@ -221,18 +256,27 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.Property(e => e.UpdateUser).HasMaxLength(64);
 
-                entity.HasOne(d => d.Action)
+                entity.HasOne(d => d.Application)
                     .WithMany(p => p.MenuOptions)
-                    .HasForeignKey(d => d.ActionId);
+                    .HasForeignKey(d => d.ApplicationId)
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.ParentMenuOption)
                     .WithMany(p => p.InverseParentMenuOption)
-                    .HasForeignKey(d => d.ParentMenuOptionId);
+                    .HasForeignKey(d => d.ParentMenuOptionId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(d => d.Action)
+                    .WithMany(p => p.MenuOptions)
+                    .HasForeignKey(d => d.ActionId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<Entity.Module>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasKey(e => e.Id);
+
+                entity.HasIndex(e => e.ApplicationId, "IX_Modules_ApplicationId");
 
                 entity.Property(e => e.Code).HasMaxLength(64);
 
@@ -243,15 +287,20 @@ namespace Company.Product.Module.Repository.Data
                 entity.Property(e => e.Name).HasMaxLength(256);
 
                 entity.Property(e => e.UpdateUser).HasMaxLength(64);
+
+                entity.HasOne(d => d.Application)
+                    .WithMany(p => p.Modules)
+                    .HasForeignKey(d => d.ApplicationId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<Permission>(entity =>
             {
+                entity.HasKey(e => e.Id);
+
                 entity.HasIndex(e => e.ActionId, "IX_Permissions_ActionId");
 
                 entity.HasIndex(e => e.RoleId, "IX_Permissions_RoleId");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreationUser).HasMaxLength(64);
 
@@ -259,11 +308,13 @@ namespace Company.Product.Module.Repository.Data
 
                 entity.HasOne(d => d.Action)
                     .WithMany(p => p.Permissions)
-                    .HasForeignKey(d => d.ActionId);
+                    .HasForeignKey(d => d.ActionId)
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Permissions)
-                    .HasForeignKey(d => d.RoleId);
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
 
             modelBuilder.Entity<Setting>(entity =>

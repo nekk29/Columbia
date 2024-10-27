@@ -16,6 +16,28 @@
 	<TemplateContent>
 		<Project TargetFileName="Domain.csproj" File="Domain.csproj" ReplaceParameters="true">
 			<Folder Name="Commands" TargetFolderName="Commands">
+				<Folder Name="Action" TargetFolderName="Action">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateActionCommand.cs">CreateActionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateActionCommandHandler.cs">CreateActionCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateActionCommandValidator.cs">CreateActionCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteActionCommand.cs">DeleteActionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteActionCommandHandler.cs">DeleteActionCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteActionCommandValidator.cs">DeleteActionCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateActionCommand.cs">UpdateActionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateActionCommandHandler.cs">UpdateActionCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateActionCommandValidator.cs">UpdateActionCommandValidator.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Application" TargetFolderName="Application">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateApplicationCommand.cs">CreateApplicationCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateApplicationCommandHandler.cs">CreateApplicationCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateApplicationCommandValidator.cs">CreateApplicationCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteApplicationCommand.cs">DeleteApplicationCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteApplicationCommandHandler.cs">DeleteApplicationCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteApplicationCommandValidator.cs">DeleteApplicationCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateApplicationCommand.cs">UpdateApplicationCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateApplicationCommandHandler.cs">UpdateApplicationCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateApplicationCommandValidator.cs">UpdateApplicationCommandValidator.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Base" TargetFolderName="Base">
 					<ProjectItem ReplaceParameters="true" TargetFileName="CommandBase.cs">CommandBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="CommandHandlerBase.cs">CommandHandlerBase.cs</ProjectItem>
@@ -23,10 +45,42 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="NotificationBase.cs">NotificationBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="NotificationBaseHandler.cs">NotificationBaseHandler.cs</ProjectItem>
 				</Folder>
+				<Folder Name="Client" TargetFolderName="Client">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateOrUpdateClientCommand.cs">CreateOrUpdateClientCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateOrUpdateClientCommandHandler.cs">CreateOrUpdateClientCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateOrUpdateClientCommandValidator.cs">CreateOrUpdateClientCommandValidator.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Email" TargetFolderName="Email">
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommand.cs">SendEmailCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandHandler.cs">SendEmailCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailCommandValidator.cs">SendEmailCommandValidator.cs</ProjectItem>
+				</Folder>
+				<Folder Name="MenuOption" TargetFolderName="MenuOption">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateMenuOptionCommand.cs">CreateMenuOptionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateMenuOptionCommandHandler.cs">CreateMenuOptionCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateMenuOptionCommandValidator.cs">CreateMenuOptionCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteMenuOptionCommand.cs">DeleteMenuOptionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteMenuOptionCommandHandler.cs">DeleteMenuOptionCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteMenuOptionCommandValidator.cs">DeleteMenuOptionCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateMenuOptionCommand.cs">UpdateMenuOptionCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateMenuOptionCommandHandler.cs">UpdateMenuOptionCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateMenuOptionCommandValidator.cs">UpdateMenuOptionCommandValidator.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Module" TargetFolderName="Module">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateModuleCommand.cs">CreateModuleCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateModuleCommandHandler.cs">CreateModuleCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateModuleCommandValidator.cs">CreateModuleCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteModuleCommand.cs">DeleteModuleCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteModuleCommandHandler.cs">DeleteModuleCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteModuleCommandValidator.cs">DeleteModuleCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateModuleCommand.cs">UpdateModuleCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateModuleCommandHandler.cs">UpdateModuleCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateModuleCommandValidator.cs">UpdateModuleCommandValidator.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Permission" TargetFolderName="Permission">
+					<ProjectItem ReplaceParameters="true" TargetFileName="AssignPermissionsCommand.cs">AssignPermissionsCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="AssignPermissionsCommandHandler.cs">AssignPermissionsCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="AssignPermissionsCommandValidator.cs">AssignPermissionsCommandValidator.cs</ProjectItem>
 				</Folder>
 				<Folder Name="Role" TargetFolderName="Role">
 					<ProjectItem ReplaceParameters="true" TargetFileName="CreateRoleCommand.cs">CreateRoleCommand.cs</ProjectItem>
@@ -40,13 +94,15 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateRoleCommandValidator.cs">UpdateRoleCommandValidator.cs</ProjectItem>
 				</Folder>
 				<Folder Name="Setting" TargetFolderName="Setting">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateSettingCommand.cs">CreateSettingCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateSettingCommandHandler.cs">CreateSettingCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="CreateSettingCommandValidator.cs">CreateSettingCommandValidator.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteSettingCommand.cs">DeleteSettingCommand.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteSettingCommandHandler.cs">DeleteSettingCommandHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="DeleteSettingCommandValidator.cs">DeleteSettingCommandValidator.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommand.cs">UpdateSettingCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommandHandler.cs">UpdateSettingCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingCommandValidator.cs">UpdateSettingCommandValidator.cs</ProjectItem>
-				</Folder>
-				<Folder Name="Token" TargetFolderName="Token">
-					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommand.cs">GenerateTokenCommand.cs</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="GenerateTokenCommandHandler.cs">GenerateTokenCommandHandler.cs</ProjectItem>
 				</Folder>
 				<Folder Name="User" TargetFolderName="User">
 					<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserCommand.cs">CreateUserCommand.cs</ProjectItem>
@@ -61,8 +117,6 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommand.cs">LoginCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandHandler.cs">LoginCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="LoginCommandValidator.cs">LoginCommandValidator.cs</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="RenewSessionCommand.cs">RenewSessionCommand.cs</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="RenewSessionCommandHandler.cs">RenewSessionCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommand.cs">ResetPasswordCommand.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommandHandler.cs">ResetPasswordCommandHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ResetPasswordCommandValidator.cs">ResetPasswordCommandValidator.cs</ProjectItem>
@@ -73,15 +127,35 @@
 			</Folder>
 			<Folder Name="Extensions" TargetFolderName="Extensions">
 				<ProjectItem ReplaceParameters="true" TargetFileName="DomainServiceCollectionExtensions.cs">DomainExtensions.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SecurityUserExtensions.cs">SecurityUserExtensions.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Mapping" TargetFolderName="Mapping">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionProfile.cs">ActionProfile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationProfile.cs">ApplicationProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionProfile.cs">MenuOptionProfile.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ModuleProfile.cs">ModuleProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionProfile.cs">PermissionProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="RoleProfile.cs">RoleProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SettingProfile.cs">SettingProfile.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserProfile.cs">UserProfile.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Queries" TargetFolderName="Queries">
+				<Folder Name="Action" TargetFolderName="Action">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetActionQuery.cs">GetActionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetActionQueryHandler.cs">GetActionQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListActionQuery.cs">ListActionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListActionQueryHandler.cs">ListActionQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchActionQuery.cs">SearchActionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchActionQueryHandler.cs">SearchActionQueryHandler.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Application" TargetFolderName="Application">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetApplicationQuery.cs">GetApplicationQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetApplicationQueryHandler.cs">GetApplicationQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListApplicationQuery.cs">ListApplicationQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListApplicationQueryHandler.cs">ListApplicationQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchApplicationQuery.cs">SearchApplicationQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchApplicationQueryHandler.cs">SearchApplicationQueryHandler.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Base" TargetFolderName="Base">
 					<ProjectItem ReplaceParameters="true" TargetFileName="QueryBase.cs">QueryBase.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="QueryHandlerBase.cs">QueryHandlerBase.cs</ProjectItem>
@@ -91,14 +165,30 @@
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchQueryValidatorBase.cs">SearchQueryValidatorBase.cs</ProjectItem>
 				</Folder>
 				<Folder Name="MenuOption" TargetFolderName="MenuOption">
-					<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionsQuery.cs">ListMenuOptionsQuery.cs</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionsQueryHandler.cs">ListMenuOptionsQueryHandler.cs</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionsQuery.cs">TreeMenuOptionsQuery.cs</ProjectItem>
-					<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionsQueryHandler.cs">TreeMenuOptionsQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetMenuOptionQuery.cs">GetMenuOptionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetMenuOptionQueryHandler.cs">GetMenuOptionQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionQuery.cs">ListMenuOptionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionQueryHandler.cs">ListMenuOptionQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchMenuOptionQuery.cs">SearchMenuOptionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchMenuOptionQueryHandler.cs">SearchMenuOptionQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionQuery.cs">TreeMenuOptionQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionQueryHandler.cs">TreeMenuOptionQueryHandler.cs</ProjectItem>
+				</Folder>
+				<Folder Name="Module" TargetFolderName="Module">
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetModuleQuery.cs">GetModuleQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="GetModuleQueryHandler.cs">GetModuleQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListModuleQuery.cs">ListModuleQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListModuleQueryHandler.cs">ListModuleQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchModuleQuery.cs">SearchModuleQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="SearchModuleQueryHandler.cs">SearchModuleQueryHandler.cs</ProjectItem>
 				</Folder>
 				<Folder Name="Permission" TargetFolderName="Permission">
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQuery.cs">ListPermissionQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionQueryHandler.cs">ListPermissionQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListRolePermissionsQuery.cs">ListRolePermissionsQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListRolePermissionsQueryHandler.cs">ListRolePermissionsQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListUserPermissionsQuery.cs">ListUserPermissionsQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListUserPermissionsQueryHandler.cs">ListUserPermissionsQueryHandler.cs</ProjectItem>
 				</Folder>
 				<Folder Name="Role" TargetFolderName="Role">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetRoleQuery.cs">GetRoleQuery.cs</ProjectItem>
@@ -111,6 +201,8 @@
 				<Folder Name="Setting" TargetFolderName="Setting">
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingQuery.cs">GetSettingQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingQueryHandler.cs">GetSettingQueryHandler.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListSettingQuery.cs">ListSettingQuery.cs</ProjectItem>
+					<ProjectItem ReplaceParameters="true" TargetFileName="ListSettingQueryHandler.cs">ListSettingQueryHandler.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingQuery.cs">SearchSettingQuery.cs</ProjectItem>
 					<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingQueryHandler.cs">SearchSettingQueryHandler.cs</ProjectItem>
 				</Folder>
@@ -124,12 +216,21 @@
 				</Folder>
 			</Folder>
 			<Folder Name="Resources" TargetFolderName="Resources">
+				<ProjectItem ReplaceParameters="true" TargetFileName="Action.Designer.cs">Action.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Action.es.resx">Action.es.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Action.resx">Action.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Client.Designer.cs">Client.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Client.es.resx">Client.es.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Client.resx">Client.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.Designer.cs">Common.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.es.resx">Common.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Common.resx">Common.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Email.Designer.cs">Email.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Email.es.resx">Email.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Email.resx">Email.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Permission.Designer.cs">Permission.Designer.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Permission.es.resx">Permission.es.resx</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="Permission.resx">Permission.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Role.Designer.cs">Role.Designer.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Role.es.resx">Role.es.resx</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="Role.resx">Role.resx</ProjectItem>
@@ -138,6 +239,9 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="User.resx">User.resx</ProjectItem>
 			</Folder>
 			<Folder Name="Services" TargetFolderName="Services">
+				<Folder Name="Security" TargetFolderName="Security">
+					<ProjectItem ReplaceParameters="true" TargetFileName="CustomProfileService.cs">CustomProfileService.cs</ProjectItem>
+				</Folder>
 				<Folder Name="Setting" TargetFolderName="Setting">
 					<ProjectItem ReplaceParameters="true" TargetFileName="SettingService.cs">SettingService.cs</ProjectItem>
 				</Folder>

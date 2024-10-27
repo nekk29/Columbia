@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.Email;
 
 namespace Company.Product.Module.Domain.Commands.Email
 {
-    public class SendEmailCommand : CommandBase
+    public class SendEmailCommand(SendEmailDto emailDto) : CommandBase
     {
-        public SendEmailCommand(SendEmailDto emailDto) => EmailDto = emailDto;
-        public SendEmailDto EmailDto { get; set; }
+        public SendEmailDto EmailDto { get; set; } = emailDto;
     }
 }

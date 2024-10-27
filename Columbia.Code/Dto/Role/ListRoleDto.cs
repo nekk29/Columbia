@@ -1,7 +1,7 @@
 ﻿namespace $safesolutionname$.Dto.Role
 {
-    public class ListRoleDto : RoleDto
+    public class ListRoleDto : GetRoleDto
     {
-        public Guid Id { get; set; }
+
     }
 }

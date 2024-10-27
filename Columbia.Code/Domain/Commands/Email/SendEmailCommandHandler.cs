@@ -9,40 +9,29 @@ using $safesolutionname$.Repository.Abstractions.Transactions;
 
 namespace $safesolutionname$.Domain.Commands.Email
 {
-    public class SendEmailCommandHandler : CommandHandlerBase<SendEmailCommand>
+    public class SendEmailCommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        IMediator mediator,
+        SendEmailCommandValidator validator,
+        IEmailClient emailClient,
+        IConfiguration configuration,
+        IRepository<Entity.Email> emailRepository
+    ) : CommandHandlerBase<SendEmailCommand>(unitOfWork, mapper, mediator, validator)
     {
-        private readonly IEmailClient _emailClient;
-        private readonly IConfiguration _configuration;
-        private readonly IRepository<Entity.Email> _emailRepository;
-
-        public SendEmailCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            IMediator mediator,
-            SendEmailCommandValidator validator,
-            IEmailClient emailClient,
-            IConfiguration configuration,
-            IRepository<Entity.Email> emailRepository
-        ) : base(unitOfWork, mapper, mediator, validator)
-        {
-            _emailClient = emailClient;
-            _configuration = configuration;
-            _emailRepository = emailRepository;
-        }
-
         public override async Task<ResponseDto> HandleCommand(SendEmailCommand request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto();
 
             var language =
-                _configuration.GetValue<string>("AppSettings:DefaultCulture") ??
+                configuration.GetValue<string>("AppSettings:DefaultCulture") ??
                 System.Globalization.CultureInfo.CurrentCulture.Name;
 
-            var email = await _emailRepository.GetByAsNoTrackingAsync(
+            var email = await emailRepository.GetByAsNoTrackingAsync(
                 x => x.Code == request.EmailDto.EmailCode && x.Language == language
             );
 
-            email ??= await _emailRepository.GetByAsNoTrackingAsync(
+            email ??= await emailRepository.GetByAsNoTrackingAsync(
                 x => x.Code == request.EmailDto.EmailCode
             );
 
@@ -66,7 +55,7 @@ namespace $safesolutionname$.Domain.Commands.Email
                 var subject = ReplaceParams(email.Subject ?? "", request.EmailDto.SubjectParams);
                 var emailBody = ReplaceParams(email.Body ?? "", request.EmailDto.BodyParams);
 
-                await _emailClient.SendEmailAsync(
+                await emailClient.SendEmailAsync(
                     toEmails,
                     ccEmails,
                     null!,

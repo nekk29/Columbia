@@ -129,6 +129,12 @@
   <data name="DeleteRecordNotFound" xml:space="preserve">
     <value>El registro a eliminar no fue encontrado</value>
   </data>
+  <data name="DeleteReferenceError" xml:space="preserve">
+    <value>The DELETE statement conflicted with the REFERENCE constraint</value>
+  </data>
+  <data name="DeleteReferenceMessage" xml:space="preserve">
+    <value>El registro no se puede eliminar ya que tiene registros asociados</value>
+  </data>
   <data name="DeleteSuccessMessage" xml:space="preserve">
     <value>El registro fue eliminado correctamente</value>
   </data>

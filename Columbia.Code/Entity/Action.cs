@@ -1,4 +1,5 @@
-﻿using $safesolutionname$.Entity.Base;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using $safesolutionname$.Entity.Base;
 
 namespace $safesolutionname$.Entity
 {
@@ -18,8 +19,12 @@ namespace $safesolutionname$.Entity
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
 
-        public virtual Module Module { get; set; } = null!;
+
+        [ForeignKey("ParentActionId")]
         public virtual Action? ParentAction { get; set; }
+
+        [ForeignKey("ModuleId")]
+        public virtual Module Module { get; set; } = null!;
         public virtual ICollection<Action> InverseParentAction { get; set; }
         public virtual ICollection<MenuOption> MenuOptions { get; set; }
         public virtual ICollection<Permission> Permissions { get; set; }

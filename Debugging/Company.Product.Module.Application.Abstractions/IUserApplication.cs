@@ -1,5 +1,4 @@
 ﻿using Company.Product.Module.Dto.Base;
-using Company.Product.Module.Dto.Token;
 using Company.Product.Module.Dto.User;
 
 namespace Company.Product.Module.Application.Abstractions
@@ -13,8 +12,7 @@ namespace Company.Product.Module.Application.Abstractions
         Task<ResponseDto<IEnumerable<ListUserDto>>> List();
         Task<ResponseDto<SearchResultDto<SearchUserDto>>> Search(SearchParamsDto<SearchUserFilterDto> searchParams);
         Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto);
-        Task<ResponseDto<AccessTokenDto>> RenewSession();
-        Task<ResponseDto> ForgotPassword(string email);
+        Task<ResponseDto> ForgotPassword(ForgotPasswordDto forgotPasswordDto);
         Task<ResponseDto> ResetPassword(ResetPasswordDto resetPasswordDto);
     }
 }

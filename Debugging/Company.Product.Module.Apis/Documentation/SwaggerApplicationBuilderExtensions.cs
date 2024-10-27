@@ -6,7 +6,7 @@ namespace Company.Product.Module.Apis.Documentation
     {
         public static IApplicationBuilder UseSwaggerDocumentation(this IApplicationBuilder app, IConfiguration configuration)
         {
-            var options = configuration.GetSection("ApiOptions").Get<ApiOptions>();
+            var options = configuration.GetSection("ApiOptions").Get<ApiOptions>() ?? new();
 
             app.UseSwagger();
 

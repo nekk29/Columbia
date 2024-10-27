@@ -1,10 +1,10 @@
-﻿using Company.Product.Module.Application.Abstractions;
+﻿using MediatR;
+using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Application.Base;
 using Company.Product.Module.Domain.Commands.RelatedSample;
 using Company.Product.Module.Domain.Queries.RelatedSample;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.RelatedSample;
-using MediatR;
 
 namespace Company.Product.Module.Application
 {

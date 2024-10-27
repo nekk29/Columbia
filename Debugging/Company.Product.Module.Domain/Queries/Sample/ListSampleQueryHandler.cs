@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Company.Product.Module.Domain.Queries.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Sample;
 using Company.Product.Module.Repository.Abstractions.Base;
-using Microsoft.EntityFrameworkCore;
 
 namespace Company.Product.Module.Domain.Queries.Sample
 {

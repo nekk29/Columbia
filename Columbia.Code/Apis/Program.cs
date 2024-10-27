@@ -11,16 +11,27 @@ using $safesolutionname$.Repository.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+var migrationsAssembly = typeof(Program).Assembly.GetName().Name!;
 
 #region Services
 
 // Cors
-builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+builder.Services.AddCors(setup =>
 {
-    builder.WithOrigins(configuration.GetValue<string>("AllowedHosts"))
-           .AllowAnyMethod()
-           .AllowAnyHeader();
-}));
+    setup.AddPolicy("all", builder =>
+    {
+        builder.WithOrigins(configuration.GetValue<string>("AllowedHosts")!)
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+    setup.AddPolicy("login", builder =>
+    {
+        builder.WithOrigins(configuration.GetValue<string>("SecurityOptions:FrontUrl")!)
+               .AllowCredentials()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 // HttpContextAccessor
 builder.Services.AddHttpContextAccessor();
@@ -35,7 +46,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.UseSwaggerDocumentation(configuration);
 
 // Repositories
-builder.Services.UseRepositories(configuration, typeof(Program).Assembly.GetName().Name!);
+builder.Services.UseRepositories(configuration, migrationsAssembly);
 
 // Domain Services
 builder.Services.UseDomainServices();
@@ -58,17 +69,17 @@ builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
-// Cors
-app.UseCors("CorsPolicy");
-
 // Localization
 app.UseLocalization(
     configuration,
-    new string[] {
+    [
         Constants.Culture.esESCulture,
         Constants.Culture.enUSCulture
-    }
+    ]
 );
+
+// CookiePolicy
+app.UseCookiePolicy();
 
 // CustomExceptionHandler
 app.UseCustomExceptionHandler();
@@ -82,6 +93,12 @@ app.UseHttpsRedirection();
 // Routing
 app.UseRouting();
 
+// CertificateForwarding
+app.UseCertificateForwarding();
+
+// Cors
+app.UseCors("all");
+
 // Authentication
 app.UseAuthentication();
 
@@ -93,6 +110,9 @@ app.MapControllers();
 
 // RootApiEndpoint
 app.UseRootApiEndpoint(configuration);
+
+// IdentityServer
+app.UseIdentityServer();
 
 // Run
 app.Run();

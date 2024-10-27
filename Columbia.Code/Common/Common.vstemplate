@@ -18,6 +18,7 @@
 			<ProjectItem ReplaceParameters="true" TargetFileName="Constants.cs">Constants.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="DateUtils.cs">DateUtils.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Encrypter.cs">Encrypter.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="UriUtils.cs">UriUtils.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

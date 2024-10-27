@@ -1,21 +1,15 @@
-﻿using $safesolutionname$.Application.Abstractions;
+﻿using MediatR;
+using $safesolutionname$.Application.Abstractions;
 using $safesolutionname$.Application.Base;
 using $safesolutionname$.Domain.Commands.User;
 using $safesolutionname$.Domain.Queries.User;
 using $safesolutionname$.Dto.Base;
-using $safesolutionname$.Dto.Token;
 using $safesolutionname$.Dto.User;
-using MediatR;
 
 namespace $safesolutionname$.Application
 {
-    public class UserApplication : ApplicationBase, IUserApplication
+    public class UserApplication(IMediator mediator) : ApplicationBase(mediator), IUserApplication
     {
-        public UserApplication(IMediator mediator) : base(mediator)
-        {
-
-        }
-
         public async Task<ResponseDto<GetUserDto>> Create(CreateUserDto createDto)
             => await _mediator.Send(new CreateUserCommand(createDto));
 
@@ -37,11 +31,8 @@ namespace $safesolutionname$.Application
         public async Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto)
             => await _mediator.Send(new LoginCommand(loginDto));
 
-        public async Task<ResponseDto<AccessTokenDto>> RenewSession()
-            => await _mediator.Send(new RenewSessionCommand());
-
-        public async Task<ResponseDto> ForgotPassword(string email)
-            => await _mediator.Send(new ForgotPasswordCommand(email));
+        public async Task<ResponseDto> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+            => await _mediator.Send(new ForgotPasswordCommand(forgotPasswordDto));
 
         public async Task<ResponseDto> ResetPassword(ResetPasswordDto resetPasswordDto)
             => await _mediator.Send(new ResetPasswordCommand(resetPasswordDto));

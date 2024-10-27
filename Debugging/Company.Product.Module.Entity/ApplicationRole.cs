@@ -5,6 +5,8 @@ namespace Company.Product.Module.Entity
 {
     public class ApplicationRole : IdentityRole<Guid>
     {
+        public Guid ApplicationId { get; set; }
+
         [Required]
         [MaxLength(64)]
         public string CreationUser { get; set; } = null!;

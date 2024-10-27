@@ -12,15 +12,19 @@ namespace $safesolutionname$.Domain.Commands.User
         {
             _userManager = userManager;
 
-            RequiredString(x => x.Email, Resources.User.Email, default, 256)
+            RequiredInformation(x => x.ForgotPasswordDto)
                 .DependentRules(() =>
                 {
-                    ValidMail(x => x.Email, Resources.User.Email)
+                    RequiredString(x => x.ForgotPasswordDto.Email, Resources.User.Email, default, 256)
                         .DependentRules(() =>
                         {
-                            RuleFor(x => x.Email)
-                                .MustAsync(ValidateExistenceAsync)
-                                .WithCustomValidationMessage();
+                            ValidMail(x => x.ForgotPasswordDto.Email, Resources.User.Email)
+                                .DependentRules(() =>
+                                {
+                                    RuleFor(x => x.ForgotPasswordDto.Email)
+                                        .MustAsync(ValidateExistenceAsync)
+                                        .WithCustomValidationMessage();
+                                });
                         });
                 });
         }

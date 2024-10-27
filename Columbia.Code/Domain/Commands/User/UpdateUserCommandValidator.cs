@@ -41,11 +41,11 @@ namespace $safesolutionname$.Domain.Commands.User
             if (!exists)
                 return CustomValidationMessage(context, Resources.Common.UpdateRecordNotFound);
 
-            exists = await _userRepository.FindAll().Where(x => x.Email!.ToLower() == command.UpdateDto.Email!.ToLower() && x.Id != id).AnyAsync(cancellationToken);
+            exists = await _userRepository.FindAll().Where(x => x.Email == command.UpdateDto.Email && x.Id != id).AnyAsync(cancellationToken);
             if (exists)
                 return CustomValidationMessage(context, Resources.User.DuplicateRecordByEmail);
 
-            exists = await _userRepository.FindAll().Where(x => x.UserName!.ToLower() == command.UpdateDto.UserName!.ToLower() && x.Id != id).AnyAsync(cancellationToken);
+            exists = await _userRepository.FindAll().Where(x => x.UserName == command.UpdateDto.UserName && x.Id != id).AnyAsync(cancellationToken);
             if (exists)
                 return CustomValidationMessage(context, Resources.User.DuplicateRecordByUserName);
 

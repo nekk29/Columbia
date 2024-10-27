@@ -1,7 +1,7 @@
-﻿using $safesolutionname$.Domain.Commands.Base;
-using $safesolutionname$.Dto.User;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.AspNetCore.Identity;
+using $safesolutionname$.Domain.Commands.Base;
+using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Domain.Commands.User
 {
@@ -37,10 +37,9 @@ namespace $safesolutionname$.Domain.Commands.User
 
         protected async Task<bool> ValidateExistenceAsync(CreateUserCommand command, CreateUserDto createDto, ValidationContext<CreateUserCommand> context, CancellationToken cancellationToken)
         {
-            var applicationUser = await _userManager.FindByNameAsync(createDto.UserName);
+            var applicationUser = await _userManager.FindByNameAsync(createDto.UserName!);
 
-            if (applicationUser == null)
-                applicationUser = await _userManager.FindByEmailAsync(createDto.Email);
+            applicationUser ??= await _userManager.FindByEmailAsync(createDto.Email!);
 
             if (applicationUser != null)
                 return CustomValidationMessage(context, Resources.Common.DuplicateRecord);

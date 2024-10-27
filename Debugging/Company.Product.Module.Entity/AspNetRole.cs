@@ -12,10 +12,12 @@ namespace Company.Product.Module.Entity
         }
 
         public Guid Id { get; set; }
-        public string? Name { get; set; }
+        public Guid ApplicationId { get; set; }
+        public string Name { get; set; } = null!;
         public string? NormalizedName { get; set; }
         public string? ConcurrencyStamp { get; set; }
 
+        public virtual Application Application { get; set; } = null!;
         public virtual ICollection<AspNetRoleClaim> AspNetRoleClaims { get; set; }
         public virtual ICollection<Permission> Permissions { get; set; }
         public virtual ICollection<AspNetUser> Users { get; set; }

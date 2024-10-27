@@ -4,11 +4,8 @@ using $safesolutionname$.Dto.Setting;
 
 namespace $safesolutionname$.Domain.Queries.Setting
 {
-    public class SearchSettingQuery : SearchQueryBase<SearchSettingFilterDto, SearchSettingDto>
+    public class SearchSettingQuery(SearchParamsDto<SearchSettingFilterDto> searchParams) : SearchQueryBase<SearchSettingFilterDto, SearchSettingDto>(searchParams)
     {
-        public SearchSettingQuery(SearchParamsDto<SearchSettingFilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

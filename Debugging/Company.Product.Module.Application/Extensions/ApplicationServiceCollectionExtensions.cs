@@ -3,11 +3,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Company.Product.Module.Application.Extensions
 {
-    public static class ApplicationServiceCollectionExtensions
+    public static class ApplicationExtensions
     {
         public static IServiceCollection UseApplicationServices(this IServiceCollection services)
         {
-            var assembly = typeof(ApplicationServiceCollectionExtensions).Assembly;
+            var assembly = typeof(ApplicationExtensions).Assembly;
 
             // Application
             services.Scan(selector => selector

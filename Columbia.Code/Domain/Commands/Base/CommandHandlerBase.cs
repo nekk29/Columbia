@@ -1,15 +1,13 @@
 ﻿using AutoMapper;
-using $safesolutionname$.Dto.Base;
-using $safesolutionname$.Repository.Abstractions.Transactions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using $safesolutionname$.Dto.Base;
+using $safesolutionname$.Repository.Abstractions.Transactions;
 
-#pragma warning disable CS8604 // Possible null reference argument.
 #pragma warning disable CA2208 // Instantiate argument exceptions correctly
-#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
 namespace $safesolutionname$.Domain.Commands.Base
 {
-    public abstract class CommandHandlerBaseBase<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
+    public abstract class CommandHandlerBaseBase<TRequest, TResponse>(IUnitOfWork unitOfWork) : IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
         where TResponse : ResponseDto, new()
     {
@@ -19,11 +17,8 @@ namespace $safesolutionname$.Domain.Commands.Base
 
         protected readonly IMapper? _mapper;
         protected readonly IMediator? _mediator;
-        protected readonly IUnitOfWork? _unitOfWork;
+        protected readonly IUnitOfWork? _unitOfWork = unitOfWork;
         protected readonly CommandValidatorBase<TRequest>? _validator;
-
-        public CommandHandlerBaseBase(IUnitOfWork unitOfWork)
-            => _unitOfWork = unitOfWork;
 
         public CommandHandlerBaseBase(IUnitOfWork unitOfWork, IMapper mapper) : this(unitOfWork)
             => _mapper = mapper;
@@ -34,7 +29,7 @@ namespace $safesolutionname$.Domain.Commands.Base
         public CommandHandlerBaseBase(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator, CommandValidatorBase<TRequest> validator) : this(unitOfWork, mapper, mediator)
             => _validator = validator;
 
-        public CommandHandlerBaseBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : this(unitOfWork, mapper, null, validator)
+        public CommandHandlerBaseBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : this(unitOfWork, mapper, null!, validator)
             => _validator = validator;
 
         public virtual async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
@@ -59,6 +54,14 @@ namespace $safesolutionname$.Domain.Commands.Base
                 }
                 catch (Exception ex)
                 {
+                    var exception = (ex.InnerException?.InnerException ?? ex.InnerException) ?? ex;
+                    if (exception.Message.Contains(Resources.Common.DeleteReferenceError))
+                    {
+                        var response = new TResponse();
+                        response.AddErrorResult(Resources.Common.DeleteReferenceMessage);
+                        return response;
+                    }
+
                     var errorResponse = await OnHandleError(ex);
                     if (errorResponse != default(TResponse)) return errorResponse;
                     throw;
@@ -78,7 +81,7 @@ namespace $safesolutionname$.Domain.Commands.Base
                 var responseTransaction = await _unitOfWork.ExecuteInTransactionAsync(request, async (requestParam, cancellationTokenParam) =>
                 {
                     return await ValidateAndHandle(requestParam, cancellationTokenParam);
-                }, null, cancellationToken);
+                }, null!, cancellationToken);
 
                 if (responseTransaction.IsValid) _unitOfWork.SendAudit();
 
@@ -91,7 +94,7 @@ namespace $safesolutionname$.Domain.Commands.Base
             var response = await _unitOfWork.ExecuteAsync(request, async (requestParam, cancellationTokenParam) =>
             {
                 return await ValidateAndHandle(requestParam, cancellationTokenParam);
-            }, null, cancellationToken);
+            }, null!, cancellationToken);
 
             if (response.IsValid) _unitOfWork.SendAudit();
 
@@ -127,13 +130,13 @@ namespace $safesolutionname$.Domain.Commands.Base
         protected void AddExceptionCommandResult(ResponseDto response, Exception exception)
         {
             var innerException = GetInnerException(exception);
-            response.AddErrorResult(innerException);
+            response.AddErrorResult(innerException!);
         }
 
         protected void AddExceptionCommandResult(ResponseDto response, Exception exception, string message)
         {
             var innerException = GetInnerException(exception);
-            response.AddErrorResult(message, innerException);
+            response.AddErrorResult(message, innerException!);
         }
 
         private static Exception? GetInnerException(Exception ex)
@@ -162,7 +165,7 @@ namespace $safesolutionname$.Domain.Commands.Base
 
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, mediator, validator) { }
 
-        protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, null, validator) { }
+        protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, null!, validator) { }
 
         public override async Task<ResponseDto> Handle(TRequest request, CancellationToken cancellationToken)
         {
@@ -170,7 +173,7 @@ namespace $safesolutionname$.Domain.Commands.Base
 
             var response = await base.Handle(request, cancellationToken);
 
-            if (_validator != null) _validator.Enable();
+            _validator?.Enable();
 
             return response;
         }
@@ -184,22 +187,20 @@ namespace $safesolutionname$.Domain.Commands.Base
 
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator) : base(unitOfWork, mapper, mediator) { }
 
-        protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, null, validator) { }
+        protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, null!, validator) { }
 
         protected CommandHandlerBase(IUnitOfWork unitOfWork, IMapper mapper, IMediator mediator, CommandValidatorBase<TRequest> validator) : base(unitOfWork, mapper, mediator, validator) { }
-        
+
         public override async Task<ResponseDto<TResponse>> Handle(TRequest request, CancellationToken cancellationToken)
         {
             if (_validator != null && !request.Validate) _validator.Disable();
 
             var response = await base.Handle(request, cancellationToken);
 
-            if (_validator != null) _validator.Enable();
+            _validator?.Enable();
 
             return response;
         }
     }
 }
-#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 #pragma warning restore CA2208 // Instantiate argument exceptions correctly
-#pragma warning restore CS8604 // Possible null reference argument.

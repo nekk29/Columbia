@@ -28,7 +28,7 @@ namespace Company.Product.Module.Repository.Extensions
             if (keyValues == null)
                 throw new Exception("Passed primary key values cannot be null");
 
-            if (!keyValues.Any())
+            if (keyValues.Length == 0)
                 throw new Exception("Passed primary key values cannot be empty");
 
             var keyProperties = typeof(TEntity).GetProperties().Where(p => p.GetCustomAttribute<KeyAttribute>() != null);
@@ -119,7 +119,7 @@ namespace Company.Product.Module.Repository.Extensions
             if (parts.Length != propertyPath.Count) return null!;
 
             var parameterExpression = Expression.Parameter(typeof(TEntity), "entity");
-            var propertyExpression = GetPropertyPathExpression(parameterExpression, propertyPath.ToArray());
+            var propertyExpression = GetPropertyPathExpression(parameterExpression, [.. propertyPath]);
 
             return Expression.Lambda<Func<TEntity, object>>(Expression.Convert(propertyExpression, typeof(object)), parameterExpression);
         }
@@ -131,7 +131,7 @@ namespace Company.Product.Module.Repository.Extensions
 
             if ((parts.Length > 1))
             {
-                prop = baseType.GetProperties().FirstOrDefault(x => x.Name.ToLower() == parts[0].ToLower());
+                prop = baseType.GetProperties().FirstOrDefault(x => x.Name.Equals(parts[0], StringComparison.CurrentCultureIgnoreCase));
 
                 if (prop != null)
                 {
@@ -141,7 +141,7 @@ namespace Company.Product.Module.Repository.Extensions
             }
             else
             {
-                prop = baseType.GetProperties().FirstOrDefault(x => x.Name.ToLower() == property.ToLower());
+                prop = baseType.GetProperties().FirstOrDefault(x => x.Name.Equals(property, StringComparison.CurrentCultureIgnoreCase));
                 if (prop != null) propertyPath.Add(prop.Name);
             }
         }
@@ -159,7 +159,7 @@ namespace Company.Product.Module.Repository.Extensions
 
     internal class SubstExpressionVisitor : ExpressionVisitor
     {
-        public Dictionary<Expression, Expression> subst = new();
+        public Dictionary<Expression, Expression> subst = [];
 
         protected override Expression VisitParameter(ParameterExpression node)
         {

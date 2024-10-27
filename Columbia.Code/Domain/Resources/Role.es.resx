@@ -129,4 +129,10 @@
   <data name="NormalizedName" xml:space="preserve">
     <value>Nombre normalizado</value>
   </data>
+  <data name="RoleDoesNotExist" xml:space="preserve">
+    <value>El rol no existe</value>
+  </data>
+  <data name="RoleId" xml:space="preserve">
+    <value>Identificador del Rol</value>
+  </data>
 </root>

@@ -1,8 +1,8 @@
-﻿using $safesolutionname$.Dto.Base;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Net;
+using $safesolutionname$.Dto.Base;
 
 namespace $safesolutionname$.Apis.Exception
 {
@@ -32,7 +32,7 @@ namespace $safesolutionname$.Apis.Exception
                     }, new List<ApplicationMessageDto>())
                     {
                         Messages = new List<ApplicationMessageDto>() {
-                            new ApplicationMessageDto { MessageType = ApplicationMessageType.Error, Message = contextFeature.Error.Message }
+                            new() { MessageType = ApplicationMessageType.Error, Message = contextFeature.Error.Message }
                         }
                     };
 

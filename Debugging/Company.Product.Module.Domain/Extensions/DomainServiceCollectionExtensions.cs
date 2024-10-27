@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Company.Product.Module.Domain.Extensions
@@ -19,7 +18,7 @@ namespace Company.Product.Module.Domain.Extensions
             );
 
             // MediatR Command and Queries
-            services.AddMediatR(options => options.AsScoped(), assembly);
+            services.AddMediatR(options => options.RegisterServicesFromAssembly(assembly));
 
             // AutoMapper Configuration
             services.AddAutoMapper(assembly);

@@ -2,7 +2,7 @@
 
 namespace $safesolutionname$.Entity
 {
-    public partial class Module: SystemEntity
+    public partial class Module : SystemEntity
     {
         public Module()
         {
@@ -10,10 +10,12 @@ namespace $safesolutionname$.Entity
         }
 
         public Guid Id { get; set; }
+        public Guid ApplicationId { get; set; }
         public string Code { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
 
+        public virtual Application Application { get; set; } = null!;
         public virtual ICollection<Action> Actions { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Company.Product.Module.Common;
 
 #pragma warning disable IDE0057 // Use range operator
-#pragma warning disable CA1845 // Use span-based 'string.Concat'
 namespace Company.Product.Module.Domain.Services.Setting
 {
     public static class SettingService
@@ -22,12 +21,11 @@ namespace Company.Product.Module.Domain.Services.Setting
                 if (hiddenValue.Length <= HiddenChars)
                     hiddenValue = string.Concat(Enumerable.Repeat("*", hiddenValue.Length));
                 else
-                    hiddenValue = string.Concat(Enumerable.Repeat("*", hiddenValue.Length - HiddenChars)) + hiddenValue.Substring(hiddenValue.Length - HiddenChars);
+                    hiddenValue = $"{string.Concat(Enumerable.Repeat("*", hiddenValue.Length - HiddenChars))}{hiddenValue.Substring(hiddenValue.Length - HiddenChars)}";
             }
 
             return hiddenValue;
         }
     }
 }
-#pragma warning restore CA1845 // Use span-based 'string.Concat'
 #pragma warning restore IDE0057 // Use range operator

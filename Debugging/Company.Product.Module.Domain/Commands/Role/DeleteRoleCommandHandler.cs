@@ -7,29 +7,22 @@ using Company.Product.Module.Repository.Abstractions.Transactions;
 
 namespace Company.Product.Module.Domain.Commands.Role
 {
-    public class DeleteRoleCommandHandler : CommandHandlerBase<DeleteRoleCommand>
+    public class DeleteRoleCommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        DeleteRoleCommandValidator validator,
+        IRepository<AspNetRole> roleRepository
+    ) : CommandHandlerBase<DeleteRoleCommand>(unitOfWork, mapper, validator)
     {
-        private readonly IRepository<AspNetRole> _roleRepository;
-
-        public DeleteRoleCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            DeleteRoleCommandValidator validator,
-            IRepository<AspNetRole> roleRepository
-        ) : base(unitOfWork, mapper, validator)
-        {
-            _roleRepository = roleRepository;
-        }
-
         public override async Task<ResponseDto> HandleCommand(DeleteRoleCommand request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto();
-            var role = await _roleRepository.GetByAsync(x => x.Id == request.Id);
+            var role = await roleRepository.GetByAsync(x => x.Id == request.Id);
 
             if (role != null)
             {
-                role.IsActive = false;
-                await _roleRepository.UpdateAsync(role);
+                await roleRepository.DeleteAsync(role);
+                await roleRepository.SaveAsync();
             }
 
             response.AddOkResult(Resources.Common.DeleteSuccessMessage);

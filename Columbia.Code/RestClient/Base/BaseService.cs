@@ -24,8 +24,8 @@ namespace $safesolutionname$.RestClient.Base
             var options = resolver?.GetOptions(serviceProvider).Result ?? new ServiceOptions();
 
             Options = options;
-            BaseUrl = options.BaseUrl.EndsWith("/") ? options.BaseUrl : $"{options.BaseUrl}/";
-            Headers = new Dictionary<string, string>();
+            BaseUrl = !options.BaseUrl.EndsWith('/') ? $"{options.BaseUrl}/" : options.BaseUrl;
+            Headers = [];
             Cache = new MemoryCache(new MemoryCacheOptions());
             SerializerSettings.Converters.Add(new IsoDateTimeConverter());
         }

@@ -1,5 +1,4 @@
 ﻿using $safesolutionname$.Dto.Base;
-using $safesolutionname$.Dto.Token;
 using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Application.Abstractions
@@ -13,8 +12,7 @@ namespace $safesolutionname$.Application.Abstractions
         Task<ResponseDto<IEnumerable<ListUserDto>>> List();
         Task<ResponseDto<SearchResultDto<SearchUserDto>>> Search(SearchParamsDto<SearchUserFilterDto> searchParams);
         Task<ResponseDto<LoginResultDto>> Login(LoginDto loginDto);
-        Task<ResponseDto<AccessTokenDto>> RenewSession();
-        Task<ResponseDto> ForgotPassword(string email);
+        Task<ResponseDto> ForgotPassword(ForgotPasswordDto forgotPasswordDto);
         Task<ResponseDto> ResetPassword(ResetPasswordDto resetPasswordDto);
     }
 }

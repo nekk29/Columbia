@@ -30,6 +30,7 @@
 			</Folder>
 			<ProjectItem ReplaceParameters="true" TargetFileName="_GenerateDBContext.ps1">_GenerateDBContext.ps1</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="Action.cs">Action.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Application.cs">Application.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationRole.cs">ApplicationRole.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationUser.cs">ApplicationUser.cs</ProjectItem>
 			<ProjectItem ReplaceParameters="true" TargetFileName="AspNetRole.cs">AspNetRole.cs</ProjectItem>

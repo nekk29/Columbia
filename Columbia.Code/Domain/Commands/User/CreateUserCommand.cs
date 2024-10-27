@@ -3,9 +3,8 @@ using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Domain.Commands.User
 {
-    public class CreateUserCommand : CommandBase<GetUserDto>
+    public class CreateUserCommand(CreateUserDto createDto) : CommandBase<GetUserDto>
     {
-        public CreateUserCommand(CreateUserDto createDto) => CreateDto = createDto;
-        public CreateUserDto CreateDto { get; set; }
+        public CreateUserDto CreateDto { get; set; } = createDto;
     }
 }

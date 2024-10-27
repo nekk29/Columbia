@@ -25,7 +25,11 @@
 				<Folder Name="Base" TargetFolderName="Base">
 					<ProjectItem ReplaceParameters="true" TargetFileName="ApiControllerBase.cs">ApiControllerBase.cs</ProjectItem>
 				</Folder>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionController.cs">ActionController.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationController.cs">ApplicationController.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ErrorController.cs">ErrorController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionController.cs">MenuOptionController.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ModuleController.cs">ModuleController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PermissionController.cs">PermissionController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="RoleController.cs">RoleController.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SettingController.cs">SettingController.cs</ProjectItem>

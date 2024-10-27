@@ -1,7 +1,7 @@
-﻿using Company.Product.Module.Domain.Commands.Base;
-using Company.Product.Module.Repository.Abstractions.Base;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Company.Product.Module.Domain.Commands.Base;
+using Company.Product.Module.Repository.Abstractions.Base;
 
 namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
@@ -14,8 +14,7 @@ namespace Company.Product.Module.Domain.Commands.RelatedSample
             _relatedSampleRepository = relatedSampleRepository;
 
             RequiredInformation(x => x.UpdateDto)
-                .DependentRules(() =>
-                {
+                .DependentRules(() => {
                     //RequiredField(x => x.UpdateDto.Id, Resources.Common.IdentifierRequired);
                     //RequiredString(x => x.UpdateDto.Code, Resources.RelatedSample.Code, {Min}, {Max});
                     //RequiredString(x => x.UpdateDto.Description, Resources.RelatedSample.Description, {Min}, {Max});

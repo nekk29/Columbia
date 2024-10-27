@@ -1,7 +1,9 @@
-﻿namespace Company.Product.Module.Dto.Sample
+﻿using System;
+
+namespace Company.Product.Module.Dto.Sample
 {
-    public class UpdateSampleDto : SampleDto
-    {
-        public Guid Id { get; set; }
-    }
+   public class UpdateSampleDto : SampleDto
+   {
+      public Guid Id { get; set; }
+   }
 }

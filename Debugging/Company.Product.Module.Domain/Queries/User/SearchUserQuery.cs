@@ -4,11 +4,8 @@ using Company.Product.Module.Dto.User;
 
 namespace Company.Product.Module.Domain.Queries.User
 {
-    public class SearchUserQuery : SearchQueryBase<SearchUserFilterDto, SearchUserDto>
+    public class SearchUserQuery(SearchParamsDto<SearchUserFilterDto> searchParams) : SearchQueryBase<SearchUserFilterDto, SearchUserDto>(searchParams)
     {
-        public SearchUserQuery(SearchParamsDto<SearchUserFilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

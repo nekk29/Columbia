@@ -3,15 +3,9 @@ using $safesolutionname$.Dto.Setting;
 
 namespace $safesolutionname$.Domain.Queries.Setting
 {
-    public class GetSettingQuery : QueryBase<GetSettingDto>
+    public class GetSettingQuery(string group, string code) : QueryBase<GetSettingDto>
     {
-        public GetSettingQuery(string group, string code)
-        {
-            Group = group;
-            Code = code;
-        }
-
-        public string Group { get; set; }
-        public string Code { get; set; }
+        public string Group { get; set; } = group;
+        public string Code { get; set; } = code;
     }
 }

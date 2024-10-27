@@ -1,9 +1,7 @@
 ﻿namespace $safesolutionname$.Dto.MenuOption
 {
-    public class ListMenuOptionDto : MenuOptionDto
+    public class ListMenuOptionDto : GetMenuOptionDto
     {
-        public Guid? ParentId { get; set; }
-        public string ParentCode { get; set; } = null!;
-        public string ParentName { get; set; } = null!;
+
     }
 }

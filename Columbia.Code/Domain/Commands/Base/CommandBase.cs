@@ -1,5 +1,5 @@
-﻿using $safesolutionname$.Dto.Base;
-using MediatR;
+﻿using MediatR;
+using $safesolutionname$.Dto.Base;
 
 namespace $safesolutionname$.Domain.Commands.Base
 {

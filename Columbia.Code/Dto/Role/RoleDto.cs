@@ -2,7 +2,8 @@
 {
     public class RoleDto
     {
-        public string Name { get; set; } = null!;
-        public string NormalizedName { get; set; } = null!;
+        public Guid ApplicationId { get; set; }
+        public string? Name { get; set; } = null!;
+        public string? NormalizedName { get; set; } = null!;
     }
 }

@@ -7,7 +7,7 @@ namespace Company.Product.Module.Apis.Documentation
     {
         public static IServiceCollection UseSwaggerDocumentation(this IServiceCollection services, IConfiguration configuration)
         {
-            var options = configuration.GetSection("ApiOptions").Get<ApiOptions>();
+            var options = configuration.GetSection("ApiOptions").Get<ApiOptions>() ?? new();
 
             services.AddSwaggerGen(setupAction =>
             {

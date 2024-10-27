@@ -1,6 +1,6 @@
 ﻿namespace $safesolutionname$.Dto.Setting
 {
-    public class SearchSettingDto : SettingDto
+    public class SearchSettingDto : GetSettingDto
     {
 
     }

@@ -32,7 +32,7 @@ namespace Company.Product.Module.Apis.Exception
                     }, new List<ApplicationMessageDto>())
                     {
                         Messages = new List<ApplicationMessageDto>() {
-                            new ApplicationMessageDto { MessageType = ApplicationMessageType.Error, Message = contextFeature.Error.Message }
+                            new() { MessageType = ApplicationMessageType.Error, Message = contextFeature.Error.Message }
                         }
                     };
 

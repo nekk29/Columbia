@@ -8,13 +8,8 @@ using $safesolutionname$.Dto.Role;
 
 namespace $safesolutionname$.Application
 {
-    public class RoleApplication : ApplicationBase, IRoleApplication
+    public class RoleApplication(IMediator mediator) : ApplicationBase(mediator), IRoleApplication
     {
-        public RoleApplication(IMediator mediator) : base(mediator)
-        {
-
-        }
-
         public async Task<ResponseDto<GetRoleDto>> Create(CreateRoleDto createDto)
             => await _mediator.Send(new CreateRoleCommand(createDto));
 
@@ -29,6 +24,9 @@ namespace $safesolutionname$.Application
 
         public async Task<ResponseDto<IEnumerable<ListRoleDto>>> List()
             => await _mediator.Send(new ListRoleQuery());
+
+        public async Task<ResponseDto<IEnumerable<ListRoleDto>>> List(Guid applicationId)
+            => await _mediator.Send(new ListRoleQuery(applicationId));
 
         public async Task<ResponseDto<SearchResultDto<SearchRoleDto>>> Search(SearchParamsDto<SearchRoleFilterDto> searchParams)
             => await _mediator.Send(new SearchRoleQuery(searchParams));

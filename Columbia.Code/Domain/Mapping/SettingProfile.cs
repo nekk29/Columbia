@@ -16,6 +16,9 @@ namespace $safesolutionname$.Domain.Mapping
             CreateMap<Entity.Setting, GetSettingDto>()
                 .ReverseMap();
 
+            CreateMap<Entity.Setting, ListSettingDto>()
+                .ReverseMap();
+
             CreateMap<Entity.Setting, SearchSettingDto>()
                 .ReverseMap();
         }

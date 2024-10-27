@@ -4,11 +4,8 @@ using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Domain.Queries.User
 {
-    public class SearchUserQuery : SearchQueryBase<SearchUserFilterDto, SearchUserDto>
+    public class SearchUserQuery(SearchParamsDto<SearchUserFilterDto> searchParams) : SearchQueryBase<SearchUserFilterDto, SearchUserDto>(searchParams)
     {
-        public SearchUserQuery(SearchParamsDto<SearchUserFilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

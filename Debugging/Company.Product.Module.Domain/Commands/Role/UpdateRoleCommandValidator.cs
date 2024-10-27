@@ -18,7 +18,7 @@ namespace Company.Product.Module.Domain.Commands.Role
                 .DependentRules(() =>
                 {
                     RequiredField(x => x.UpdateDto.Id, Resources.Role.Id);
-                    RequiredString(x => x.UpdateDto.Name, Resources.Role.Name, 2, 256);
+                    RequiredString(x => x.UpdateDto.Name, Resources.Role.Name, 2, 100);
                 })
                 .DependentRules(() =>
                 {
@@ -28,9 +28,8 @@ namespace Company.Product.Module.Domain.Commands.Role
                 });
         }
 
-        protected async Task<bool> ValidateExistenceAsync(UpdateRoleCommand command, Guid? id, ValidationContext<UpdateRoleCommand> context, CancellationToken cancellationToken)
+        protected async Task<bool> ValidateExistenceAsync(UpdateRoleCommand command, Guid id, ValidationContext<UpdateRoleCommand> context, CancellationToken cancellationToken)
         {
-            if (!id.HasValue) return true;
             if (string.IsNullOrEmpty(command.UpdateDto.Name)) return true;
             if (string.IsNullOrEmpty(command.UpdateDto.NormalizedName)) return true;
 
@@ -38,7 +37,7 @@ namespace Company.Product.Module.Domain.Commands.Role
             if (!exists)
                 return CustomValidationMessage(context, Resources.Common.UpdateRecordNotFound);
 
-            exists = await _roleRepository.FindAll().Where(x => x.Name!.ToLower() == command.UpdateDto.Name!.ToLower() && x.Id != id).AnyAsync(cancellationToken);
+            exists = await _roleRepository.FindAll().Where(x => x.Name.Equals(command.UpdateDto.Name, StringComparison.CurrentCultureIgnoreCase) && x.Id != id).AnyAsync(cancellationToken);
             if (exists)
                 return CustomValidationMessage(context, Resources.Role.DuplicateRecordByRoleName);
 

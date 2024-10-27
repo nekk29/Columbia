@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Company.Product.Module.Repository.Extensions
 {
-    public static class RepositoryServiceCollectionExtensions
+    public static class RepositoryExtensions
     {
         public static IServiceCollection UseRepositories(this IServiceCollection services, IConfiguration configuration, string migrationsAssembly)
         {
@@ -21,7 +21,7 @@ namespace Company.Product.Module.Repository.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork<DbContext>>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.Scan(selector => selector
-                .FromAssemblies(typeof(RepositoryServiceCollectionExtensions).Assembly)
+                .FromAssemblies(typeof(RepositoryExtensions).Assembly)
                 .AddClasses(x => x.Where(c => c.Name.EndsWith("Repository")))
                 .AsImplementedInterfaces()
             );

@@ -6,25 +6,32 @@ using $safesolutionname$.Dto.Setting;
 namespace $safesolutionname$.Apis.Controllers
 {
     [ApiController]
-    [Route("api/setting")]
     [Security.Authorize]
-    public class SettingController
+    [Route("api/setting")]
+    public class SettingController(ISettingApplication settingApplication)
     {
-        private readonly ISettingApplication _settingApplication;
-
-        public SettingController(ISettingApplication settingApplication)
-            => _settingApplication = settingApplication;
+        [HttpPost]
+        public async Task<ResponseDto<GetSettingDto>> Create(CreateSettingDto createDto)
+            => await settingApplication.Create(createDto);
 
         [HttpPut]
         public async Task<ResponseDto<GetSettingDto>> Update(UpdateSettingDto updateDto)
-            => await _settingApplication.Update(updateDto);
+            => await settingApplication.Update(updateDto);
+
+        [HttpDelete("{group}/{code}")]
+        public async Task<ResponseDto> Delete(string group, string code)
+            => await settingApplication.Delete(group, code);
 
         [HttpGet("{group}/{code}")]
         public async Task<ResponseDto<GetSettingDto>> Get(string group, string code)
-            => await _settingApplication.Get(group, code);
+            => await settingApplication.Get(group, code);
+
+        [HttpGet("list")]
+        public async Task<ResponseDto<IEnumerable<ListSettingDto>>> List()
+            => await settingApplication.List();
 
         [HttpPost("search")]
         public async Task<ResponseDto<SearchResultDto<SearchSettingDto>>> Search(SearchParamsDto<SearchSettingFilterDto> searchParams)
-            => await _settingApplication.Search(searchParams);
+            => await settingApplication.Search(searchParams);
     }
 }

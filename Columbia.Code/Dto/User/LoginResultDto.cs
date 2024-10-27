@@ -1,9 +1,9 @@
-﻿using $safesolutionname$.Dto.Token;
+﻿using $safesolutionname$.Dto.Base;
 
 namespace $safesolutionname$.Dto.User
 {
-    public class LoginResultDto
+    public class LoginResultDto : ReturnUrlDto
     {
-        public AccessTokenDto? AccessToken { get; set; }
+
     }
 }

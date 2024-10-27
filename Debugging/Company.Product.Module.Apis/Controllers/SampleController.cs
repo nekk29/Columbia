@@ -1,7 +1,7 @@
-﻿using Company.Product.Module.Application.Abstractions;
+﻿using Microsoft.AspNetCore.Mvc;
+using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Sample;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Company.Product.Module.Apis.Controllers
 {

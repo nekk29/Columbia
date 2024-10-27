@@ -1,10 +1,8 @@
 ﻿namespace $safesolutionname$.Dto.Role
 {
-    public class UpdateRoleDto
+    public class UpdateRoleDto : RoleDto
     {
-        public Guid? Id { get; set; }
-        public string? Name { get; set; } = null!;
-        public string? NormalizedName { get; set; } = null!;
+        public Guid Id { get; set; }
         public bool IsActive { get; set; }
     }
 }

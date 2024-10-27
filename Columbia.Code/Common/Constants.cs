@@ -34,13 +34,15 @@
         {
             public struct Group
             {
-                
+
             }
 
+#pragma warning disable CA2211 // Non-constant fields should not be visible
             public static IEnumerable<Encrypted> EncryptedSettings = new List<Encrypted>
             {
 
             };
+#pragma warning restore CA2211 // Non-constant fields should not be visible
 
             public class Encrypted
             {
@@ -51,7 +53,7 @@
 
         public struct Cache
         {
-            
+
         }
     }
 }

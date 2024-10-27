@@ -3,9 +3,8 @@ using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Domain.Commands.User
 {
-    public class UpdateUserCommand : CommandBase<GetUserDto>
+    public class UpdateUserCommand(UpdateUserDto updateDto) : CommandBase<GetUserDto>
     {
-        public UpdateUserCommand(UpdateUserDto updateDto) => UpdateDto = updateDto;
-        public UpdateUserDto UpdateDto { get; set; }
+        public UpdateUserDto UpdateDto { get; set; } = updateDto;
     }
 }

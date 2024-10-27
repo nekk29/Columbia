@@ -1,10 +1,10 @@
 ﻿using $safesolutionname$.Domain.Commands.Base;
+using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Domain.Commands.User
 {
-    public class ForgotPasswordCommand : CommandBase
+    public class ForgotPasswordCommand(ForgotPasswordDto forgotPasswordDto) : CommandBase
     {
-        public ForgotPasswordCommand(string email) => Email = email;
-        public string Email { get; set; }
+        public ForgotPasswordDto ForgotPasswordDto { get; set; } = forgotPasswordDto;
     }
 }

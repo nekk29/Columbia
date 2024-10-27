@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.User;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
-    public class CreateUserCommand : CommandBase<GetUserDto>
+    public class CreateUserCommand(CreateUserDto createDto) : CommandBase<GetUserDto>
     {
-        public CreateUserCommand(CreateUserDto createDto) => CreateDto = createDto;
-        public CreateUserDto CreateDto { get; set; }
+        public CreateUserDto CreateDto { get; set; } = createDto;
     }
 }

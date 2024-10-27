@@ -5,14 +5,9 @@ using Company.Product.Module.RestClient.Base;
 
 namespace Company.Product.Module.RestClient.Implementation
 {
-    public class UserRestService : BaseService, IUserRestService
+    public class UserRestService(IServiceProvider serviceProvider) : BaseService(serviceProvider), IUserRestService
     {
         protected override string ApiController => "api/user";
-
-        public UserRestService(IServiceProvider serviceProvider) : base(serviceProvider)
-        {
-
-        }
 
         public async Task<ResponseDto<GetUserDto>> Create(CreateUserDto createDto)
             => await Post<CreateUserDto, ResponseDto<GetUserDto>>(string.Empty, createDto)!;

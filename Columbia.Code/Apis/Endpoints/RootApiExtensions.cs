@@ -6,7 +6,7 @@ namespace $safesolutionname$.Apis.Endpoints
     {
         public static void UseRootApiEndpoint(this IApplicationBuilder app, IConfiguration configuration)
         {
-            var options = configuration.GetSection("ApiOptions").Get<ApiOptions>();
+            var options = configuration.GetSection("ApiOptions").Get<ApiOptions>() ?? new();
 
             app.UseEndpoints(configure =>
             {

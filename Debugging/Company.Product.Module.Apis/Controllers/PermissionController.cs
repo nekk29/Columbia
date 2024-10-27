@@ -6,17 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 namespace Company.Product.Module.Apis.Controllers
 {
     [ApiController]
-    [Route("api/permission")]
     [Security.Authorize]
-    public class PermissionController
+    [Route("api/permission")]
+    public class PermissionController(IPermissionApplication permissionApplication)
     {
-        private readonly IPermissionApplication _permissionApplication;
+        [HttpPost]
+        [Route("{roleId}/assign")]
+        public async Task<ResponseDto> AssignRolePermissions(Guid roleId, [FromBody] IEnumerable<Guid> actionIds)
+            => await permissionApplication.AssignPermissions(roleId, actionIds);
 
-        public PermissionController(IPermissionApplication permissionApplication)
-            => _permissionApplication = permissionApplication;
+        [HttpGet("{roleId}/role-permissions")]
+        public async Task<ResponseDto<IEnumerable<ListRolePermissionDto>>> ListRole(Guid roleId)
+            => await permissionApplication.ListRole(roleId);
 
-        [HttpGet("list")]
-        public async Task<ResponseDto<IEnumerable<ListPermissionDto>>> List()
-            => await _permissionApplication.List();
+        [HttpGet("{applicationCode}/user-permissions")]
+        public async Task<ResponseDto<IEnumerable<ListPermissionDto>>> ListUser(string applicationCode)
+            => await permissionApplication.ListUser(applicationCode);
     }
 }

@@ -17,42 +17,31 @@ using Microsoft.Extensions.Logging;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
-    public class ForgotPasswordCommandHandler : CommandHandlerBase<ForgotPasswordCommand>
+    public class ForgotPasswordCommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        IMediator mediator,
+        ForgotPasswordCommandValidator validator,
+        IConfiguration configuration,
+        UserManager<ApplicationUser> userManager,
+        ILogger<ForgotPasswordCommandHandler> logger
+    ) : CommandHandlerBase<ForgotPasswordCommand>(unitOfWork, mapper, mediator, validator)
     {
-        private readonly IConfiguration _configuration;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ILogger<ForgotPasswordCommandHandler> _logger;
-
-        public ForgotPasswordCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            IMediator mediator,
-            ForgotPasswordCommandValidator validator,
-            IConfiguration configuration,
-            UserManager<ApplicationUser> userManager,
-            ILogger<ForgotPasswordCommandHandler> logger
-        ) : base(unitOfWork, mapper, mediator, validator)
-        {
-            _logger = logger;
-            _userManager = userManager;
-            _configuration = configuration;
-        }
-
         public override async Task<ResponseDto> HandleCommand(ForgotPasswordCommand request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<LoginResultDto>();
 
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var user = await userManager.FindByEmailAsync(request.ForgotPasswordDto.Email);
+            var code = await userManager.GeneratePasswordResetTokenAsync(user!);
 
             try
             {
-                await SendResetPasswordEmail(user, code);
+                await SendResetPasswordEmail(user!, code);
                 response.AddOkResult(Resources.User.ForgotPasswordSuccess);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
+                logger.LogError(ex, "Message: {Message}", ex.Message);
                 response.AddErrorResult(Resources.User.ForgotPasswordError);
             }
 
@@ -64,8 +53,8 @@ namespace Company.Product.Module.Domain.Commands.User
             var email = WebUtility.UrlDecode(user.Email);
             var encoded = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-            var frontUrl = _configuration.GetValue<string>("SecurityOptions:FrontUrl");
-            var frontUrlLogo = _configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
+            var frontUrl = configuration.GetValue<string>("SecurityOptions:FrontUrl");
+            var frontUrlLogo = configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
             var callbackUrl = $"{frontUrl}/user/reset-password?email={email}&code={encoded}";
 
             var emailDto = new SendEmailDto
@@ -74,7 +63,7 @@ namespace Company.Product.Module.Domain.Commands.User
                 ToEmails = new List<string> { user.Email ?? string.Empty },
                 BodyParams = new Dictionary<string, string>
                 {
-                    { "{LOGO}", frontUrlLogo },
+                    { "{LOGO}", frontUrlLogo! },
                     { "{USER}", user.FirstName! },
                     { "{LINK}", callbackUrl }
                 }

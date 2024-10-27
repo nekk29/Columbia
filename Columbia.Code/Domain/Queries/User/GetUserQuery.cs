@@ -3,9 +3,8 @@ using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Domain.Queries.User
 {
-    public class GetUserQuery : QueryBase<GetUserDto>
+    public class GetUserQuery(Guid id) : QueryBase<GetUserDto>
     {
-        public GetUserQuery(Guid id) => Id = id;
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = id;
     }
 }

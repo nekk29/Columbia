@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace $safesolutionname$.EmailClient
 {
-    public static class EmailClientServiceCollectionExtensions
+    public static class EmailExtensions
     {
         public static IServiceCollection UseEmailClient(this IServiceCollection services, IConfiguration configuration)
         {

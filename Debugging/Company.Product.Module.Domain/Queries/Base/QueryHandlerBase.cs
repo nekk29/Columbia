@@ -2,7 +2,6 @@
 using Company.Product.Module.Dto.Base;
 using MediatR;
 
-#pragma warning disable CS8604 // Possible null reference argument.
 namespace Company.Product.Module.Domain.Queries.Base
 {
     public abstract class QueryHandlerBase<TRequest, TResponse> : IRequestHandler<TRequest, ResponseDto<TResponse>> where TRequest : QueryBase<TResponse>
@@ -57,13 +56,13 @@ namespace Company.Product.Module.Domain.Queries.Base
         protected void AddExceptionQueryResult(ResponseDto<TResponse> response, Exception exception)
         {
             var innerException = GetInnerException(exception);
-            response.AddErrorResult(innerException);
+            response.AddErrorResult(innerException!);
         }
 
         protected void AddExceptionQueryResult(ResponseDto<TResponse> response, Exception exception, string message)
         {
             var innerException = GetInnerException(exception);
-            response.AddErrorResult(message, innerException);
+            response.AddErrorResult(message, innerException!);
         }
 
         private static Exception? GetInnerException(Exception ex)
@@ -82,4 +81,3 @@ namespace Company.Product.Module.Domain.Queries.Base
         }
     }
 }
-#pragma warning restore CS8604 // Possible null reference argument.

@@ -4,12 +4,9 @@ using System.Text;
 
 namespace Company.Product.Module.EmailClient
 {
-    public class EmailClient : IEmailClient
+    public class EmailClient(EmailClientOptions options) : IEmailClient
     {
-        private readonly EmailClientOptions Options;
-
-        public EmailClient(EmailClientOptions options) =>
-            Options = options ?? throw new ArgumentNullException(nameof(options));
+        private readonly EmailClientOptions Options = options ?? throw new ArgumentNullException(nameof(options));
 
         public async Task SendEmailAsync(string emailTo, string subject, string body, bool isBodyHtml = false)
             => await SendEmailAsync(new List<string> { emailTo }, null, null, null, subject, body, isBodyHtml);

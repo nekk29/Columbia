@@ -1,9 +1,9 @@
-﻿using Company.Product.Module.Dto.Token;
+﻿using Company.Product.Module.Dto.Base;
 
 namespace Company.Product.Module.Dto.User
 {
-    public class LoginResultDto
+    public class LoginResultDto : ReturnUrlDto
     {
-        public AccessTokenDto? AccessToken { get; set; }
+
     }
 }

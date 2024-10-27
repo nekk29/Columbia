@@ -1,11 +1,10 @@
-﻿using $safesolutionname$.Application.Abstractions;
-using $safesolutionname$.Dto.Base;
-using $safesolutionname$.Dto.Token;
-using $safesolutionname$.Dto.User;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Threading.Tasks;
+using $safesolutionname$.Application.Abstractions;
+using $safesolutionname$.Dto.Base;
+using $safesolutionname$.Dto.User;
 
 namespace $safesolutionname$.Test
 {
@@ -16,7 +15,6 @@ namespace $safesolutionname$.Test
         public async Task LoginUserSuccess()
         {
             var userApplicationMock = new Mock<IUserApplication>();
-            var accessToken = "RandomString";
             var loginDto = new LoginDto
             {
                 UserName = "mockUserName",
@@ -32,10 +30,7 @@ namespace $safesolutionname$.Test
                     {
                         Data = new LoginResultDto
                         {
-                            AccessToken = new AccessTokenDto
-                            {
-                                access_token = accessToken
-                            }
+
                         }
                     };
 
@@ -44,7 +39,7 @@ namespace $safesolutionname$.Test
 
             var loginResultDto = await userApplicationMock.Object.Login(loginDto);
 
-            Assert.AreEqual(accessToken, loginResultDto?.Data?.AccessToken?.access_token);
+            Assert.IsNotNull(loginResultDto?.Data);
         }
 
         [TestMethod]

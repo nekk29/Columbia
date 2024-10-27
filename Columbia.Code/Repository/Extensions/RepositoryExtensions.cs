@@ -1,15 +1,15 @@
-﻿using $safesolutionname$.Repository.Abstractions.Base;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using $safesolutionname$.Repository.Abstractions.Base;
 using $safesolutionname$.Repository.Abstractions.Transactions;
 using $safesolutionname$.Repository.Base;
 using $safesolutionname$.Repository.Data;
 using $safesolutionname$.Repository.Transactions;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace $safesolutionname$.Repository.Extensions
 {
-    public static class RepositoryServiceCollectionExtensions
+    public static class RepositoryExtensions
     {
         public static IServiceCollection UseRepositories(this IServiceCollection services, IConfiguration configuration, string migrationsAssembly)
         {
@@ -21,7 +21,7 @@ namespace $safesolutionname$.Repository.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork<DbContext>>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.Scan(selector => selector
-                .FromAssemblies(typeof(RepositoryServiceCollectionExtensions).Assembly)
+                .FromAssemblies(typeof(RepositoryExtensions).Assembly)
                 .AddClasses(x => x.Where(c => c.Name.EndsWith("Repository")))
                 .AsImplementedInterfaces()
             );

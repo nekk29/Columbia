@@ -15,26 +15,64 @@
 	</TemplateData>
 	<TemplateContent>
 		<Project TargetFileName="Dto.csproj" File="Dto.csproj" ReplaceParameters="true">
+			<Folder Name="Action" TargetFolderName="Action">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionDto.cs">ActionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateActionDto.cs">CreateActionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GetActionDto.cs">GetActionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListActionDto.cs">ListActionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchActionDto.cs">SearchActionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchActionFilterDto.cs">SearchActionFilterDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateActionDto.cs">UpdateActionDto.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Application" TargetFolderName="Application">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationDto.cs">ApplicationDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateApplicationDto.cs">CreateApplicationDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GetApplicationDto.cs">GetApplicationDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListApplicationDto.cs">ListApplicationDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchApplicationDto.cs">SearchApplicationDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchApplicationFilterDto.cs">SearchApplicationFilterDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateApplicationDto.cs">UpdateApplicationDto.cs</ProjectItem>
+			</Folder>
 			<Folder Name="Base" TargetFolderName="Base">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationMessageDto.cs">ApplicationMessageDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationMessageType.cs">ApplicationMessageType.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ErrorResponseDto.cs">ErrorResponseDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="PageParamsDto.cs">PageParamsDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ResponseDto.cs">ResponseDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ReturnUrlDto.cs">ReturnUrlDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchParamsDto.cs">SearchParamsDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchResultDto.cs">SearchResultDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SortParamsDto.cs">SortParamsDto.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Client" TargetFolderName="Client">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateOrUpdateClientDto.cs">CreateOrUpdateClientDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateOrUpdateClientResultDto.cs">CreateOrUpdateClientResultDto.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Email" TargetFolderName="Email">
 				<ProjectItem ReplaceParameters="true" TargetFileName="SendEmailDto.cs">SendEmailDto.cs</ProjectItem>
 			</Folder>
 			<Folder Name="MenuOption" TargetFolderName="MenuOption">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateMenuOptionDto.cs">CreateMenuOptionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GetMenuOptionDto.cs">GetMenuOptionDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListMenuOptionDto.cs">ListMenuOptionDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionDto.cs">MenuOptionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchMenuOptionDto.cs">SearchMenuOptionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchMenuOptionFilterDto.cs">SearchMenuOptionFilterDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="TreeMenuOptionDto.cs">TreeMenuOptionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateMenuOptionDto.cs">UpdateMenuOptionDto.cs</ProjectItem>
+			</Folder>
+			<Folder Name="Module" TargetFolderName="Module">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateModuleDto.cs">CreateModuleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="GetModuleDto.cs">GetModuleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListModuleDto.cs">ListModuleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ModuleDto.cs">ModuleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchModuleDto.cs">SearchModuleDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SearchModuleFilterDto.cs">SearchModuleFilterDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateModuleDto.cs">UpdateModuleDto.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Permission" TargetFolderName="Permission">
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListPermissionDto.cs">ListPermissionDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListRolePermissionDto.cs">ListRolePermissionDto.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Role" TargetFolderName="Role">
 				<ProjectItem ReplaceParameters="true" TargetFileName="CreateRoleDto.cs">CreateRoleDto.cs</ProjectItem>
@@ -46,17 +84,17 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateRoleDto.cs">UpdateRoleDto.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Setting" TargetFolderName="Setting">
+				<ProjectItem ReplaceParameters="true" TargetFileName="CreateSettingDto.cs">CreateSettingDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="GetSettingDto.cs">GetSettingDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ListSettingDto.cs">ListSettingDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingDto.cs">SearchSettingDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SearchSettingFilterDto.cs">SearchSettingFilterDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="SettingDto.cs">SettingDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UpdateSettingDto.cs">UpdateSettingDto.cs</ProjectItem>
 			</Folder>
-			<Folder Name="Token" TargetFolderName="Token">
-				<ProjectItem ReplaceParameters="true" TargetFileName="AccessTokenDto.cs">AccessTokenDto.cs</ProjectItem>
-			</Folder>
 			<Folder Name="User" TargetFolderName="User">
 				<ProjectItem ReplaceParameters="true" TargetFileName="CreateUserDto.cs">CreateUserDto.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ForgotPasswordDto.cs">ForgotPasswordDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="GetUserDto.cs">GetUserDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="ListUserDto.cs">ListUserDto.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="LoginDto.cs">LoginDto.cs</ProjectItem>

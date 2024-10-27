@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApplicationCode" xml:space="preserve">
+    <value>Código de la aplicación</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirmar Contraseña</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="LoginSucceeded" xml:space="preserve">
     <value>Inicio de sesión correcto</value>
+  </data>
+  <data name="NoAccessToApplication" xml:space="preserve">
+    <value>El usuario no tiene acceso a esta aplicación</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Contraseña</value>

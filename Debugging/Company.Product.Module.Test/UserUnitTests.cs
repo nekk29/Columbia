@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Dto.Base;
-using Company.Product.Module.Dto.Token;
 using Company.Product.Module.Dto.User;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -16,7 +15,6 @@ namespace Company.Product.Module.Test
         public async Task LoginUserSuccess()
         {
             var userApplicationMock = new Mock<IUserApplication>();
-            var accessToken = "RandomString";
             var loginDto = new LoginDto
             {
                 UserName = "mockUserName",
@@ -32,10 +30,7 @@ namespace Company.Product.Module.Test
                     {
                         Data = new LoginResultDto
                         {
-                            AccessToken = new AccessTokenDto
-                            {
-                                access_token = accessToken
-                            }
+
                         }
                     };
 
@@ -44,7 +39,7 @@ namespace Company.Product.Module.Test
 
             var loginResultDto = await userApplicationMock.Object.Login(loginDto);
 
-            Assert.AreEqual(accessToken, loginResultDto?.Data?.AccessToken?.access_token);
+            Assert.IsNotNull(loginResultDto?.Data);
         }
 
         [TestMethod]

@@ -16,6 +16,11 @@
 	<TemplateContent>
 		<Project TargetFileName="RestClient.csproj" File="RestClient.csproj" ReplaceParameters="true">
 			<Folder Name="Abstractions" TargetFolderName="Abstractions">
+				<ProjectItem ReplaceParameters="true" TargetFileName="IActionRestService.cs">IActionRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IApplicationRestService.cs">IApplicationRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IMenuOptionRestService.cs">IMenuOptionRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="IModuleRestService.cs">IModuleRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ISettingRestService.cs">ISettingRestService.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="IUserRestService.cs">IUserRestService.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Base" TargetFolderName="Base">
@@ -24,9 +29,14 @@
 				<ProjectItem ReplaceParameters="true" TargetFileName="ServiceOptionsResolver.cs">ServiceOptionsResolver.cs</ProjectItem>
 			</Folder>
 			<Folder Name="Implementation" TargetFolderName="Implementation">
+				<ProjectItem ReplaceParameters="true" TargetFileName="ActionRestService.cs">ActionRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ApplicationRestService.cs">ApplicationRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="MenuOptionRestService.cs">MenuOptionRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="ModuleRestService.cs">ModuleRestService.cs</ProjectItem>
+				<ProjectItem ReplaceParameters="true" TargetFileName="SettingRestService.cs">SettingRestService.cs</ProjectItem>
 				<ProjectItem ReplaceParameters="true" TargetFileName="UserRestService.cs">UserRestService.cs</ProjectItem>
 			</Folder>
-			<ProjectItem ReplaceParameters="true" TargetFileName="RestClientServiceCollectionExensions.cs">RestClientServiceCollectionExensions.cs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="RestClientServiceCollectionExtensions.cs">ClientExtensions.cs</ProjectItem>
 		</Project>
 	</TemplateContent>
 	<WizardExtension>

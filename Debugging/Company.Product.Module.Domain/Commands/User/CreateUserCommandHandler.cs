@@ -14,34 +14,19 @@ using Microsoft.Extensions.Logging;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
-    public class CreateUserCommandHandler : CommandHandlerBase<CreateUserCommand, GetUserDto>
+    public class CreateUserCommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        IMediator mediator,
+        CreateUserCommandValidator validator,
+        IConfiguration configuration,
+        ILogger<CreateUserCommandHandler> logger,
+        IRepository<Entity.AspNetRole> roleRepository,
+        UserManager<Entity.ApplicationUser> userManager,
+        IRepository<Entity.ApplicationUser> applicationUserRepository
+    ) : CommandHandlerBase<CreateUserCommand, GetUserDto>(unitOfWork, mapper, mediator, validator)
     {
         protected override bool UseTransaction => false;
-
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<CreateUserCommandHandler> _logger;
-        private readonly IRepository<Entity.AspNetRole> _roleRepository;
-        private readonly UserManager<Entity.ApplicationUser> _userManager;
-        private readonly IRepository<Entity.ApplicationUser> _applicationUserRepository;
-
-        public CreateUserCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            IMediator mediator,
-            CreateUserCommandValidator validator,
-            IConfiguration configuration,
-            ILogger<CreateUserCommandHandler> logger,
-            IRepository<Entity.AspNetRole> roleRepository,
-            UserManager<Entity.ApplicationUser> userManager,
-            IRepository<Entity.ApplicationUser> applicationUserRepository
-        ) : base(unitOfWork, mapper, mediator, validator)
-        {
-            _logger = logger;
-            _userManager = userManager;
-            _configuration = configuration;
-            _roleRepository = roleRepository;
-            _applicationUserRepository = applicationUserRepository;
-        }
 
         public override async Task<ResponseDto<GetUserDto>> HandleCommand(CreateUserCommand request, CancellationToken cancellationToken)
         {
@@ -53,9 +38,9 @@ namespace Company.Product.Module.Domain.Commands.User
             {
                 applicationUser.EmailConfirmed = true;
 
-                _applicationUserRepository.UpdateAuditTrails(applicationUser);
+                applicationUserRepository.UpdateAuditTrails(applicationUser);
 
-                var result = await _userManager.CreateAsync(applicationUser, request.CreateDto.Password);
+                var result = await userManager.CreateAsync(applicationUser, request.CreateDto.Password!);
 
                 if (!result.Succeeded)
                 {
@@ -71,11 +56,11 @@ namespace Company.Product.Module.Domain.Commands.User
                     response.AddOkResult(Resources.Common.CreateSuccessMessage);
 
                 var roleIds = request.CreateDto.RoleIds ?? new List<Guid>();
-                var roles = await _roleRepository.FindByAsNoTrackingAsync(x => roleIds.Contains(x.Id));
+                var roles = await roleRepository.FindByAsNoTrackingAsync(x => roleIds.Contains(x.Id));
 
                 if (roles.Any())
                 {
-                    var addRolesResult = await _userManager.AddToRolesAsync(applicationUser, roles.Select(x => x.NormalizedName));
+                    var addRolesResult = await userManager.AddToRolesAsync(applicationUser, roles.Select(x => x.NormalizedName)!);
                     if (!addRolesResult.Succeeded)
                         addRolesResult.Errors.ToList().ForEach(e => { response.AddErrorResult($"{e.Code}: {e.Description}"); });
                 }
@@ -86,8 +71,8 @@ namespace Company.Product.Module.Domain.Commands.User
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, ex.Message);
-                    response.AddErrorResult(Resources.User.CreateUserMailError);
+                    logger.LogError(ex, "Message: {Message}", ex.Message);
+                    response.AddWarningResult(Resources.User.CreateUserMailError);
                 }
 
                 var getUserDto = _mapper?.Map<GetUserDto>(applicationUser);
@@ -99,11 +84,11 @@ namespace Company.Product.Module.Domain.Commands.User
 
         public async Task SendCreationEmail(CreateUserCommand request)
         {
-            var sendMail = _configuration.GetValue<bool>("SignInOptions:SendMailOnSignUp");
+            var sendMail = configuration.GetValue<bool>("SignInOptions:SendMailOnSignUp");
             if (sendMail)
             {
-                var application = _configuration.GetValue<string>("ApiOptions:Name");
-                var frontUrlLogo = _configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
+                var application = configuration.GetValue<string>("ApiOptions:Name");
+                var frontUrlLogo = configuration.GetValue<string>("SecurityOptions:FrontUrlLogo");
 
                 var emailDto = new SendEmailDto
                 {
@@ -111,8 +96,8 @@ namespace Company.Product.Module.Domain.Commands.User
                     ToEmails = new List<string> { request.CreateDto?.Email ?? string.Empty },
                     BodyParams = new Dictionary<string, string>
                     {
-                        { "{APPLICATION}", application },
-                        { "{LOGO}", frontUrlLogo },
+                        { "{APPLICATION}", application! },
+                        { "{LOGO}", frontUrlLogo! },
                         { "{USER}", request.CreateDto?.UserName! },
                         { "{PASSWORD}", request.CreateDto?.Password! }
                     }

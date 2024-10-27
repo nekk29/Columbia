@@ -3,9 +3,8 @@ using $safesolutionname$.Dto.Role;
 
 namespace $safesolutionname$.Domain.Queries.Role
 {
-    public class GetRoleQuery : QueryBase<GetRoleDto>
+    public class GetRoleQuery(Guid id) : QueryBase<GetRoleDto>
     {
-        public GetRoleQuery(Guid id) => Id = id;
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = id;
     }
 }

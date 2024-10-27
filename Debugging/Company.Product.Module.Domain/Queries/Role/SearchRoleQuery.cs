@@ -4,11 +4,8 @@ using Company.Product.Module.Dto.Role;
 
 namespace Company.Product.Module.Domain.Queries.Role
 {
-    public class SearchRoleQuery : SearchQueryBase<SearchRoleFilterDto, SearchRoleDto>
+    public class SearchRoleQuery(SearchParamsDto<SearchRoleFilterDto> searchParams) : SearchQueryBase<SearchRoleFilterDto, SearchRoleDto>(searchParams)
     {
-        public SearchRoleQuery(SearchParamsDto<SearchRoleFilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

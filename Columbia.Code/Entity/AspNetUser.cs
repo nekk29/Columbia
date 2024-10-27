@@ -2,7 +2,7 @@
 
 namespace $safesolutionname$.Entity
 {
-    public partial class AspNetUser: SystemEntity
+    public partial class AspNetUser : SystemEntity
     {
         public AspNetUser()
         {

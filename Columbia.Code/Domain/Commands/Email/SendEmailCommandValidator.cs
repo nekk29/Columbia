@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.Configuration;
+using System.ComponentModel.DataAnnotations;
 using $safesolutionname$.Domain.Commands.Base;
 using $safesolutionname$.Repository.Abstractions.Base;
-using System.ComponentModel.DataAnnotations;
 
 namespace $safesolutionname$.Domain.Commands.Email
 {

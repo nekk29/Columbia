@@ -10,6 +10,7 @@ namespace $safesolutionname$.Application.Abstractions
         Task<ResponseDto> Delete(Guid id);
         Task<ResponseDto<GetRoleDto>> Get(Guid id);
         Task<ResponseDto<IEnumerable<ListRoleDto>>> List();
+        Task<ResponseDto<IEnumerable<ListRoleDto>>> List(Guid applicationId);
         Task<ResponseDto<SearchResultDto<SearchRoleDto>>> Search(SearchParamsDto<SearchRoleFilterDto> searchParams);
     }
 }

@@ -2,9 +2,8 @@
 
 namespace $safesolutionname$.Domain.Commands.Role
 {
-    public class DeleteRoleCommand : CommandBase
+    public class DeleteRoleCommand(Guid id) : CommandBase
     {
-        public DeleteRoleCommand(Guid id) => Id = id;
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = id;
     }
 }

@@ -1,24 +1,21 @@
-﻿using $safesolutionname$.Entity.Base;
+﻿using Dapper;
+using Microsoft.EntityFrameworkCore;
+using System.Collections;
+using System.Data;
+using System.Data.Common;
+using System.Linq.Expressions;
+using System.Reflection;
+using $safesolutionname$.Entity.Base;
 using $safesolutionname$.Repository.Abstractions.Base;
 using $safesolutionname$.Repository.Abstractions.Security;
 using $safesolutionname$.Repository.Extensions;
-using Microsoft.EntityFrameworkCore;
-using System.Collections;
-using System.Linq.Expressions;
-using System.Reflection;
 
 namespace $safesolutionname$.Repository.Base
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity>(DbContext dbContext, IUserIdentity userIdentity) : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext _dbContext;
-        protected readonly IUserIdentity _userIdentity;
-
-        public Repository(DbContext dbContext, IUserIdentity userIdentity)
-        {
-            _dbContext = dbContext;
-            _userIdentity = userIdentity;
-        }
+        protected readonly DbContext _dbContext = dbContext;
+        protected readonly IUserIdentity _userIdentity = userIdentity;
 
         public async Task<TEntity?> AddAsync(TEntity entity)
         {
@@ -35,7 +32,7 @@ namespace $safesolutionname$.Repository.Base
         public async Task<IEnumerable<TEntity>?> AddAsync(params TEntity[] entities)
         {
             if (entities == null) return null;
-            if (!entities.Any()) return entities;
+            if (entities.Length == 0) return entities;
 
             foreach (var entity in entities) UpdateAuditTrails(entity);
 
@@ -60,7 +57,7 @@ namespace $safesolutionname$.Repository.Base
         public async Task<IEnumerable<TEntity>?> UpdateAsync(params TEntity[] entities)
         {
             if (entities == null) return null;
-            if (!entities.Any()) return entities;
+            if (entities.Length == 0) return entities;
 
             entities.ToList().ForEach(entity =>
             {
@@ -88,7 +85,7 @@ namespace $safesolutionname$.Repository.Base
         public async Task<int> DeleteAsync(params TEntity[] entities)
         {
             if (entities == null) return default;
-            if (!entities.Any()) return default;
+            if (entities.Length == 0) return default;
 
             entities.ToList().ForEach(entity => _dbContext.Set<TEntity>().Attach(entity));
 
@@ -198,7 +195,7 @@ namespace $safesolutionname$.Repository.Base
                 }
             }
 
-            if (includeProperties != null && includeProperties.Any())
+            if (includeProperties != null && includeProperties.Length != 0)
                 findAll = findAll.IncludeProperties(includeProperties);
 
             var currentPage = page <= 0 ? 1 : page;
@@ -260,7 +257,7 @@ namespace $safesolutionname$.Repository.Base
         private void UpdateAuditInfo(object entity, bool creation = true)
         {
             if (entity == null) return;
-            
+
             var usuario = _userIdentity.GetCurrentUser();
             var properties = entity.GetType().GetProperties();
 
@@ -280,7 +277,7 @@ namespace $safesolutionname$.Repository.Base
             UpdateProperty(entity, properties, "UpdateDate", now);
         }
 
-        private void UpdateProperty(object entity, IEnumerable<PropertyInfo> properties, string propertyName, object? value, Type? type = null)
+        private static void UpdateProperty(object entity, IEnumerable<PropertyInfo> properties, string propertyName, object? value, Type? type = null)
         {
             type ??= value?.GetType();
 
@@ -290,6 +287,79 @@ namespace $safesolutionname$.Repository.Base
             if (property.PropertyType.FullName != type?.FullName) return;
 
             property.SetValue(entity, value);
+        }
+
+        protected async Task Execute(string storedProcedure, object parameters)
+        {
+            await Execute(async (connection, transaction) =>
+            {
+                _ = await connection.ExecuteScalarAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure, transaction: transaction);
+            });
+        }
+
+        protected async Task<TEntity> Get(string storedProcedure, object parameters)
+        {
+            var results = await ListProcedure(storedProcedure, parameters);
+            return results.FirstOrDefault()!;
+        }
+
+        protected async Task<IEnumerable<TEntity>> ListProcedure(string storedProcedure)
+        {
+            return await Execute(async (connection, transaction) =>
+                await connection.QueryAsync<TEntity>(storedProcedure, commandType: CommandType.StoredProcedure, transaction: transaction)
+            );
+        }
+
+        protected async Task<IEnumerable<TEntity>> ListProcedure(string storedProcedure, object parameters)
+        {
+            return await Execute(async (connection, transaction) =>
+                await connection.QueryAsync<TEntity>(storedProcedure, parameters, commandType: CommandType.StoredProcedure, transaction: transaction)
+            );
+        }
+
+        private async Task Execute(Func<DbConnection, DbTransaction, Task> execute)
+        {
+            var connection = _dbContext.Database.GetDbConnection();
+            await connection.OpenAsync();
+            var transaction = await connection.BeginTransactionAsync();
+
+            try
+            {
+                await execute.Invoke(connection, transaction);
+                transaction.Commit();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+                throw;
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
+        }
+
+        private async Task<T> Execute<T>(Func<DbConnection, DbTransaction, Task<T>> execute)
+        {
+            var connection = _dbContext.Database.GetDbConnection();
+            await connection.OpenAsync();
+            var transaction = await connection.BeginTransactionAsync();
+
+            try
+            {
+                var result = await execute.Invoke(connection, transaction);
+                transaction.Commit();
+                return result;
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+                throw;
+            }
+            finally
+            {
+                await connection.CloseAsync();
+            }
         }
     }
 }

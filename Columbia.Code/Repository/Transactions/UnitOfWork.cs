@@ -1,18 +1,12 @@
-﻿using $safesolutionname$.Repository.Abstractions.Transactions;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Storage = Microsoft.EntityFrameworkCore.Storage;
+using $safesolutionname$.Repository.Abstractions.Transactions;
 
-#pragma warning disable CS8604 // Possible null reference argument.
-#pragma warning disable CS8603 // Possible null reference return.
 namespace $safesolutionname$.Repository.Transactions
 {
-    public class UnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
+    public class UnitOfWork<TContext>(TContext dbContext) : IUnitOfWork where TContext : DbContext
     {
-        private readonly TContext _dbContext;
-        private DbContext Context => _dbContext;
-
-        public UnitOfWork(TContext dbContext)
-            => _dbContext = dbContext;
+        private DbContext Context => dbContext;
 
         public ITransaction BeginTransaction()
             => new Transaction(Context.Database.BeginTransaction());
@@ -39,12 +33,12 @@ namespace $safesolutionname$.Repository.Transactions
         {
             ExecuteStrategy(
                 state,
-                stateIn => { operation.Invoke(stateIn); return default; },
+                stateIn => { operation.Invoke(stateIn); return default!; },
                 stateIn =>
                 {
                     return verifySucceeded != null ?
-                        new Storage.ExecutionResult<TState>(verifySucceeded.Invoke(stateIn).IsSuccessful, default) :
-                        new Storage.ExecutionResult<TState>(true, default);
+                        new Storage.ExecutionResult<TState>(verifySucceeded.Invoke(stateIn).IsSuccessful, default!) :
+                        new Storage.ExecutionResult<TState>(true, default!);
                 }
             );
         }
@@ -70,12 +64,12 @@ namespace $safesolutionname$.Repository.Transactions
         {
             await ExecuteStrategyAsync(
                 state,
-                async (stateIn, cancellationTokenIn) => { await operation.Invoke(stateIn, cancellationTokenIn); return default; },
+                async (stateIn, cancellationTokenIn) => { await operation.Invoke(stateIn, cancellationTokenIn); return default!; },
                 async (stateIn, cancellationTokenIn) =>
                 {
                     return verifySucceeded != null ?
-                        new Storage.ExecutionResult<TState>((await verifySucceeded.Invoke(stateIn, cancellationTokenIn)).IsSuccessful, default) :
-                        new Storage.ExecutionResult<TState>(true, default);
+                        new Storage.ExecutionResult<TState>((await verifySucceeded.Invoke(stateIn, cancellationTokenIn)).IsSuccessful, default!) :
+                        new Storage.ExecutionResult<TState>(true, default!);
                 },
                 cancellationToken
             );
@@ -106,7 +100,7 @@ namespace $safesolutionname$.Repository.Transactions
                         return new Storage.ExecutionResult<TResult>(result.IsSuccessful, result.Result);
                     }
 
-                    return new Storage.ExecutionResult<TResult>(true, default);
+                    return new Storage.ExecutionResult<TResult>(true, default!);
                 }
             );
         }
@@ -137,7 +131,7 @@ namespace $safesolutionname$.Repository.Transactions
                         return new Storage.ExecutionResult<TResult>(result.IsSuccessful, result.Result);
                     }
 
-                    return new Storage.ExecutionResult<TResult>(true, default);
+                    return new Storage.ExecutionResult<TResult>(true, default!);
                 },
                 cancellationToken
             );
@@ -257,19 +251,18 @@ namespace $safesolutionname$.Repository.Transactions
 
         public void Commit()
         {
-            _dbContext.SaveChanges();
+            dbContext.SaveChanges();
         }
 
         public async Task CommitAsync()
         {
-            await _dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync();
         }
 
         public void SendAudit()
         {
-            
+
         }
     }
 }
-#pragma warning restore CS8603 // Possible null reference return.
-#pragma warning restore CS8604 // Possible null reference argument.
+

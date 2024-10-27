@@ -3,7 +3,6 @@ using System.Text;
 
 namespace $safesolutionname$.Common
 {
-#pragma warning disable SYSLIB0021 // Type or member is obsolete
 #pragma warning disable CA2208 // Instantiate argument exceptions correctly
     public static class Encrypter
     {
@@ -15,10 +14,9 @@ namespace $safesolutionname$.Common
                 throw new ArgumentException("The text must have valid value.", nameof(text));
 
             var buffer = Encoding.UTF8.GetBytes(text);
-            var hash = new SHA512CryptoServiceProvider();
             var aesKey = new byte[24];
 
-            Buffer.BlockCopy(hash.ComputeHash(Encoding.UTF8.GetBytes(key)), 0, aesKey, 0, 24);
+            Buffer.BlockCopy(SHA512.HashData(Encoding.UTF8.GetBytes(key)), 0, aesKey, 0, 24);
 
             using var aes = Aes.Create();
 
@@ -52,10 +50,9 @@ namespace $safesolutionname$.Common
 
             var combined = Convert.FromBase64String(encryptedText);
             var buffer = new byte[combined.Length];
-            var hash = new SHA512CryptoServiceProvider();
             var aesKey = new byte[24];
 
-            Buffer.BlockCopy(hash.ComputeHash(Encoding.UTF8.GetBytes(key)), 0, aesKey, 0, 24);
+            Buffer.BlockCopy(SHA512.HashData(Encoding.UTF8.GetBytes(key)), 0, aesKey, 0, 24);
 
             using var aes = Aes.Create();
 
@@ -83,6 +80,5 @@ namespace $safesolutionname$.Common
             return Encoding.UTF8.GetString(resultStream.ToArray());
         }
     }
-#pragma warning restore CA2208 // Instantiate argument exceptions correctly
-#pragma warning restore SYSLIB0021 // Type or member is obsolete
 }
+#pragma warning restore CA2208 // Instantiate argument exceptions correctly

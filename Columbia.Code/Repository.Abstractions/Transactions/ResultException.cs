@@ -1,9 +1,7 @@
 ﻿namespace $safesolutionname$.Repository.Abstractions.Transactions
 {
-    public class ResultException<TResult> : Exception
+    public class ResultException<TResult>(TResult result) : Exception
     {
-        public TResult Result { get; set; }
-
-        public ResultException(TResult result) => Result = result;
+        public TResult Result { get; set; } = result;
     }
 }

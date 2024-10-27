@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.Role;
 
 namespace Company.Product.Module.Domain.Commands.Role
 {
-    public class UpdateRoleCommand : CommandBase<GetRoleDto>
+    public class UpdateRoleCommand(UpdateRoleDto updateDto) : CommandBase<GetRoleDto>
     {
-        public UpdateRoleCommand(UpdateRoleDto updateDto) => UpdateDto = updateDto;
-        public UpdateRoleDto UpdateDto { get; set; }
+        public UpdateRoleDto UpdateDto { get; set; } = updateDto;
     }
 }

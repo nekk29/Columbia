@@ -4,11 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Company.Product.Module.Repository.Data
 {
-    public class SecurityDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
+    public class SecurityDbContext(DbContextOptions<SecurityDbContext> options) : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>(options)
     {
-        public SecurityDbContext(DbContextOptions<SecurityDbContext> options) : base(options)
-        {
 
-        }
     }
 }

@@ -2,17 +2,13 @@
 
 namespace Company.Product.Module.Repository.Transactions
 {
-    public class ExecutionResult : IExecutionResult
+    public class ExecutionResult(bool isSuccessful) : IExecutionResult
     {
-        public bool IsSuccessful { get; }
-
-        public ExecutionResult(bool isSuccessful) => IsSuccessful = isSuccessful;
+        public bool IsSuccessful { get; } = isSuccessful;
     }
 
-    public class ExecutionResult<TResult> : ExecutionResult, IExecutionResult<TResult>
+    public class ExecutionResult<TResult>(bool isSuccessful, TResult result) : ExecutionResult(isSuccessful), IExecutionResult<TResult>
     {
-        public TResult Result { get; }
-
-        public ExecutionResult(bool isSuccessful, TResult result) : base(isSuccessful) => Result = result;
+        public TResult Result { get; } = result;
     }
 }

@@ -1,68 +1,66 @@
 ﻿using AutoMapper;
+using Company.Product.Module.Common;
 using Company.Product.Module.Domain.Commands.Base;
-using Company.Product.Module.Domain.Commands.Token;
+using Company.Product.Module.Domain.Extensions;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.User;
 using Company.Product.Module.Repository.Abstractions.Transactions;
+using IdentityServer4.Events;
+using IdentityServer4.Services;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
-    public class LoginCommandHandler : CommandHandlerBase<LoginCommand, LoginResultDto>
+    public class LoginCommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        IMediator mediator,
+        LoginCommandValidator validator,
+        IEventService eventService,
+        IConfiguration configuration,
+        IIdentityServerInteractionService interaction,
+        UserManager<Entity.ApplicationUser> userManager,
+        SignInManager<Entity.ApplicationUser> signInManager
+    ) : CommandHandlerBase<LoginCommand, LoginResultDto>(unitOfWork, mapper, mediator, validator)
     {
-        private readonly IConfiguration _configuration;
-        private readonly UserManager<Entity.ApplicationUser> _userManager;
-        private readonly SignInManager<Entity.ApplicationUser> _signInManager;
-
-        public LoginCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            IMediator mediator,
-            LoginCommandValidator validator,
-            IConfiguration configuration,
-            UserManager<Entity.ApplicationUser> userManager,
-            SignInManager<Entity.ApplicationUser> signInManager
-        ) : base(unitOfWork, mapper, mediator, validator)
-        {
-            _configuration = configuration;
-            _userManager = userManager;
-            _signInManager = signInManager;
-        }
-
         public override async Task<ResponseDto<LoginResultDto>> HandleCommand(LoginCommand request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<LoginResultDto>();
-            var lockoutOnFailure = _configuration.GetValue<bool>("SignInOptions:LockoutEnabled");
+            var loginResultDto = new LoginResultDto();
 
-            var applicationUser = await _userManager.FindByNameAsync(request.LoginDto.UserName);
+            var username = request.LoginDto.UserName;
+            var returnUrl = request.LoginDto.ReturnUrlOrDefault();
+            var returnUrlEncoded = UriUtils.EncodeUri(returnUrl);
+            var lockoutOnFailure = configuration.GetValue<bool>("SignInOptions:LockoutEnabled");
 
-            if (applicationUser == null)
-                applicationUser = await _userManager.FindByEmailAsync(request.LoginDto.UserName);
+            var applicationUser = await userManager.FindByNameAsync(username!);
+            applicationUser ??= await userManager.FindByEmailAsync(username!);
 
-            var result = await _signInManager.PasswordSignInAsync(applicationUser.UserName, request.LoginDto.Password, request.LoginDto.RememberMe, lockoutOnFailure: lockoutOnFailure);
+            var context = await interaction.GetAuthorizationContextAsync(returnUrl);
+            var result = await signInManager.PasswordSignInAsync(applicationUser?.UserName!, request.LoginDto.Password!, request.LoginDto.RememberMe, lockoutOnFailure: lockoutOnFailure);
 
             if (result.Succeeded)
             {
-                var user = await _userManager.FindByNameAsync(request.LoginDto.UserName);
-                var accessToken = await _mediator?.Send(new GenerateTokenCommand(user), cancellationToken)!;
-
-                if (accessToken?.Data == null)
+                if (context != null)
                 {
-                    response.AddErrorResult(Resources.User.LoginAccessTokenError);
-                    return response;
+                    var issuer = configuration.GetValue<string>("SecurityOptions:Issuer");
+                    loginResultDto.ReturnUrl = $"{issuer}{returnUrl}";
+                    await eventService.RaiseAsync(new UserLoginSuccessEvent(username, username, applicationUser!.Email, true, clientId: context?.Client.ClientId));
                 }
+                else
+                    loginResultDto.ReturnUrl = returnUrl;
 
-                response.UpdateData(new LoginResultDto { AccessToken = accessToken?.Data });
+                response.UpdateData(loginResultDto);
                 response.AddOkResult(Resources.User.LoginSucceeded);
 
                 return response;
             }
 
-            var isEmailConfirmed = await _userManager.IsEmailConfirmedAsync(applicationUser);
+            var isEmailConfirmed = await userManager.IsEmailConfirmedAsync(applicationUser!);
 
-            if (_userManager.Options.SignIn.RequireConfirmedAccount && !isEmailConfirmed)
+            if (userManager.Options.SignIn.RequireConfirmedAccount && !isEmailConfirmed)
             {
                 response.AddErrorResult(Resources.User.LoginEmailNotConfirmed);
                 return response;
@@ -70,14 +68,16 @@ namespace Company.Product.Module.Domain.Commands.User
 
             if (result.RequiresTwoFactor)
             {
+                var frontUrl = configuration.GetValue<string>("SecurityOptions:FrontUrl");
+                loginResultDto.ReturnUrl = $"{frontUrl}/#/user/login-with-2fa?returnUrl={returnUrlEncoded}";
                 response.AddErrorResult(Resources.User.Login2FARequired);
                 return response;
             }
 
             if (result.IsLockedOut)
             {
-                var lockoutAttempts = _configuration.GetValue<int>("SignInOptions:LockoutMaxFailedAccessAttempts");
-                var lockoutTimeInMinutes = _configuration.GetValue<int>("SignInOptions:LockoutDefaultTimeSpanInMinutes");
+                var lockoutAttempts = configuration.GetValue<int>("SignInOptions:LockoutMaxFailedAccessAttempts");
+                var lockoutTimeInMinutes = configuration.GetValue<int>("SignInOptions:LockoutDefaultTimeSpanInMinutes");
 
                 response.AddErrorResult(string.Format(Resources.User.LoginLockout, lockoutAttempts, lockoutTimeInMinutes));
 

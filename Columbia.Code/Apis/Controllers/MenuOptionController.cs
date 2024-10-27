@@ -6,21 +6,44 @@ using $safesolutionname$.Dto.MenuOption;
 namespace $safesolutionname$.Apis.Controllers
 {
     [ApiController]
-    [Route("api/menu-option")]
     [Security.Authorize]
-    public class MenuOptionController
+    [Route("api/menu-option")]
+    public class MenuOptionController(IMenuOptionApplication menuOptionApplication)
     {
-        private readonly IMenuOptionApplication _menuOptionApplication;
+        [HttpPost]
+        public async Task<ResponseDto<GetMenuOptionDto>> Create(CreateMenuOptionDto createDto)
+            => await menuOptionApplication.Create(createDto);
 
-        public MenuOptionController(IMenuOptionApplication menuOptionApplication)
-            => _menuOptionApplication = menuOptionApplication;
+        [HttpPut]
+        public async Task<ResponseDto<GetMenuOptionDto>> Update(UpdateMenuOptionDto updateDto)
+            => await menuOptionApplication.Update(updateDto);
 
-        [HttpGet("list")]
-        public async Task<ResponseDto<IEnumerable<ListMenuOptionDto>>> List()
-            => await _menuOptionApplication.List();
+        [HttpDelete("{id}")]
+        public async Task<ResponseDto> Delete(Guid id)
+            => await menuOptionApplication.Delete(id);
 
-        [HttpGet("tree")]
-        public async Task<ResponseDto<IEnumerable<TreeMenuOptionDto>>> Tree()
-            => await _menuOptionApplication.Tree();
+        [HttpGet("{id}")]
+        public async Task<ResponseDto<GetMenuOptionDto>> Get(Guid id)
+            => await menuOptionApplication.Get(id);
+
+        [HttpGet("{applicationCode}/list")]
+        public async Task<ResponseDto<IEnumerable<ListMenuOptionDto>>> List(string applicationCode)
+            => await menuOptionApplication.List(applicationCode);
+
+        [HttpGet("{applicationCode}/list-all")]
+        public async Task<ResponseDto<IEnumerable<ListMenuOptionDto>>> ListAll(string applicationCode)
+            => await menuOptionApplication.ListAll(applicationCode);
+
+        [HttpGet("{applicationCode}/tree")]
+        public async Task<ResponseDto<IEnumerable<TreeMenuOptionDto>>> Tree(string applicationCode)
+            => await menuOptionApplication.Tree(applicationCode);
+
+        [HttpGet("{applicationCode}/tree-all")]
+        public async Task<ResponseDto<IEnumerable<TreeMenuOptionDto>>> TreeAll(string applicationCode)
+            => await menuOptionApplication.TreeAll(applicationCode);
+
+        [HttpPost("search")]
+        public async Task<ResponseDto<SearchResultDto<SearchMenuOptionDto>>> Search(SearchParamsDto<SearchMenuOptionFilterDto> searchParams)
+            => await menuOptionApplication.Search(searchParams);
     }
 }

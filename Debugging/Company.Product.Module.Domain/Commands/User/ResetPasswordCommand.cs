@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.User;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
-    public class ResetPasswordCommand : CommandBase
+    public class ResetPasswordCommand(ResetPasswordDto resetPasswordDto) : CommandBase
     {
-        public ResetPasswordCommand(ResetPasswordDto resetPasswordDto) => ResetPasswordDto = resetPasswordDto;
-        public ResetPasswordDto ResetPasswordDto { get; set; }
+        public ResetPasswordDto ResetPasswordDto { get; set; } = resetPasswordDto;
     }
 }

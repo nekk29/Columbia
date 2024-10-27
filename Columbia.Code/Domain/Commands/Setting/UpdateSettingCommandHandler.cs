@@ -1,50 +1,38 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using $safesolutionname$.Common;
 using $safesolutionname$.Domain.Commands.Base;
 using $safesolutionname$.Dto.Base;
 using $safesolutionname$.Dto.Setting;
-using $safesolutionname$.Repository.Abstractions.Base;
+using $safesolutionname$.Repository.Abstractions;
 using $safesolutionname$.Repository.Abstractions.Transactions;
 
 namespace $safesolutionname$.Domain.Commands.Setting
 {
-    public class UpdateSettingCommandHandler : CommandHandlerBase<UpdateSettingCommand, GetSettingDto>
+    public class UpdateSettingCommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        IConfiguration configuration,
+        UpdateSettingCommandValidator validator,
+        ISettingRepository settingRepository
+    ) : CommandHandlerBase<UpdateSettingCommand, GetSettingDto>(unitOfWork, mapper, validator)
     {
-        private readonly IMemoryCache _memoryCache;
-        private readonly IConfiguration _configuration;
-        private readonly IRepository<Entity.Setting> _settingRepository;
-
-        public UpdateSettingCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            IMemoryCache memoryCache,
-            IConfiguration configuration,
-            UpdateSettingCommandValidator validator,
-            IRepository<Entity.Setting> settingRepository
-        ) : base(unitOfWork, mapper, validator)
-        {
-            _memoryCache = memoryCache;
-            _configuration = configuration;
-            _settingRepository = settingRepository;
-        }
+        protected override bool UseTransaction => false;
 
         public override async Task<ResponseDto<GetSettingDto>> HandleCommand(UpdateSettingCommand request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<GetSettingDto>();
-            var securityKey = _configuration.GetValue<string>("SecurityOptions:SecurityKey");
+            var securityKey = configuration.GetValue<string>("SecurityOptions:SecurityKey");
 
-            var setting = await _settingRepository.GetByAsync(x => x.Group == request.UpdateDto.Group && x.Code == request.UpdateDto.Code);
+            var setting = await settingRepository.GetByAsync(x => x.Group == request.UpdateDto.Group && x.Code == request.UpdateDto.Code);
             if (setting != null)
             {
                 setting.Value = request.UpdateDto.Value;
 
                 if (Constants.Settings.EncryptedSettings.Any(x => x.Group == setting.Group && x.Code == setting.Code))
-                    setting.Value = Encrypter.Encrypt(setting.Value, securityKey);
+                    setting.Value = Encrypter.Encrypt(setting.Value, securityKey!);
 
-                await _settingRepository.UpdateAsync(setting);
-                await _settingRepository.SaveAsync();
+                await settingRepository.UpdateAsync(setting);
 
                 /* Clean memory cache setting items
                 _memoryCache.Remove(Constants.Cache.{CacheKey});

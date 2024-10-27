@@ -1,10 +1,10 @@
 ﻿using Company.Product.Module.Domain.Commands.Base;
+using Company.Product.Module.Dto.User;
 
 namespace Company.Product.Module.Domain.Commands.User
 {
-    public class ForgotPasswordCommand : CommandBase
+    public class ForgotPasswordCommand(ForgotPasswordDto forgotPasswordDto) : CommandBase
     {
-        public ForgotPasswordCommand(string email) => Email = email;
-        public string Email { get; set; }
+        public ForgotPasswordDto ForgotPasswordDto { get; set; } = forgotPasswordDto;
     }
 }
