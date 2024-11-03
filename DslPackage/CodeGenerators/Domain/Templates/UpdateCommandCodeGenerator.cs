@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -78,7 +78,14 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("Command : CommandBase<Get");
+            this.Write("Command(Update");
+            
+            #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto updateDto) : CommandBase<Get");
             
             #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
@@ -92,21 +99,7 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("Command(Update");
-            
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Dto updateDto) => UpdateDto = updateDto;\r\n        public Update");
-            
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\UpdateCommandCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Dto UpdateDto { get; set; }\r\n    }\r\n}\r\n");
+            this.Write("Dto UpdateDto { get; set; } = updateDto;\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

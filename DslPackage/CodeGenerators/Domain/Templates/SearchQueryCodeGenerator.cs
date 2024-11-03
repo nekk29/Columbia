@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -85,7 +85,14 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("Query : SearchQueryBase<Search");
+            this.Write("Query(SearchParamsDto<Search");
+            
+            #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("FilterDto> searchParams) : SearchQueryBase<Search");
             
             #line 15 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
@@ -99,22 +106,7 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("Dto>\r\n    {\r\n        public Search");
-            
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Query(SearchParamsDto<Search");
-            
-            #line 17 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\SearchQueryCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("FilterDto> searchParams) : base(searchParams)\r\n        {\r\n\r\n        }\r\n    }\r\n}\r\n" +
-                    "");
+            this.Write("Dto>(searchParams)\r\n    {\r\n\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }

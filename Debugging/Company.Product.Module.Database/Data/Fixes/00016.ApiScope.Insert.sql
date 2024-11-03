@@ -1,4 +1,4 @@
-﻿DECLARE @ApiScope VARCHAR(200) = 'security.apis'
+﻿DECLARE @ApiScope VARCHAR(200) = 'product.apis'
 
 IF NOT EXISTS (SELECT 1 FROM [dbo].[ApiScopes] WHERE [Name] = @ApiScope)
 BEGIN
@@ -14,8 +14,8 @@ BEGIN
 	VALUES (
 		1,
 		@ApiScope,
-		'Security Apis',
-		'Security Apis Scope',
+		'Product Apis',
+		'Product Apis Scope',
 		1,
 		1,
 		1

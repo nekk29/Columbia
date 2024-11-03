@@ -1,10 +1,10 @@
 ﻿DECLARE @UserName VARCHAR(64) = 'system.account'
 DECLARE @DateTime DATETIME = GETDATE()
 
-DECLARE @ApplicationCode VARCHAR(20) = 'security'
+DECLARE @ApplicationCode VARCHAR(20) = 'product'
 DECLARE @ApplicationId UNIQUEIDENTIFIER = (SELECT TOP 1 [Id] FROM [dbo].[Applications] WHERE [Code] = @ApplicationCode)
 
-DECLARE @ClientCode VARCHAR(200) = 'security'
+DECLARE @ClientCode VARCHAR(200) = 'product'
 
 IF @ApplicationId IS NOT NULL AND NOT EXISTS (SELECT 1 FROM [dbo].[Clients] WHERE [ClientId] = @ClientCode)
 BEGIN
@@ -57,8 +57,8 @@ BEGIN
 		@ClientCode,--[ClientId],
 		'oidc',--[ProtocolType],
 		1,--[RequireClientSecret],
-		'Security',--[ClientName],
-		'Security Client',--[Description],
+		'Product',--[ClientName],
+		'Product Client',--[Description],
 		'https://localhost:3000',--[ClientUri],
 		'https://localhost:3000/assets/favicon.ico',--[LogoUri],
 		0,--[RequireConsent],

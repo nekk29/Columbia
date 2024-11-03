@@ -15,20 +15,13 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 {
-    public class Create<#= Entity.Name #>CommandHandler : CommandHandlerBase<Create<#= Entity.Name #>Command, Get<#= Entity.Name #>Dto>
+    public class Create<#= Entity.Name #>CommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        Create<#= Entity.Name #>CommandValidator validator,
+        IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+    ) : CommandHandlerBase<Create<#= Entity.Name #>Command, Get<#= Entity.Name #>Dto>(unitOfWork, mapper, validator)
     {
-        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
-
-        public Create<#= Entity.Name #>CommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            Create<#= Entity.Name #>CommandValidator validator,
-            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
-        ) : base(unitOfWork, mapper, validator)
-        {
-            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
-        }
-
         public override async Task<ResponseDto<Get<#= Entity.Name #>Dto>> HandleCommand(Create<#= Entity.Name #>Command request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<Get<#= Entity.Name #>Dto>();
@@ -36,8 +29,8 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 
             if (<#= LowerFirst(Entity.Name) #> != null)
             {
-                await _<#= LowerFirst(Entity.Name) #>Repository.AddAsync(<#= LowerFirst(Entity.Name) #>);
-                await _<#= LowerFirst(Entity.Name) #>Repository.SaveAsync();
+                await <#= LowerFirst(Entity.Name) #>Repository.AddAsync(<#= LowerFirst(Entity.Name) #>);
+                await <#= LowerFirst(Entity.Name) #>Repository.SaveAsync();
             }
 
             var <#= LowerFirst(Entity.Name) #>Dto = _mapper?.Map<Get<#= Entity.Name #>Dto>(<#= LowerFirst(Entity.Name) #>);

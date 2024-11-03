@@ -5,14 +5,9 @@ using Company.Product.Module.RestClient.Base;
 
 namespace Company.Product.Module.RestClient.Implementation
 {
-    public class RelatedSampleRestService : BaseService, IRelatedSampleRestService
+    public class RelatedSampleRestService(IServiceProvider serviceProvider) : BaseService(serviceProvider), IRelatedSampleRestService
     {
         protected override string ApiController => "api/relatedSample";
-
-        public RelatedSampleRestService(IServiceProvider serviceProvider) : base(serviceProvider)
-        {
-
-        }
 
         public async Task<ResponseDto<GetRelatedSampleDto>> Create(CreateRelatedSampleDto createDto)
             => await Post<CreateRelatedSampleDto, ResponseDto<GetRelatedSampleDto>>(string.Empty, createDto)!;

@@ -12,14 +12,27 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
-    public class Get<#= Entity.Name #>Query : QueryBase<Get<#= Entity.Name #>Dto>
-    {
 <#
 	if (keyProperty != null)
     {
 #>
-        public Get<#= Entity.Name #>Query(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) => <#= keyProperty.Name #> = <#= LowerFirst(keyProperty.Name) #>;
-        public <#= keyProperty.Type #> <#= keyProperty.Name #> { get; set; }
+    public class Get<#= Entity.Name #>Query(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) : QueryBase<Get<#= Entity.Name #>Dto>
+    {
+<#
+	}
+    else
+    {
+#>
+    public class Get<#= Entity.Name #>Query : QueryBase<Get<#= Entity.Name #>Dto>
+    {
+<#
+    }
+#>
+<#
+	if (keyProperty != null)
+    {
+#>
+        public <#= keyProperty.Type #> <#= keyProperty.Name #> { get; set; } = <#= LowerFirst(keyProperty.Name) #>;
 <#
 	}
 #>

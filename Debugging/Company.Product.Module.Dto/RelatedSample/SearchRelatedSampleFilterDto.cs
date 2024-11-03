@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace Company.Product.Module.Dto.RelatedSample
+﻿namespace Company.Product.Module.Dto.RelatedSample
 {
-   public class SearchRelatedSampleFilterDto
-   {
-      public Guid? Id { get; set; } = null!;
-      public string? Code { get; set; } = null!;
-      public string? Description { get; set; } = null!;
-   }
+    public class SearchRelatedSampleFilterDto
+    {
+        public Guid? Id { get; set; } = null!;
+        public string? Code { get; set; } = null!;
+        public string? Description { get; set; } = null!;
+    }
 }

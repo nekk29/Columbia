@@ -1,5 +1,5 @@
 ﻿DECLARE @GrantType VARCHAR(250)
-DECLARE @ClientCode VARCHAR(200) = 'security'
+DECLARE @ClientCode VARCHAR(200) = 'product'
 DECLARE @ClientId INT = (SELECT TOP 1 [Id] FROM [dbo].[Clients] WHERE [ClientId] = @ClientCode)
 
 IF @ClientId IS NOT NULL

@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace Company.Product.Module.Dto.RelatedSample
+﻿namespace Company.Product.Module.Dto.RelatedSample
 {
-   public class SearchRelatedSampleDto : GetRelatedSampleDto
-   {
-   
-   }
+    public class SearchRelatedSampleDto : GetRelatedSampleDto
+    {
+
+    }
 }

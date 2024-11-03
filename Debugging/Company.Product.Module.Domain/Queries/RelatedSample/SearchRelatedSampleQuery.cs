@@ -4,11 +4,8 @@ using Company.Product.Module.Dto.RelatedSample;
 
 namespace Company.Product.Module.Domain.Queries.RelatedSample
 {
-    public class SearchRelatedSampleQuery : SearchQueryBase<SearchRelatedSampleFilterDto, SearchRelatedSampleDto>
+    public class SearchRelatedSampleQuery(SearchParamsDto<SearchRelatedSampleFilterDto> searchParams) : SearchQueryBase<SearchRelatedSampleFilterDto, SearchRelatedSampleDto>(searchParams)
     {
-        public SearchRelatedSampleQuery(SearchParamsDto<SearchRelatedSampleFilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

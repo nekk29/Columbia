@@ -36,36 +36,32 @@ using <#= DomainModel.Dto #>.<#= module #>;
 namespace <#= DomainModel.Apis #>.Controllers
 {
     [ApiController]
+    [Security.Authorize]
     [Route("api/<#= moduleLower #>")]
-    public class <#= module #>Controller
+    public class <#= module #>Controller(I<#= module #>Application <#= moduleLower #>Application)
     {
-        private readonly I<#= module #>Application _<#= moduleLower #>Application;
-
-        public <#= module #>Controller(I<#= module #>Application <#= moduleLower #>Application)
-            => _<#= moduleLower #>Application = <#= moduleLower #>Application;
-
         [HttpPost<#= createRoute #>]
         public async Task<ResponseDto<Get<#= entity #>Dto>> Create<#= entitySuffix #>(Create<#= entity #>Dto createDto)
-            => await _<#= moduleLower #>Application.Create<#= entitySuffix #>(createDto);
+            => await <#= moduleLower #>Application.Create<#= entitySuffix #>(createDto);
 
         [HttpPut<#= updateRoute #>]
         public async Task<ResponseDto<Get<#= entity #>Dto>> Update<#= entitySuffix #>(Update<#= entity #>Dto updateDto)
-            => await _<#= moduleLower #>Application.Update<#= entitySuffix #>(updateDto);
+            => await <#= moduleLower #>Application.Update<#= entitySuffix #>(updateDto);
 
         [HttpDelete<#= deleteRoute #>]
         public async Task<ResponseDto> Delete<#= entitySuffix #>(<#= keyPropertyParamIn #>)
-            => await _<#= moduleLower #>Application.Delete<#= entitySuffix #>(<#= keyPropertyParam #>);
+            => await <#= moduleLower #>Application.Delete<#= entitySuffix #>(<#= keyPropertyParam #>);
 
         [HttpGet<#= getRoute #>]
         public async Task<ResponseDto<Get<#= entity #>Dto>> Get<#= entitySuffix #>(<#= keyPropertyParamIn #>)
-            => await _<#= moduleLower #>Application.Get<#= entitySuffix #>(<#= keyPropertyParam #>);
+            => await <#= moduleLower #>Application.Get<#= entitySuffix #>(<#= keyPropertyParam #>);
 
         [HttpGet<#= listRoute #>]
         public async Task<ResponseDto<IEnumerable<List<#= entity #>Dto>>> List<#= entitySuffix #>()
-            => await _<#= moduleLower #>Application.List<#= entitySuffix #>();
+            => await <#= moduleLower #>Application.List<#= entitySuffix #>();
 
         [HttpPost<#= searchRoute #>]
         public async Task<ResponseDto<SearchResultDto<Search<#= entity #>Dto>>> Search<#= entitySuffix #>(SearchParamsDto<Search<#= entity #>FilterDto> searchParams)
-            => await _<#= moduleLower #>Application.Search<#= entitySuffix #>(searchParams);
+            => await <#= moduleLower #>Application.Search<#= entitySuffix #>(searchParams);
     }
 }

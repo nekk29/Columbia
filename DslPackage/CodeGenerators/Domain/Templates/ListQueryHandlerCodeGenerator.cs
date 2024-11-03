@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -92,80 +92,45 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("QueryHandler : QueryHandlerBase<List");
-            
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Query, IEnumerable<List");
-            
-            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Dto>>\r\n    {\r\n        private readonly IRepository<Entity.");
+            this.Write("QueryHandler(\r\n        IMapper mapper,\r\n        IRepository<Entity.");
             
             #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("> _");
-            
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
-            
-            #line default
-            #line hidden
-            this.Write("Repository;\r\n\r\n        public List");
-            
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("QueryHandler(\r\n            IMapper mapper,\r\n            IRepository<Entity.");
-            
-            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 24 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
             #line hidden
-            this.Write("Repository\r\n        ) : base(mapper)\r\n        {\r\n            _");
+            this.Write("Repository\r\n    ) : QueryHandlerBase<List");
             
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
-            
-            #line default
-            #line hidden
-            this.Write("Repository = ");
-            
-            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Repository;\r\n        }\r\n\r\n        protected override async Task<ResponseDto<IEnum" +
-                    "erable<List");
+            this.Write("Query, IEnumerable<List");
             
-            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
+            
+            #line default
+            #line hidden
+            this.Write("Dto>>(mapper)\r\n    {\r\n        protected override async Task<ResponseDto<IEnumerab" +
+                    "le<List");
+            
+            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>>> HandleQuery(List");
             
-            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 23 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
@@ -173,14 +138,14 @@ namespace Columbia.DslPackage
             this.Write("Query request, CancellationToken cancellationToken)\r\n        {\r\n            var r" +
                     "esponse = new ResponseDto<IEnumerable<List");
             
-            #line 32 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write("Dto>>();\r\n            var items = await _");
+            this.Write("Dto>>();\r\n            var items = await ");
             
-            #line 33 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 26 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(Entity.Name)));
             
             #line default
@@ -188,14 +153,14 @@ namespace Columbia.DslPackage
             this.Write("Repository.FindAll().ToListAsync(cancellationToken);\r\n            var itemDtos = " +
                     "_mapper?.Map<IEnumerable<List");
             
-            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Dto>>(items);\r\n\r\n            response.UpdateData(itemDtos ?? new List<List");
             
-            #line 36 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
+            #line 29 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\ListQueryHandlerCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default

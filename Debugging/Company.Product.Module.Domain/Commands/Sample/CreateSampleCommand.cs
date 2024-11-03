@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.Sample;
 
 namespace Company.Product.Module.Domain.Commands.Sample
 {
-    public class CreateSampleCommand : CommandBase<GetSampleDto>
+    public class CreateSampleCommand(CreateSampleDto createDto) : CommandBase<GetSampleDto>
     {
-        public CreateSampleCommand(CreateSampleDto createDto) => CreateDto = createDto;
-        public CreateSampleDto CreateDto { get; set; }
+        public CreateSampleDto CreateDto { get; set; } = createDto;
     }
 }

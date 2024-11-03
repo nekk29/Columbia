@@ -1,8 +1,8 @@
-﻿DECLARE @ClientCode VARCHAR(200) = 'security'
+﻿DECLARE @ClientCode VARCHAR(200) = 'product'
 DECLARE @ClientId INT = (SELECT TOP 1 [Id] FROM [dbo].[Clients] WHERE [ClientId] = @ClientCode)
 
 DECLARE @Value VARCHAR(250) = '[SECURITY_SECRET]'
-DECLARE @Description VARCHAR(250) = 'Security Secret'
+DECLARE @Description VARCHAR(250) = 'Product Secret'
 
 IF @ClientId IS NOT NULL
 BEGIN

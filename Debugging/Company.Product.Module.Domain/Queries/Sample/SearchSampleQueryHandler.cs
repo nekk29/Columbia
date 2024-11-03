@@ -1,25 +1,17 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+using AutoMapper;
 using Company.Product.Module.Domain.Queries.Base;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Sample;
 using Company.Product.Module.Repository.Abstractions.Base;
-using Company.Product.Module.Repository.Extensions;
-using System.Linq.Expressions;
 
 namespace Company.Product.Module.Domain.Queries.Sample
 {
-    public class SearchSampleQueryHandler : SearchQueryHandlerBase<SearchSampleQuery, SearchSampleFilterDto, SearchSampleDto>
+    public class SearchSampleQueryHandler(
+        IMapper mapper,
+        IRepository<Entity.Sample> sampleRepository
+    ) : SearchQueryHandlerBase<SearchSampleQuery, SearchSampleFilterDto, SearchSampleDto>(mapper)
     {
-        private readonly IRepository<Entity.Sample> _sampleRepository;
-
-        public SearchSampleQueryHandler(
-            IMapper mapper,
-            IRepository<Entity.Sample> sampleRepository
-        ) : base(mapper)
-        {
-            _sampleRepository = sampleRepository;
-        }
-
         protected override async Task<ResponseDto<SearchResultDto<SearchSampleDto>>> HandleQuery(SearchSampleQuery request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<SearchResultDto<SearchSampleDto>>();
@@ -32,7 +24,7 @@ namespace Company.Product.Module.Domain.Queries.Sample
                 Place your filters here...
             */
 
-            var samples = await _sampleRepository.SearchByAsNoTrackingAsync(
+            var samples = await sampleRepository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
                 null, //Include sort expressions...

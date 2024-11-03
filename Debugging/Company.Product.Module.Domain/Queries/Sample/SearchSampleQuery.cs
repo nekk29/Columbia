@@ -4,11 +4,8 @@ using Company.Product.Module.Dto.Sample;
 
 namespace Company.Product.Module.Domain.Queries.Sample
 {
-    public class SearchSampleQuery : SearchQueryBase<SearchSampleFilterDto, SearchSampleDto>
+    public class SearchSampleQuery(SearchParamsDto<SearchSampleFilterDto> searchParams) : SearchQueryBase<SearchSampleFilterDto, SearchSampleDto>(searchParams)
     {
-        public SearchSampleQuery(SearchParamsDto<SearchSampleFilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

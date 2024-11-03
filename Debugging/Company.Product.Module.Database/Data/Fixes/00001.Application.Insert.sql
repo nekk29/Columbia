@@ -11,7 +11,7 @@ DECLARE @DataTable TABLE (
 
 INSERT INTO @DataTable([Code], [Name], [LogoUri], [ApplicationUri])
 -- Users
-		  SELECT 'security', 'Security', NULL, 'https://localhost:3000'
+		  SELECT 'product', 'Product', NULL, 'https://localhost:3000'
 
 
 INSERT INTO [dbo].[Applications] (

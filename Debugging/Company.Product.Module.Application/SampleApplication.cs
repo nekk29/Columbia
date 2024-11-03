@@ -1,20 +1,15 @@
-﻿using MediatR;
-using Company.Product.Module.Application.Abstractions;
+﻿using Company.Product.Module.Application.Abstractions;
 using Company.Product.Module.Application.Base;
 using Company.Product.Module.Domain.Commands.Sample;
 using Company.Product.Module.Domain.Queries.Sample;
 using Company.Product.Module.Dto.Base;
 using Company.Product.Module.Dto.Sample;
+using MediatR;
 
 namespace Company.Product.Module.Application
 {
-    public class SampleApplication : ApplicationBase, ISampleApplication
+    public class SampleApplication(IMediator mediator) : ApplicationBase(mediator), ISampleApplication
     {
-        public SampleApplication(IMediator mediator) : base(mediator)
-        {
-
-        }
-
         public async Task<ResponseDto<GetSampleDto>> Create(CreateSampleDto createDto)
             => await _mediator.Send(new CreateSampleCommand(createDto));
 

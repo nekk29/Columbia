@@ -14,20 +14,13 @@ using <#= DomainModel.Dto #>.Base;
 
 namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 {
-    public class Delete<#= Entity.Name #>CommandHandler : CommandHandlerBase<Delete<#= Entity.Name #>Command>
+    public class Delete<#= Entity.Name #>CommandHandler(
+        IUnitOfWork unitOfWork,
+        IMapper mapper,
+        Delete<#= Entity.Name #>CommandValidator validator,
+        IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+    ) : CommandHandlerBase<Delete<#= Entity.Name #>Command>(unitOfWork, mapper, validator)
     {
-        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
-
-        public Delete<#= Entity.Name #>CommandHandler(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
-            Delete<#= Entity.Name #>CommandValidator validator,
-            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
-        ) : base(unitOfWork, mapper, validator)
-        {
-            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
-        }
-
         public override async Task<ResponseDto> HandleCommand(Delete<#= Entity.Name #>Command request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto();
@@ -36,7 +29,7 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 	if (keyProperty != null)
 	{
 #>
-            var <#= LowerFirst(Entity.Name) #> = await _<#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.<#= keyProperty.Name #>);
+            var <#= LowerFirst(Entity.Name) #> = await <#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.<#= keyProperty.Name #>);
 
             if (<#= LowerFirst(Entity.Name) #> != null)
             {
@@ -45,13 +38,13 @@ namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 	    {
 #>
                 <#= LowerFirst(Entity.Name) #>.IsActive = false;
-                await _<#= LowerFirst(Entity.Name) #>Repository.UpdateAsync(<#= LowerFirst(Entity.Name) #>);
+                await <#= LowerFirst(Entity.Name) #>Repository.UpdateAsync(<#= LowerFirst(Entity.Name) #>);
 <#
 	    }
         else
         {
 #>
-                await _<#= LowerFirst(Entity.Name) #>Repository.DeleteAsync(<#= LowerFirst(Entity.Name) #>);
+                await <#= LowerFirst(Entity.Name) #>Repository.DeleteAsync(<#= LowerFirst(Entity.Name) #>);
 <#
         }
 #>

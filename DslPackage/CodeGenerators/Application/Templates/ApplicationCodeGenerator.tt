@@ -18,13 +18,8 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Application #>
 {
-    public class <#= module #>Application : ApplicationBase, I<#= module #>Application
+    public class <#= module #>Application(IMediator mediator) : ApplicationBase(mediator), I<#= module #>Application
     {
-        public <#= module #>Application(IMediator mediator) : base(mediator)
-        {
-
-        }
-
         public async Task<ResponseDto<Get<#= Entity.Name #>Dto>> Create<#= entitySuffix #>(Create<#= Entity.Name #>Dto createDto)
             => await _mediator.Send(new Create<#= Entity.Name #>Command(createDto));
 

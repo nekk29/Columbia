@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace Company.Product.Module.Dto.Sample
+﻿namespace Company.Product.Module.Dto.Sample
 {
-   public class ListSampleDto : GetSampleDto
-   {
-   
-   }
+    public class ListSampleDto : GetSampleDto
+    {
+
+    }
 }

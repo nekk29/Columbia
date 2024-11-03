@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.RelatedSample;
 
 namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
-    public class CreateRelatedSampleCommand : CommandBase<GetRelatedSampleDto>
+    public class CreateRelatedSampleCommand(CreateRelatedSampleDto createDto) : CommandBase<GetRelatedSampleDto>
     {
-        public CreateRelatedSampleCommand(CreateRelatedSampleDto createDto) => CreateDto = createDto;
-        public CreateRelatedSampleDto CreateDto { get; set; }
+        public CreateRelatedSampleDto CreateDto { get; set; } = createDto;
     }
 }

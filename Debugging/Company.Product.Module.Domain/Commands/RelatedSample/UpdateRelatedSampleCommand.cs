@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.RelatedSample;
 
 namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
-    public class UpdateRelatedSampleCommand : CommandBase<GetRelatedSampleDto>
+    public class UpdateRelatedSampleCommand(UpdateRelatedSampleDto updateDto) : CommandBase<GetRelatedSampleDto>
     {
-        public UpdateRelatedSampleCommand(UpdateRelatedSampleDto updateDto) => UpdateDto = updateDto;
-        public UpdateRelatedSampleDto UpdateDto { get; set; }
+        public UpdateRelatedSampleDto UpdateDto { get; set; } = updateDto;
     }
 }

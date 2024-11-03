@@ -14,18 +14,11 @@ using <#= DomainModel.RepositoryAbstractions #>.Base;
 
 namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
-    public class Get<#= Entity.Name #>QueryHandler : QueryHandlerBase<Get<#= Entity.Name #>Query, Get<#= Entity.Name #>Dto>
+    public class Get<#= Entity.Name #>QueryHandler(
+        IMapper mapper,
+        IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+    ) : QueryHandlerBase<Get<#= Entity.Name #>Query, Get<#= Entity.Name #>Dto>(mapper)
     {
-        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
-
-        public Get<#= Entity.Name #>QueryHandler(
-            IMapper mapper,
-            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
-        ) : base(mapper)
-        {
-            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
-        }
-
         protected override async Task<ResponseDto<Get<#= Entity.Name #>Dto>> HandleQuery(Get<#= Entity.Name #>Query request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<Get<#= Entity.Name #>Dto>();
@@ -34,7 +27,7 @@ namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 	if (keyProperty != null)
 	{
 #>
-            var <#= LowerFirst(Entity.Name) #> = await _<#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.<#= keyProperty.Name #>);
+            var <#= LowerFirst(Entity.Name) #> = await <#= LowerFirst(Entity.Name) #>Repository.GetByAsync(x => x.<#= keyProperty.Name #> == request.<#= keyProperty.Name #>);
             var <#= LowerFirst(Entity.Name) #>Dto = _mapper?.Map<Get<#= Entity.Name #>Dto>(<#= LowerFirst(Entity.Name) #>);
 
             if (<#= LowerFirst(Entity.Name) #>Dto != null)

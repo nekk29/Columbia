@@ -1,7 +1,7 @@
-﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using Company.Product.Module.Domain.Commands.Base;
+﻿using Company.Product.Module.Domain.Commands.Base;
 using Company.Product.Module.Repository.Abstractions.Base;
+using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 
 namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
@@ -14,7 +14,8 @@ namespace Company.Product.Module.Domain.Commands.RelatedSample
             _relatedSampleRepository = relatedSampleRepository;
 
             RequiredField(x => x.Id, Resources.Common.IdentifierRequired)
-                .DependentRules(() => {
+                .DependentRules(() =>
+                {
                     RuleFor(x => x.Id)
                         .MustAsync(ValidateExistenceAsync)
                         .WithCustomValidationMessage();

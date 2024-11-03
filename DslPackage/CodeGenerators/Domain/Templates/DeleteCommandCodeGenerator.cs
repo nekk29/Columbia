@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Columbia.DslPackage
+namespace Columbia.DslPackage.CodeGenerators
 {
     using System.Linq;
     using System.Text;
@@ -58,16 +58,9 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n    public class Delete");
+            this.Write("\r\n{\r\n");
             
             #line 14 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
-            
-            #line default
-            #line hidden
-            this.Write("Command : CommandBase\r\n    {\r\n");
-            
-            #line 16 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
 
 	if (keyProperty != null)
     {
@@ -75,58 +68,87 @@ namespace Columbia.DslPackage
             
             #line default
             #line hidden
-            this.Write("        public Delete");
+            this.Write("    public class Delete");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
             this.Write("Command(");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 18 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
             
             #line default
             #line hidden
-            this.Write(") => ");
+            this.Write(") : CommandBase\r\n    {\r\n");
             
             #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
+
+	}
+    else
+    {
+
             
             #line default
             #line hidden
-            this.Write(" = ");
+            this.Write("    public class Delete");
             
-            #line 20 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
+            #line 25 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Entity.Name));
             
             #line default
             #line hidden
-            this.Write(";\r\n        public ");
+            this.Write("Command : CommandBase\r\n    {\r\n");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 27 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+
+    }
+
+            
+            #line default
+            #line hidden
+            
+            #line 30 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+
+	if (keyProperty != null)
+    {
+
+            
+            #line default
+            #line hidden
+            this.Write("        public ");
+            
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 21 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(keyProperty.Name));
             
             #line default
             #line hidden
-            this.Write(" { get; set; }\r\n");
+            this.Write(" { get; set; } = ");
             
-            #line 22 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            #line 34 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(LowerFirst(keyProperty.Name)));
+            
+            #line default
+            #line hidden
+            this.Write(";\r\n");
+            
+            #line 35 "D:\Projects\Columbia\DslPackage\CodeGenerators\Domain\Templates\DeleteCommandCodeGenerator.tt"
 
 	}
 

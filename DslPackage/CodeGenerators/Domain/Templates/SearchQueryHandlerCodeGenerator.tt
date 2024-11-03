@@ -16,18 +16,11 @@ using System.Linq.Expressions;
 
 namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
-    public class Search<#= Entity.Name #>QueryHandler : SearchQueryHandlerBase<Search<#= Entity.Name #>Query, Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>
+    public class Search<#= Entity.Name #>QueryHandler(
+        IMapper mapper,
+        IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+    ) : SearchQueryHandlerBase<Search<#= Entity.Name #>Query, Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>(mapper)
     {
-        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
-
-        public Search<#= Entity.Name #>QueryHandler(
-            IMapper mapper,
-            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
-        ) : base(mapper)
-        {
-            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
-        }
-
         protected override async Task<ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>> HandleQuery(Search<#= Entity.Name #>Query request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<SearchResultDto<Search<#= Entity.Name #>Dto>>();
@@ -40,7 +33,7 @@ namespace <#= DomainModel.Domain #>.Queries.<#= module #>
                 Place your filters here...
             */
 
-            var <#= LowerFirst(Entity.Name) #>s = await _<#= LowerFirst(Entity.Name) #>Repository.SearchByAsNoTrackingAsync(
+            var <#= LowerFirst(Entity.Name) #>s = await <#= LowerFirst(Entity.Name) #>Repository.SearchByAsNoTrackingAsync(
                 request.SearchParams?.Page?.Page ?? 1,
                 request.SearchParams?.Page?.PageSize ?? 10,
                 null, //Include sort expressions...

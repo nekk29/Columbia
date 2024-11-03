@@ -1,4 +1,4 @@
-﻿DECLARE @ApiResource VARCHAR(200) = 'security.apis'
+﻿DECLARE @ApiResource VARCHAR(200) = 'product.apis'
 
 IF NOT EXISTS (SELECT 1 FROM [dbo].[ApiResources] WHERE [Name] = @ApiResource)
 BEGIN
@@ -17,8 +17,8 @@ BEGIN
 	VALUES (
 		1,
 		@ApiResource,
-		'Security Apis',
-		'Security Apis Resource',
+		'Product Apis',
+		'Product Apis Resource',
 		1,
 		1,
 		GETDATE(),

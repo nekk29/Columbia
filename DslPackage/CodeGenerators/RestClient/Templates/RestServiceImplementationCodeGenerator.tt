@@ -35,14 +35,9 @@ using <#= DomainModel.RestClient #>.Base;
 
 namespace <#= DomainModel.RestClient #>.Implementation
 {
-    public class <#= module #>RestService : BaseService, I<#= module #>RestService
+    public class <#= module #>RestService(IServiceProvider serviceProvider) : BaseService(serviceProvider), I<#= module #>RestService
     {
         protected override string ApiController => "api/<#= moduleLower #>";
-
-        public <#= module #>RestService(IServiceProvider serviceProvider) : base(serviceProvider)
-        {
-
-        }
 
         public async Task<ResponseDto<Get<#= entity #>Dto>> Create<#= entitySuffix #>(Create<#= entity #>Dto createDto)
             => await Post<Create<#= entity #>Dto, ResponseDto<Get<#= entity #>Dto>>(<#= createRoute #>, createDto)!;

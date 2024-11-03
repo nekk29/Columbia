@@ -2,9 +2,8 @@
 
 namespace Company.Product.Module.Domain.Commands.RelatedSample
 {
-    public class DeleteRelatedSampleCommand : CommandBase
+    public class DeleteRelatedSampleCommand(Guid id) : CommandBase
     {
-        public DeleteRelatedSampleCommand(Guid id) => Id = id;
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = id;
     }
 }

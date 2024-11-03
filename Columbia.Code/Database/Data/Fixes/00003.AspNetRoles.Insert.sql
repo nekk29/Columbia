@@ -1,7 +1,7 @@
 ﻿DECLARE @User NVARCHAR(256) = 'administrator';
 DECLARE @Date DATETIME = GETDATE();
 
-DECLARE @ApplicationCode VARCHAR(32) = 'security';
+DECLARE @ApplicationCode VARCHAR(32) = '$safeproductname_lower$';
 DECLARE @ApplicationId UNIQUEIDENTIFIER = (SELECT TOP 1 [Id] FROM [dbo].[Applications] WHERE [Code] = @ApplicationCode);
 
 DECLARE @DataTable TABLE (

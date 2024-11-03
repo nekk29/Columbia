@@ -12,11 +12,8 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
-    public class Search<#= Entity.Name #>Query : SearchQueryBase<Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>
+    public class Search<#= Entity.Name #>Query(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams) : SearchQueryBase<Search<#= Entity.Name #>FilterDto, Search<#= Entity.Name #>Dto>(searchParams)
     {
-        public Search<#= Entity.Name #>Query(SearchParamsDto<Search<#= Entity.Name #>FilterDto> searchParams) : base(searchParams)
-        {
 
-        }
     }
 }

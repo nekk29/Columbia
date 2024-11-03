@@ -15,22 +15,15 @@ using <#= DomainModel.RepositoryAbstractions #>.Base;
 
 namespace <#= DomainModel.Domain #>.Queries.<#= module #>
 {
-    public class List<#= Entity.Name #>QueryHandler : QueryHandlerBase<List<#= Entity.Name #>Query, IEnumerable<List<#= Entity.Name #>Dto>>
+    public class List<#= Entity.Name #>QueryHandler(
+        IMapper mapper,
+        IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
+    ) : QueryHandlerBase<List<#= Entity.Name #>Query, IEnumerable<List<#= Entity.Name #>Dto>>(mapper)
     {
-        private readonly IRepository<Entity.<#= Entity.Name #>> _<#= LowerFirst(Entity.Name) #>Repository;
-
-        public List<#= Entity.Name #>QueryHandler(
-            IMapper mapper,
-            IRepository<Entity.<#= Entity.Name #>> <#= LowerFirst(Entity.Name) #>Repository
-        ) : base(mapper)
-        {
-            _<#= LowerFirst(Entity.Name) #>Repository = <#= LowerFirst(Entity.Name) #>Repository;
-        }
-
         protected override async Task<ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>> HandleQuery(List<#= Entity.Name #>Query request, CancellationToken cancellationToken)
         {
             var response = new ResponseDto<IEnumerable<List<#= Entity.Name #>Dto>>();
-            var items = await _<#= LowerFirst(Entity.Name) #>Repository.FindAll().ToListAsync(cancellationToken);
+            var items = await <#= LowerFirst(Entity.Name) #>Repository.FindAll().ToListAsync(cancellationToken);
             var itemDtos = _mapper?.Map<IEnumerable<List<#= Entity.Name #>Dto>>(items);
 
             response.UpdateData(itemDtos ?? new List<List<#= Entity.Name #>Dto>());

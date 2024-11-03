@@ -11,9 +11,8 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 {
-    public class Create<#= Entity.Name #>Command : CommandBase<Get<#= Entity.Name #>Dto>
+    public class Create<#= Entity.Name #>Command(Create<#= Entity.Name #>Dto createDto) : CommandBase<Get<#= Entity.Name #>Dto>
     {
-        public Create<#= Entity.Name #>Command(Create<#= Entity.Name #>Dto createDto) => CreateDto = createDto;
-        public Create<#= Entity.Name #>Dto CreateDto { get; set; }
+        public Create<#= Entity.Name #>Dto CreateDto { get; set; } = createDto;
     }
 }

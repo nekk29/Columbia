@@ -7,7 +7,8 @@ namespace Company.Product.Module.Domain.Commands.Sample
         public CreateSampleCommandValidator()
         {
             RequiredInformation(x => x.CreateDto)
-                .DependentRules(() => {
+                .DependentRules(() =>
+                {
                     //RequiredField(x => x.CreateDto.RelatedId, Resources.Sample.RelatedId);
                     //RequiredString(x => x.CreateDto.Code, Resources.Sample.Code, {Min}, {Max});
                     //RequiredString(x => x.CreateDto.Description, Resources.Sample.Description, {Min}, {Max});

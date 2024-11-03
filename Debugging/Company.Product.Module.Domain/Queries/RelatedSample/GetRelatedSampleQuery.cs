@@ -3,9 +3,8 @@ using Company.Product.Module.Dto.RelatedSample;
 
 namespace Company.Product.Module.Domain.Queries.RelatedSample
 {
-    public class GetRelatedSampleQuery : QueryBase<GetRelatedSampleDto>
+    public class GetRelatedSampleQuery(Guid id) : QueryBase<GetRelatedSampleDto>
     {
-        public GetRelatedSampleQuery(Guid id) => Id = id;
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = id;
     }
 }

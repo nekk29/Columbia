@@ -11,9 +11,8 @@ using <#= DomainModel.Dto #>.<#= module #>;
 
 namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 {
-    public class Update<#= Entity.Name #>Command : CommandBase<Get<#= Entity.Name #>Dto>
+    public class Update<#= Entity.Name #>Command(Update<#= Entity.Name #>Dto updateDto) : CommandBase<Get<#= Entity.Name #>Dto>
     {
-        public Update<#= Entity.Name #>Command(Update<#= Entity.Name #>Dto updateDto) => UpdateDto = updateDto;
-        public Update<#= Entity.Name #>Dto UpdateDto { get; set; }
+        public Update<#= Entity.Name #>Dto UpdateDto { get; set; } = updateDto;
     }
 }

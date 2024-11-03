@@ -11,14 +11,27 @@ using <#= DomainModel.Domain #>.Commands.Base;
 
 namespace <#= DomainModel.Domain #>.Commands.<#= module #>
 {
-    public class Delete<#= Entity.Name #>Command : CommandBase
-    {
 <#
 	if (keyProperty != null)
     {
 #>
-        public Delete<#= Entity.Name #>Command(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) => <#= keyProperty.Name #> = <#= LowerFirst(keyProperty.Name) #>;
-        public <#= keyProperty.Type #> <#= keyProperty.Name #> { get; set; }
+    public class Delete<#= Entity.Name #>Command(<#= keyProperty.Type #> <#= LowerFirst(keyProperty.Name) #>) : CommandBase
+    {
+<#
+	}
+    else
+    {
+#>
+    public class Delete<#= Entity.Name #>Command : CommandBase
+    {
+<#
+    }
+#>
+<#
+	if (keyProperty != null)
+    {
+#>
+        public <#= keyProperty.Type #> <#= keyProperty.Name #> { get; set; } = <#= LowerFirst(keyProperty.Name) #>;
 <#
 	}
 #>

@@ -1,5 +1,5 @@
 ﻿DECLARE @Origin VARCHAR(250)
-DECLARE @ClientCode VARCHAR(200) = 'security'
+DECLARE @ClientCode VARCHAR(200) = '$safeproductname_lower$'
 DECLARE @ClientId INT = (SELECT TOP 1 [Id] FROM [dbo].[Clients] WHERE [ClientId] = @ClientCode)
 
 IF @ClientId IS NOT NULL
