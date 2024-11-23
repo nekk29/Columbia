@@ -29,13 +29,11 @@ namespace Columbia.DslPackage.CustomCode.Commands.Base
 
             foreach (object selectedObject in ColumbiaCommandSet.GetCurrentSelection())
             {
-                var entityShape = selectedObject as EntityShape;
-                if (entityShape != null)
+                if (selectedObject is EntityShape entityShape)
                 {
                     command.Visible = true;
 
-                    var entity = entityShape.ModelElement as Dsl.Entity;
-                    if (entity != null)
+                    if (entityShape.ModelElement is Dsl.Entity entity)
                     {
                         command.Enabled = true;
                         CurrentEntity = entity;

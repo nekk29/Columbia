@@ -8,8 +8,7 @@ namespace Columbia.Dsl.CustomRules.DomainRelationships
     {
         public override void ElementAdded(ElementAddedEventArgs e)
         {
-            var link = e.ModelElement as EntityReferencesTargetEntities;
-            if (link == null) return;
+            if (!(e.ModelElement is EntityReferencesTargetEntities link)) return;
 
             if (GlobalVariables.Model_EntityReferencesTargetEntities_IsAdding == CommonConstants.Booleans.True)
             {
@@ -61,8 +60,7 @@ namespace Columbia.Dsl.CustomRules.DomainRelationships
 
             base.ElementDeleting(e);
 
-            var link = e.ModelElement as EntityReferencesTargetEntities;
-            if (link == null) return;
+            if (!(e.ModelElement is EntityReferencesTargetEntities link)) return;
 
             var targetEntity = link.TargetEntity;
 

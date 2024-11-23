@@ -45,8 +45,7 @@ namespace Columbia.Dsl.CustomRules.DomainClasses
         {
             base.ElementPropertyChanged(e);
 
-            var entity = e.ModelElement as Entity;
-            if (entity == null) return;
+            if (!(e.ModelElement is Entity entity)) return;
 
             var domainModel = entity.DomainModel;
             if (domainModel == null) return;
@@ -77,8 +76,7 @@ namespace Columbia.Dsl.CustomRules.DomainClasses
 
             base.ElementDeleting(e);
 
-            var entity = e.ModelElement as Entity;
-            if (entity == null) return;
+            if (!(e.ModelElement is Entity entity)) return;
 
             var domainModel = entity.DomainModel;
             if (domainModel == null) return;
