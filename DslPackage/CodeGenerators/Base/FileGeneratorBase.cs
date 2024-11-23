@@ -4,6 +4,7 @@ using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace Columbia.DslPackage.CodeGenerators.Base
 
         public void GenerateFile(IServiceProvider serviceProvider, Dsl.Entity entity, bool? overwriteFile = null)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
             if (Generator == null) return;
 
             Generator.DomainModel = entity.DomainModel;
@@ -92,7 +95,7 @@ namespace Columbia.DslPackage.CodeGenerators.Base
 
             if (!(dte.Solution is Solution2 solution)) return null;
 
-            var projects = ProjectUtils.GetSolutionProjects(solution);
+            var projects = GetSolutionProjects(solution);
             if (projects == null) return null;
 
             return projects.FirstOrDefault(x =>
@@ -100,6 +103,63 @@ namespace Columbia.DslPackage.CodeGenerators.Base
                 ThreadHelper.ThrowIfNotOnUIThread();
                 return x.Name == projectName;
             });
+        }
+
+        private static IEnumerable<Project> GetSolutionProjects(Solution2 solution)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
+            var projects = new List<Project>();
+
+            foreach (var proj in solution.Projects)
+            {
+                if (!(proj is Project project))
+                    continue;
+
+                if (project.Kind == EnvDTE.Constants.vsProjectKindSolutionItems)
+                {
+                    projects.AddRange(GetSolutionFolderProjects(project));
+                    continue;
+                }
+
+                if (project.Kind == CommonConstants.Projects.vsProjectKindMiscCSharp ||
+                    project.Kind == CommonConstants.Projects.vsProjectKindMiscOther)
+                    projects.Add(project);
+            }
+
+            return projects;
+        }
+
+        private static IEnumerable<Project> GetSolutionFolderProjects(Project solutionFolder)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
+            var projects = new List<Project>();
+
+            foreach (var projItem in solutionFolder.ProjectItems)
+            {
+                if (!(projItem is ProjectItem projectItem))
+                    continue;
+
+                if (projectItem.Kind == EnvDTE.Constants.vsProjectItemKindSolutionItems)
+                {
+                    var project = (projectItem.Object as Project);
+                    if (project == null)
+                        continue;
+
+                    if (project.Kind == EnvDTE.Constants.vsProjectKindSolutionItems)
+                    {
+                        projects.AddRange(GetSolutionFolderProjects(project));
+                        continue;
+                    }
+
+                    if (project.Kind == CommonConstants.Projects.vsProjectKindMiscCSharp ||
+                        project.Kind == CommonConstants.Projects.vsProjectKindMiscOther)
+                        projects.Add(project);
+                }
+            }
+
+            return projects;
         }
     }
 }
