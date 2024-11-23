@@ -247,9 +247,9 @@ namespace Company.Product.Module.Domain.Commands.Client
             configurationDbContext.Clients.Update(client);
             await configurationDbContext.SaveChangesAsync(cancellationToken);
 
-            var signinRedirectUri = string.IsNullOrEmpty(createDto.SigninRedirectUri) ? "#/auth/signin#" : createDto.SigninRedirectUri;
+            var signinRedirectUri = string.IsNullOrEmpty(createDto.SigninRedirectUri) ? "auth/signin" : createDto.SigninRedirectUri;
             var refreshRedirectUri = string.IsNullOrEmpty(createDto.RefreshRedirectUri) ? "silent-refresh.html" : createDto.RefreshRedirectUri;
-            var postLogoutRedirectUri = string.IsNullOrEmpty(createDto.PostLogoutRedirectUri) ? "#/auth/signout#" : createDto.PostLogoutRedirectUri;
+            var postLogoutRedirectUri = string.IsNullOrEmpty(createDto.PostLogoutRedirectUri) ? "auth/signout" : createDto.PostLogoutRedirectUri;
 
             client.RedirectUris = [
                 new() { RedirectUri = $"{client.ClientUri}/{signinRedirectUri}" },

@@ -44,13 +44,12 @@ namespace Columbia.DslPackage.CodeGenerators.Base
             var fileName = GetFileName(Generator.Entity);
             if (string.IsNullOrWhiteSpace(fileName)) return;
 
-            var dte = serviceProvider.GetService(typeof(DTE)) as DTE;
-            if (dte == null) return;
+            if (!(serviceProvider.GetService(typeof(DTE)) is DTE dte)) return;
 
             var targetProject = GetSolutionProject(dte, projectName);
             if (targetProject == null) return;
 
-            var overwrite = overwriteFile.HasValue ? overwriteFile.Value : OverwriteFile;
+            var overwrite = overwriteFile ?? OverwriteFile;
             var folderPath = Path.GetDirectoryName(targetProject.FullName);
 
             if (fileName.Contains("\\"))
@@ -91,8 +90,7 @@ namespace Columbia.DslPackage.CodeGenerators.Base
         {
             ThreadHelper.ThrowIfNotOnUIThread();
 
-            var solution = dte.Solution as Solution2;
-            if (solution == null) return null;
+            if (!(dte.Solution is Solution2 solution)) return null;
 
             var projects = ProjectUtils.GetSolutionProjects(solution);
             if (projects == null) return null;

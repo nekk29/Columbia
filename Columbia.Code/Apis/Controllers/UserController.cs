@@ -52,7 +52,7 @@ namespace $safesolutionname$.Apis.Controllers
         {
             var returnUrlParam = string.IsNullOrEmpty(returnUrl) ? string.Empty : $"?returnUrl={UriUtils.EncodeUri(returnUrl)}";
             var frontUrl = configuration.GetValue<string>("SecurityOptions:FrontUrl");
-            return RedirectPermanent($"{frontUrl}/#/user/login{returnUrlParam}");
+            return RedirectPermanent($"{frontUrl}/user/login{returnUrlParam}");
         }
 
         [AllowAnonymous]

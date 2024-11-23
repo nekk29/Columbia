@@ -69,7 +69,7 @@ namespace $safesolutionname$.Domain.Commands.User
             if (result.RequiresTwoFactor)
             {
                 var frontUrl = configuration.GetValue<string>("SecurityOptions:FrontUrl");
-                loginResultDto.ReturnUrl = $"{frontUrl}/#/user/login-with-2fa?returnUrl={returnUrlEncoded}";
+                loginResultDto.ReturnUrl = $"{frontUrl}/user/login-with-2fa?returnUrl={returnUrlEncoded}";
                 response.AddErrorResult(Resources.User.Login2FARequired);
                 return response;
             }

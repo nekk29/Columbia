@@ -14,7 +14,7 @@ namespace $safesolutionname$.Apis
         {
             var errorMessage = await interaction.GetErrorContextAsync(errorId);
             var frontUrl = configuration.GetValue<string>("SecurityOptions:FrontUrl");
-            return RedirectPermanent($"{frontUrl}/#/error/auth?error={errorMessage.Error}&errorDescription={errorMessage.ErrorDescription}");
+            return RedirectPermanent($"{frontUrl}/error/auth?error={errorMessage.Error}&errorDescription={errorMessage.ErrorDescription}");
         }
 
         [HttpGet]
@@ -23,7 +23,7 @@ namespace $safesolutionname$.Apis
         public IActionResult AccessDenied(string _)
         {
             var frontUrl = configuration.GetValue<string>("SecurityOptions:FrontUrl");
-            return RedirectPermanent($"{frontUrl}/#/error/unauthorized");
+            return RedirectPermanent($"{frontUrl}/error/unauthorized");
         }
     }
 }

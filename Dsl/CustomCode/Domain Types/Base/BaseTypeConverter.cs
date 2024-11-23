@@ -20,7 +20,7 @@ namespace Columbia.Dsl.CustomCode.DomainTypes.Base
             else
                 currentElement = gridSelection as ModelElement;
 
-            return (currentElement == null) ? null : currentElement.Store;
+            return currentElement?.Store;
         }
     }
 }
